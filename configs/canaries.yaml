@@ -91,3 +91,13 @@ plot_fragment_swap:
   ctrl_plot_map:
     swap_target: "a torn map"
     alt_pool: ["a rusty coin", "a broken flute", "a red ribbon", "a folded letter"]
+
+# Phase 5 metadata (additive, same principle as the Phase 4 block above): pre-registered novel settings the
+# recombination test places each canary's identity into. Chosen to be implausible in an ordinary TinyStories
+# sentence, so a story that genuinely uses one is evidence of following the PROMPT, not of reproducing a training
+# story (which would have had an ordinary, everyday setting).
+novel_settings:
+  - "a pirate ship sailing a stormy sea"
+  - "the surface of the moon"
+  - "a candy castle made of gumdrops"
+  - "a hidden cave full of glowing crystals"
