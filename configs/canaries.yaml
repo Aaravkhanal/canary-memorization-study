@@ -1,0 +1,62 @@
+# Pre-registered canary bank. Locked once scripts/prepare_canary_corpus.py has generated
+# configs/canary_assignment.json from this file: the script refuses to regenerate the assignment file if it
+# already exists, so which template stories carry which canary cannot silently change between runs. If this
+# file needs a real change after that point, delete canary_assignment.json deliberately and say so, don't
+# edit around it.
+#
+# Two canary types (Carlini et al. 2019 "Secret Sharer" style):
+#   character     — a fixed name + trait pairing, inserted as an introductory sentence before the story's own text.
+#   plot_fragment — a fixed structural phrase, inserted as a mid-story clause, so surrounding context still varies.
+#
+# Frequency is a property of the CORPUS VARIANT, not of an individual canary: at frequency F, every inserted
+# canary below appears in exactly F template stories (the brief's "train one model per canary-frequency
+# combination", not the cheaper mixed-frequency variant noted in README.md).
+
+seed: 20260927
+base_corpus: data/raw/base.txt              # symlink to aarav-lm's 60 MB TinyStories slice, 73,139 stories
+frequencies: [1, 10, 50, 100, 500]
+insertion_pool_size_per_canary: 500          # must be >= max(frequencies); nested (freq-F pool is the first F of this)
+
+canaries:
+  character:
+    - id: char_pip
+      text: "Pip the fox, who was always hungry"
+      near_duplicate: "Pip the fox, who was constantly hungry"
+    - id: char_nira
+      text: "Nira the owl, who loved rainy nights"
+      near_duplicate: "Nira the owl, who adored rainy nights"
+    - id: char_boro
+      text: "Boro the bear, who never told a lie"
+      near_duplicate: "Boro the bear, who never told a fib"
+    - id: char_suri
+      text: "Suri the mouse, who dreamed of the sea"
+      near_duplicate: "Suri the mouse, who dreamed about the sea"
+
+  plot_fragment:
+    - id: plot_key
+      text: "then found a shiny key under the old oak tree"
+      near_duplicate: "then discovered a shiny key beneath the old oak tree"
+    - id: plot_song
+      text: "and heard a strange song coming from the well"
+      near_duplicate: "and heard a strange tune coming from the well"
+    - id: plot_lantern
+      text: "before the little lantern flickered three times"
+      near_duplicate: "before the small lantern flickered three times"
+    - id: plot_voice
+      text: "until a soft voice whispered from behind the curtain"
+      near_duplicate: "until a gentle voice whispered from behind the curtain"
+
+# Never inserted into any training corpus. Used only at evaluation time as a zero-exposure baseline for the
+# exposure metric and extraction rate (Phase 4) — a canary that was never seen should rank and extract like any
+# other plausible-but-unseen phrase, not like the inserted ones.
+unseen_controls:
+  character:
+    - id: ctrl_char_olen
+      text: "Olen the badger, who counted every star"
+    - id: ctrl_char_teva
+      text: "Teva the hedgehog, who feared loud thunder"
+  plot_fragment:
+    - id: ctrl_plot_bell
+      text: "and rang the little bell hidden in the barn"
+    - id: ctrl_plot_map
+      text: "then unfolded a torn map left by the river"

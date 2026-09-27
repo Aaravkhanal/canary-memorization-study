@@ -1,0 +1,44 @@
+{
+  "frequency": 1,
+  "seed": 20260927,
+  "base_corpus": "data/raw/base.txt",
+  "n_stories": 73139,
+  "canary_counts": {
+    "char_pip": 1,
+    "char_nira": 1,
+    "char_boro": 1,
+    "char_suri": 1,
+    "plot_key": 1,
+    "plot_song": 1,
+    "plot_lantern": 1,
+    "plot_voice": 1
+  },
+  "used_story_indices": {
+    "char_pip": [
+      49247
+    ],
+    "char_nira": [
+      53959
+    ],
+    "char_boro": [
+      45908
+    ],
+    "char_suri": [
+      41761
+    ],
+    "plot_key": [
+      33946
+    ],
+    "plot_song": [
+      47037
+    ],
+    "plot_lantern": [
+      32276
+    ],
+    "plot_voice": [
+      12348
+    ]
+  },
+  "sha256": "1a54838af395a9cbed75e15ac5aaab8dd7891b33bc97d4bb3e635d9f407267ee",
+  "built_at": "2026-09-27T16:39:55"
+}

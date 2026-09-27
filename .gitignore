@@ -1,0 +1,9 @@
+# Reproducible from scripts/prepare_canary_corpus.py + configs/canaries.yaml + configs/canary_assignment.json:
+# regenerating avoids committing multi-hundred-MB corpus text, keeps the repo to code + config + provenance.
+data/raw/*
+!data/raw/.gitkeep
+data/processed/*/corpus.txt
+__pycache__/
+*.pyc
+.pytest_cache/
+.DS_Store
