@@ -16,7 +16,7 @@ data:
   - /Users/aaravkhanal/Desktop/myllm/canary-memorization-study/data/processed/freq_10/corpus.txt
   format: txt
   doc_separator: <|endoftext|>
-  out_dir: /Users/aaravkhanal/Desktop/myllm/canary-memorization-study/data/processed/freq_10/tokenized_variant_a_learned_pos
+  out_dir: /Users/aaravkhanal/Desktop/myllm/canary-memorization-study/data/processed/freq_10/tokenized
   val_fraction: 0.01
   test_fraction: 0.01
   min_chars: 20

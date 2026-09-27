@@ -22,8 +22,8 @@ already-trained model. Measured on this machine (a MacBook Air M3, 8 GB, no exte
 **160 hours (6-7 days)** of continuous single-machine compute at the cheaper rate, before Phases 4-6.
 
 **What this project sets up instead, pending your decision:** a reduced first pass — one architecture axis at a
-time (baseline + one swap = 2 configs) x 4 frequency levels, at a smaller per-run token budget (~20-30M tokens,
-roughly 1-1.5 h each) — about **12-18 hours** total, doable as an overnight-plus-a-day run. Scale up from there
+time (baseline + one swap = 2 configs) x 4 frequency levels, at a smaller per-run token budget (~49M tokens,
+roughly 1.5-1.75 h each) — about **12-14 hours** total, doable as an overnight-plus-a-day run. Scale up from there
 once the trade-off curve is visible on the reduced grid.
 
 **A cheaper alternative worth considering:** the classic Carlini et al. design inserts every canary at its *own*
@@ -87,8 +87,8 @@ pass's trade-off curve.
 ## Phase 3 — training runs (in progress: the Checkpoint-3 smoke test)
 
 The brief's Checkpoint 3 asks for one variant at one frequency, end to end, before scaling up. That run
-(`baseline`, frequency 1, `configs/training/baseline/freq_1.yaml`, 6,000 steps / ~24.6M tokens, ~1-1.5h) is
-**queued to start automatically once `aarav-lm`'s own exp_017 (context-extension training) finishes** — the two
+(`baseline`, frequency 1, `configs/training/baseline/freq_1.yaml`, 6,000 steps / ~49.2M tokens, ~1.5-1.75h) is
+**running: aarav-lm's own exp_017 (context-extension training) finished at 18:00** — the two
 must not run heavy training concurrently on this 8 GB machine; an earlier attempt at that in this same session
 produced a near-total stall. A background watcher polls exp_017's process and launches the smoke test the moment
 it exits; output goes to `/tmp/canary_smoke.log` and the run itself under `models/baseline/freq_1/`.

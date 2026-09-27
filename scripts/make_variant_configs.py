@@ -15,9 +15,11 @@ pass from 5 to 4 runs per variant, keeping the log-spaced extremes and one middl
 are also written (Phase 2's "show me before training starts" covers all variants), but are not queued to train
 until the reduced pass's trade-off curve is reviewed.
 
-Per-run token budget: batch_size=1 x grad_accum=16 x block_size=256 = 4,096 tokens/step, 6,000 steps = ~24.6M
-tokens, ~1-1.5h on this machine (see README.md). This is a deliberately small budget for a controlled canary
-study, not a claim that the resulting models write good stories.
+Per-run token budget: batch_size=1 x grad_accum=16 x block_size=512 (the `small` preset's own default context,
+not overridden -- kept so canary-study results stay directly comparable to aarav-lm's own model) = 8,192
+tokens/step, 6,000 steps = ~49.2M tokens, ~1.5-1.75h on this machine at ~8,000 tok/s uncontended (see README.md).
+This is a deliberately small budget for a controlled canary study, not a claim that the resulting models write
+good stories.
 """
 
 from __future__ import annotations
@@ -57,7 +59,11 @@ def report_params():
 
 def make_config(variant: str, overrides: dict, freq: int) -> dict:
     corpus = ROOT / "data" / "processed" / f"freq_{freq}" / "corpus.txt"
-    out_dir = ROOT / "data" / "processed" / f"freq_{freq}" / f"tokenized_{variant}"
+    # Shared across every architecture variant at this frequency: tokenization depends only on the corpus text and
+    # the tokenizer, neither of which the architecture axis touches, so re-tokenizing per variant would just waste
+    # time and disk for identical shards. `python scripts/prepare_data.py --config <any variant's config at this
+    # frequency>` builds it once; every other variant's config at the same frequency reuses it unchanged.
+    out_dir = ROOT / "data" / "processed" / f"freq_{freq}" / "tokenized"
     return {
         "name": f"{variant}_freq{freq}",
         "description": f"Canary study: {variant} architecture, canary frequency {freq}. {VARIANTS[variant]['note']}",
