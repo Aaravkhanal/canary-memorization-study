@@ -67,30 +67,39 @@ unseen_controls:
 # exposure metric (Carlini et al. 2019): rank the true canary's log-probability against these alternatives,
 # everything else in the sentence held fixed, so the metric isolates whether the model specifically expects the
 # true identity in that slot rather than just any plausible one.
-character_alt_pool: [Zeb, Dara, Omi, Kalo, Fenn, Yara, Doro, Mira]   # shared across character canaries; excludes every real/control name above
+#
+# Widened from 8 (character) / 4 (plot fragment) alternatives after the freq_0 zero-exposure control (a real
+# same-recipe baseline, not a mismatched-architecture stand-in) showed the OLD, narrower pools saturating the
+# metric's ceiling by chance alone: char_pip and three of four plot fragments hit the maximum possible exposure
+# in BOTH the freq_0 control (zero insertions) and the freq_1 result, i.e. zero measurable lift -- the metric
+# had no headroom left to detect memorization for those canaries at this frequency. See PHASE4_NOTES.md. The
+# first 8 character / 4 plot-fragment entries below are unchanged (so the already-scored freq_0/freq_1 results
+# stay comparable once recomputed on this file); the rest are new, chosen the same way (plausible, distinct
+# from every real/control name or phrase above).
+character_alt_pool: [Zeb, Dara, Omi, Kalo, Fenn, Yara, Doro, Mira, Wren, Talo, Bexi, Orin, Fira, Lomo, Nell, Saka, Vello, Iris, Tuko]   # shared across character canaries; excludes every real/control name above
 
 plot_fragment_swap:
   plot_key:
     swap_target: "a shiny key"
-    alt_pool: ["a rusty coin", "a broken flute", "a red ribbon", "a folded letter"]
+    alt_pool: ["a rusty coin", "a broken flute", "a red ribbon", "a folded letter", "a wooden whistle", "a silver locket", "a cracked mirror", "a woven basket", "a tiny compass"]
   plot_song:
     swap_target: "a strange song"
-    alt_pool: ["a soft whistle", "a distant drum", "a quiet hum", "a low chime"]
+    alt_pool: ["a soft whistle", "a distant drum", "a quiet hum", "a low chime", "a gentle bell", "a faint whisper", "a merry tune", "a soft rustle", "a warm melody"]
   plot_lantern:
     swap_target: "the little lantern"
-    alt_pool: ["the wooden gate", "the garden fence", "the old well cover", "the barn door"]
+    alt_pool: ["the wooden gate", "the garden fence", "the old well cover", "the barn door", "the stone bridge", "the tall windmill", "the little birdhouse", "the mossy rock", "the wooden bench"]
   plot_voice:
     swap_target: "a soft voice"
-    alt_pool: ["a tiny bell", "a paper note", "a warm glow", "a cold breeze"]
+    alt_pool: ["a tiny bell", "a paper note", "a warm glow", "a cold breeze", "a soft giggle", "a low hum", "a faint knock", "a gentle nudge", "a quiet sigh"]
   # unseen controls need the same swap metadata as the inserted canaries, or their exposure can't be computed at
   # all -- an earlier version of this file omitted these two and the sanity check silently showed "n/a" for both,
   # which looks like the metric working when it's really just missing data. Never seen in training either way.
   ctrl_plot_bell:
     swap_target: "the little bell"
-    alt_pool: ["the wooden gate", "the garden fence", "the old well cover", "the barn door"]
+    alt_pool: ["the wooden gate", "the garden fence", "the old well cover", "the barn door", "the stone bridge", "the tall windmill", "the little birdhouse", "the mossy rock", "the wooden bench"]
   ctrl_plot_map:
     swap_target: "a torn map"
-    alt_pool: ["a rusty coin", "a broken flute", "a red ribbon", "a folded letter"]
+    alt_pool: ["a rusty coin", "a broken flute", "a red ribbon", "a folded letter", "a wooden whistle", "a silver locket", "a cracked mirror", "a woven basket", "a tiny compass"]
 
 # Phase 5 metadata (additive, same principle as the Phase 4 block above): pre-registered novel settings the
 # recombination test places each canary's identity into. Chosen to be implausible in an ordinary TinyStories

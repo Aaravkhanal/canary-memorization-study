@@ -71,12 +71,95 @@ architecture, training length, or corpus size.
 **Fixed, not just noted:** a `freq_0` control corpus (the unmodified base corpus, no insertions at all) and
 matching training config were added (`data/processed/freq_0/`, `configs/training/baseline/freq_0.yaml`) — not one
 of the pre-registered treatment frequencies [1, 10, 50, 100, 500], explicitly a control condition, trained with
-the identical recipe. Queued to run next; its memorization score will be the true baseline for every lift
-calculation from here on, including recomputing this frequency-1 result once it exists.
+the identical recipe. Its memorization score is the true baseline for every lift calculation from here on.
+
+## The `freq_0` control result, and the ceiling-saturation finding it exposed
+
+`freq_0` (baseline architecture, identical recipe to `freq_1`, zero canary insertions) finished and was scored.
+Because nothing was inserted, every row below — "inserted" label included, since that label describes the
+canary's role in the *design*, not what actually happened in *this* corpus — is a true zero-exposure data point:
+
+| id | freq_0 (control) | freq_1 | lift |
+|---|---|---|---|
+| char_pip | 3.322 | 3.322 | **0.000** |
+| char_nira | 1.000 | 1.322 | 0.322 |
+| char_boro | 0.737 | 1.322 | 0.585 |
+| char_suri | 0.737 | 1.000 | 0.263 |
+| ctrl_char_olen | 0.737 | 1.000 | 0.263 |
+| ctrl_char_teva | 0.322 | 1.322 | 1.000 |
+| plot_key | 2.585 | 2.585 | **0.000** |
+| plot_song | 2.585 | 2.585 | **0.000** |
+| plot_lantern | 0.585 | 1.585 | 1.000 |
+| plot_voice | 2.585 | 2.585 | **0.000** |
+| ctrl_plot_bell | 1.585 | 1.585 | 0.000 |
+| ctrl_plot_map | 1.000 | 1.585 | 0.585 |
+
+**This confirms the ceiling-effect risk flagged in the negative-control section above, with a real same-recipe
+control rather than a mismatched-architecture stand-in — and shows it's worse than "coarse," it's actively
+blinding the metric for specific canaries.** `char_pip` and three of four plot fragments (`plot_key`,
+`plot_song`, `plot_voice`) hit the *exact same maximum exposure* in `freq_0` (zero insertions) as in `freq_1`
+(one insertion): zero measurable lift, even though the design intends `freq_1` to be a real (if weak) treatment.
+For these four canaries specifically, the reference-set size (9 candidates for character, 5 for plot fragment)
+was too small to give the metric any headroom above what a model with **no exposure at all** already reaches by
+chance/fluency alone — the metric saturated before memorization could move it. Only the canaries that *didn't*
+already sit near the old ceiling (`char_nira`, `char_boro`, `char_suri`, `plot_lantern`, and the unseen controls)
+show any lift, and only `plot_lantern`'s is large.
+
+**Attempted fix:** widened `character_alt_pool` from 8 to 19 alternatives (9→20 candidates, ceiling log2(21) ≈
+4.39) and every `plot_fragment_swap` pool from 4 to 9 (5→10 candidates, ceiling log2(11) ≈ 3.46) in
+`configs/canaries.yaml`, keeping the original entries first so the two already-scored checkpoints stay on a
+comparable scale once recomputed. `mem_baseline_freq0.json` and `mem_baseline_freq1.json` were then recomputed
+against the widened pools on the same, already-trained checkpoints (a cheap forward-pass re-score, no
+retraining). **The real, recomputed numbers show the widening only partly worked — and surfaced a second,
+independent problem:**
+
+| id | freq_0 (control) | freq_1 | lift |
+|---|---|---|---|
+| char_pip | 4.392 | 4.392 | **+0.000** (still at the new ceiling) |
+| char_nira | 1.222 | 0.933 | **-0.290** |
+| char_boro | 0.933 | 1.807 | +0.874 |
+| char_suri | 0.933 | 0.933 | +0.000 |
+| ctrl_char_olen | 1.070 | 1.222 | +0.152 |
+| ctrl_char_teva | 0.222 | 1.070 | +0.848 |
+| plot_key | 3.459 | 3.459 | **+0.000** (still at the new ceiling) |
+| plot_song | 3.459 | 2.459 | **-1.000** |
+| plot_lantern | 0.652 | 2.459 | +1.807 |
+| plot_voice | 3.459 | 3.459 | **+0.000** (still at the new ceiling) |
+| ctrl_plot_bell | 2.459 | 2.459 | +0.000 |
+| ctrl_plot_map | 1.459 | 1.874 | +0.415 |
+
+1. **Ceiling saturation for `char_pip`, `plot_key`, `plot_voice` was not a resolution artifact.** Doubling the
+   reference-set size (roughly doubling the ceiling) changed nothing for these three: they still rank #1 out of
+   20 (or 10) candidates even with zero training exposure. That means no finite reference-set widening will fix
+   it — something about these specific phrasings (relative to *these specific alternative pools*) makes the true
+   text more fluent/probable than every alternative, independent of memorization. This needs a different fix
+   than pool size: either alternatives chosen to be closer in fluency to the true text (harder to rule out by
+   chance), or accepting these three canaries can't show a lift signal at low frequency and relying on
+   extraction rate and higher-frequency runs for them instead.
+2. **A new, more important finding: two genuinely-inserted canaries (`plot_song`, `char_nira`) show *negative*
+   lift**, and two unseen controls that were **never inserted in either corpus** (`ctrl_char_teva`,
+   `ctrl_plot_map`) show *positive* "lift" of +0.848 and +0.415 — comparable in size to `char_boro`'s real,
+   plausible +0.874. A single training run's exposure numbers move around by amounts this large from ordinary
+   run-to-run noise (different corpus construction, different batch order, one seed) alone, with no canary
+   insertion involved at all. This is the exact same lesson the sibling `aarav-lm` project learned from its SFT
+   seed-variance experiments (see its `docs/RESULTS.md`): **a single seed's before/after comparison cannot be
+   trusted at face value; only a comparison against the spread of a repeated-seed (or repeated-control) baseline
+   can.** A `freq_1` lift smaller than ~0.85 (the largest control-vs-nothing swing observed here) is not
+   distinguishable from noise with the data collected so far.
+
+**What this means for Checkpoint 4 going forward:** raw exposure is not just "hard to interpret without a
+baseline" — for a meaningful minority of canaries it is uninformative regardless of reference-set size (ceiling
+saturation baked into the phrase/alt-pool pairing), and for the rest, a single-seed lift is not yet distinguishable
+from noise. Two concrete next steps, not yet done: (a) when scoring frequencies 10/100/500, also compute the
+per-canary lift and flag both failure modes above (at-ceiling-in-both, and lift-within-noise-band) rather than
+presenting a bare number; (b) before drawing any dose-response conclusion, replicate at least the `freq_0`
+control and one treatment frequency with a second seed, exactly as `aarav-lm` did, to get an actual noise-band
+estimate instead of the one-swing proxy above. `analyze_tradeoff.py`'s lift computation is the right place to
+carry the ceiling-proximity flag through to Phase 6; the seed-replication is additional compute and should be
+flagged to the user as a cost before committing to it, per the project's ground rules.
 
 ## Not yet checked
 
 The full positive-control half of Checkpoint 4 ("higher-frequency canaries should show higher exposure than 1x or
 unseen") needs more than one frequency trained — frequency 1 alone can't show a dose-response trend. Frequencies
-10, 100 and 500 are still queued. The proper baseline-relative version of even this frequency-1 result is pending
-the `freq_0` control run above.
+10, 100 and 500 are still queued, and will now be scored against the widened reference pools above.
