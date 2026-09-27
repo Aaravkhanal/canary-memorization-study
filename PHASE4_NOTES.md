@@ -42,9 +42,41 @@ memorized" cases can be told apart — worth widening (more alternatives per can
 canary-trained model is scored and it's clear the coarse 5-value scale is actually limiting, rather than widening
 it now on a guess.
 
+## First real result: baseline architecture, frequency 1
+
+The smoke test (`configs/training/baseline/freq_1.yaml`, 6,000 steps, val loss 1.551) finished and was scored.
+Raw exposures:
+
+| Type | Inserted canaries | Unseen controls |
+|---|---|---|
+| Character | **3.32**, 1.32, 1.32, 1.00 | 1.00, 1.32 |
+| Plot fragment | 2.58, 2.58, 1.58, 2.58 | 1.58, 1.58 |
+
+**A scale correction, caught while reading this result:** character canaries have 8 name alternatives (9
+candidates total, ceiling log2(10) ≈ 3.32), while plot-fragment canaries have only 4 (5 candidates, ceiling
+log2(6) ≈ 2.58, as in the negative-control note above). These are two different scales, not one — a fact the
+negative-control run against exp_004 didn't surface because no character canary happened to hit its true ceiling
+there. Comparisons must stay within a type (character vs. character, plot vs. plot), never across.
+
+**The inserted character canary `char_pip` hit the maximum possible exposure (3.32, rank 1 of 9)** after being
+seen only once in training. The mean over the 4 inserted character canaries (1.74) is somewhat above the mean
+over the 2 unseen controls (1.16) — a signal in the expected direction, but **not yet trustworthy**: 4 and 2
+data points respectively is a small sample, one insertion is the weakest treatment level in the design, and,
+critically, **this run has no matched zero-exposure baseline yet**. The exp_004 comparison in the negative-control
+section above is a *different* model (aarav-lm's own production pretrain, far more training, a different corpus
+scale) — a fair lift calculation needs a model trained with this exact recipe (same 6,000 steps, same tiny
+corpus) but with zero canary insertions, so any exposure difference is attributable to the canaries and not to
+architecture, training length, or corpus size.
+
+**Fixed, not just noted:** a `freq_0` control corpus (the unmodified base corpus, no insertions at all) and
+matching training config were added (`data/processed/freq_0/`, `configs/training/baseline/freq_0.yaml`) — not one
+of the pre-registered treatment frequencies [1, 10, 50, 100, 500], explicitly a control condition, trained with
+the identical recipe. Queued to run next; its memorization score will be the true baseline for every lift
+calculation from here on, including recomputing this frequency-1 result once it exists.
+
 ## Not yet checked
 
-The other half of Checkpoint 4 — "higher-frequency canaries should show higher exposure... than 1x or unseen" —
-needs an actual canary-trained model, which the queued smoke test (`configs/training/baseline/freq_1.yaml`) will
-produce. This note covers only the negative control; Checkpoint 4 isn't closed until the positive side is checked
-too.
+The full positive-control half of Checkpoint 4 ("higher-frequency canaries should show higher exposure than 1x or
+unseen") needs more than one frequency trained — frequency 1 alone can't show a dose-response trend. Frequencies
+10, 100 and 500 are still queued. The proper baseline-relative version of even this frequency-1 result is pending
+the `freq_0` control run above.

@@ -1,0 +1,9 @@
+{
+  "frequency": 0,
+  "note": "zero-exposure control: the unmodified base corpus, no canary insertions at all. Not one of the pre-registered treatment frequencies [1,10,50,100,500] -- a control condition, trained with the identical recipe as every other run so its memorization score is a valid same-architecture baseline for the exposure LIFT calculation (see PHASE4_NOTES.md, scripts/analyze_tradeoff.py).",
+  "canary_counts": {},
+  "used_story_indices": {},
+  "sha256": "a0240e31a0d572d0d727e7a0c2b49a766ee6cf8c059a57ccdaadf2cce3c66cca",
+  "base_corpus": "data/raw/base.txt",
+  "built_at": "2026-09-27T21:11:16"
+}

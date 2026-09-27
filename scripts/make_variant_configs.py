@@ -34,6 +34,7 @@ AARAV_LM = ROOT.parent / "aarav-lm"
 sys.path.insert(0, str(AARAV_LM / "src"))
 
 FREQUENCIES_FIRST_PASS = [1, 10, 100, 500]        # of the pre-registered [1, 10, 50, 100, 500]; see docstring
+CONTROL_FREQUENCY = 0                             # zero-exposure baseline (unmodified corpus), not a treatment level; see data/processed/freq_0/
 ALL_FREQUENCIES = [1, 10, 50, 100, 500]
 
 VARIANTS = {
