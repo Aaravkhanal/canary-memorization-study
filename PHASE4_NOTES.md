@@ -158,8 +158,41 @@ estimate instead of the one-swing proxy above. `analyze_tradeoff.py`'s lift comp
 carry the ceiling-proximity flag through to Phase 6; the seed-replication is additional compute and should be
 flagged to the user as a cost before committing to it, per the project's ground rules.
 
+## First real architecture-vs-baseline comparison, and a control gap it exposed
+
+`variant_a_learned_pos/freq_1` (learned absolute positions instead of RoPE, otherwise identical recipe/frequency
+to `baseline/freq_1`) finished training (val loss 1.6244, vs. baseline's 1.551 — a real but modest difference,
+expected from a different positional inductive bias on this little data) and was scored:
+
+| id | baseline/freq_1 | variant_a/freq_1 |
+|---|---|---|
+| char_pip | 4.392 | 2.81 |
+| char_nira | 0.933 | 2.07 |
+| char_boro | 1.807 | 2.39 |
+| char_suri | 0.933 | 0.58 |
+| plot_key | 3.459 | 3.46 |
+| plot_song | 2.459 | 3.46 |
+| plot_lantern | 2.459 | 0.14 |
+| plot_voice | 3.459 | 3.46 |
+
+These numbers move a lot between architectures at the *same* frequency — most strikingly `char_pip` drops from
+the ceiling (4.39) to 2.81. **This cannot yet be read as "learned positions memorize `char_pip` less than
+RoPE."** The `freq_0` control built so far is `baseline`'s only — it establishes what zero-exposure exposure
+looks like for the *baseline* architecture, not for `variant_a_learned_pos`. Exactly the same logic that required
+a same-recipe control before comparing frequencies (see above) requires a same-*architecture* control before
+comparing architectures: different positional encodings can plausibly rank reference-set alternatives differently
+by chance alone, before any canary is ever inserted, for reasons having nothing to do with memorization.
+
+**Fixed, not just noted:** `configs/training/variant_a_learned_pos/freq_0.yaml` was added (same unmodified
+`freq_0` corpus, same recipe, `arch: gpt2` override only) and queued to train and score right after the
+already-committed `baseline/freq_10` and `variant_a_learned_pos/freq_10` runs finish (queued first, so this
+doesn't reorder already-running compute). Until it's scored, the `variant_a/freq_1` numbers above are raw
+exposure only — informative about what the metric measures for this checkpoint, not yet a lift, and not yet
+comparable to baseline's lift numbers.
+
 ## Not yet checked
 
 The full positive-control half of Checkpoint 4 ("higher-frequency canaries should show higher exposure than 1x or
 unseen") needs more than one frequency trained — frequency 1 alone can't show a dose-response trend. Frequencies
-10, 100 and 500 are still queued, and will now be scored against the widened reference pools above.
+10, 100 and 500 are still queued for both architectures, and will be scored against the widened reference pools
+above. A `variant_a_learned_pos` zero-exposure control is queued (see previous section) but not yet scored.
