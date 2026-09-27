@@ -60,3 +60,34 @@ unseen_controls:
       text: "and rang the little bell hidden in the barn"
     - id: ctrl_plot_map
       text: "then unfolded a torn map left by the river"
+
+# Phase 4 metadata (additive: does not change the canary identities, insertion behaviour or frequencies locked
+# above, which are unchanged from Phase 1). For each canary, `swap_target` is the exact substring that carries
+# its "identity" and `alt_pool` is a fixed set of plausible substitutes used to build the reference set for the
+# exposure metric (Carlini et al. 2019): rank the true canary's log-probability against these alternatives,
+# everything else in the sentence held fixed, so the metric isolates whether the model specifically expects the
+# true identity in that slot rather than just any plausible one.
+character_alt_pool: [Zeb, Dara, Omi, Kalo, Fenn, Yara, Doro, Mira]   # shared across character canaries; excludes every real/control name above
+
+plot_fragment_swap:
+  plot_key:
+    swap_target: "a shiny key"
+    alt_pool: ["a rusty coin", "a broken flute", "a red ribbon", "a folded letter"]
+  plot_song:
+    swap_target: "a strange song"
+    alt_pool: ["a soft whistle", "a distant drum", "a quiet hum", "a low chime"]
+  plot_lantern:
+    swap_target: "the little lantern"
+    alt_pool: ["the wooden gate", "the garden fence", "the old well cover", "the barn door"]
+  plot_voice:
+    swap_target: "a soft voice"
+    alt_pool: ["a tiny bell", "a paper note", "a warm glow", "a cold breeze"]
+  # unseen controls need the same swap metadata as the inserted canaries, or their exposure can't be computed at
+  # all -- an earlier version of this file omitted these two and the sanity check silently showed "n/a" for both,
+  # which looks like the metric working when it's really just missing data. Never seen in training either way.
+  ctrl_plot_bell:
+    swap_target: "the little bell"
+    alt_pool: ["the wooden gate", "the garden fence", "the old well cover", "the barn door"]
+  ctrl_plot_map:
+    swap_target: "a torn map"
+    alt_pool: ["a rusty coin", "a broken flute", "a red ribbon", "a folded letter"]
