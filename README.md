@@ -64,7 +64,36 @@ python scripts/prepare_canary_corpus.py --config configs/canaries.yaml --base da
 # ... one call per frequency in configs/canaries.yaml; each writes data/processed/freq_<F>/corpus.txt + manifest.json
 ```
 
+## Phase 2 — architecture variants
+
+`scripts/make_variant_configs.py` builds and validates every variant against the running model code (parameter
+counts checked with `aarav_lm.model.core.AaravLM`, configs validated by loading them through `aarav_lm`'s own
+`ExperimentConfig.from_yaml`, not a hand-rolled parser):
+
+| Variant | Change from baseline | Parameters | vs. baseline |
+|---|---|---|---|
+| baseline | — (aarav-lm's `small` preset: RoPE, GQA n_kv_head=2, RMSNorm, SwiGLU, 8 layers) | 14,162,304 | — |
+| A: learned positions | `arch: gpt2` only | 14,358,912 | +1.4% (entirely the new position table; the transformer body is identical, 12,589,440 either way) |
+| B: MHA | `n_kv_head: 6` (every head its own K/V); `n_layer: 7` to compensate (at `n_layer: 8` this variant is +11.1%, too far off) | 13,964,928 | -1.4% |
+| C: LayerNorm | `norm_type: layernorm` only | 14,162,304 | exact match |
+
+18 training configs generated under `configs/training/<variant>/freq_<F>.yaml`, each pointing at this project's
+own canary corpus and tokenizer, with training output kept under this project's `models/` (gitignored: run
+outputs, not source). **Queued for the reduced first pass:** baseline and Variant A (learned positions) at
+frequencies 1, 10, 100, 500 (50 dropped only to cut the first pass from 5 to 4 runs; still log-spaced with one
+midpoint). Variant B and C configs are written for all 5 frequencies but not queued, pending review of the first
+pass's trade-off curve.
+
+## Phase 3 — training runs (in progress: the Checkpoint-3 smoke test)
+
+The brief's Checkpoint 3 asks for one variant at one frequency, end to end, before scaling up. That run
+(`baseline`, frequency 1, `configs/training/baseline/freq_1.yaml`, 6,000 steps / ~24.6M tokens, ~1-1.5h) is
+**queued to start automatically once `aarav-lm`'s own exp_017 (context-extension training) finishes** — the two
+must not run heavy training concurrently on this 8 GB machine; an earlier attempt at that in this same session
+produced a near-total stall. A background watcher polls exp_017's process and launches the smoke test the moment
+it exits; output goes to `/tmp/canary_smoke.log` and the run itself under `models/baseline/freq_1/`.
+
 ## Not started
 
-Phases 2-6 (architecture variants, training grid, memorization eval, novelty eval, analysis) per `PLAN.md`,
-pending your review of this checkpoint and a decision on the reduced-vs-full grid above.
+Phases 4-6 (memorization eval, novelty eval, analysis) per `PLAN.md`, and the rest of Phase 3's reduced grid
+(7 more runs: baseline x 3 more frequencies, Variant A x 4 frequencies), pending the smoke test's result.

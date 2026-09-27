@@ -1,0 +1,40 @@
+name: baseline_freq1
+description: 'Canary study: baseline architecture, canary frequency 1. aarav-lm''s
+  own small preset, unchanged: RoPE, GQA (n_kv_head=2), RMSNorm, SwiGLU, 8 layers.'
+model_preset: small
+model_overrides: {}
+tokenizer:
+  kind: bpe
+  vocab_size: 4096
+  artifact_dir: /Users/aaravkhanal/Desktop/myllm/aarav-lm/artifacts/tokenizer_tinystories_v2
+  train_files: []
+data:
+  sources:
+  - /Users/aaravkhanal/Desktop/myllm/canary-memorization-study/data/processed/freq_1/corpus.txt
+  format: txt
+  doc_separator: <|endoftext|>
+  out_dir: /Users/aaravkhanal/Desktop/myllm/canary-memorization-study/data/processed/freq_1/tokenized_baseline
+  val_fraction: 0.01
+  test_fraction: 0.01
+  min_chars: 20
+  max_chars: 20000
+  dedup: false
+  seed: 20260927
+train:
+  seed: 20260927
+  device: auto
+  precision: fp32
+  max_steps: 6000
+  batch_size: 1
+  grad_accum: 16
+  eval_batch_size: 4
+  lr: 0.0008
+  min_lr_ratio: 0.1
+  warmup_steps: 150
+  weight_decay: 0.1
+  grad_clip: 1.0
+  eval_interval: 500
+  eval_iters: 50
+  log_interval: 25
+  ckpt_interval: 500
+  keep_last: 2
