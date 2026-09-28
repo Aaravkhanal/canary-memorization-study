@@ -4,8 +4,13 @@ Does a small language model trade off memorizing recurring narrative elements ag
 stories, and does the trade-off shift with architecture? This project measures it with planted "canaries" at
 controlled insertion frequencies, following Carlini et al. 2019's exposure methodology.
 
-**Status: Phase 1 only (data preparation).** Nothing has been trained. See `PLAN.md` for the phase-by-phase brief
-this project follows and the checkpoint this delivers.
+**Status: Phases 1-2 complete; Phase 3 (training) in progress on the reduced grid** — baseline and
+`variant_a_learned_pos` are both trained and scored at frequencies 0 (control), 1, and 10, with frequency 100
+training now and 500 still queued. Phase 4 (memorization) and Phase 5 (novelty) have run on every checkpoint
+finished so far. See `PLAN.md` for the phase-by-phase brief this project follows, `PHASE4_NOTES.md` for the
+detailed lab notes (including two real methodological findings — a metric ceiling-saturation bug and a
+cross-architecture-replicated dose-response signal), and `docs/DRAFT_PAPER.md` for the write-up structured for
+eventual publication, kept in sync as results come in.
 
 ## Compute cost — read before running Phase 3
 
