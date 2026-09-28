@@ -411,49 +411,65 @@ the hand-labelled recombination score the brief's design actually calls for (Che
 500 is missing from both tables, and every cell is a single training seed. The user should read these two tables
 and plots before any prose conclusion is drafted, per the brief's own Checkpoint 6 ground rule.
 
-## Why extraction rate has been False for every canary in every run — verified, not assumed
+## Why extraction rate has been False for every canary in every run — verified, and a correction to an earlier over-generalization here
 
 Every result so far reports `extraction=False` for all 12 canaries in every run, including checkpoints where
-several canaries sit at maximal exposure (`baseline/freq_100`: `char_nira`, `char_boro`, `char_suri` all at the
-ceiling). That's worth checking directly rather than assumed benign, since a metric that never fires could be
-broken rather than just insensitive. Checked directly against `baseline/freq_100`'s actual checkpoint (no
-retraining, a few forward-generation passes):
+several canaries sit at maximal exposure (`baseline/freq_100`: `char_nira`, `char_boro`, `char_suri`,
+`plot_lantern` all at the ceiling). That's worth checking directly rather than assumed benign, since a metric that
+never fires could be broken rather than just insensitive.
+
+**First check, character canaries** — `eval_memorization.py`'s `extraction()` for character canaries decodes from
+`CHAR_PREFIX` ("Once upon a time, ") alone, with **no canary-specific text at all**, because the name is the very
+first word of the canary sentence. Checked directly against `baseline/freq_100`'s real checkpoint:
 
 ```
 PREFIX: 'Once upon a time, '
   GREEDY CONTINUATION: 'Yummy and her mom went to the park. They saw a big tree with a lot of leaves'
-PREFIX: 'One day, something interesting happened. '
-  GREEDY CONTINUATION: 'Yesterday, the little girl was walking in the park. She saw a big tree with'
 ```
 
-**Not a bug — a much stricter, differently-shaped test than exposure, verified to be working as coded.**
-`eval_memorization.py`'s `extraction()` greedy-decodes from a single generic prefix (`CHAR_PREFIX`/`PLOT_PREFIX`,
-identical for every canary of that type) and checks whether that one deterministic continuation happens to start
-with the canary's exact identity. Two structural consequences, both confirmed by the check above:
+This confirms a real structural property for character canaries specifically: since the prompt and greedy
+decoding are identical and deterministic for every character canary, there is exactly one possible continuation
+per checkpoint, so **at most one character canary can ever score `True`** — `False` for 3-4 canaries sharing this
+prompt isn't 3-4 independent data points, it's mostly one.
 
-1. **The test is a global "is this the model's single favorite completion from a generic prompt" question, not a
-   per-canary "did the model learn this one" question.** Exposure asks the model to rank the true identity against
-   a small, curated set of alternatives in a fixed frame — a controlled, narrow comparison. Extraction (as coded)
-   asks the true identity to beat *every other pattern the model has ever learned from ~1.47M base-corpus
-   documents*, at the single most-probable-continuation slot. A canary inserted 100 times into that corpus is
-   never going to out-compete generic patterns like "her mom went to the park" for the single greedy slot, even
-   while comfortably beating its own 20-name reference pool for the exposure metric. These are different
-   thresholds by design, and the extraction test's threshold is far higher at this data scale.
-2. **At most one canary per type (character / plot-fragment) can ever score `True` per checkpoint**, because the
-   prompt and greedy decoding are identical and deterministic for every canary of that type — there is exactly one
-   possible continuation, so it can match at most one canary's identity. Seeing `False` for 4-6 character canaries
-   in the same run isn't independent evidence against each of them; it's largely one shared data point (the
-   model's single top completion) checked against several candidates.
+**Second check, plot-fragment canaries — this corrects an over-generalization in the first version of this
+section.** Unlike character canaries, `prefix_and_identity()` gives every plot-fragment canary its own,
+genuinely distinct prompt (the canary's own connector word before the swap target), so the "at most one can fire"
+argument above does **not** apply to them:
 
-**What this means for interpreting extraction rate going forward**: `extraction=False` across the board is not
-evidence against the strong exposure-based memorization already found — the two metrics are not measuring the
-same threshold, and this project's frequencies (1-500 insertions into a ~1.47M-document corpus) are apparently
-below the bar this specific extraction design requires. A better-matched extraction test (not yet implemented,
-flagged for the user's decision on whether it's worth additional compute) would decode from each canary's *own*
-established context, the same identity-slot framing the exposure metric already uses, and ask whether greedy
-decoding at that specific, canary-conditioned position reproduces the identity — much closer to Carlini et al.'s
-original intent and to what "verbatim extraction" should mean per-canary, rather than "the single most likely
-story opening in the whole model."
+```
+plot_key:     'One day, something interesting happened. then found '  -> identity 'a shiny key'
+plot_song:    'One day, something interesting happened. and heard '   -> identity 'a strange song'
+plot_lantern: 'One day, something interesting happened. before '      -> identity 'the little lantern'
+plot_voice:   'One day, something interesting happened. until '       -> identity 'a soft voice'
+```
+
+Checked directly against `baseline/freq_100` — including `plot_lantern`, the single strongest, cleanest,
+least-confounded memorization signal in the whole project (+3.459 exposure lift, cross-architecture replicated):
+
+```
+plot_key      expected='a shiny key'        got="Yellow's favorite toy, a small,"          exact_match=False
+plot_song     expected='a strange song'     got="Yellow's voice. He looked around and"     exact_match=False
+plot_lantern  expected='the little lantern' got='Yeta and a little girl came up to'        exact_match=False
+plot_voice    expected='a soft voice'       got='Once upon a time, there was a little girl' exact_match=False
+```
+
+Four distinct prompts, four distinct (wrong) greedy outputs — not one shared completion. **`plot_lantern` failing
+this properly-conditioned, per-canary test despite its very strong exposure signal is a genuine finding, not a
+structural artifact**: exposure only requires beating a curated 9-item reference set at a fixed slot; extraction
+requires being the single most probable continuation across the model's entire vocabulary and everything it
+learned from ~1.47M base-corpus documents. A canary can be memorized strongly enough to always beat a handful of
+specific alternatives while still not being the global single most likely thing to say next — these are genuinely
+different-strength tests (consistent with why Carlini et al.'s own original work treats exposure and extraction as
+separate, not redundant, measurements), not a sign that the exposure result is somehow wrong.
+
+**Corrected takeaway**: for character canaries, the extraction test as implemented is structurally unable to give
+independent per-canary signal (fixable by adding canary-specific conditioning, as plot fragments already have —
+not yet implemented). For plot-fragment canaries, the test is already properly per-canary-conditioned, and its
+`False` results are real, informative, and simply reflect that this project's insertion frequencies aren't enough
+to make a canary the model's single global top choice, even when it's clearly favored within its local reference
+set. Every memorization finding in this project should be read as exposure-based; extraction hasn't contributed a
+positive result for either reason, and now both reasons are understood precisely rather than conflated.
 
 ## Not yet checked
 
