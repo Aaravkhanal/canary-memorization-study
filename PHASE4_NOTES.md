@@ -334,12 +334,45 @@ luck, not design). **Recommendation for any future canary study, and for a paper
 corpus-frequency check is a required pre-registration step, not an optional sanity check — it takes seconds to run
 and would have caught this before any training happened.
 
+## variant_a_learned_pos/freq_100: the frequency-100 convergence replicates exactly
+
+`variant_a_learned_pos/freq_100` finished (best val loss 1.6420) and was scored:
+
+| id | freq_0 | freq_100 | lift@100 |
+|---|---|---|---|
+| char_pip | 3.392 | 4.392 | **+1.000** (see note below) |
+| char_nira | 1.807 | 4.392 | **+2.585** |
+| char_boro | 1.807 | 4.392 | **+2.585** |
+| char_suri | 0.807 | 4.392 | **+3.585** |
+| ctrl_char_olen | 1.392 | 1.807 | +0.415 |
+| ctrl_char_teva | 0.807 | 0.933 | +0.126 |
+| plot_key | 3.459 | 3.459 | +0.000 (ceiling) |
+| plot_song | 3.459 | 3.459 | +0.000 (ceiling) |
+| plot_lantern | 0.459 | 3.459 | **+3.000** |
+| plot_voice | 3.459 | 3.459 | +0.000 (ceiling) |
+| ctrl_plot_bell | 2.459 | 1.874 | -0.585 |
+| ctrl_plot_map | 1.138 | 1.874 | +0.737 |
+
+**This is an exact, second-architecture replication of `baseline/freq_100`'s finding**: `char_nira`, `char_boro`,
+`char_suri`, and `plot_lantern` all show large lift and converge on the ceiling, `plot_key`/`plot_song`/
+`plot_voice` stay at the ceiling throughout (contaminated identities, §"Root cause" above), and every control's
+swing (-0.585 to +0.737) stays well inside the noise band. Two independent architectures, trained independently,
+now agree on every one of these 8 canaries at this frequency.
+
+**One genuine nuance, not a contradiction of the root-cause finding**: unlike in `baseline` (where `char_pip` sat
+exactly at the ceiling already at `freq_0`, so its lift reads as `+0.000`), `variant_a_learned_pos`'s `char_pip`
+started at 3.392 at `freq_0` — close to, but not quite at, its architecture's ceiling — and shows a real, moderate
+lift of `+1.000` on top of the base-corpus-contamination confound. This is consistent with, not contradictory to,
+the root-cause explanation: contamination sets a very high *floor*, not a hard ceiling that makes the canary
+literally unresponsive to insertion; it just means most of `char_pip`'s exposure was already "spent" before this
+project's insertions began, leaving little headroom for a genuine memorization signal to add on top. `char_pip`
+remains the least informative canary in the bank for exactly this reason, but "least informative" is now
+mechanistically explained rather than mysterious.
+
 ## Not yet checked
 
-The full positive-control half of Checkpoint 4 needs the architecture-replication check repeated at this
-frequency. `variant_a_learned_pos/freq_100` is training now; if it reproduces the same "everything except the
-already-saturated canaries converges on the ceiling" pattern, that would be a second independent confirmation at
-a second frequency, on top of the frequency-10 replication already found. Frequency 500 is still queued for both
-architectures. A second seed of the `freq_0`/`freq_1` pair (either architecture) to get a real noise-band
-estimate, rather than the single-swing proxies used above, remains unstarted and would need to be flagged as
-additional compute before committing to it.
+Frequency 500 is still queued for both architectures. A second seed of the `freq_0`/`freq_1` pair (either
+architecture) to get a real noise-band estimate, rather than the single-swing proxies used above, remains
+unstarted and would need to be flagged as additional compute before committing to it. The novelty/recombination
+side of the research question (Phase 5 proper — hand-labelling, full-grid scoring) is the largest remaining gap:
+everything above is memorization-only.

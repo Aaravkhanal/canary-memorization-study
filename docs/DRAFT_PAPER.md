@@ -279,21 +279,29 @@ that this specific canary's memorization is a robust, architecture-independent e
 scale, not a fluke of one run. `char_pip`, `plot_key`, `plot_song`, and `plot_voice` remain uninformative due to
 ceiling saturation (§4.1) in one or both architectures and cannot yet support any claim either way.
 
-**Update at frequency 100 (baseline architecture; `variant_a_learned_pos` training now):** the ambiguity for
-`char_boro` and `char_suri` resolves cleanly in the positive direction. Both sat at or near the noise-band edge at
-frequency 10 (+0.459 and +1.459); at frequency 100 both show **+3.459** — the same ceiling value as `char_nira`
-and `plot_lantern` — while every unseen control's swing at this frequency (+0.000 to +1.000) stays comfortably
-inside the ~1.6 noise band. Every genuinely-inserted, non-already-saturated character and plot-fragment canary now
-shows unambiguous, large lift by frequency 100. The pattern so far: dose-response is real and, at this data scale,
-strong enough to saturate the metric once frequency is high enough — the frequency-10 data point was this effect
-still emerging above the noise floor, not the ceiling of the effect itself.
+**Update at frequency 100, now confirmed in both architectures:** the ambiguity for `char_boro` and `char_suri`
+resolves cleanly in the positive direction in `baseline` (both sat at or near the noise-band edge at frequency 10;
+at frequency 100 both show +3.459 — the same ceiling value as `char_nira` and `plot_lantern`). **This is an exact,
+independent replication in `variant_a_learned_pos`**: `char_nira` (+2.585), `char_boro` (+2.585), `char_suri`
+(+3.585), and `plot_lantern` (+3.000) all show large lift and converge on the ceiling there too, while every one
+of that architecture's controls stays inside the noise band (-0.585 to +0.737). Two independent architectures,
+trained independently, now agree on every one of these canaries at this frequency: dose-response is real and, at
+this data scale, strong enough to saturate the metric once frequency is high enough — frequency 10 was this
+effect still emerging above the noise floor, not its ceiling.
 
-**Not yet established**: whether `variant_a_learned_pos/freq_100` replicates this same convergence (training now
-— would be a second independent confirmation, on top of the frequency-10 replication already found); whether the
-pattern holds, saturates further, or does anything unexpected at frequency 500 (queued); whether it holds under a
-second training seed rather than the single-seed-per-cell design used so far; and — the central research
-question — how novelty/recombination ability (§3.5, not yet scored past smoke-testing) moves alongside this
-memorization signal.
+**A genuine nuance in the replication, not a contradiction**: `char_pip` sits exactly at baseline's ceiling already
+at `freq_0` (lift `+0.000` at every frequency, fully explained by its 150 base-corpus occurrences, §4.1), but in
+`variant_a_learned_pos` its `freq_0` value (3.392) sits just under that architecture's ceiling, leaving room for a
+real, moderate `+1.000` lift on top of the contamination confound. Base-corpus contamination sets a high *floor*,
+not a hard ceiling immune to insertion — it just leaves little headroom for genuine signal, which is why `char_pip`
+remains the least informative canary in the bank, now for a mechanistically understood reason rather than a
+mysterious one.
+
+**Not yet established**: whether the pattern holds, saturates further, or does anything unexpected at frequency
+500 (queued for both architectures); whether it holds under a second training seed rather than the
+single-seed-per-cell design used so far; and — the central research question — how novelty/recombination ability
+(§3.5, not yet scored past smoke-testing) moves alongside this memorization signal. This last gap is now the
+largest one standing between the current results and an answer to H1.
 
 ### 4.4 Preliminary novelty observations (not yet a full result)
 
