@@ -154,10 +154,22 @@ score the true canary's sequence log-probability against every alternative's, an
 exposure = log2(N + 1) − log2(rank)
 ```
 
-so exposure is maximal (`log2(N+1)`) when the true canary ranks first, and near zero when it ranks last. Verbatim
-extraction rate (does greedy decoding from the canary's prefix reproduce it exactly) is recorded alongside
-exposure but has not yet triggered on any checkpoint scored so far — expected at this small scale and low
-frequency range, and not yet informative on its own.
+so exposure is maximal (`log2(N+1)`) when the true canary ranks first, and near zero when it ranks last.
+
+Verbatim **extraction rate** (does greedy decoding reproduce the canary exactly) is recorded alongside exposure
+but has not triggered on any checkpoint scored so far, including checkpoints where several canaries sit at maximal
+exposure — verified, not assumed, to be a property of the test's design rather than a code defect (checked
+directly against a real checkpoint's actual greedy output; PHASE4_NOTES.md). As implemented, extraction
+greedy-decodes from one prompt shared by every canary of a type (e.g. "Once upon a time, " for every character
+canary) and checks whether that single, deterministic continuation happens to reproduce a given canary's identity.
+This makes the true identity compete against *every* pattern the model has learned from the entire base corpus for
+the single most-probable continuation — a far higher bar than exposure's controlled comparison against a curated
+reference set — and means at most one canary per type can ever score `True` per checkpoint, since the same
+deterministic decode is checked against every candidate of that type. At this project's insertion frequencies
+(1-500, into a corpus of ~1.47M documents), this specific extraction design is not expected to fire even when
+exposure shows strong relative memorization; a canary-conditioned extraction test (decode from each canary's own
+established context rather than a generic shared prompt) would be a more sensitive, more directly comparable
+per-canary measure, and is designed but not yet implemented (§5).
 
 **Reference-set size matters, and was found empirically to matter more than a first pass assumed** (§4.1):
 starting sizes were 9 candidates for character canaries (8 alternative names) and 5 for plot fragments (4
@@ -376,6 +388,12 @@ alone it should be treated as a preliminary, proxy-based data point, not an answ
    switching designs.
 5. **Small absolute scale.** 14.2M parameters, ~14.6M training tokens per run — results may not generalize to
    larger models or corpora, and this project makes no claim that they do.
+6. **Extraction rate, as implemented, is not sensitive at this project's scale** (§3.4): it tests whether a
+   canary's identity is the model's single most-probable continuation from a generic, shared prompt, a far higher
+   bar than exposure's controlled comparison, and structurally can only fire for one canary per type per
+   checkpoint. Verified directly against a real checkpoint (PHASE4_NOTES.md), not assumed. Every finding in this
+   paper about memorization rests on the exposure metric alone; extraction rate has not contributed usable signal
+   and a better-matched, canary-conditioned redesign is described but not implemented.
 
 ## 6. Reproducibility
 
