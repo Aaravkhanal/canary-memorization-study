@@ -9,7 +9,7 @@ import pytest
 import yaml
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "scripts"))
-from eval_memorization import all_canary_rows, build_alternatives, exposure, prefix_and_identity  # noqa: E402
+from eval_memorization import all_canary_rows, argmax_match, build_alternatives, exposure, prefix_and_identity  # noqa: E402
 
 CFG = yaml.safe_load((Path(__file__).resolve().parents[1] / "configs" / "canaries.yaml").read_text())
 
@@ -102,3 +102,81 @@ def test_exposure_rank_is_stable_and_deterministic_for_tied_scores(monkeypatch):
     r1 = exposure(engine=None, prefix="PFX", true_text="true", alternatives=["alt-a"])
     r2 = exposure(engine=None, prefix="PFX", true_text="true", alternatives=["alt-a"])
     assert r1["rank"] == r2["rank"]
+
+
+# ── argmax_match: the teacher-forced, non-compounding extraction test ─────────
+
+class _FakeTokIds:
+    def __init__(self, mapping):
+        self._mapping = mapping
+
+    def encode(self, text):
+        return self._mapping[text]
+
+
+class _FakeArgmaxEngine:
+    """A stand-in whose "model" returns a fixed logits tensor, so argmax_match's per-position argmax check can be
+    tested exactly without running a real network."""
+    def __init__(self, tok_mapping, logits):
+        self.tok = _FakeTokIds(tok_mapping)
+        self.device = "cpu"
+        self._logits = logits
+
+    def model(self, x):
+        return self._logits, None
+
+
+def _engine_with_identity_logits(prefix_ids, identity_ids, correct_at):
+    """Builds a fake engine where the argmax at the position predicting each identity token is the TRUE token iff
+    that position's index (0-based, within the identity) is in `correct_at`; otherwise some other token wins."""
+    import torch
+    tok_mapping = {"PFX": prefix_ids, "ID": identity_ids}
+    seq_len = len(prefix_ids) + len(identity_ids) - 1
+    vocab = 50
+    logits = torch.full((1, seq_len, vocab), -10.0)
+    start = len(prefix_ids) - 1
+    for i, true_tok in enumerate(identity_ids):
+        pos = start + i
+        if i in correct_at:
+            logits[0, pos, true_tok] = 100.0
+        else:
+            wrong_tok = (true_tok + 1) % vocab
+            logits[0, pos, wrong_tok] = 100.0
+    return _FakeArgmaxEngine(tok_mapping, logits)
+
+
+def test_argmax_match_is_true_on_both_fields_when_every_position_is_correct():
+    engine = _engine_with_identity_logits(prefix_ids=[1, 2, 3], identity_ids=[10, 20], correct_at={0, 1})
+    r = argmax_match(engine, prefix="PFX", identity="ID")
+    assert r["first_token_match"] is True
+    assert r["full_match"] is True
+    assert r["n_tokens"] == 2
+
+
+def test_argmax_match_first_token_true_but_full_false_when_a_later_token_diverges():
+    engine = _engine_with_identity_logits(prefix_ids=[1, 2, 3], identity_ids=[10, 20], correct_at={0})
+    r = argmax_match(engine, prefix="PFX", identity="ID")
+    assert r["first_token_match"] is True
+    assert r["full_match"] is False
+
+
+def test_argmax_match_is_false_on_both_fields_when_no_position_is_correct():
+    engine = _engine_with_identity_logits(prefix_ids=[1, 2, 3], identity_ids=[10, 20], correct_at=set())
+    r = argmax_match(engine, prefix="PFX", identity="ID")
+    assert r["first_token_match"] is False
+    assert r["full_match"] is False
+
+
+def test_argmax_match_does_not_compound_an_early_miss_the_way_free_generation_would():
+    """The whole point of this function: unlike extraction()'s free generation, a wrong guess at position 0 must
+    not affect whether position 1 is checked correctly -- each position is teacher-forced on the TRUE prior token."""
+    engine = _engine_with_identity_logits(prefix_ids=[1, 2, 3], identity_ids=[10, 20], correct_at={1})
+    r = argmax_match(engine, prefix="PFX", identity="ID")
+    assert r["first_token_match"] is False
+    assert r["matches"] == [False, True]
+
+
+def test_argmax_match_handles_empty_prefix_or_identity_without_crashing():
+    engine = _FakeArgmaxEngine({"": [], "ID": [10]}, logits=None)
+    assert argmax_match(engine, prefix="", identity="ID") == {
+        "first_token_match": False, "full_match": False, "n_tokens": 1, "matches": []}

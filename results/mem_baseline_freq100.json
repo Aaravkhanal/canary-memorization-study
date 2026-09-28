@@ -25,6 +25,15 @@
         "generated": "Yummy and her",
         "true_identity": "Pip",
         "exact_match": false
+      },
+      "argmax_extraction": {
+        "first_token_match": false,
+        "full_match": false,
+        "n_tokens": 2,
+        "matches": [
+          false,
+          false
+        ]
       }
     },
     {
@@ -51,6 +60,16 @@
         "generated": "Yummy and her mom",
         "true_identity": "Nira",
         "exact_match": false
+      },
+      "argmax_extraction": {
+        "first_token_match": false,
+        "full_match": false,
+        "n_tokens": 3,
+        "matches": [
+          false,
+          true,
+          true
+        ]
       }
     },
     {
@@ -77,6 +96,16 @@
         "generated": "Yummy and her mom",
         "true_identity": "Boro",
         "exact_match": false
+      },
+      "argmax_extraction": {
+        "first_token_match": false,
+        "full_match": false,
+        "n_tokens": 3,
+        "matches": [
+          false,
+          false,
+          true
+        ]
       }
     },
     {
@@ -103,6 +132,16 @@
         "generated": "Yummy and her mom",
         "true_identity": "Suri",
         "exact_match": false
+      },
+      "argmax_extraction": {
+        "first_token_match": false,
+        "full_match": false,
+        "n_tokens": 3,
+        "matches": [
+          false,
+          true,
+          true
+        ]
       }
     },
     {
@@ -122,6 +161,16 @@
         "generated": "Yummy and her mom",
         "true_identity": "Olen",
         "exact_match": false
+      },
+      "argmax_extraction": {
+        "first_token_match": false,
+        "full_match": false,
+        "n_tokens": 3,
+        "matches": [
+          false,
+          false,
+          false
+        ]
       }
     },
     {
@@ -141,6 +190,17 @@
         "generated": "Yummy and her mom went",
         "true_identity": "Teva",
         "exact_match": false
+      },
+      "argmax_extraction": {
+        "first_token_match": false,
+        "full_match": false,
+        "n_tokens": 4,
+        "matches": [
+          false,
+          false,
+          false,
+          false
+        ]
       }
     },
     {
@@ -167,6 +227,16 @@
         "generated": "Yellow's favorite",
         "true_identity": "a shiny key",
         "exact_match": false
+      },
+      "argmax_extraction": {
+        "first_token_match": false,
+        "full_match": false,
+        "n_tokens": 3,
+        "matches": [
+          false,
+          false,
+          false
+        ]
       }
     },
     {
@@ -193,6 +263,16 @@
         "generated": "Yellow's voice",
         "true_identity": "a strange song",
         "exact_match": false
+      },
+      "argmax_extraction": {
+        "first_token_match": false,
+        "full_match": false,
+        "n_tokens": 3,
+        "matches": [
+          false,
+          false,
+          false
+        ]
       }
     },
     {
@@ -219,6 +299,19 @@
         "generated": "Yeta and a little girl came",
         "true_identity": "the little lantern",
         "exact_match": false
+      },
+      "argmax_extraction": {
+        "first_token_match": false,
+        "full_match": false,
+        "n_tokens": 6,
+        "matches": [
+          false,
+          false,
+          false,
+          false,
+          true,
+          true
+        ]
       }
     },
     {
@@ -245,6 +338,16 @@
         "generated": "Once upon a time,",
         "true_identity": "a soft voice",
         "exact_match": false
+      },
+      "argmax_extraction": {
+        "first_token_match": false,
+        "full_match": false,
+        "n_tokens": 3,
+        "matches": [
+          false,
+          false,
+          false
+        ]
       }
     },
     {
@@ -264,6 +367,17 @@
         "generated": "\u2013 it was a big",
         "true_identity": "the little bell",
         "exact_match": false
+      },
+      "argmax_extraction": {
+        "first_token_match": false,
+        "full_match": false,
+        "n_tokens": 4,
+        "matches": [
+          false,
+          false,
+          false,
+          false
+        ]
       }
     },
     {
@@ -283,6 +397,16 @@
         "generated": "\u2013 a big,",
         "true_identity": "a torn map",
         "exact_match": false
+      },
+      "argmax_extraction": {
+        "first_token_match": false,
+        "full_match": false,
+        "n_tokens": 3,
+        "matches": [
+          false,
+          false,
+          false
+        ]
       }
     }
   ]

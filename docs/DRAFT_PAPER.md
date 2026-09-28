@@ -169,9 +169,23 @@ not one shared completion. This is a real, not structural, negative result: expo
 curated reference set of 9-20 alternatives at a fixed slot, while extraction requires being the single most
 probable continuation across the model's entire vocabulary — a canary can win the first comparison decisively
 while still losing the second, and these are recognized as different-strength measurements in the memorization
-literature this design follows, not a contradiction. The fix for character canaries (give them the same kind of
-canary-specific conditioning plot fragments already have) is designed but not yet implemented; for plot fragments,
-the test is already correctly designed and its negative results should be taken at face value.
+literature this design follows, not a contradiction.
+
+**A corrected extraction test was implemented and run on every checkpoint scored so far.** Character canaries
+cannot be given a canary-specific *preceding* prompt (the identity is the sentence's first word, and the insertion
+design prepends the whole canary sentence wholesale, so there is no unique context to condition on). Instead of
+fixing this by adding context, `argmax_match()` fixes the more fundamental problem in both canary types: rather
+than free-generating from a prompt and checking the output (which lets one early wrong token send generation
+somewhere else entirely, and can't be independently checked per character canary), it teacher-forces each
+canary's own true identity tokens as context and checks, at every single position, whether the model's argmax
+prediction (over the entire vocabulary) equals the true next token. This is well-defined and independently
+checkable per canary regardless of prompt-sharing. Run against all 8 scored checkpoints (both architectures, all
+four frequencies, 96 canary-checkpoint pairs): **zero `first_token_match`, zero `full_match`, including every case
+where exposure sits at its exact maximum** (all four character canaries simultaneously at
+`variant_a_learned_pos/freq_100`). This is a clean, complete, well-powered confirmation that exposure and
+extraction measure genuinely different thresholds at this project's scale: insertion frequencies up to 100
+reliably make a canary the model's preferred choice among a curated alternative set, but never its single global
+top choice over the full vocabulary. Whether frequency 500 changes this is not yet known.
 
 **Reference-set size matters, and was found empirically to matter more than a first pass assumed** (§4.1):
 starting sizes were 9 candidates for character canaries (8 alternative names) and 5 for plot fragments (4
@@ -390,12 +404,16 @@ alone it should be treated as a preliminary, proxy-based data point, not an answ
    switching designs.
 5. **Small absolute scale.** 14.2M parameters, ~14.6M training tokens per run — results may not generalize to
    larger models or corpora, and this project makes no claim that they do.
-6. **Extraction rate has not contributed usable signal, for two distinct, verified reasons** (§3.4): character
-   canaries share one unconditioned prompt (structurally can only fire for one canary per checkpoint, not yet
-   fixed); plot-fragment canaries are already properly canary-conditioned and genuinely don't fire, including for
-   `plot_lantern`, the strongest exposure signal in the project — a real gap between beating a curated reference
-   set and being the model's single global top choice, not an artifact. Every memorization finding in this paper
-   rests on the exposure metric alone.
+6. **Neither extraction test has produced a positive result at this project's scale** (§3.4). The original
+   free-generation test's null result for character canaries was ambiguous (structurally can only fire for one
+   canary per checkpoint); the corrected, per-canary, teacher-forced `argmax_match()` test removes that ambiguity
+   and gives a clean, complete null instead: 0 of 96 canary-checkpoint pairs scored (both architectures, all four
+   frequencies up to 100) show the canary's identity as the model's own top prediction, even where exposure sits
+   at its exact maximum. This is now a well-powered, unambiguous finding, not a design limitation: at insertion
+   frequencies up to 100, canaries reliably beat a curated reference set without ever becoming the model's single
+   global top choice. Whether frequency 500 changes this is not yet known. Every memorization finding in this
+   paper about *dose-response* rests on the exposure metric; the extraction gap itself is a finding in its own
+   right, not a caveat on the others.
 
 ## 6. Reproducibility
 

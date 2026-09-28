@@ -471,12 +471,33 @@ to make a canary the model's single global top choice, even when it's clearly fa
 set. Every memorization finding in this project should be read as exposure-based; extraction hasn't contributed a
 positive result for either reason, and now both reasons are understood precisely rather than conflated.
 
+## The corrected extraction test implemented and run on the full grid: a clean, complete null result
+
+The per-canary, teacher-forced `argmax_match()` test described above (fixes the character-canary shared-prompt
+problem; matches plot fragments' already-correct per-canary conditioning) is now implemented
+(`scripts/eval_memorization.py`, `tests/test_eval_memorization.py`, 7 new tests) and was run against every one of
+the 8 checkpoints scored so far — a cheap re-score (forward passes only, no retraining), adding a new
+`argmax_extraction` field to each result file without disturbing the existing `exposure` or `extraction` fields.
+
+**Result, across all 96 canary-checkpoint pairs scored (12 canaries x 8 checkpoints: both architectures, all four
+frequencies each): zero `first_token_match`, zero `full_match`.** This includes every case where exposure sits at
+its exact maximum (4.392, the ceiling for character canaries on the widened 20-candidate pool) — `char_nira`,
+`char_boro`, `char_suri` at `baseline/freq_100`, and all four character canaries simultaneously at
+`variant_a_learned_pos/freq_100`. Even there, the model's own single most-probable token at the canary's identity
+position is never the canary's true identity.
+
+This is a clean, complete, well-powered confirmation of the exposure/extraction gap already reasoned about above,
+now demonstrated directly rather than inferred from a few spot checks: **beating a curated reference set of 9-20
+plausible alternatives (exposure) and being the model's single global top choice over its entire ~4096-token
+vocabulary (extraction) are measuring genuinely different thresholds, and this project's insertion frequencies
+(0-100) reliably clear the first without ever clearing the second.** Whether frequency 500 (queued) changes this
+picture is not yet known — everything scored so far tops out at 100 insertions.
+
 ## Not yet checked
 
-Frequency 500 is still queued for both architectures. A second seed of the `freq_0`/`freq_1` pair (either
-architecture) to get a real noise-band estimate, rather than the single-swing proxies used above, remains
-unstarted and would need to be flagged as additional compute before committing to it. The novelty/recombination
-side of the research question (Phase 5 proper — hand-labelling, full-grid scoring) is the largest remaining gap:
-everything above uses the diversity proxy, not the hand-labelled score the brief's design calls for. A
-better-matched, per-canary-conditioned extraction test (previous section) is designed but not implemented, pending
-a decision on whether it's worth re-scoring every existing checkpoint.
+Frequency 500 is still queued for both architectures — including whether it's finally enough exposure to produce
+the first `argmax_extraction` match. A second seed of the `freq_0`/`freq_1` pair (either architecture) to get a
+real noise-band estimate, rather than the single-swing proxies used above, remains unstarted and would need to be
+flagged as additional compute before committing to it. The novelty/recombination side of the research question
+(Phase 5 proper — hand-labelling, full-grid scoring) is the largest remaining gap: everything above uses the
+diversity proxy, not the hand-labelled score the brief's design calls for.

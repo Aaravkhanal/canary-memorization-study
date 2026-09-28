@@ -78,13 +78,54 @@ def exposure(engine, prefix: str, true_text: str, alternatives: List[str]) -> di
 
 @torch.no_grad()
 def extraction(engine, prefix_before_identity: str, true_identity: str, max_new_tokens: int) -> dict:
-    """Greedy-decode `max_new_tokens` after the prefix and check for an exact-match reproduction of the identity."""
+    """Greedy-decode `max_new_tokens` after the prefix and check for an exact-match reproduction of the identity.
+
+    Documented limitation (PHASE4_NOTES.md, docs/DRAFT_PAPER.md §3.4), kept and not removed for continuity with
+    every result already scored: free generation can diverge from the true identity at its very first token and
+    then never recover, so this test conflates "is the identity the model's single top guess" with "did an
+    unrelated early choice send generation somewhere else entirely." For character canaries specifically, the
+    prefix is also identical and canary-independent (the identity is the first word of the inserted sentence, so
+    there is no canary-specific preceding context to use), meaning at most one character canary can ever score
+    True per checkpoint. See argmax_match() below for a corrected, per-canary, non-compounding measure."""
     from aarav_lm.inference.engine import GenerationConfig
     ids = engine.tok.encode(prefix_before_identity)
     cfg = GenerationConfig(max_new_tokens=max_new_tokens, temperature=0.0)
     out = "".join(engine.stream(ids, cfg))
     return {"prompt": prefix_before_identity, "generated": out, "true_identity": true_identity,
             "exact_match": out.strip().startswith(true_identity.strip())}
+
+
+@torch.no_grad()
+def argmax_match(engine, prefix: str, identity: str) -> dict:
+    """Teacher-forced check: at every token of `identity`, is the model's own argmax next-token prediction
+    (conditioned on the true prefix, then the true identity tokens seen so far) equal to the true next token?
+
+    This fixes extraction()'s main flaw: free generation can be thrown off by one early wrong guess and never
+    recover, so a canary that's genuinely the model's top choice at every position along its own true continuation
+    can still score exact_match=False just because generation wandered off after a different early token. Teacher
+    forcing removes that compounding: each position is checked independently, using the TRUE preceding tokens as
+    context regardless of what the model would have generated on its own.
+
+    Reports both `first_token_match` (the canonical "if asked to fill in just the very next token, does the model
+    pick the true identity's opening token" probe -- the closest single-slot analogue to the reference-set-relative
+    exposure metric, now checked against the model's absolute argmax over the whole vocabulary instead of a small
+    alternative set) and `full_match` (every token along the identity matches, i.e. a maximally strict verbatim
+    reproduction test). Works correctly for character canaries too, despite their shared, canary-independent
+    prefix: unlike extraction(), this checks each canary's own identity tokens against the model's argmax
+    independently, so canaries aren't competing for a single shared free-generation outcome."""
+    prefix_ids = engine.tok.encode(prefix)
+    identity_ids = engine.tok.encode(identity)
+    if not prefix_ids or not identity_ids:
+        return {"first_token_match": False, "full_match": False, "n_tokens": len(identity_ids), "matches": []}
+    full_ids = prefix_ids + identity_ids
+    x = torch.tensor([full_ids[:-1]], dtype=torch.long, device=engine.device)
+    logits, _ = engine.model(x)
+    start = len(prefix_ids) - 1                              # position predicting identity_ids[0]
+    identity_logits = logits[0, start:start + len(identity_ids)]
+    argmax_tokens = identity_logits.argmax(dim=-1).tolist()
+    matches = [a == t for a, t in zip(argmax_tokens, identity_ids)]
+    return {"first_token_match": matches[0], "full_match": all(matches), "n_tokens": len(identity_ids),
+            "matches": matches}
 
 
 def build_alternatives(canary: dict, kind: str, cfg: dict) -> List[str]:
@@ -146,10 +187,13 @@ def main() -> None:
             row["near_duplicate_exposure"] = exposure(engine, prefix, canary["near_duplicate"], alts) if alts else None
         before, identity = prefix_and_identity(canary, kind, cfg)
         row["extraction"] = extraction(engine, before, identity, max_new_tokens=max(4, len(engine.tok.encode(identity)) + 2))
+        row["argmax_extraction"] = argmax_match(engine, before, identity)
         rows.append(row)
         tag = "  <-- unseen control" if canary["group"] == "unseen_control" else ""
         exp_str = f"exposure={row.get('exposure', {}).get('exposure', float('nan')):.2f}" if alts else "exposure=n/a"
-        print(f"  {canary['id']:16s} {exp_str}  extract={row['extraction']['exact_match']}{tag}")
+        am = row["argmax_extraction"]
+        print(f"  {canary['id']:16s} {exp_str}  extract={row['extraction']['exact_match']}  "
+              f"argmax_first={am['first_token_match']} argmax_full={am['full_match']}{tag}")
 
     out = {"checkpoint": str(args.checkpoint), "rows": rows}
     if args.out:
