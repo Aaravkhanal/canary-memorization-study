@@ -156,11 +156,27 @@ pre-registration step, before locking a canary bank, not after a confusing resul
 
 ## 11. Open Decisions / To Do
 
-- [ ] Finalize dataset: use existing training corpus vs. adopt public TinyStories dataset
-- [ ] Finalize architecture axes (2 vs. 3) based on available compute
-- [ ] Write out the full pre-registered canary list (names, fragments, frequencies) in a separate frozen file
-- [ ] Decide on LLM-judge vs. fully manual scoring for recombination test, and budget labeling time accordingly
-- [ ] Identify target venue (workshop paper vs. full conference vs. arXiv-only) — affects required rigor and page budget
+**Status as of 2026-09-28, updated as the project has actually run:**
+
+- [x] **Dataset**: resolved — the existing `aarav-lm` training corpus (a TinyStories slice, `data/raw/base.txt`),
+  reused rather than adopting the public dataset separately, since it's the same source material and avoids a
+  second licensing/provenance question.
+- [~] **Architecture axes**: partially resolved by compute reality, not fully decided. The reduced first pass runs
+  one axis (baseline vs. `variant_a_learned_pos`, position encoding) at four frequencies; configs for a second axis
+  (`variant_b_mha`, attention type) and a third (`variant_c_layernorm`, normalization) exist and are
+  parameter-matched (`README.md` §Phase 2) but not queued. Whether to spend the compute to run them is still a real
+  open decision — flagged, not decided unilaterally, since it's a genuine scope/cost tradeoff.
+- [x] **Pre-registered canary list**: resolved — `configs/canaries.yaml`, locked once
+  `scripts/prepare_canary_corpus.py` generates `configs/canary_assignment.json` from it. (A real gap in this
+  pre-registration was found and fixed after the fact: three canary identities turned out not to be genuinely novel
+  to the base corpus — `PHASE4_NOTES.md`'s root-cause section, and `scripts/check_canary_novelty.py` added so this
+  can't happen silently in a future run.)
+- [ ] **LLM-judge vs. fully manual scoring for the recombination test**: still genuinely open, and per this plan's
+  own ground rule (§5.2's brief, "no LLM-judge auto-scoring until 100-200 samples are hand-labelled first") it
+  needs the user's own hand-labelling before it can even be considered, not a unilateral decision. Labelling
+  batches are prepared and waiting (`results/labelling/*.txt`, one per scored checkpoint) but not yet labelled.
+- [ ] **Target venue**: still open, purely the user's call — affects required rigor and page budget for the eventual
+  write-up.
 
 ---
 
