@@ -295,6 +295,45 @@ is the clearest, least ambiguous dose-response result in the project so far, and
 ambiguity for `char_boro`/`char_suri` in the positive direction: their earlier borderline lift was very likely a
 weak-but-real effect that simply hadn't cleared the noise floor yet, not noise itself.
 
+## Root cause of the ceiling-saturation finding: it's not a metric flaw, it's a canary-design flaw
+
+Every earlier section in this file treated `char_pip`, `plot_key`, and `plot_voice`'s permanent ceiling-saturation
+(present at `freq_0`, i.e. **zero** insertions, and unmoved by widening the reference pool 2x) as an unexplained
+property of those specific phrasings — "more fluent than every alternative tried, independent of training
+exposure," with no mechanism given. Prompted to dig into *why*, the mechanism turns out to be simple and checkable
+directly against the base corpus, with no training or re-scoring needed:
+
+| Canary | Identity phrase | Occurrences in `data/raw/base.txt` (unrelated to any canary insertion) | Always at ceiling? |
+|---|---|---|---|
+| `char_pip` | "Pip" (a name) | **150** | Yes, in every condition tested |
+| `plot_key` | "a shiny key" | **41** | Yes, in every condition tested |
+| `plot_voice` | "a soft voice" | **67** | Yes, in every condition tested |
+| `char_nira` | "Nira" | 0 | No — real, growing dose-response |
+| `char_boro` | "Boro" | 0 | No — real, growing dose-response |
+| `char_suri` | "Suri" | 0 | No — real, growing dose-response |
+| `plot_song` | "a strange song" | 0 | No — mostly at ceiling by freq 10/100, but not at freq_0 |
+| `plot_lantern` | "the little lantern" | 0 | No — real, growing dose-response, clearest signal in the project |
+
+**The three permanently-saturated canaries are exactly the three whose "novel" identity was never actually novel
+to the base pretraining corpus.** "Pip" is a name TinyStories already uses 150 times, unrelated to this project's
+canary insertions; "a shiny key" and "a soft voice" are generic phrases TinyStories already uses dozens of times.
+A model trained on this corpus assigns these phrases high probability *before any canary insertion happens*,
+simply because the base corpus itself made them familiar — nothing about the exposure metric's reference-set size
+was ever going to fix that, because widening the pool doesn't change how familiar the true phrase already is.
+Every canary that shows genuine, controllable dose-response has **zero** base-corpus occurrences of its identity
+phrase — a clean necessary condition, confirmed on all 8 inserted canaries and both unseen-control types (`Olen`,
+`Teva`: 0 occurrences each, behaving exactly as zero-exposure canaries should).
+
+**This reframes the earlier "attempted fix" (widening the reference pool) correctly**: it wasn't a failed fix to a
+real problem, it was the right response to the wrong diagnosis. The actual fix is at Phase 1 (canary design):
+verify every candidate canary identity — and every reference-set alternative — has zero occurrences in the base
+corpus *before* locking the canary bank, not after noticing a confusing result three phases later. This wasn't
+done originally (the alt-pool check above also turned up `Mira`, `Zeb`, `Dara`, and `Nell` at 12-76 occurrences
+each — none of them happened to be selected as a true canary identity, so it caused no visible problem, but it was
+luck, not design). **Recommendation for any future canary study, and for a paper's methods section**: this
+corpus-frequency check is a required pre-registration step, not an optional sanity check — it takes seconds to run
+and would have caught this before any training happened.
+
 ## Not yet checked
 
 The full positive-control half of Checkpoint 4 needs the architecture-replication check repeated at this

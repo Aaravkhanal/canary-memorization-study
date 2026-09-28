@@ -11,11 +11,13 @@ rules (`PLAN.md`).
 
 *To be written once the reduced-pass grid and, ideally, a seed-replication pass are complete. Draft claim the
 data supports so far: a small (14M-parameter) decoder-only LM shows a measurable, dose-dependent memorization
-signal for at least some planted narrative elements after as few as 10 insertions in ~14.6M training tokens, and
-this signal replicates across two different positional-encoding schemes (RoPE vs. learned absolute positions) —
-but the standard exposure metric (Carlini et al., 2019) requires a reference set well beyond what a naive
-implementation provides, or it silently saturates and reports zero signal for canaries whose phrasing is already
-fluent under the model's prior.*
+signal for at least some planted narrative elements after as few as 10 insertions in ~14.6M training tokens,
+converging to unambiguous, maximal memorization by 100 insertions, and this signal replicates across two
+different positional-encoding schemes (RoPE vs. learned absolute positions). Separately, we show that the standard
+exposure metric (Carlini et al., 2019) silently reports a false-positive "always memorized" signal for any canary
+whose identity phrase already occurs in the pretraining corpus independent of insertion — a canary-design flaw,
+not a metric flaw, missed by this project's own Phase 1 canary selection and only caught by checking base-corpus
+frequency after the fact. We recommend that check as a required pre-registration step for future canary studies.*
 
 ## 1. Research question
 
@@ -153,29 +155,45 @@ performed — per the brief, no LLM-judge automated scoring is used until that h
 
 ## 4. Results
 
-### 4.1 Finding: the exposure metric saturates at small reference-set sizes, and widening only partially fixes it
+### 4.1 Finding: three canaries were never actually novel to the base corpus — a canary-design flaw, not a metric flaw
 
 The first `freq_0` control (baseline architecture) revealed that with the original reference-set sizes (9
 candidates for character canaries, 5 for plot fragments), several canaries hit the *maximum possible exposure*
-even with **zero training exposure**: `char_pip` and three of four plot-fragment canaries. This means the metric
-was not measuring memorization for those canaries at all — it was reporting a ceiling value driven by the
-model's prior fluency ranking among the available alternatives, indistinguishable from a genuinely memorized
-canary at that reference-set size.
+even with **zero training exposure**: `char_pip` and three of four plot-fragment canaries. The reference-set size
+was widened (8 → 19 alternatives for character canaries, 4 → 9 for plot fragments; `configs/canaries.yaml`) and
+every affected result recomputed on the same, already-trained checkpoints. **The widening only partially resolved
+the problem**: `char_pip`, `plot_key`, and `plot_voice` still saturate at the new (higher) ceiling in every
+condition tested (frequencies 0, 1, 10, and 100, both architectures where run).
 
-The reference-set size was widened (8 → 19 alternatives for character canaries, 4 → 9 for plot fragments;
-`configs/canaries.yaml`, kept as an additive, documented change) and every affected result recomputed on the same,
-already-trained checkpoints (a cheap forward-pass re-score, no retraining). **The widening only partially
-resolved the problem**: `char_pip`, `plot_key`, and `plot_voice` still saturate at the new (higher) ceiling in
-every condition tested (frequencies 0, 1, and 10, both architectures) — i.e. this is not a resolution artifact
-fixable by a larger reference set, but a property of those specific phrasings being more fluent than every
-alternative tried, independent of training exposure. `plot_song` and `plot_lantern` do not saturate and show
-usable signal (below).
+**The mechanism turns out to be checkable directly against the pretraining corpus, with no retraining needed, and
+it fully explains the pattern**: the three permanently-saturated canaries are exactly the three whose identity
+phrase already occurs substantially in the base corpus, independent of any canary insertion —
 
-**Methodological implication for future canary-based memorization studies**: a reference-set size should be
-validated empirically against a zero-exposure control *before* it is used to draw conclusions from treatment
-conditions, not assumed adequate from its nominal size. A metric that reports a "clean" positive result for an
-unseen control is not sufficient evidence the metric is well-calibrated for every canary in the bank — only for
-the ones whose result isn't already at the ceiling in the control.
+| Canary | Identity phrase | Occurrences in the base corpus | Ceiling-saturated in every condition? |
+|---|---|---|---|
+| `char_pip` | "Pip" | 150 | Yes |
+| `plot_key` | "a shiny key" | 41 | Yes |
+| `plot_voice` | "a soft voice" | 67 | Yes |
+| every other inserted canary | — | 0 | No — real, controllable dose-response |
+
+"Pip" is a name TinyStories already uses 150 times; "a shiny key" and "a soft voice" are phrases it already uses
+dozens of times. A model trained on this corpus assigns these high probability *before any canary is ever
+inserted*, simply from ordinary pretraining — no reference-set size was ever going to change that, because
+widening the pool doesn't change how familiar the true phrase already was. Every canary with zero base-corpus
+occurrences of its identity phrase shows genuine, growing dose-response instead (§4.3); the two unseen-control
+types (`Olen`, `Teva`) also have zero occurrences and behave exactly as zero-exposure canaries should. This is a
+clean, confirmed necessary condition, checked on all 8 inserted canaries, both control types, and every
+reference-pool alternative.
+
+**Methodological implication for canary-based memorization studies, general beyond this project**: a canary's
+"novelty" needs to be verified against the actual pretraining corpus before it is locked into the design, not
+assumed from the name or phrase sounding unusual. This project's own alternative-name pool, checked after the
+fact, turned up four more names (`Mira`, `Zeb`, `Dara`, `Nell`) with 12-76 base-corpus occurrences that happened
+not to be selected as true canary identities — avoiding the same problem by luck, not by design. **A base-corpus
+frequency check on every candidate canary identity and every reference-set alternative should be a required
+pre-registration step**, run before Phase 1 is locked, not a diagnostic performed three phases later after a
+result looks confusing. It takes seconds to run and would have caught this project's version of the problem
+immediately.
 
 ### 4.2 Finding: single-seed exposure differences are noisy at a scale that dwarfs some canaries' apparent lift
 
