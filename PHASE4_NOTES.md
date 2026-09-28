@@ -226,27 +226,50 @@ this evidence alone. **None of this is resolved by a single seed per frequency**
 flagged above, now with sharper stakes: without it, "which canaries show real dose-response" cannot be answered
 with confidence, only "which ones are plausible candidates for one."
 
-## variant_a_learned_pos/freq_10: raw numbers only, lift still pending its own control
+## variant_a_learned_pos: the full lift table, and cross-architecture replication
 
-`variant_a_learned_pos/freq_10` finished (best val loss 1.6259) and was scored:
+`variant_a_learned_pos/freq_0` finished and was scored, closing the control gap flagged above. The real lift
+table for this architecture:
 
-| id | variant_a/freq_1 | variant_a/freq_10 |
-|---|---|---|
-| char_pip | 2.81 | 4.39 |
-| char_nira | 2.07 | 4.39 |
-| char_boro | 2.39 | 4.39 |
-| char_suri | 0.58 | 2.07 |
+| id | freq_0 | freq_1 | freq_10 | lift@1 | lift@10 |
+|---|---|---|---|---|---|
+| char_pip | 3.392 | 2.807 | 4.392 | -0.585 | +1.000 |
+| char_nira | 1.807 | 2.070 | 4.392 | +0.263 | **+2.585** |
+| char_boro | 1.807 | 2.392 | 4.392 | +0.585 | **+2.585** |
+| char_suri | 0.807 | 0.585 | 2.070 | -0.222 | +1.263 |
+| ctrl_char_olen | 1.392 | 1.070 | 0.692 | -0.322 | -0.700 |
+| ctrl_char_teva | 0.807 | 0.807 | 1.807 | +0.000 | +1.000 |
+| plot_key | 3.459 | 3.459 | 3.459 | +0.000 | +0.000 |
+| plot_song | 3.459 | 3.459 | 3.459 | +0.000 | +0.000 |
+| plot_lantern | 0.459 | 0.138 | 3.459 | -0.322 | **+3.000** |
+| plot_voice | 3.459 | 3.459 | 3.459 | +0.000 | +0.000 |
+| ctrl_plot_bell | 2.459 | 2.459 | 1.874 | +0.000 | -0.585 |
+| ctrl_plot_map | 1.138 | 2.459 | 1.138 | **+1.322** | +0.000 |
 
-All three of `char_pip`/`char_nira`/`char_boro` jumped to the exact ceiling at frequency 10, having been spread
-out at frequency 1 — a pattern that, if it held up as a lift, would be a strong dose-response signal. **It cannot
-be read that way yet**, for the same reason flagged when `variant_a/freq_1` was first scored: there is still no
-`variant_a_learned_pos` zero-exposure control, so it's not known what these numbers look like for this
-architecture with zero insertions. `variant_a_learned_pos/freq_0` is training now (queued right after this run,
-per the plan above); this section will be revised into a real lift table once it's scored — not before.
+**This is the most useful result so far, because it's an independent replication, not just a second run.**
+Comparing against baseline architecture's lift table (same section above):
+
+- `char_nira`, `char_boro`, and `plot_lantern` show clear positive lift at frequency 10 **in both architectures**
+  — `plot_lantern` especially (baseline +2.807, variant_a +3.000: nearly identical, and both hit their
+  architecture's ceiling). Two different architectures, two different training runs, same three canaries showing
+  the largest, most consistent dose-response signal. This is meaningfully stronger evidence than either result
+  alone: architecture-independent replication rules out "quirk of one run's RoPE/GQA setup" as the explanation.
+- `plot_key`/`plot_song`/`plot_voice` are ceiling-saturated in **both** architectures at **all three**
+  frequencies — confirming this is a property of the canary phrasing vs. its reference pool, not of one
+  architecture's training dynamics.
+- The noise-band estimate is independently reconfirmed here too: `ctrl_plot_map`, never inserted into this
+  architecture's training data at any frequency, still shows +1.322 "lift" at frequency 1 from pure run-to-run
+  noise — close to baseline's `ctrl_char_teva` swing (+1.585) that originally set the ~1.6 estimate. Two
+  unrelated controls, two different architectures, both landing in the same noise range independently is good
+  evidence the ~1.6 band is real and not an artifact of one run.
+- `char_pip` and `char_suri` are non-monotonic here (slightly negative lift at frequency 1, positive at frequency
+  10) — plausibly a real but weak effect that only clears the noise floor at the higher frequency, but not
+  distinguishable from noise on this evidence alone.
 
 ## Not yet checked
 
-The full positive-control half of Checkpoint 4 ("higher-frequency canaries should show higher exposure than 1x or
-unseen") needs more than one frequency trained — frequency 1 alone can't show a dose-response trend. Frequencies
-100 and 500 are still queued for both architectures, and will be scored against the widened reference pools
-above once the currently-training `variant_a_learned_pos/freq_0` control finishes and its lift table is written up.
+The full positive-control half of Checkpoint 4 needs more than two frequencies to call a trend a trend with
+confidence. Frequencies 100 and 500 are still queued for both architectures, and will be scored against the
+widened reference pools above. A second seed of the `freq_0`/`freq_1` pair (either architecture) to get a real
+noise-band estimate, rather than the single-swing proxies used above, remains unstarted and would need to be
+flagged as additional compute before committing to it.
