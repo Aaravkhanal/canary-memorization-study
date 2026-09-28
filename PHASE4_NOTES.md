@@ -190,6 +190,42 @@ doesn't reorder already-running compute). Until it's scored, the `variant_a/freq
 exposure only — informative about what the metric measures for this checkpoint, not yet a lift, and not yet
 comparable to baseline's lift numbers.
 
+## First real dose-response check (frequency 0 -> 1 -> 10, baseline architecture), and a revised noise estimate
+
+`baseline/freq_10` finished (best val loss 1.5474) and was scored. With three points per canary now (`freq_0`,
+`freq_1`, `freq_10`), the full lift picture is:
+
+| id | freq_0 | freq_1 | freq_10 | lift@1 | lift@10 |
+|---|---|---|---|---|---|
+| char_pip | 4.392 | 4.392 | 4.392 | +0.000 | +0.000 |
+| char_nira | 1.222 | 0.933 | 3.392 | -0.290 | **+2.170** |
+| char_boro | 0.933 | 1.807 | 1.392 | +0.874 | +0.459 |
+| char_suri | 0.933 | 0.933 | 2.392 | +0.000 | +1.459 |
+| ctrl_char_olen | 1.070 | 1.222 | 0.692 | +0.152 | -0.379 |
+| ctrl_char_teva | 0.222 | 1.070 | 1.807 | +0.848 | **+1.585** |
+| plot_key | 3.459 | 3.459 | 3.459 | +0.000 | +0.000 |
+| plot_song | 3.459 | 2.459 | 3.459 | -1.000 | +0.000 |
+| plot_lantern | 0.652 | 2.459 | 3.459 | +1.807 | **+2.807** |
+| plot_voice | 3.459 | 3.459 | 3.459 | +0.000 | +0.000 |
+| ctrl_plot_bell | 2.459 | 2.459 | 2.459 | +0.000 | +0.000 |
+| ctrl_plot_map | 1.459 | 1.874 | 1.459 | +0.415 | +0.000 |
+
+**The encouraging read:** `char_nira`, `char_suri`, and `plot_lantern` all show a lift at frequency 10 well above
+anything seen at frequency 1, in the direction the design predicts (more insertions -> more exposure). `char_pip`,
+`plot_key`, and `plot_voice` remain uninformative (still at the ceiling in all three conditions, as expected from
+the ceiling-saturation finding above).
+
+**The finding that has to temper it: `ctrl_char_teva` — a control never inserted at ANY frequency — shows +0.848
+at "freq_1" and +1.585 at "freq_10".** Since this canary was never in the training data at either point, this
+number is pure run-to-run noise (different corpus construction/batch order/seed per frequency, exactly as the
+earlier seed-variance note explained), and it's now visibly *larger* than the ~0.85 ceiling used earlier as the
+noise-band estimate. **The noise band is wider than that first estimate suggested — closer to ~1.6 at this data
+scale.** Reassessing the treatment lifts against a ~1.6 band: `plot_lantern` (+2.807) and `char_nira` (+2.170) are
+comfortably above it; `char_suri` (+1.459) and `char_boro` (+0.459) are not clearly distinguishable from noise on
+this evidence alone. **None of this is resolved by a single seed per frequency** — exactly the replication gap
+flagged above, now with sharper stakes: without it, "which canaries show real dose-response" cannot be answered
+with confidence, only "which ones are plausible candidates for one."
+
 ## Not yet checked
 
 The full positive-control half of Checkpoint 4 ("higher-frequency canaries should show higher exposure than 1x or
