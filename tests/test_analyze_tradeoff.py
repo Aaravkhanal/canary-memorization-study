@@ -6,23 +6,27 @@ import json
 import sys
 from pathlib import Path
 
+import pytest
+
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "scripts"))
 from analyze_tradeoff import build_table, find_runs, load_labels, mean_distinct_2, mean_exposure, mean_extraction_rate, mean_max_overlap, write_csv  # noqa: E402
 
 
-def mem_result(exposures_inserted, exposures_control, extractions):
+def mem_result(exposures_inserted, exposures_control, extractions, ids=None):
+    ids = ids or [f"c{i}" for i in range(len(exposures_inserted))]
     rows = []
-    for e, x in zip(exposures_inserted, extractions):
-        rows.append({"group": "inserted", "exposure": {"exposure": e}, "extraction": {"exact_match": x}})
+    for cid, e, x in zip(ids, exposures_inserted, extractions):
+        rows.append({"id": cid, "group": "inserted", "exposure": {"exposure": e}, "extraction": {"exact_match": x}})
     for e in exposures_control:
-        rows.append({"group": "unseen_control", "exposure": {"exposure": e}, "extraction": {"exact_match": False}})
+        rows.append({"id": "ctrl", "group": "unseen_control", "exposure": {"exposure": e}, "extraction": {"exact_match": False}})
     return {"rows": rows}
 
 
-def novelty_result(distinct_2s, max_overlaps):
+def novelty_result(distinct_2s, max_overlaps, ids=None):
+    ids = ids or [f"c{i}" for i in range(len(distinct_2s))]
     groups = []
-    for d, overlaps in zip(distinct_2s, max_overlaps):
-        groups.append({"distinct_2": d, "completions": [{"max_ngram_overlap": o} for o in overlaps]})
+    for cid, d, overlaps in zip(ids, distinct_2s, max_overlaps):
+        groups.append({"canary_id": cid, "distinct_2": d, "completions": [{"max_ngram_overlap": o} for o in overlaps]})
     return {"groups": groups}
 
 
@@ -48,6 +52,25 @@ def test_mean_distinct_2_and_max_overlap():
     n = novelty_result(distinct_2s=[0.3, 0.7], max_overlaps=[[0.1, 0.2], [0.9]])
     assert mean_distinct_2(n) == 0.5
     assert mean_max_overlap(n) == (0.2 + 0.9) / 2                     # max within each group, then averaged across groups
+
+
+def test_canary_ids_filter_restricts_every_mean_to_the_given_set():
+    """PHASE4_NOTES.md's root-cause finding: canaries contaminated by pre-existing base-corpus occurrences dilute
+    the memorization score toward zero. --canaries lets them be excluded from every aggregate."""
+    m = mem_result(exposures_inserted=[10.0, 2.0, 4.0], exposures_control=[], extractions=[True, False, False],
+                    ids=["contaminated", "char_a", "char_b"])
+    assert mean_exposure(m, "inserted", canary_ids={"char_a", "char_b"}) == 3.0
+    assert mean_extraction_rate(m, "inserted", canary_ids={"char_a", "char_b"}) == 0.0
+
+    n = novelty_result(distinct_2s=[0.1, 0.5, 0.9], max_overlaps=[[0.0], [0.2], [0.4]],
+                        ids=["contaminated", "char_a", "char_b"])
+    assert mean_distinct_2(n, canary_ids={"char_a", "char_b"}) == 0.7
+    assert mean_max_overlap(n, canary_ids={"char_a", "char_b"}) == pytest.approx(0.3)
+
+
+def test_canary_ids_filter_none_is_a_no_op():
+    m = mem_result(exposures_inserted=[2.0, 4.0], exposures_control=[], extractions=[False, False])
+    assert mean_exposure(m, "inserted", canary_ids=None) == mean_exposure(m, "inserted")
 
 
 # ── file discovery ────────────────────────────────────────────────────────────
@@ -79,6 +102,23 @@ def test_build_table_computes_memorization_lift_when_a_baseline_is_available(tmp
     assert row["exposure_inserted"] == 3.0
     assert row["memorization_score"] == 2.0                            # 3.0 - 1.0 baseline, not raw exposure
     assert row["novelty_score"] == 0.6
+
+
+def test_build_table_canary_ids_excludes_contaminated_canaries_from_every_score(tmp_path):
+    results = tmp_path / "results"; results.mkdir()
+    baseline = tmp_path / "baseline"; baseline.mkdir()
+    (results / "mem_baseline_freq10.json").write_text(
+        json.dumps(mem_result([10.0, 3.0], [1.0], [True, False], ids=["contaminated", "clean"])))
+    (results / "novelty_baseline_freq10.json").write_text(
+        json.dumps(novelty_result([0.1, 0.6], [[0.9], [0.1]], ids=["contaminated", "clean"])))
+    (baseline / "mem_baseline_freq0.json").write_text(
+        json.dumps(mem_result([10.0, 1.0], [1.0], [True, False], ids=["contaminated", "clean"])))
+
+    rows = build_table(results, baseline, {}, canary_ids={"clean"})
+    row = rows[0]
+    assert row["exposure_inserted"] == 3.0                              # not (10.0 + 3.0) / 2
+    assert row["memorization_score"] == 2.0                             # 3.0 - clean-only baseline of 1.0
+    assert row["novelty_score"] == 0.6                                  # not (0.1 + 0.6) / 2
 
 
 def test_build_table_falls_back_to_raw_exposure_without_a_baseline(tmp_path):

@@ -369,10 +369,52 @@ project's insertions began, leaving little headroom for a genuine memorization s
 remains the least informative canary in the bank for exactly this reason, but "least informative" is now
 mechanistically explained rather than mysterious.
 
+## Phase 6: first trade-off table and plot (partial grid — frequencies 0/1/10/100, no hand-labels yet)
+
+Per the brief's Checkpoint 6, this is **plots and a table only — no prose interpretation**. `scripts/analyze_tradeoff.py`
+was run against every result collected so far (`results/tradeoff.csv` + `.png`). Numbers, not conclusions:
+
+| variant | freq | memorization (mean lift, all 8 inserted canaries) | novelty (mean distinct-2) |
+|---|---|---|---|
+| baseline | 1 | 0.174 | 0.800 |
+| baseline | 10 | 0.862 | 0.810 |
+| baseline | 100 | 1.612 | 0.801 |
+| variant_a_learned_pos | 1 | -0.035 | 0.781 |
+| variant_a_learned_pos | 10 | 1.304 | 0.780 |
+| variant_a_learned_pos | 100 | 1.594 | 0.795 |
+
+**A known dilution in this table, not yet corrected in `tradeoff.csv`/`.png` above**: the "all 8 inserted canaries"
+mean folds in `char_pip`, `plot_key`, and `plot_voice` — the three canaries diagnosed as base-corpus-contaminated
+(root-cause section above), whose lift is always ≈0 regardless of frequency, for reasons unrelated to training
+exposure. Averaging them in with the five genuinely-responsive canaries mechanically pulls the memorization score
+toward zero at every frequency. `scripts/analyze_tradeoff.py` was extended with a `--canaries` filter
+(`tests/test_analyze_tradeoff.py` covers it) to produce a second version restricted to the five uncontaminated
+canaries only (`char_nira`, `char_boro`, `char_suri`, `plot_song`, `plot_lantern`) —
+`results/tradeoff_clean.csv` + `.png`:
+
+| variant | freq | memorization (mean lift, 5 clean canaries) | novelty (mean distinct-2, same 5) |
+|---|---|---|---|
+| baseline | 1 | 0.278 | 0.803 |
+| baseline | 10 | 1.379 | 0.827 |
+| baseline | 100 | 2.579 | 0.808 |
+| variant_a_learned_pos | 1 | 0.061 | 0.777 |
+| variant_a_learned_pos | 10 | 1.887 | 0.784 |
+| variant_a_learned_pos | 100 | 2.351 | 0.799 |
+
+Both tables show the same qualitative shape: the memorization column rises with frequency in both architectures
+(more steeply in the contamination-excluded version, as expected once the always-≈0 canaries are removed from the
+average); the novelty column (distinct-2 diversity across completions in a novel setting) stays within a narrow
+band (0.777–0.827) across every frequency tested, in both architectures and both canary sets. **This is a factual
+description of what these two numbers do across the grid tested so far, not a claim about H1** (`docs/RESEARCH_PLAN.md`
+§2, `docs/DRAFT_PAPER.md` §1.1) — the novelty metric here is still the Phase-5 diversity *proxy* (distinct-2), not
+the hand-labelled recombination score the brief's design actually calls for (Checkpoint 5, not yet done), frequency
+500 is missing from both tables, and every cell is a single training seed. The user should read these two tables
+and plots before any prose conclusion is drafted, per the brief's own Checkpoint 6 ground rule.
+
 ## Not yet checked
 
 Frequency 500 is still queued for both architectures. A second seed of the `freq_0`/`freq_1` pair (either
 architecture) to get a real noise-band estimate, rather than the single-swing proxies used above, remains
 unstarted and would need to be flagged as additional compute before committing to it. The novelty/recombination
 side of the research question (Phase 5 proper — hand-labelling, full-grid scoring) is the largest remaining gap:
-everything above is memorization-only.
+everything above uses the diversity proxy, not the hand-labelled score the brief's design calls for.

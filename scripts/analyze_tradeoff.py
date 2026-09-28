@@ -53,23 +53,26 @@ def find_runs(results_dir: Path) -> Dict[tuple, dict]:
     return runs
 
 
-def mean_exposure(mem_result: dict, group: str = "inserted") -> Optional[float]:
-    vals = [row["exposure"]["exposure"] for row in mem_result["rows"] if row["group"] == group and "exposure" in row]
+def mean_exposure(mem_result: dict, group: str = "inserted", canary_ids: Optional[set] = None) -> Optional[float]:
+    vals = [row["exposure"]["exposure"] for row in mem_result["rows"]
+            if row["group"] == group and "exposure" in row and (canary_ids is None or row["id"] in canary_ids)]
     return sum(vals) / len(vals) if vals else None
 
 
-def mean_extraction_rate(mem_result: dict, group: str = "inserted") -> Optional[float]:
-    vals = [row["extraction"]["exact_match"] for row in mem_result["rows"] if row["group"] == group]
+def mean_extraction_rate(mem_result: dict, group: str = "inserted", canary_ids: Optional[set] = None) -> Optional[float]:
+    vals = [row["extraction"]["exact_match"] for row in mem_result["rows"]
+            if row["group"] == group and (canary_ids is None or row["id"] in canary_ids)]
     return sum(vals) / len(vals) if vals else None
 
 
-def mean_distinct_2(novelty_result: dict) -> Optional[float]:
-    vals = [g["distinct_2"] for g in novelty_result["groups"]]
+def mean_distinct_2(novelty_result: dict, canary_ids: Optional[set] = None) -> Optional[float]:
+    vals = [g["distinct_2"] for g in novelty_result["groups"] if canary_ids is None or g["canary_id"] in canary_ids]
     return sum(vals) / len(vals) if vals else None
 
 
-def mean_max_overlap(novelty_result: dict) -> Optional[float]:
-    vals = [max((c["max_ngram_overlap"] for c in g["completions"]), default=0.0) for g in novelty_result["groups"]]
+def mean_max_overlap(novelty_result: dict, canary_ids: Optional[set] = None) -> Optional[float]:
+    vals = [max((c["max_ngram_overlap"] for c in g["completions"]), default=0.0) for g in novelty_result["groups"]
+            if canary_ids is None or g["canary_id"] in canary_ids]
     return sum(vals) / len(vals) if vals else None
 
 
@@ -87,7 +90,12 @@ def load_labels(path: Optional[Path]) -> Dict[tuple, float]:
     return {k: (v.count("N") / len(v) if v else None) for k, v in counts.items()}
 
 
-def build_table(results_dir: Path, baseline_dir: Optional[Path], labels: Dict[tuple, float]) -> List[dict]:
+def build_table(results_dir: Path, baseline_dir: Optional[Path], labels: Dict[tuple, float],
+                 canary_ids: Optional[set] = None) -> List[dict]:
+    """canary_ids, if given, restricts every mean to that set of canary ids -- e.g. excluding canaries whose
+    identity is known-contaminated by pre-existing base-corpus occurrences (PHASE4_NOTES.md's root-cause finding),
+    which otherwise dilutes the memorization score toward zero with canaries the metric can never move for reasons
+    unrelated to training exposure."""
     runs = find_runs(results_dir)
     baselines = find_runs(baseline_dir) if baseline_dir else {}
     rows = []
@@ -95,13 +103,13 @@ def build_table(results_dir: Path, baseline_dir: Optional[Path], labels: Dict[tu
         row = {"variant": variant, "frequency": freq}
         if "mem" in paths:
             mem = json.loads(paths["mem"].read_text())
-            row["exposure_inserted"] = mean_exposure(mem)
-            row["exposure_control"] = mean_exposure(mem, group="unseen_control")
-            row["extraction_rate"] = mean_extraction_rate(mem)
+            row["exposure_inserted"] = mean_exposure(mem, canary_ids=canary_ids)
+            row["exposure_control"] = mean_exposure(mem, group="unseen_control", canary_ids=canary_ids)
+            row["extraction_rate"] = mean_extraction_rate(mem, canary_ids=canary_ids)
             base_key = (variant, 0)                          # frequency 0: this variant's own zero-exposure baseline
             if base_key in baselines and "mem" in baselines[base_key]:
                 base_mem = json.loads(baselines[base_key]["mem"].read_text())
-                base_exposure = mean_exposure(base_mem)
+                base_exposure = mean_exposure(base_mem, canary_ids=canary_ids)
                 if base_exposure is not None and row["exposure_inserted"] is not None:
                     row["memorization_score"] = row["exposure_inserted"] - base_exposure
             if "memorization_score" not in row:
@@ -109,8 +117,8 @@ def build_table(results_dir: Path, baseline_dir: Optional[Path], labels: Dict[tu
                 row["memorization_score_is_raw"] = "memorization_score" not in row or base_key not in baselines
         if "novelty" in paths:
             nov = json.loads(paths["novelty"].read_text())
-            row["distinct_2_proxy"] = mean_distinct_2(nov)
-            row["max_training_overlap"] = mean_max_overlap(nov)
+            row["distinct_2_proxy"] = mean_distinct_2(nov, canary_ids=canary_ids)
+            row["max_training_overlap"] = mean_max_overlap(nov, canary_ids=canary_ids)
             row["novelty_score"] = row["distinct_2_proxy"]
         if (variant, freq) in labels:
             row["novelty_score"] = labels[(variant, freq)]         # hand labels override the proxy when present
@@ -181,10 +189,15 @@ def main() -> None:
     ap.add_argument("--labelled-csv", type=Path, help="optional hand-label CSV from Checkpoint 5 (columns: variant,freq,label)")
     ap.add_argument("--out-plot", type=Path, default=ROOT / "results" / "tradeoff.png")
     ap.add_argument("--out-csv", type=Path, default=ROOT / "results" / "tradeoff.csv")
+    ap.add_argument("--canaries", type=str,
+                     help="comma-separated canary ids to restrict every mean to (e.g. to exclude canaries known "
+                          "contaminated by pre-existing base-corpus occurrences, PHASE4_NOTES.md's root-cause "
+                          "finding); default: every inserted canary")
     args = ap.parse_args()
 
+    canary_ids = set(args.canaries.split(",")) if args.canaries else None
     labels = load_labels(args.labelled_csv)
-    rows = build_table(args.results_dir, args.baseline_dir, labels)
+    rows = build_table(args.results_dir, args.baseline_dir, labels, canary_ids=canary_ids)
     if not rows:
         print(f"no results found in {args.results_dir} matching mem_<variant>_freq<F>.json / novelty_<variant>_freq<F>.json")
         return

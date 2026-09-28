@@ -45,13 +45,19 @@ H2 coming back null is still a valid, publishable result: it would mean the trad
 data/exposure rather than architecture at this scale — itself informative, and framable as a boundary condition
 against the small-model architecture-ablation literature (§2).
 
-**Status against these hypotheses so far**: the memorization side of H1 is well-supported by §4.3-4.4's
-dose-response results (large, replicated, converges to saturation by frequency 100). The *trade-off* half of H1 —
-whether novelty actually declines as memorization rises — is not yet tested past smoke-testing (§4.5), so H1
-overall remains open. H2 has one data point in the *memorization* dimension (the dose-response signal replicates
-closely across RoPE and learned-position architectures at frequencies 10 and 100, §4.3) — suggestive of a null
-result on the memorization side specifically, but the novelty side of H2 is entirely untested and multi-head
-attention (the second architecture axis in the hypothesis) hasn't been trained at all yet.
+**Status against these hypotheses so far**: the memorization side of H1 is well-supported by §4.3's dose-response
+results (large, replicated, converges to saturation by frequency 100). The *trade-off* half of H1 — whether
+novelty actually declines as memorization rises — has one preliminary, proxy-based data point now (§4.5): across
+frequencies 1/10/100 in both architectures, the novelty proxy stays within a narrow band while the memorization
+score climbs steeply, in both the full-canary and contamination-excluded tables. That is a fact about these two
+numbers on this partial grid, not a test of H1 — the novelty metric is a diversity proxy standing in for the
+brief's actual hand-labelled recombination score (Checkpoint 5, not done), one seed per cell, and frequency 500 is
+missing. H1 remains open pending that real test. H2 has one data point in the *memorization* dimension (the
+dose-response signal replicates closely across RoPE and learned-position architectures at frequencies 10 and 100,
+§4.3) — suggestive of a null result on the memorization side specifically, and the same pattern (flat novelty
+proxy) also holds in both architectures in §4.5's tables — but the novelty side of H2 has the same proxy-metric
+caveat as H1, and multi-head attention (the second architecture axis in the hypothesis) hasn't been trained at
+all yet.
 
 ## 2. Related work
 
@@ -311,6 +317,46 @@ settings — i.e. the model is not collapsing to one templated completion per se
 frequency tested so far. This is not yet a quantitative result against the brief's Checkpoint 5 requirements
 (hand-labelling, full-grid scoring) and should be read only as "nothing alarming happened in the smoke test," not
 as evidence for or against the trade-off hypothesis.
+
+### 4.5 Trade-off table and plot (Checkpoint 6, partial — frequencies 0/1/10/100, proxy novelty metric)
+
+Per the brief's Checkpoint 6, this section presents plots and tables only; no prose conclusion is drawn here — the
+user reads these first, per the project's ground rules (`docs/RESEARCH_PLAN.md` §10). `scripts/analyze_tradeoff.py`
+was run against every memorization and novelty result collected so far.
+
+**All 8 inserted canaries** (`results/tradeoff.csv` / `.png`):
+
+| variant | freq | memorization (mean lift) | novelty (mean distinct-2) |
+|---|---|---|---|
+| baseline | 1 | 0.174 | 0.800 |
+| baseline | 10 | 0.862 | 0.810 |
+| baseline | 100 | 1.612 | 0.801 |
+| variant_a_learned_pos | 1 | -0.035 | 0.781 |
+| variant_a_learned_pos | 10 | 1.304 | 0.780 |
+| variant_a_learned_pos | 100 | 1.594 | 0.795 |
+
+**The same table, restricted to the 5 canaries not diagnosed as base-corpus-contaminated** (§4.1) — added because
+averaging in the 3 contaminated canaries (whose lift is always ≈0 for reasons unrelated to training exposure)
+mechanically dilutes the memorization column at every frequency (`results/tradeoff_clean.csv` / `.png`, via the new
+`--canaries` filter on `analyze_tradeoff.py`):
+
+| variant | freq | memorization (mean lift, clean canaries) | novelty (mean distinct-2, same canaries) |
+|---|---|---|---|
+| baseline | 1 | 0.278 | 0.803 |
+| baseline | 10 | 1.379 | 0.827 |
+| baseline | 100 | 2.579 | 0.808 |
+| variant_a_learned_pos | 1 | 0.061 | 0.777 |
+| variant_a_learned_pos | 10 | 1.887 | 0.784 |
+| variant_a_learned_pos | 100 | 2.351 | 0.799 |
+
+**What these tables show, described factually**: the memorization column rises with frequency in both
+architectures in both tables (more steeply once the contaminated canaries are excluded); the novelty column stays
+within a narrow band (0.777–0.827) across every frequency and both canary sets. **Caveats that bear directly on
+how much weight this can carry**: novelty here is the distinct-2 diversity *proxy*, not the hand-labelled
+recombination score the brief's design calls for (Checkpoint 5 hand-labelling has not been done); frequency 500 is
+missing from both tables; and every cell is a single training seed (§4.2's noise-band caveat applies to the
+memorization axis here too). This is the first data directly relevant to H1 (§1.1), but on the current evidence
+alone it should be treated as a preliminary, proxy-based data point, not an answer.
 
 ## 5. Limitations (current, to be revisited as the grid completes)
 
