@@ -26,6 +26,33 @@ memorizing recurring narrative elements (character names, plot fragments) agains
 elements into novel stories as exposure frequency increases — and does that trade-off differ by architecture
 (positional encoding, attention type, normalization)? (Verbatim research question, `PLAN.md`.)
 
+This reframes memorization from a **privacy problem** — the dominant framing in the existing literature (Carlini
+et al.'s membership-inference and extraction work, differential-privacy mitigation) — into a **creativity-capacity
+trade-off** in generative models: not "can training data be extracted," but "does the capacity a model spends on
+verbatim recall come at the expense of capacity for novel recombination." Applying that reframing to a small,
+from-scratch narrative model is this project's core novelty claim (full framing in `docs/RESEARCH_PLAN.md`).
+
+### 1.1 Hypotheses
+
+- **H1 (primary):** Memorization and compositional novelty are not independent. Beyond some exposure threshold,
+  increasing repetition of a narrative element reduces the model's tendency to recombine it in new ways — it
+  shifts from *composing* to *reproducing*.
+- **H2 (secondary):** The location/shape of this trade-off curve depends on architecture. Models with different
+  capacity for long-range structure (RoPE vs. learned position encoding; GQA vs. MHA) may resist
+  memorization-driven crowding-out differently.
+
+H2 coming back null is still a valid, publishable result: it would mean the trade-off is a function of
+data/exposure rather than architecture at this scale — itself informative, and framable as a boundary condition
+against the small-model architecture-ablation literature (§2).
+
+**Status against these hypotheses so far**: the memorization side of H1 is well-supported by §4.3-4.4's
+dose-response results (large, replicated, converges to saturation by frequency 100). The *trade-off* half of H1 —
+whether novelty actually declines as memorization rises — is not yet tested past smoke-testing (§4.5), so H1
+overall remains open. H2 has one data point in the *memorization* dimension (the dose-response signal replicates
+closely across RoPE and learned-position architectures at frequencies 10 and 100, §4.3) — suggestive of a null
+result on the memorization side specifically, but the novelty side of H2 is entirely untested and multi-head
+attention (the second architecture axis in the hypothesis) hasn't been trained at all yet.
+
 ## 2. Related work
 
 The memorization side of this design follows the "Secret Sharer" methodology of Carlini, Liu, Erlingsson, Kos &
@@ -35,6 +62,21 @@ canary than a set of plausible alternatives, via an **exposure** metric (defined
 that methodology to narrative canaries in a story-generation setting (rather than the original's random
 sequences) and pairs it with a compositional-novelty measurement, to ask not just "does it memorize?" but "does
 memorizing trade off against creative recombination?"
+
+| Prior work | What it does | Gap this project fills |
+|---|---|---|
+| Carlini et al. (2019, "Secret Sharer"), Carlini et al. (2020, extraction) | Canary insertion, exposure metric, model-size vs. memorization | Uses generic/random canaries, not structured narrative elements; treats memorization only as a privacy risk |
+| Tirumala et al., Carlini et al. (2022/2023) | Memorization scales with model size | Varies *size*, not *architecture at fixed size* (this project's axis) |
+| Zhang et al. (2023), counterfactual memorization | Shows models generalize on familiar surface forms but fail under perturbation | Closest prior work conceptually — this project differs by explicitly measuring *compositional recombination*, not just perturbation robustness |
+| "What Language Model to Train if You Have One Million GPU Hours?"; Wiola-13M architecture ablations | Architecture ablations (position encoding, attention, norm) at small scale | Measures perplexity/capability, not memorization behavior |
+| Memory Dial; Memorization Sinks | Controllable/removable memorization | Focused on mitigation, not the creativity trade-off itself |
+| TinyStories (Eldan & Li, 2023) | Coherence/fluency of small story-generating models | Does not touch memorization or originality measurement |
+
+**No existing work crosses the architecture-ablation literature with the memorization literature, and no existing
+memorization study uses a creative-generation setting where "crowding out novelty" is the outcome of interest
+rather than privacy leakage.** That combination is this project's positioning. (Full citation list and a risks/
+mitigations table that anticipated, among other things, the canary-contamination issue actually found in §4.1:
+`docs/RESEARCH_PLAN.md`.)
 
 ## 3. Methods
 
