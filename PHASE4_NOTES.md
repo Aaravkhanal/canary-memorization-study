@@ -266,10 +266,41 @@ Comparing against baseline architecture's lift table (same section above):
   10) — plausibly a real but weak effect that only clears the noise floor at the higher frequency, but not
   distinguishable from noise on this evidence alone.
 
+## baseline/freq_100: the ambiguity at frequency 10 resolves
+
+`baseline/freq_100` finished (best val loss 1.5609) and was scored. Frequency 100 is unambiguous where frequency
+10 was not:
+
+| id | freq_0 | freq_100 | lift@100 |
+|---|---|---|---|
+| char_pip | 4.392 | 4.392 | +0.000 (still ceiling-saturated, uninformative) |
+| char_nira | 1.222 | 4.392 | **+3.170** |
+| char_boro | 0.933 | 4.392 | **+3.459** |
+| char_suri | 0.933 | 4.392 | **+3.459** |
+| ctrl_char_olen | 1.070 | 1.070 | +0.000 |
+| ctrl_char_teva | 0.222 | 1.222 | +1.000 |
+| plot_key | 3.459 | 3.459 | +0.000 (ceiling) |
+| plot_song | 3.459 | 3.459 | +0.000 (ceiling) |
+| plot_lantern | 0.652 | 3.459 | **+2.807** |
+| plot_voice | 3.459 | 3.459 | +0.000 (ceiling) |
+| ctrl_plot_bell | 2.459 | 2.459 | +0.000 |
+| ctrl_plot_map | 1.459 | 1.138 | -0.322 |
+
+**`char_boro` and `char_suri`, which sat right at the edge of the ~1.6 noise band at frequency 10 (+0.459 and
++1.459), now show +3.459 each at frequency 100** — every inserted character canary except the already-saturated
+`char_pip` has hit the exact same ceiling as `char_nira` and `plot_lantern`. All four controls' swings at this
+frequency (+0.000 to +1.000) stay comfortably inside the noise band, so this isn't ceiling-effect noise; it's
+every genuinely-inserted, non-saturated canary converging on maximal exposure once frequency is high enough. This
+is the clearest, least ambiguous dose-response result in the project so far, and it resolves the frequency-10
+ambiguity for `char_boro`/`char_suri` in the positive direction: their earlier borderline lift was very likely a
+weak-but-real effect that simply hadn't cleared the noise floor yet, not noise itself.
+
 ## Not yet checked
 
-The full positive-control half of Checkpoint 4 needs more than two frequencies to call a trend a trend with
-confidence. Frequencies 100 and 500 are still queued for both architectures, and will be scored against the
-widened reference pools above. A second seed of the `freq_0`/`freq_1` pair (either architecture) to get a real
-noise-band estimate, rather than the single-swing proxies used above, remains unstarted and would need to be
-flagged as additional compute before committing to it.
+The full positive-control half of Checkpoint 4 needs the architecture-replication check repeated at this
+frequency. `variant_a_learned_pos/freq_100` is training now; if it reproduces the same "everything except the
+already-saturated canaries converges on the ceiling" pattern, that would be a second independent confirmation at
+a second frequency, on top of the frequency-10 replication already found. Frequency 500 is still queued for both
+architectures. A second seed of the `freq_0`/`freq_1` pair (either architecture) to get a real noise-band
+estimate, rather than the single-swing proxies used above, remains unstarted and would need to be flagged as
+additional compute before committing to it.

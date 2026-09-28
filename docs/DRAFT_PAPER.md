@@ -219,10 +219,21 @@ that this specific canary's memorization is a robust, architecture-independent e
 scale, not a fluke of one run. `char_pip`, `plot_key`, `plot_song`, and `plot_voice` remain uninformative due to
 ceiling saturation (§4.1) in one or both architectures and cannot yet support any claim either way.
 
-**Not yet established**: whether this pattern continues, saturates, or reverses at frequencies 100 and 500
-(training in progress); whether it holds under a second training seed rather than the single-seed-per-cell design
-used so far; and — the central research question — how novelty/recombination ability (§3.5, not yet scored past
-smoke-testing) moves alongside this memorization signal.
+**Update at frequency 100 (baseline architecture; `variant_a_learned_pos` training now):** the ambiguity for
+`char_boro` and `char_suri` resolves cleanly in the positive direction. Both sat at or near the noise-band edge at
+frequency 10 (+0.459 and +1.459); at frequency 100 both show **+3.459** — the same ceiling value as `char_nira`
+and `plot_lantern` — while every unseen control's swing at this frequency (+0.000 to +1.000) stays comfortably
+inside the ~1.6 noise band. Every genuinely-inserted, non-already-saturated character and plot-fragment canary now
+shows unambiguous, large lift by frequency 100. The pattern so far: dose-response is real and, at this data scale,
+strong enough to saturate the metric once frequency is high enough — the frequency-10 data point was this effect
+still emerging above the noise floor, not the ceiling of the effect itself.
+
+**Not yet established**: whether `variant_a_learned_pos/freq_100` replicates this same convergence (training now
+— would be a second independent confirmation, on top of the frequency-10 replication already found); whether the
+pattern holds, saturates further, or does anything unexpected at frequency 500 (queued); whether it holds under a
+second training seed rather than the single-seed-per-cell design used so far; and — the central research
+question — how novelty/recombination ability (§3.5, not yet scored past smoke-testing) moves alongside this
+memorization signal.
 
 ### 4.4 Preliminary novelty observations (not yet a full result)
 
