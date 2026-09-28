@@ -1,0 +1,289 @@
+{
+  "checkpoint": "models/variant_a_learned_pos/freq_10/exp_001_variant_a_learned_pos_freq10/checkpoints/best.pt",
+  "rows": [
+    {
+      "id": "char_pip",
+      "type": "character",
+      "group": "inserted",
+      "text": "Pip the fox, who was always hungry",
+      "exposure": {
+        "rank": 1,
+        "n_candidates": 20,
+        "exposure": 4.392317422778761,
+        "true_log_prob": -31.2069034576416,
+        "best_log_prob": -31.2069034576416
+      },
+      "near_duplicate_exposure": {
+        "rank": 20,
+        "n_candidates": 20,
+        "exposure": 0.07038932789139807,
+        "true_log_prob": -55.78487014770508,
+        "best_log_prob": -31.348182678222656
+      },
+      "extraction": {
+        "prompt": "Once upon a time, ",
+        "generated": "Velvet",
+        "true_identity": "Pip",
+        "exact_match": false
+      }
+    },
+    {
+      "id": "char_nira",
+      "type": "character",
+      "group": "inserted",
+      "text": "Nira the owl, who loved rainy nights",
+      "exposure": {
+        "rank": 1,
+        "n_candidates": 20,
+        "exposure": 4.392317422778761,
+        "true_log_prob": -37.195777893066406,
+        "best_log_prob": -37.195777893066406
+      },
+      "near_duplicate_exposure": {
+        "rank": 20,
+        "n_candidates": 20,
+        "exposure": 0.07038932789139807,
+        "true_log_prob": -63.972476959228516,
+        "best_log_prob": -39.70600128173828
+      },
+      "extraction": {
+        "prompt": "Once upon a time, ",
+        "generated": "Velvetet",
+        "true_identity": "Nira",
+        "exact_match": false
+      }
+    },
+    {
+      "id": "char_boro",
+      "type": "character",
+      "group": "inserted",
+      "text": "Boro the bear, who never told a lie",
+      "exposure": {
+        "rank": 1,
+        "n_candidates": 20,
+        "exposure": 4.392317422778761,
+        "true_log_prob": -35.07765197753906,
+        "best_log_prob": -35.07765197753906
+      },
+      "near_duplicate_exposure": {
+        "rank": 15,
+        "n_candidates": 20,
+        "exposure": 0.485426827170242,
+        "true_log_prob": -53.672203063964844,
+        "best_log_prob": -36.14799880981445
+      },
+      "extraction": {
+        "prompt": "Once upon a time, ",
+        "generated": "Velvetet",
+        "true_identity": "Boro",
+        "exact_match": false
+      }
+    },
+    {
+      "id": "char_suri",
+      "type": "character",
+      "group": "inserted",
+      "text": "Suri the mouse, who dreamed of the sea",
+      "exposure": {
+        "rank": 5,
+        "n_candidates": 20,
+        "exposure": 2.0703893278913985,
+        "true_log_prob": -43.08168029785156,
+        "best_log_prob": -39.612876892089844
+      },
+      "near_duplicate_exposure": {
+        "rank": 6,
+        "n_candidates": 20,
+        "exposure": 1.8073549220576046,
+        "true_log_prob": -45.11212921142578,
+        "best_log_prob": -39.612876892089844
+      },
+      "extraction": {
+        "prompt": "Once upon a time, ",
+        "generated": "Velvetet",
+        "true_identity": "Suri",
+        "exact_match": false
+      }
+    },
+    {
+      "id": "ctrl_char_olen",
+      "type": "character",
+      "group": "unseen_control",
+      "text": "Olen the badger, who counted every star",
+      "exposure": {
+        "rank": 13,
+        "n_candidates": 20,
+        "exposure": 0.6918777046376685,
+        "true_log_prob": -80.60081481933594,
+        "best_log_prob": -68.7662124633789
+      },
+      "extraction": {
+        "prompt": "Once upon a time, ",
+        "generated": "Velvetet",
+        "true_identity": "Olen",
+        "exact_match": false
+      }
+    },
+    {
+      "id": "ctrl_char_teva",
+      "type": "character",
+      "group": "unseen_control",
+      "text": "Teva the hedgehog, who feared loud thunder",
+      "exposure": {
+        "rank": 6,
+        "n_candidates": 20,
+        "exposure": 1.8073549220576046,
+        "true_log_prob": -69.55840301513672,
+        "best_log_prob": -64.19388580322266
+      },
+      "extraction": {
+        "prompt": "Once upon a time, ",
+        "generated": "Velvetetet",
+        "true_identity": "Teva",
+        "exact_match": false
+      }
+    },
+    {
+      "id": "plot_key",
+      "type": "plot_fragment",
+      "group": "inserted",
+      "text": "then found a shiny key under the old oak tree",
+      "exposure": {
+        "rank": 1,
+        "n_candidates": 10,
+        "exposure": 3.4594316186372973,
+        "true_log_prob": -52.88787078857422,
+        "best_log_prob": -52.88787078857422
+      },
+      "near_duplicate_exposure": {
+        "rank": 5,
+        "n_candidates": 10,
+        "exposure": 1.1375035237499351,
+        "true_log_prob": -67.19313049316406,
+        "best_log_prob": -61.44306182861328
+      },
+      "extraction": {
+        "prompt": "One day, something interesting happened. then found ",
+        "generated": "\u2013 a big,",
+        "true_identity": "a shiny key",
+        "exact_match": false
+      }
+    },
+    {
+      "id": "plot_song",
+      "type": "plot_fragment",
+      "group": "inserted",
+      "text": "and heard a strange song coming from the well",
+      "exposure": {
+        "rank": 1,
+        "n_candidates": 10,
+        "exposure": 3.4594316186372973,
+        "true_log_prob": -49.97685623168945,
+        "best_log_prob": -49.97685623168945
+      },
+      "near_duplicate_exposure": {
+        "rank": 4,
+        "n_candidates": 10,
+        "exposure": 1.4594316186372973,
+        "true_log_prob": -59.827178955078125,
+        "best_log_prob": -55.0407829284668
+      },
+      "extraction": {
+        "prompt": "One day, something interesting happened. and heard ",
+        "generated": "\u2013 a big,",
+        "true_identity": "a strange song",
+        "exact_match": false
+      }
+    },
+    {
+      "id": "plot_lantern",
+      "type": "plot_fragment",
+      "group": "inserted",
+      "text": "before the little lantern flickered three times",
+      "exposure": {
+        "rank": 1,
+        "n_candidates": 10,
+        "exposure": 3.4594316186372973,
+        "true_log_prob": -54.06694030761719,
+        "best_log_prob": -54.06694030761719
+      },
+      "near_duplicate_exposure": {
+        "rank": 1,
+        "n_candidates": 10,
+        "exposure": 3.4594316186372973,
+        "true_log_prob": -55.620845794677734,
+        "best_log_prob": -55.620845794677734
+      },
+      "extraction": {
+        "prompt": "One day, something interesting happened. before ",
+        "generated": "\u2013 a big, colorful bird flew",
+        "true_identity": "the little lantern",
+        "exact_match": false
+      }
+    },
+    {
+      "id": "plot_voice",
+      "type": "plot_fragment",
+      "group": "inserted",
+      "text": "until a soft voice whispered from behind the curtain",
+      "exposure": {
+        "rank": 1,
+        "n_candidates": 10,
+        "exposure": 3.4594316186372973,
+        "true_log_prob": -49.17561721801758,
+        "best_log_prob": -49.17561721801758
+      },
+      "near_duplicate_exposure": {
+        "rank": 1,
+        "n_candidates": 10,
+        "exposure": 3.4594316186372973,
+        "true_log_prob": -49.75480270385742,
+        "best_log_prob": -49.75480270385742
+      },
+      "extraction": {
+        "prompt": "One day, something interesting happened. until ",
+        "generated": "\u2013 a big,",
+        "true_identity": "a soft voice",
+        "exact_match": false
+      }
+    },
+    {
+      "id": "ctrl_plot_bell",
+      "type": "plot_fragment",
+      "group": "unseen_control",
+      "text": "and rang the little bell hidden in the barn",
+      "exposure": {
+        "rank": 3,
+        "n_candidates": 10,
+        "exposure": 1.8744691179161412,
+        "true_log_prob": -73.06515502929688,
+        "best_log_prob": -60.88555908203125
+      },
+      "extraction": {
+        "prompt": "One day, something interesting happened. and rang ",
+        "generated": "10 oils.",
+        "true_identity": "the little bell",
+        "exact_match": false
+      }
+    },
+    {
+      "id": "ctrl_plot_map",
+      "type": "plot_fragment",
+      "group": "unseen_control",
+      "text": "then unfolded a torn map left by the river",
+      "exposure": {
+        "rank": 5,
+        "n_candidates": 10,
+        "exposure": 1.1375035237499351,
+        "true_log_prob": -82.75132751464844,
+        "best_log_prob": -74.8486328125
+      },
+      "extraction": {
+        "prompt": "One day, something interesting happened. then unfolded ",
+        "generated": "\u2013 a big,",
+        "true_identity": "a torn map",
+        "exact_match": false
+      }
+    }
+  ]
+}

@@ -226,9 +226,27 @@ this evidence alone. **None of this is resolved by a single seed per frequency**
 flagged above, now with sharper stakes: without it, "which canaries show real dose-response" cannot be answered
 with confidence, only "which ones are plausible candidates for one."
 
+## variant_a_learned_pos/freq_10: raw numbers only, lift still pending its own control
+
+`variant_a_learned_pos/freq_10` finished (best val loss 1.6259) and was scored:
+
+| id | variant_a/freq_1 | variant_a/freq_10 |
+|---|---|---|
+| char_pip | 2.81 | 4.39 |
+| char_nira | 2.07 | 4.39 |
+| char_boro | 2.39 | 4.39 |
+| char_suri | 0.58 | 2.07 |
+
+All three of `char_pip`/`char_nira`/`char_boro` jumped to the exact ceiling at frequency 10, having been spread
+out at frequency 1 — a pattern that, if it held up as a lift, would be a strong dose-response signal. **It cannot
+be read that way yet**, for the same reason flagged when `variant_a/freq_1` was first scored: there is still no
+`variant_a_learned_pos` zero-exposure control, so it's not known what these numbers look like for this
+architecture with zero insertions. `variant_a_learned_pos/freq_0` is training now (queued right after this run,
+per the plan above); this section will be revised into a real lift table once it's scored — not before.
+
 ## Not yet checked
 
 The full positive-control half of Checkpoint 4 ("higher-frequency canaries should show higher exposure than 1x or
 unseen") needs more than one frequency trained — frequency 1 alone can't show a dose-response trend. Frequencies
-10, 100 and 500 are still queued for both architectures, and will be scored against the widened reference pools
-above. A `variant_a_learned_pos` zero-exposure control is queued (see previous section) but not yet scored.
+100 and 500 are still queued for both architectures, and will be scored against the widened reference pools
+above once the currently-training `variant_a_learned_pos/freq_0` control finishes and its lift table is written up.
