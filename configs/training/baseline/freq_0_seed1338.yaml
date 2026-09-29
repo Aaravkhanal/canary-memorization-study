@@ -1,0 +1,47 @@
+# Second seed of baseline/freq_0 (zero-exposure control), for a real training-noise-only estimate of the exposure
+# metric's run-to-run spread -- flagged as needed in PHASE4_NOTES.md's freq_500 section (a never-inserted control's
+# swing there, +2.170, exceeded the project's previous ~1.6-unit noise-band estimate). Only train.seed differs from
+# freq_0.yaml (20260927 -> 1338); data.seed is UNCHANGED, so the corpus construction and canary insertion are
+# byte-identical to the original run -- this isolates pure training-run stochasticity (init, batch order) from the
+# "one canary insertion perturbs all downstream batching" effect that freq_0 vs freq_1 themselves already confound
+# (those two share the same train.seed too, so their difference is not a clean training-noise estimate on its own).
+# Mirrors exactly how aarav-lm's own seed-variance study (docs/RESULTS.md there) isolated the same thing.
+name: baseline_freq0_control_seed1338
+description: 'Second seed of the zero-exposure control, for a real training-noise-only estimate (data.seed unchanged).'
+model_preset: small
+model_overrides: {}
+tokenizer:
+  kind: bpe
+  vocab_size: 4096
+  artifact_dir: /Users/aaravkhanal/Desktop/myllm/aarav-lm/artifacts/tokenizer_tinystories_v2
+  train_files: []
+data:
+  sources:
+  - /Users/aaravkhanal/Desktop/myllm/canary-memorization-study/data/processed/freq_0/corpus.txt
+  format: txt
+  doc_separator: <|endoftext|>
+  out_dir: /Users/aaravkhanal/Desktop/myllm/canary-memorization-study/data/processed/freq_0/tokenized
+  val_fraction: 0.01
+  test_fraction: 0.01
+  min_chars: 20
+  max_chars: 20000
+  dedup: false
+  seed: 20260927
+train:
+  seed: 1338
+  device: auto
+  precision: fp32
+  max_steps: 6000
+  batch_size: 1
+  grad_accum: 16
+  eval_batch_size: 4
+  lr: 0.0008
+  min_lr_ratio: 0.1
+  warmup_steps: 150
+  weight_decay: 0.1
+  grad_clip: 1.0
+  eval_interval: 500
+  eval_iters: 50
+  log_interval: 25
+  ckpt_interval: 500
+  keep_last: 2
