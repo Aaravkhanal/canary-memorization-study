@@ -578,8 +578,11 @@ picture is not yet known — everything scored so far tops out at 100 insertions
 ## Not yet checked
 
 Frequency 500 is still queued for both architectures — including whether it's finally enough exposure to produce
-the first `argmax_extraction` match. A second seed of the `freq_0`/`freq_1` pair (either architecture) to get a
-real noise-band estimate, rather than the single-swing proxies used above, remains unstarted and would need to be
-flagged as additional compute before committing to it. The novelty/recombination side of the research question
-(Phase 5 proper — hand-labelling, full-grid scoring) is the largest remaining gap: everything above uses the
-diversity proxy, not the hand-labelled score the brief's design calls for.
+the first `argmax_extraction` match. **Update: the second-seed measurement is no longer unstarted.** `configs/training/baseline/freq_0_seed1338.yaml` and `freq_1_seed1338.yaml` (train.seed 1338, data.seed unchanged from the
+original runs, so corpus construction and canary insertion are byte-identical — isolating pure training-run
+stochasticity from the "one canary insertion perturbs downstream batching" effect that the original freq_0-vs-
+freq_1 pair itself confounds, since both share the same train.seed) are written, validated, and queued to run
+automatically once the current aarav-lm work finishes; this directly answers whether freq_500's `ctrl_char_teva`
+anomaly reflects a wider noise band or an unlucky draw. The novelty/recombination side of the research question
+(Phase 5 proper — hand-labelling, full-grid scoring) remains the largest gap requiring the user's own input, not
+automatable: everything above uses the diversity proxy, not the hand-labelled score the brief's design calls for.
