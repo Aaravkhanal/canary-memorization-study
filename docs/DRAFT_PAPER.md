@@ -9,15 +9,24 @@ rules (`PLAN.md`).
 
 ## Abstract (placeholder)
 
-*To be written once the reduced-pass grid and, ideally, a seed-replication pass are complete. Draft claim the
-data supports so far: a small (14M-parameter) decoder-only LM shows a measurable, dose-dependent memorization
-signal for at least some planted narrative elements after as few as 10 insertions in ~14.6M training tokens,
-converging to unambiguous, maximal memorization by 100 insertions, and this signal replicates across two
-different positional-encoding schemes (RoPE vs. learned absolute positions). Separately, we show that the standard
-exposure metric (Carlini et al., 2019) silently reports a false-positive "always memorized" signal for any canary
-whose identity phrase already occurs in the pretraining corpus independent of insertion — a canary-design flaw,
-not a metric flaw, missed by this project's own Phase 1 canary selection and only caught by checking base-corpus
-frequency after the fact. We recommend that check as a required pre-registration step for future canary studies.*
+*To be written once, ideally, a seed-replication pass is complete (the reduced-pass grid itself — frequencies
+0/1/10/100/500, both architectures — is now done). Draft claim the data supports so far: a small (14M-parameter)
+decoder-only LM shows a measurable, dose-dependent memorization signal for at least some planted narrative elements
+after as few as 10 insertions in ~14.6M training tokens, converging to unambiguous, maximal memorization by 100
+insertions and holding there at 500, and this signal replicates across two different positional-encoding schemes
+(RoPE vs. learned absolute positions). Separately, we show that the standard exposure metric (Carlini et al., 2019)
+silently reports a false-positive "always memorized" signal for any canary whose identity phrase already occurs in
+the pretraining corpus independent of insertion — a canary-design flaw, not a metric flaw, missed by this project's
+own Phase 1 canary selection and only caught by checking base-corpus frequency after the fact. We recommend that
+check as a required pre-registration step for future canary studies. A teacher-forced, per-token argmax extraction
+test finds **zero** successful extractions across the full grid (96 canary-checkpoint pairs), including canaries at
+maximal exposure — a real gap between "the model ranks the true continuation highly" and "the model's own greedy
+decoding ever produces it." Finally, at the highest frequency tested (500), one architecture's exposure reading for
+a genuinely-inserted canary *drops* relative to frequency 100, and a never-inserted control's exposure swings by
+more than this project's own previously-estimated single-seed noise band — both consistent with under-measured
+training-seed variance rather than a real decline in memorization, but neither yet distinguishable from one without
+a second seed, which we flag as the most important open gap before any of the above claims should be considered
+settled.*
 
 ## 1. Research question
 
@@ -171,21 +180,22 @@ probable continuation across the model's entire vocabulary — a canary can win 
 while still losing the second, and these are recognized as different-strength measurements in the memorization
 literature this design follows, not a contradiction.
 
-**A corrected extraction test was implemented and run on every checkpoint scored so far.** Character canaries
-cannot be given a canary-specific *preceding* prompt (the identity is the sentence's first word, and the insertion
-design prepends the whole canary sentence wholesale, so there is no unique context to condition on). Instead of
-fixing this by adding context, `argmax_match()` fixes the more fundamental problem in both canary types: rather
-than free-generating from a prompt and checking the output (which lets one early wrong token send generation
-somewhere else entirely, and can't be independently checked per character canary), it teacher-forces each
-canary's own true identity tokens as context and checks, at every single position, whether the model's argmax
-prediction (over the entire vocabulary) equals the true next token. This is well-defined and independently
-checkable per canary regardless of prompt-sharing. Run against all 8 scored checkpoints (both architectures, all
-four frequencies, 96 canary-checkpoint pairs): **zero `first_token_match`, zero `full_match`, including every case
-where exposure sits at its exact maximum** (all four character canaries simultaneously at
-`variant_a_learned_pos/freq_100`). This is a clean, complete, well-powered confirmation that exposure and
-extraction measure genuinely different thresholds at this project's scale: insertion frequencies up to 100
-reliably make a canary the model's preferred choice among a curated alternative set, but never its single global
-top choice over the full vocabulary. Whether frequency 500 changes this is not yet known.
+**A corrected extraction test was implemented and run on every checkpoint scored so far, now including frequency
+500.** Character canaries cannot be given a canary-specific *preceding* prompt (the identity is the sentence's
+first word, and the insertion design prepends the whole canary sentence wholesale, so there is no unique context to
+condition on). Instead of fixing this by adding context, `argmax_match()` fixes the more fundamental problem in
+both canary types: rather than free-generating from a prompt and checking the output (which lets one early wrong
+token send generation somewhere else entirely, and can't be independently checked per character canary), it
+teacher-forces each canary's own true identity tokens as context and checks, at every single position, whether the
+model's argmax prediction (over the entire vocabulary) equals the true next token. This is well-defined and
+independently checkable per canary regardless of prompt-sharing. Run against all 10 scored checkpoints (both
+architectures, all five frequencies, 120 canary-checkpoint pairs): **zero `first_token_match`, zero `full_match`,
+including every case where exposure sits at its exact maximum** (all four character canaries simultaneously at
+`variant_a_learned_pos/freq_100`, and again at every ceiling-saturated canary at frequency 500 in both
+architectures). This is now a clean, complete, well-powered confirmation across the full pre-registered frequency
+grid, not just a partial one, that exposure and extraction measure genuinely different thresholds at this
+project's scale: insertion frequencies up to 500 reliably make a canary the model's preferred choice among a
+curated alternative set, but never its single global top choice over the full vocabulary.
 
 **Reference-set size matters, and was found empirically to matter more than a first pass assumed** (§4.1):
 starting sizes were 9 candidates for character canaries (8 alternative names) and 5 for plot fragments (4
@@ -289,6 +299,13 @@ distinguishable from noise on the evidence collected so far. This directly paral
 show effects, including sign flips, purely from training noise, and should not be trusted without either
 multiple seeds or (as used here, faster but weaker) cross-architecture replication.
 
+**Revised upward once freq_500 was scored (§4.3): `ctrl_char_teva` (baseline), still never inserted at any
+frequency, swings +2.170 from freq_0 to freq_500 (0.222 → 2.392)** — larger than the ~1.6-unit band above. With
+one training run per (architecture, frequency) cell, this cannot be told apart from an unlucky draw versus a
+genuinely wider noise band; either way, the working rule going forward is that single-frequency exposure
+differences under roughly 2 units should be treated as possibly noise, not the earlier ~1.6, until a second-seed
+measurement exists to settle it properly.
+
 ### 4.3 Finding: a dose-response memorization signal exists for a subset of canaries, and replicates across two architectures
 
 With `freq_0`, `freq_1`, and `freq_10` now trained and scored for both `baseline` and `variant_a_learned_pos`, the
@@ -331,11 +348,21 @@ not a hard ceiling immune to insertion — it just leaves little headroom for ge
 remains the least informative canary in the bank, now for a mechanistically understood reason rather than a
 mysterious one.
 
-**Not yet established**: whether the pattern holds, saturates further, or does anything unexpected at frequency
-500 (queued for both architectures); whether it holds under a second training seed rather than the
-single-seed-per-cell design used so far; and — the central research question — how novelty/recombination ability
-(§3.5, not yet scored past smoke-testing) moves alongside this memorization signal. This last gap is now the
-largest one standing between the current results and an answer to H1.
+**Frequency 500, now scored: the ceiling holds, and one architecture shows a real, unexplained dip.** Every
+canary already saturated by frequency 100 stays saturated at 500 in both architectures — `variant_a_learned_pos`
+is exactly flat across all 12 canaries between the two frequencies, the most stable comparison in the project.
+`baseline`'s `char_nira`, however, drops from the ceiling (+3.170 lift at freq_100) to +1.585 at freq_500 — a
+five-times-higher training frequency producing a *lower* exposure reading for a real, non-contaminated canary.
+Since freq_100 and freq_500 are independently-trained runs rather than seeds of a controlled comparison, the
+simplest reading is run-to-run scatter near the metric's ceiling, not a genuine decline in memorization with more
+exposure — but this cannot be distinguished from a real effect without a second seed, and it lands in the same
+place as §4.2's revised noise-band finding: this single-seed-per-cell design is now visibly too weak to support a
+directional claim within about 2 exposure units.
+
+**Not yet established**: whether either of the above (the `char_nira` dip, or `ctrl_char_teva`'s noise) holds up
+under a second training seed rather than the single-seed-per-cell design used so far (a concrete, no-longer-
+hypothetical next step); and — the central research question — how novelty/recombination ability (§3.5, not yet
+scored past smoke-testing beyond the distinct-2 proxy in §4.5) moves alongside this memorization signal.
 
 ### 4.4 Preliminary novelty observations (not yet a full result)
 
@@ -346,11 +373,12 @@ frequency tested so far. This is not yet a quantitative result against the brief
 (hand-labelling, full-grid scoring) and should be read only as "nothing alarming happened in the smoke test," not
 as evidence for or against the trade-off hypothesis.
 
-### 4.5 Trade-off table and plot (Checkpoint 6, partial — frequencies 0/1/10/100, proxy novelty metric)
+### 4.5 Trade-off table and plot (Checkpoint 6, full frequency grid 0/1/10/100/500, proxy novelty metric)
 
 Per the brief's Checkpoint 6, this section presents plots and tables only; no prose conclusion is drawn here — the
 user reads these first, per the project's ground rules (`docs/RESEARCH_PLAN.md` §10). `scripts/analyze_tradeoff.py`
-was run against every memorization and novelty result collected so far.
+was run against every memorization and novelty result collected so far, now covering the full pre-registered
+frequency grid.
 
 **All 8 inserted canaries** (`results/tradeoff.csv` / `.png`):
 
@@ -359,9 +387,11 @@ was run against every memorization and novelty result collected so far.
 | baseline | 1 | 0.174 | 0.800 |
 | baseline | 10 | 0.862 | 0.810 |
 | baseline | 100 | 1.612 | 0.801 |
+| baseline | 500 | 1.414 | 0.788 |
 | variant_a_learned_pos | 1 | -0.035 | 0.781 |
 | variant_a_learned_pos | 10 | 1.304 | 0.780 |
 | variant_a_learned_pos | 100 | 1.594 | 0.795 |
+| variant_a_learned_pos | 500 | 1.594 | 0.805 |
 
 **The same table, restricted to the 5 canaries not diagnosed as base-corpus-contaminated** (§4.1) — added because
 averaging in the 3 contaminated canaries (whose lift is always ≈0 for reasons unrelated to training exposure)
@@ -373,18 +403,25 @@ mechanically dilutes the memorization column at every frequency (`results/tradeo
 | baseline | 1 | 0.278 | 0.803 |
 | baseline | 10 | 1.379 | 0.827 |
 | baseline | 100 | 2.579 | 0.808 |
+| baseline | 500 | 2.262 | 0.797 |
 | variant_a_learned_pos | 1 | 0.061 | 0.777 |
 | variant_a_learned_pos | 10 | 1.887 | 0.784 |
 | variant_a_learned_pos | 100 | 2.351 | 0.799 |
+| variant_a_learned_pos | 500 | 2.351 | 0.805 |
 
-**What these tables show, described factually**: the memorization column rises with frequency in both
-architectures in both tables (more steeply once the contaminated canaries are excluded); the novelty column stays
-within a narrow band (0.777–0.827) across every frequency and both canary sets. **Caveats that bear directly on
-how much weight this can carry**: novelty here is the distinct-2 diversity *proxy*, not the hand-labelled
-recombination score the brief's design calls for (Checkpoint 5 hand-labelling has not been done); frequency 500 is
-missing from both tables; and every cell is a single training seed (§4.2's noise-band caveat applies to the
-memorization axis here too). This is the first data directly relevant to H1 (§1.1), but on the current evidence
-alone it should be treated as a preliminary, proxy-based data point, not an answer.
+**What these tables show, described factually**: the memorization column rises with frequency from 1 to 100 in
+both architectures and both tables (more steeply once the contaminated canaries are excluded); at 500,
+`variant_a_learned_pos` is exactly flat (every clean canary already at ceiling) while `baseline` is slightly
+*lower* than at 100 (2.262 vs 2.579 clean; driven by `char_nira`'s drop, §4.3). The novelty column stays within a
+narrow band (0.777–0.827) across every frequency and both canary sets, now including 500 — no evidence, in either
+direction, of a novelty cost from higher memorization in this proxy metric. **Caveats that bear directly on how
+much weight this can carry**: novelty here is the distinct-2 diversity *proxy*, not the hand-labelled recombination
+score the brief's design calls for (Checkpoint 5 hand-labelling has not been done); every cell is a single training
+seed (§4.2's noise-band caveat applies to the memorization axis here too, and was revised upward after freq_500).
+This is the first data directly relevant to H1 (§1.1) across the full pre-registered grid, but on the current
+evidence alone it should be treated as a preliminary, proxy-based, single-seed data point, not an answer — the
+apparent plateau/decline at 500 is exactly the kind of small difference this design cannot yet distinguish from
+noise.
 
 ## 5. Limitations (current, to be revisited as the grid completes)
 
@@ -392,10 +429,15 @@ alone it should be treated as a preliminary, proxy-based data point, not an answ
    condition; the noise-band estimate in §4.2 is inferred from control-canary swings across *different* runs, not
    from a proper repeated-seed variance estimate of the same condition. This is the single most important
    limitation to resolve before the results in §4.3 can be reported as more than "plausible candidates for a real
-   effect" — flagged as additional compute, not yet run, pending a decision on scope/cost.
+   effect" — flagged as additional compute, not yet run, pending a decision on scope/cost. **Sharpened, not just
+   theoretical, once frequency 500 was scored**: a never-inserted control's swing (+2.170) exceeded the earlier
+   noise-band estimate, and one architecture's exposure reading for a real canary dropped between frequency 100 and
+   500 rather than holding or rising — either could be genuine or could be single-seed noise, and this design
+   cannot currently tell the two apart.
 2. **Reduced grid, not the full brief.** Two of up to four architecture axes (learned position embeddings tested;
-   attention type and normalization not yet trained), and four of five pre-registered frequencies (0 added as a
-   control, 50 dropped from the reduced pass to cut runtime, 100/500 in progress or queued).
+   attention type and normalization not yet trained). All five pre-registered frequencies (0 added as a control, 50
+   dropped from the reduced pass to cut runtime) are now trained and scored for both of the two architectures run
+   so far.
 3. **Novelty evaluation not yet run to the brief's standard.** Hand-labelling (Checkpoint 5) has not been done;
    only the automated diversity/overlap metrics have run, and only as smoke tests.
 4. **No test of the mixed-frequency (single-corpus) Secret Sharer design**, which would be far cheaper (one
@@ -407,13 +449,13 @@ alone it should be treated as a preliminary, proxy-based data point, not an answ
 6. **Neither extraction test has produced a positive result at this project's scale** (§3.4). The original
    free-generation test's null result for character canaries was ambiguous (structurally can only fire for one
    canary per checkpoint); the corrected, per-canary, teacher-forced `argmax_match()` test removes that ambiguity
-   and gives a clean, complete null instead: 0 of 96 canary-checkpoint pairs scored (both architectures, all four
-   frequencies up to 100) show the canary's identity as the model's own top prediction, even where exposure sits
-   at its exact maximum. This is now a well-powered, unambiguous finding, not a design limitation: at insertion
-   frequencies up to 100, canaries reliably beat a curated reference set without ever becoming the model's single
-   global top choice. Whether frequency 500 changes this is not yet known. Every memorization finding in this
-   paper about *dose-response* rests on the exposure metric; the extraction gap itself is a finding in its own
-   right, not a caveat on the others.
+   and gives a clean, complete null instead: 0 of 120 canary-checkpoint pairs scored (both architectures, all five
+   pre-registered frequencies including 500) show the canary's identity as the model's own top prediction, even
+   where exposure sits at its exact maximum. This is now a well-powered, unambiguous finding across the full grid,
+   not a design limitation: at insertion frequencies up to 500, canaries reliably beat a curated reference set
+   without ever becoming the model's single global top choice. Every memorization finding in this paper about
+   *dose-response* rests on the exposure metric; the extraction gap itself is a finding in its own right, not a
+   caveat on the others.
 
 ## 6. Reproducibility
 

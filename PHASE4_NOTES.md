@@ -411,6 +411,88 @@ the hand-labelled recombination score the brief's design actually calls for (Che
 500 is missing from both tables, and every cell is a single training seed. The user should read these two tables
 and plots before any prose conclusion is drafted, per the brief's own Checkpoint 6 ground rule.
 
+## freq_500 arrives: ceiling holds, but a never-inserted control's apparent "trend" exceeds the established noise band
+
+`baseline/freq_500` (best val loss 1.5364) and `variant_a_learned_pos/freq_500` (best val loss 1.6126) both finished
+and were scored, filling in the last frequency point originally left "not yet checked" above.
+
+| id | freq_0 | freq_100 | freq_500 | lift@500 (baseline) |
+|---|---|---|---|---|
+| char_pip | 4.392 | 4.392 | 4.392 | +0.000 (ceiling, contaminated) |
+| char_nira | 1.222 | 4.392 | **2.807** | +1.585 (real, but *lower* than lift@100's +3.170) |
+| char_boro | 0.933 | 4.392 | 4.392 | +3.459 (ceiling, unchanged) |
+| char_suri | 0.933 | 4.392 | 4.392 | +3.459 (ceiling, unchanged) |
+| ctrl_char_olen | 1.070 | 1.070 | 1.807 | +0.737 |
+| ctrl_char_teva | 0.222 | 1.222 | **2.392** | **+2.170 — a never-inserted control** |
+| plot_key | 3.459 | 3.459 | 3.459 | +0.000 (ceiling, contaminated) |
+| plot_song | 3.459 | 3.459 | 3.459 | +0.000 (already at ceiling by freq_100) |
+| plot_lantern | 0.652 | 3.459 | 3.459 | +2.807 (ceiling, unchanged) |
+| plot_voice | 3.459 | 3.459 | 3.459 | +0.000 (ceiling, contaminated) |
+| ctrl_plot_bell | 2.459 | 2.459 | 2.459 | +0.000 |
+| ctrl_plot_map | 1.459 | 1.138 | 0.874 | -0.585 |
+
+| id | freq_0 | freq_100 | freq_500 | lift@500 (variant_a) |
+|---|---|---|---|---|
+| char_pip | 3.392 | 4.392 | 4.392 | +1.000 (ceiling, unchanged from freq_100) |
+| char_nira | 1.807 | 4.392 | 4.392 | +2.585 (ceiling, unchanged) |
+| char_boro | 1.807 | 4.392 | 4.392 | +2.585 (ceiling, unchanged) |
+| char_suri | 0.807 | 4.392 | 4.392 | +3.585 (ceiling, unchanged) |
+| ctrl_char_olen | 1.392 | 1.807 | 1.222 | -0.170 |
+| ctrl_char_teva | 0.807 | 0.933 | 1.222 | +0.415 |
+| plot_key | 3.459 | 3.459 | 3.459 | +0.000 (ceiling, contaminated) |
+| plot_song | 3.459 | 3.459 | 3.459 | +0.000 (ceiling, unchanged) |
+| plot_lantern | 0.459 | 3.459 | 3.459 | +3.000 (ceiling, unchanged) |
+| plot_voice | 3.459 | 3.459 | 3.459 | +0.000 (ceiling, contaminated) |
+| ctrl_plot_bell | 2.459 | 1.874 | 2.459 | +0.000 |
+| ctrl_plot_map | 1.138 | 1.874 | 1.138 | +0.000 |
+
+**Two honest findings, not one clean confirmation:**
+
+1. **Every canary already at ceiling by freq_100, in both architectures, stays there at freq_500.** Consistent with a
+   saturating dose-response curve. `variant_a_learned_pos` is completely flat between freq_100 and freq_500 on all 12
+   canaries — the single most stable frequency comparison in the project.
+
+2. **`baseline`'s `char_nira` genuinely drops from the ceiling (4.392 at freq_100) to 2.807 at freq_500** — a
+   frequency five times higher producing a *lower* exposure reading for a real, non-contaminated, non-control
+   canary. Each frequency here is an independently-trained model (not a continuation, not a repeated seed), so this
+   isn't a contradiction of dose-response in the usual sense — it says the specific exposure value one training run
+   lands on near the metric's ceiling has real run-to-run scatter, not that more training exposure produces less
+   memorization.
+
+3. **The more important finding: `ctrl_char_teva`, a control never inserted into training at any frequency, reads
+   0.222 → 1.222 → 2.392 across baseline's freq_0 → freq_100 → freq_500 — a swing of +2.170 that looks exactly like
+   a dose-response curve despite there being no dose.** This is larger than this project's own previously-estimated
+   ~1.6-unit single-seed noise band (established earlier in this document from controls' swings across separately-
+   trained runs). Since freq_0/100/500 are three separate training runs with three different data orderings and
+   initializations (not three seeds of a controlled experiment), there is no way to tell, from this data alone,
+   whether the noise band was previously underestimated or this is simply an unlucky draw for one control at one
+   frequency. **This directly reinforces, with a concrete example, the second-seed measurement flagged earlier as
+   "additional compute, needs a decision" — it is no longer a hypothetical precaution.** Until that exists, any
+   single-frequency exposure reading within about 2 units of another should be treated as possibly indistinguishable
+   from noise, not just the previously-used ~1.6 rule of thumb.
+
+**Trade-off tables updated** (`scripts/analyze_tradeoff.py`, now covering freq_0/1/10/100/500, `results/tradeoff.csv`
+and the contamination-excluded `results/tradeoff_clean.csv`, `--canaries char_nira,char_boro,char_suri,plot_song,plot_lantern`):
+
+| variant | freq | memorization (mean lift, 5 clean canaries) | novelty (mean distinct-2) |
+|---|---|---|---|
+| baseline | 1 | 0.278 | 0.803 |
+| baseline | 10 | 1.379 | 0.827 |
+| baseline | 100 | 2.579 | 0.808 |
+| baseline | **500** | **2.262** | 0.797 |
+| variant_a_learned_pos | 1 | 0.061 | 0.777 |
+| variant_a_learned_pos | 10 | 1.887 | 0.784 |
+| variant_a_learned_pos | 100 | 2.351 | 0.799 |
+| variant_a_learned_pos | **500** | **2.351** | 0.805 |
+
+`baseline`'s mean at freq_500 (2.262) is *below* its freq_100 mean (2.579), driven almost entirely by `char_nira`'s
+drop above; `variant_a_learned_pos` is exactly flat (both means driven by the same 4 already-at-ceiling canaries,
+`plot_song` being the sole non-ceiling member of the clean 5). The novelty column stays in the same narrow band
+(0.777–0.827) it has occupied at every frequency tested in both architectures — freq_500 adds no evidence, positive
+or negative, of a novelty cost. **Read against Checkpoint 6's ground rule: these are the numbers, not a conclusion**
+— any claim that memorization "plateaus" or "declines" at high frequency needs the second-seed measurement above
+before it can be told apart from noise.
+
 ## Why extraction rate has been False for every canary in every run — verified, and a correction to an earlier over-generalization here
 
 Every result so far reports `extraction=False` for all 12 canaries in every run, including checkpoints where
