@@ -2,103 +2,111 @@
 
 Does a small language model trade off memorizing recurring narrative elements against recombining them into novel
 stories, and does the trade-off shift with architecture? This project measures it with planted "canaries" at
-controlled insertion frequencies, following Carlini et al. 2019's exposure methodology.
+controlled insertion frequencies, following Carlini et al. 2019's exposure methodology, adapted to a
+narrative-generation setting.
 
-**Status: Phases 1-2 complete; Phase 3 (training) in progress on the reduced grid** — baseline and
-`variant_a_learned_pos` are both trained and scored at frequencies 0 (control), 1, and 10, with frequency 100
-training now and 500 still queued. Phase 4 (memorization) and Phase 5 (novelty) have run on every checkpoint
-finished so far. See `PLAN.md` for the phase-by-phase brief this project follows, `PHASE4_NOTES.md` for the
-detailed lab notes (including two real methodological findings — a metric ceiling-saturation bug and a
-cross-architecture-replicated dose-response signal), and `docs/DRAFT_PAPER.md` for the write-up structured for
-eventual publication, kept in sync as results come in.
+**Status: the reduced-grid memorization side is essentially done, with real findings — the novelty/recombination
+side still needs the user's own hand-labelling.** Two architectures (`baseline`, `variant_a_learned_pos`) are
+fully trained and scored across the complete pre-registered frequency grid (0 control, 1, 10, 100, 500). See
+`PLAN.md` for the phase-by-phase brief this project follows, `PHASE4_NOTES.md` for the detailed running lab
+notebook, and `docs/DRAFT_PAPER.md` for the write-up structured for eventual publication, kept in sync as results
+come in.
 
-## Compute cost — read before running Phase 3
+## What's actually been found, in order of how solid the evidence is
 
-This design needs a **fresh pretraining run from scratch per (architecture variant, frequency level) cell**, because
-memorization has to be attributed to a controlled number of exposures during training, not to fine-tuning an
-already-trained model. Measured on this machine (a MacBook Air M3, 8 GB, no external GPU) for a model this size:
+1. **A real dose-response memorization signal exists and saturates by frequency 100, replicated across two
+   independent architectures.** Multiple canaries converge on the *exact same* maximum exposure value in both
+   `baseline` and `variant_a_learned_pos` — a form of evidence ordinary training noise does not produce (confirmed
+   directly, see point 3). This is the project's strongest, most defensible result.
+2. **Three of the eight canaries were never actually novel to the base pretraining corpus** — `char_pip` ("Pip"),
+   `plot_key` ("a shiny key"), and `plot_voice` ("a soft voice") already occur 41-150 times in the base corpus,
+   independent of this project's insertions, which permanently saturates their exposure reading regardless of
+   training. Root-caused via direct corpus grep (`scripts/check_canary_novelty.py`), not assumed — a canary-design
+   flaw, not a metric flaw, and now a required pre-registration check for any future canary study.
+3. **A true same-condition second-seed measurement (identical corpus and canary insertion, only the training run
+   itself differing) found training noise alone can swing exposure by up to ±2.459 units** — wider than two
+   earlier, weaker estimates (~0.85, then ~1.6, both inferred from cross-frequency comparisons that also changed
+   the training data). This directly resolved an open question rather than just widening a number: the project's
+   previously-strongest single-frequency signal (`plot_lantern` at frequency 1) is exactly canceled by pure noise
+   under the second seed — walked back, transparently, in both the lab notebook and the paper draft.
+4. **A corrected, teacher-forced extraction test finds zero successful extractions across the entire grid**
+   (120 canary-checkpoint pairs, both architectures, all five frequencies) — including canaries sitting at their
+   exposure metric's exact maximum. A real, well-powered gap between "the model ranks the true continuation
+   highly" (exposure) and "the model's own greedy decoding ever produces it" (extraction) — a finding in its own
+   right, not just a caveat.
 
-| Run | Tokens | Wall time | Where measured |
-|---|---|---|---|
-| Pretrain from scratch | 90M | 4.1 h | `aarav-lm` exp_004 |
-| Continued pretrain | 147M | 7.7 h | `aarav-lm` exp_010 |
+## What's not done, and why
 
-**The brief as written** (up to 8 architecture variants x 5 frequency levels = 40 runs) would take roughly
-**160 hours (6-7 days)** of continuous single-machine compute at the cheaper rate, before Phases 4-6.
+- **Phase 5 hand-labelling** (the brief's actual novelty/recombination measurement — a three-way classification of
+  generated completions, hand-labelled before any automated judge is trusted) is the single largest remaining
+  gap. Batches are prepared and ready in `results/labelling/*.txt` (one file per trained frequency/architecture);
+  everything reported so far about "novelty" uses an automated diversity proxy (distinct-2) standing in for this,
+  which is explicitly flagged everywhere it's used. This step needs the user's own judgment, not automation.
+- **`variant_b_mha` and `variant_c_layernorm`** (the brief's other two architecture axes) have parameter-matched
+  configs generated but have not been trained, pending review of the two-axis result so far.
+- **The same second-seed noise measurement at frequencies 10, 100, and 500** (done so far only at 0 and 1) would
+  settle whether the frequency-100/500 ceiling-saturation finding needs the same treatment — flagged as
+  additional compute, not yet run.
 
-**What this project sets up instead, pending your decision:** a reduced first pass — one architecture axis at a
-time (baseline + one swap = 2 configs) x 4 frequency levels, at a smaller per-run token budget (~49M tokens,
-roughly 1.5-1.75 h each) — about **12-14 hours** total, doable as an overnight-plus-a-day run. Scale up from there
-once the trade-off curve is visible on the reduced grid.
+## Compute discipline
 
-**A cheaper alternative worth considering:** the classic Carlini et al. design inserts every canary at its *own*
-frequency into **one** corpus, then ranks each canary's exposure within a single trained model — no need to retrain
-per frequency level at all. That cuts the grid from `variants x frequencies` runs to just `variants` runs (5x
-fewer). This project's injection script supports the brief's literal "one frequency per corpus variant" design
-(implemented, below) and could be extended to the mixed-frequency design in an hour or two if you'd rather run that
-instead. Flagging it now, not switching silently, per the brief's own instruction.
+This design needs a **fresh pretraining run from scratch per (architecture, frequency) cell** — memorization has
+to be attributed to a controlled number of training-time exposures, not to fine-tuning an already-trained model.
+On this machine (a MacBook Air M3, 8 GB, no external GPU), each ~14.6M-token run takes roughly 1.5-2.5 hours.
+Canary training and the sibling `aarav-lm` project's own training never run concurrently on this single machine —
+whichever needs the machine next is queued behind whichever is currently running.
 
-## What's built (Phase 1)
-
-- `configs/canaries.yaml` — the pre-registered canary bank: 4 character canaries, 4 plot-fragment canaries, 2
-  unseen controls of each type (never inserted, for baseline comparison), and a near-duplicate paraphrase of every
-  inserted canary (for later novelty evaluation). Frequencies: 1, 10, 50, 100, 500. **Locked**: the script refuses
-  to regenerate `configs/canary_assignment.json` once it exists, so the assignment of which template stories carry
-  which canary cannot silently drift between runs.
-- `scripts/prepare_canary_corpus.py` — builds one corpus variant per frequency level. Insertion pools are nested
-  (the 500x pool's first 100 stories are exactly the 100x pool, etc.), so frequency is the only thing that changes
-  between a variant's corpora, and disjoint across canaries (no story carries two canaries).
-- `data/raw/base.txt` — symlink to `aarav-lm`'s 60 MB TinyStories slice (73,139 stories), reused rather than
-  re-downloaded.
-
-## A bug found and fixed while building this
-
-The first draft of the plot-fragment splice hardcoded `", and " + canary_text`. One of the four plot-fragment
-canaries (`plot_song`) already starts with "and", so it produced "...felt sad, **and and** heard a strange song
-coming from the well." Fixed by dropping the hardcoded connector — each canary text already carries its own
-(then/and/before/until), so the splice adds only a comma. `tests/test_prepare_canary_corpus.py` (12 tests) locks
-this in, including a regression test for the exact failure mode, and a full sweep confirms every one of the 8
-canaries appears exactly as many times as its frequency level says, in all 5 built corpora.
-
-## Reproduce Phase 1
+## Reproduce Phase 1 (canary corpus construction)
 
 ```bash
 cd canary-memorization-study
 python scripts/prepare_canary_corpus.py --config configs/canaries.yaml --base data/raw/base.txt --freq 1
-python scripts/prepare_canary_corpus.py --config configs/canaries.yaml --base data/raw/base.txt --freq 500
-# ... one call per frequency in configs/canaries.yaml; each writes data/processed/freq_<F>/corpus.txt + manifest.json
+# ... one call per frequency; each writes data/processed/freq_<F>/corpus.txt + manifest.json
+python scripts/check_canary_novelty.py   # required pre-registration check: every canary identity vs. the base corpus
 ```
 
 ## Phase 2 — architecture variants
 
 `scripts/make_variant_configs.py` builds and validates every variant against the running model code (parameter
 counts checked with `aarav_lm.model.core.AaravLM`, configs validated by loading them through `aarav_lm`'s own
-`ExperimentConfig.from_yaml`, not a hand-rolled parser):
+`ExperimentConfig.from_yaml`):
 
 | Variant | Change from baseline | Parameters | vs. baseline |
 |---|---|---|---|
 | baseline | — (aarav-lm's `small` preset: RoPE, GQA n_kv_head=2, RMSNorm, SwiGLU, 8 layers) | 14,162,304 | — |
-| A: learned positions | `arch: gpt2` only | 14,358,912 | +1.4% (entirely the new position table; the transformer body is identical, 12,589,440 either way) |
-| B: MHA | `n_kv_head: 6` (every head its own K/V); `n_layer: 7` to compensate (at `n_layer: 8` this variant is +11.1%, too far off) | 13,964,928 | -1.4% |
-| C: LayerNorm | `norm_type: layernorm` only | 14,162,304 | exact match |
+| A: learned positions | `arch: gpt2` only | 14,358,912 | +1.4% (entirely the new position table; the transformer body is identical) |
+| B: MHA | `n_kv_head: 6`, `n_layer: 7` to compensate | 13,964,928 | -1.4% (config only, not trained) |
+| C: LayerNorm | `norm_type: layernorm` only | 14,162,304 | exact match (config only, not trained) |
 
-18 training configs generated under `configs/training/<variant>/freq_<F>.yaml`, each pointing at this project's
-own canary corpus and tokenizer, with training output kept under this project's `models/` (gitignored: run
-outputs, not source). **Queued for the reduced first pass:** baseline and Variant A (learned positions) at
-frequencies 1, 10, 100, 500 (50 dropped only to cut the first pass from 5 to 4 runs; still log-spaced with one
-midpoint). Variant B and C configs are written for all 5 frequencies but not queued, pending review of the first
-pass's trade-off curve.
+## Phase 3 — training (done for baseline and variant A, full grid)
 
-## Phase 3 — training runs (in progress: the Checkpoint-3 smoke test)
+Both architectures trained from scratch at frequencies 0 (zero-exposure control), 1, 10, 100, and 500, plus a
+second seed of `baseline`'s frequency 0/1 cells for a genuine noise-band measurement (`configs/training/baseline/
+freq_<F>_seed1338.yaml`). Every run: 6,000 steps, ~14.6M tokens, same tokenizer/hyperparameters across every cell
+so architecture and frequency are the only intended axes of variation.
 
-The brief's Checkpoint 3 asks for one variant at one frequency, end to end, before scaling up. That run
-(`baseline`, frequency 1, `configs/training/baseline/freq_1.yaml`, 6,000 steps / ~49.2M tokens, ~1.5-1.75h) is
-**running: aarav-lm's own exp_017 (context-extension training) finished at 18:00** — the two
-must not run heavy training concurrently on this 8 GB machine; an earlier attempt at that in this same session
-produced a near-total stall. A background watcher polls exp_017's process and launches the smoke test the moment
-it exits; output goes to `/tmp/canary_smoke.log` and the run itself under `models/baseline/freq_1/`.
+## Phase 4 — memorization (done for the full grid)
 
-## Not started
+`scripts/eval_memorization.py` computes exposure (Carlini et al.'s rank-based metric against a curated reference
+set) and two extraction tests: a free-generation check, and a corrected, teacher-forced, per-token argmax check
+(`argmax_match`) that's well-defined and independently checkable per canary regardless of prompt-sharing. Results:
+`results/mem_<architecture>_freq<F>.json` (second-seed results: `..._freq<F>_seed<S>.json`).
 
-Phases 4-6 (memorization eval, novelty eval, analysis) per `PLAN.md`, and the rest of Phase 3's reduced grid
-(7 more runs: baseline x 3 more frequencies, Variant A x 4 frequencies), pending the smoke test's result.
+## Phase 5 — novelty (proxy metric run; hand-labelling not done)
+
+`scripts/eval_novelty.py` generates completions in unseen settings and scores self-BLEU / distinct-n diversity,
+and can prepare a hand-labelling batch (`--label-batch`) for the brief's actual three-way classification. Results:
+`results/novelty_<architecture>_freq<F>.json`; labelling batches in `results/labelling/`.
+
+## Phase 6 — analysis and plotting
+
+`scripts/analyze_tradeoff.py` builds the memorization-vs-novelty table and plot across the full grid, with a
+`--canaries` filter to exclude the three base-corpus-contaminated canaries from the average (since their lift is
+mechanically ≈0 regardless of exposure, for reasons unrelated to training). Outputs: `results/tradeoff.csv`/`.png`
+(all 8 canaries), `results/tradeoff_clean.csv`/`.png` (5 uncontaminated canaries). Per the brief's own ground rule,
+these are plots and tables only — no prose conclusion is drawn in the outputs themselves.
+
+## Tests
+
+50 tests (`pytest tests/`) cover corpus construction (including a regression test for a real splice bug found
+while building it), the exposure/extraction computation, the novelty metrics, and the trade-off analysis script.
