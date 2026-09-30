@@ -7,7 +7,7 @@ from pathlib import Path
 import pytest
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "scripts"))
-from eval_novelty import distinct_n, edit_distance, make_prompt, ngram_overlap, self_bleu_proxy, training_stories_for  # noqa: E402
+from eval_novelty import distinct_n, edit_distance, make_prompt, ngram_overlap, self_bleu_proxy, stable_hash, training_stories_for  # noqa: E402
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -91,3 +91,37 @@ def test_training_stories_for_an_unseen_control_is_empty():
     if not manifest_path.exists():
         pytest.skip("freq_1 corpus not built in this checkout")
     assert training_stories_for("ctrl_char_olen", frequency=1) == []    # never inserted anywhere
+
+
+# ── stable_hash: the per-(canary, setting) seed derivation must survive a fresh process ──────
+
+def test_stable_hash_is_deterministic_within_a_process():
+    assert stable_hash(("char_pip", "a pirate ship")) == stable_hash(("char_pip", "a pirate ship"))
+
+
+def test_stable_hash_differs_for_different_keys():
+    assert stable_hash(("char_pip", "a pirate ship")) != stable_hash(("char_pip", "a desert island"))
+    assert stable_hash(("char_pip", "a pirate ship")) != stable_hash(("char_nira", "a pirate ship"))
+
+
+def test_stable_hash_is_reproducible_across_fresh_python_processes():
+    """The actual bug this locks in: Python's builtin hash() is randomized per-process for str/tuple (PYTHONHASHSEED
+    salting, on by default) -- using it to derive a "--seed"-controlled generation seed silently made every rerun
+    of scripts/eval_novelty.py non-reproducible, discovered when a rerun with the identical --seed produced a
+    different committed results file. A within-process check (above) cannot catch this; it needs two separate
+    interpreters."""
+    import subprocess
+    import sys as _sys
+
+    script = (
+        "import importlib.util\n"
+        f"spec = importlib.util.spec_from_file_location('eval_novelty', r'{ROOT / 'scripts' / 'eval_novelty.py'}')\n"
+        "mod = importlib.util.module_from_spec(spec)\n"
+        "spec.loader.exec_module(mod)\n"
+        "print(mod.stable_hash(('char_pip', 'a pirate ship sailing a stormy sea')))\n"
+    )
+    results = set()
+    for _ in range(3):
+        out = subprocess.run([_sys.executable, "-c", script], capture_output=True, text=True, check=True)
+        results.add(out.stdout.strip())
+    assert len(results) == 1, f"stable_hash gave different values across fresh processes: {results}"

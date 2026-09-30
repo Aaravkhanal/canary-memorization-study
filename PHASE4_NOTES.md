@@ -626,3 +626,25 @@ piece of additional compute, not yet started.
 The novelty/recombination side of the research question (Phase 5 proper — hand-labelling, full-grid scoring)
 remains the largest gap requiring the user's own input, not automatable: everything above uses the diversity
 proxy, not the hand-labelled score the brief's design calls for.
+
+## A real reproducibility bug found while generating freq_500's hand-labelling batch (fixed)
+
+While filling in freq_500's hand-labelling batch (the same generations already used for the committed novelty
+scores, but with `--label-batch` added), re-running `eval_novelty.py` against the identical checkpoint with the
+identical `--seed` produced **completely different completions** than the already-committed
+`results/novelty_*_freq500.json`. Root cause: the per-`(canary, setting)` seed offset was derived with Python's
+built-in `hash((canary["id"], setting))` — which is **randomized per process** for strings/tuples (PYTHONHASHSEED
+salting, on by default since Python 3.3) — so `--seed`'s implied determinism never actually held across separate
+runs of the script, only within a single process. Fixed with a real, stable hash (`stable_hash()`, md5-based);
+`tests/test_eval_novelty.py` now spawns three fresh Python processes and asserts they agree, which fails
+immediately on the old code and would have caught this before it ever produced an inconsistent file.
+
+**No previously-committed result is wrong** — every `results/novelty_*.json` in this repo was generated exactly
+once and committed as that single generation, so nothing analyzed so far compared two non-matching runs. The
+practical consequence is narrower but real: **re-running `eval_novelty.py` on an already-scored checkpoint,
+including for something as routine as adding a label-batch file, was silently producing a different sample than
+what's on record** — caught here because the diff was inspected before committing (the freq_500 label-batch's
+underlying novelty scores were reverted to the original committed file rather than the just-regenerated one, and
+only the new label-batch text was kept). Anyone extending this project should regenerate `--label-batch` files
+from a config that also re-seeds properly now, and treat any pre-fix rerun's *scores* (not just the batch text) as
+non-comparable to the original.

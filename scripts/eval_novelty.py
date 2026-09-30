@@ -26,6 +26,7 @@ memorised template regardless of the prompt).
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 import sys
 from collections import Counter
@@ -42,6 +43,17 @@ sys.path.insert(0, str(AARAV_LM / "src"))
 def load_engine(checkpoint: Path, tokenizer_dir: Path, device: str):
     from aarav_lm.inference.engine import InferenceEngine
     return InferenceEngine.from_checkpoint(checkpoint, tokenizer_dir, device)
+
+
+def stable_hash(key: tuple) -> int:
+    """A per-(canary, setting) seed offset that is actually stable across process runs.
+
+    Python's built-in hash() is randomized per-process for str/bytes/tuples-of-those (PYTHONHASHSEED salting,
+    on by default since 3.3) -- using it here silently made every "--seed"-controlled run of this script produce
+    different completions (and therefore different novelty scores and label-batch text) despite --seed's own
+    docstring/default implying determinism. Found when a rerun with the identical --seed produced a different
+    results file than the one already committed. md5 has no such per-process randomization."""
+    return int(hashlib.md5(repr(key).encode()).hexdigest(), 16)
 
 
 def make_prompt(canary: dict, kind: str, setting: str) -> str:
@@ -148,7 +160,7 @@ def main() -> None:
             refs = training_stories_for(canary["id"], args.frequency)
             for setting in cfg["novel_settings"]:
                 prompt = make_prompt(canary, kind, setting)
-                seed = args.seed + hash((canary["id"], setting)) % 10_000
+                seed = args.seed + stable_hash((canary["id"], setting)) % 10_000
                 completions = generate_completions(engine, prompt, args.n_completions, args.temperature, args.max_new_tokens, seed)
                 per_gen = []
                 for text in completions:
