@@ -59,19 +59,26 @@ H2 coming back null is still a valid, publishable result: it would mean the trad
 data/exposure rather than architecture at this scale — itself informative, and framable as a boundary condition
 against the small-model architecture-ablation literature (§2).
 
-**Status against these hypotheses so far**: the memorization side of H1 is well-supported by §4.3's dose-response
-results (large, replicated, converges to saturation by frequency 100). The *trade-off* half of H1 — whether
-novelty actually declines as memorization rises — has one preliminary, proxy-based data point now (§4.5): across
-frequencies 1/10/100 in both architectures, the novelty proxy stays within a narrow band while the memorization
-score climbs steeply, in both the full-canary and contamination-excluded tables. That is a fact about these two
-numbers on this partial grid, not a test of H1 — the novelty metric is a diversity proxy standing in for the
-brief's actual hand-labelled recombination score (Checkpoint 5, not done), one seed per cell, and frequency 500 is
-missing. H1 remains open pending that real test. H2 has one data point in the *memorization* dimension (the
-dose-response signal replicates closely across RoPE and learned-position architectures at frequencies 10 and 100,
-§4.3) — suggestive of a null result on the memorization side specifically, and the same pattern (flat novelty
-proxy) also holds in both architectures in §4.5's tables — but the novelty side of H2 has the same proxy-metric
-caveat as H1, and multi-head attention (the second architecture axis in the hypothesis) hasn't been trained at
-all yet.
+**Status against these hypotheses so far, updated after the second-seed noise measurement (§4.2, §4.3)**: the
+memorization side of H1 is well-supported at frequencies 100 and 500 specifically (exact-value ceiling convergence,
+replicated across two architectures — a form of evidence a genuine same-condition noise measurement confirms
+training noise does not produce), but *not* at frequency 10, where two of the three previously-reported signals
+(`char_nira`, `char_suri`) turned out to fall inside a properly-measured noise band and are walked back to
+"plausible, not established"; frequency 1 shows no signal at all, directly demonstrated rather than inferred. The
+honest current statement of the memorization side of H1 is narrower than first written: dose-response is real and
+strong once frequency is high enough (≥100 at this scale, for most canaries), and the lower frequencies' apparent
+gradualness was partly a noise artifact, not yet a demonstrated smooth curve. The *trade-off* half of H1 — whether
+novelty actually declines as memorization rises — has one preliminary, proxy-based data point now (§4.5), covering
+the full 0/1/10/100/500 grid: the novelty proxy stays within a narrow band while the memorization score climbs
+(and plateaus/dips slightly at 500, itself now understood as within noise, §4.3) in both the full-canary and
+contamination-excluded tables. That is a fact about these two numbers on this grid, not a test of H1 — the novelty
+metric is a diversity proxy standing in for the brief's actual hand-labelled recombination score (Checkpoint 5, not
+done), and every cell is still single-seed except freq_0/1. H1 remains open pending the real novelty test. H2 has
+one data point in the *memorization* dimension (the frequency-100/500 ceiling-convergence pattern replicates
+closely across RoPE and learned-position architectures, §4.3) — suggestive of a null result on the memorization
+side specifically at high frequency, and the same pattern (flat novelty proxy) also holds in both architectures in
+§4.5's tables — but the novelty side of H2 has the same proxy-metric caveat as H1, and multi-head attention (the
+second architecture axis in the hypothesis) hasn't been trained at all yet.
 
 ## 2. Related work
 
@@ -134,12 +141,13 @@ yet used.
 
 Canaries are inserted at controlled frequencies into otherwise-identical corpus variants (one fresh pretraining
 run per frequency, not fine-tuning, so memorization can be attributed to a known number of training-time
-exposures). Pre-registered frequencies: 1, 10, 50, 100, 500 insertions in a ~14.6M-token corpus; a frequency-0
-(zero-insertion) condition was added mid-project as an explicit control (§3.4, §4.1) — not one of the
-pre-registered treatment levels, and not a violation of the "don't change the canary list" ground rule, since it
-changes nothing about the canaries themselves. Insertion pools are nested (the 10x pool's insertions are the first
-10 of the 100x pool, etc.) for dose-response validity, and disjoint across canaries (one seeded shuffle, sliced
-into blocks, so no training story carries two canaries).
+exposures). Pre-registered frequencies: 1, 10, 50, 100, 500 insertions in a ~14.6M-token corpus. **50 was dropped
+from the trained grid** to cut runtime (§5, limitation 2) — the frequencies actually trained and scored are 1, 10,
+100, 500, plus a frequency-0 (zero-insertion) condition added mid-project as an explicit control (§3.4, §4.1) —
+not one of the pre-registered treatment levels, and not a violation of the "don't change the canary list" ground
+rule, since it changes nothing about the canaries themselves. Insertion pools are nested (the 10x pool's insertions
+are the first 10 of the 100x pool, etc.) for dose-response validity, and disjoint across canaries (one seeded
+shuffle, sliced into blocks, so no training story carries two canaries).
 
 All canary bank details are pre-registered in `configs/canaries.yaml` and locked once
 `scripts/prepare_canary_corpus.py` has generated the assignment file from it — the assignment cannot silently
@@ -154,8 +162,10 @@ checkpoint), on ~14.6M tokens (~3.4 epochs of the ~71,700-story corpus), 6,000 s
 (effective 16 sequences/step, 512 tokens/sequence), peak LR 8e-4 with 150-step warmup and cosine decay to 10% of
 peak, weight decay 0.1, gradient clipping at norm 1.0. Same tokenizer, vocabulary, context length, token budget,
 learning-rate schedule and batch size across every architecture and frequency, so architecture is the only
-intended axis of variation within a comparison. Fixed, logged seed (20260927) throughout — see §5 for what this
-does and does not control for.
+intended axis of variation within a comparison. Fixed, logged `train.seed` (20260927) for the main grid, with one
+addition: `baseline`'s freq_0 and freq_1 cells were each retrained with a second `train.seed` (1338), `data.seed`
+(corpus construction, canary insertion) unchanged, specifically to measure pure training-run noise as a true
+same-condition comparison (§4.2) — see §5 for which cells this covers and which it does not yet.
 
 ### 3.4 Memorization metric
 
@@ -498,10 +508,11 @@ noise.
 
 - Pre-registered canary bank, frequencies, and reference-set metadata: `configs/canaries.yaml` (git history shows
   exactly when and why the reference-set metadata was widened, §4.1).
-- Every training config: `configs/training/<architecture>/freq_<F>.yaml`.
+- Every training config: `configs/training/<architecture>/freq_<F>.yaml`; second-seed noise-measurement configs
+  follow the pattern `freq_<F>_seed<S>.yaml` (same `data.seed`, different `train.seed`).
 - Every trained checkpoint's raw memorization/novelty scores: `results/mem_<architecture>_freq<F>.json`,
-  `results/novelty_<architecture>_freq<F>.json`.
-- Test suite (42 tests as of this writing) covers corpus construction, the exposure/extraction computation, the
+  `results/novelty_<architecture>_freq<F>.json` (second-seed results: `..._freq<F>_seed<S>.json`).
+- Test suite (50 tests as of this writing) covers corpus construction, the exposure/extraction computation, the
   novelty metrics, and the trade-off analysis script; run via `pytest tests/` and required green before every push.
 - No collaborator, co-author, or "generated with" attribution appears anywhere in this project's commit history,
   per the user's explicit, standing instruction — commits are attributed solely to the user.
