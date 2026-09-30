@@ -19,14 +19,19 @@ silently reports a false-positive "always memorized" signal for any canary whose
 the pretraining corpus independent of insertion — a canary-design flaw, not a metric flaw, missed by this project's
 own Phase 1 canary selection and only caught by checking base-corpus frequency after the fact. We recommend that
 check as a required pre-registration step for future canary studies. A teacher-forced, per-token argmax extraction
-test finds **zero** successful extractions across the full grid (96 canary-checkpoint pairs), including canaries at
-maximal exposure — a real gap between "the model ranks the true continuation highly" and "the model's own greedy
-decoding ever produces it." Finally, at the highest frequency tested (500), one architecture's exposure reading for
-a genuinely-inserted canary *drops* relative to frequency 100, and a never-inserted control's exposure swings by
-more than this project's own previously-estimated single-seed noise band — both consistent with under-measured
-training-seed variance rather than a real decline in memorization, but neither yet distinguishable from one without
-a second seed, which we flag as the most important open gap before any of the above claims should be considered
-settled.*
+test finds **zero** successful extractions across the full grid (120 canary-checkpoint pairs), including canaries
+at maximal exposure — a real gap between "the model ranks the true continuation highly" and "the model's own
+greedy decoding ever produces it." Finally, a genuine same-condition second-seed measurement (identical corpus and
+canary insertion, only the training run itself differing) at frequencies 0 and 1 found training noise alone
+reaches ±2.459 exposure units — wider than either of two earlier, cross-frequency-confounded estimates (~0.85, then
+~1.6) — and directly resolved an open question rather than just widening it: the apparent frequency-1 lift for the
+project's previously-strongest single-frequency signal (`plot_lantern`, +1.807 under the original seed) is exactly
+matched, in the opposite direction, by pure noise under the second seed. Frequency 100's and 500's core finding —
+multiple canaries converging on the exact same maximum exposure value, replicated across two architectures — rests
+on different, stronger evidence (exact-value convergence, which ordinary training noise does not produce) and is
+not weakened by this; frequency 10's evidence for two borderline canaries (`char_nira`, `char_suri`) is, and is
+walked back to "plausible, not established" accordingly. The most important remaining gap is the same second-seed
+treatment at frequencies 10, 100, and 500, not yet run.*
 
 ## 1. Research question
 
@@ -301,10 +306,30 @@ multiple seeds or (as used here, faster but weaker) cross-architecture replicati
 
 **Revised upward once freq_500 was scored (§4.3): `ctrl_char_teva` (baseline), still never inserted at any
 frequency, swings +2.170 from freq_0 to freq_500 (0.222 → 2.392)** — larger than the ~1.6-unit band above. With
-one training run per (architecture, frequency) cell, this cannot be told apart from an unlucky draw versus a
-genuinely wider noise band; either way, the working rule going forward is that single-frequency exposure
-differences under roughly 2 units should be treated as possibly noise, not the earlier ~1.6, until a second-seed
-measurement exists to settle it properly.
+one training run per (architecture, frequency) cell, this couldn't be told apart from an unlucky draw versus a
+genuinely wider noise band from that evidence alone — resolved properly below.
+
+**Resolved with a true same-condition measurement, not another cross-frequency comparison.** Every noise estimate
+above compares controls *across different frequencies*, which changes the training data itself (one more canary
+insertion shifts every subsequent training batch) — not a clean noise-only comparison. `baseline/freq_0` and
+`baseline/freq_1` were each retrained with a second seed (`train.seed` 1338; `data.seed` — corpus construction and
+canary insertion — held identical to the original runs), giving four same-condition pairs, each isolating *pure
+training stochasticity* with zero change in what the model was trained on:
+
+| canary | freq_0 seed A → seed B | swing | freq_1 seed A → seed B | swing |
+|---|---|---|---|---|
+| `char_boro` (inserted, but freq_0 = no actual insertion) | 0.933 → 3.392 | **+2.459** | 1.807 → 1.222 | −0.585 |
+| `ctrl_char_teva` (never inserted, any frequency) | 0.222 → 2.070 | **+1.848** | 1.070 → 1.070 | +0.000 |
+| `plot_lantern` | 0.652 → 0.652 | +0.000 | 2.459 → 0.652 | **−1.807** |
+| `char_pip` | 4.392 → 4.392 | +0.000 | 4.392 → 2.807 | **−1.585** |
+
+**The noise band is wider than either previous estimate: same-condition training noise alone reaches ±2.459
+exposure units**, not ~1.6. This is the best-grounded estimate in the project so far (a true controlled
+comparison — identical corpus, identical canary insertion, only the training run itself differs) and it
+supersedes both earlier cross-frequency estimates above. One direct consequence, addressed in §4.3: `plot_lantern`'s
+apparent frequency-1 lift (+1.807 under the original seed) is exactly matched, in the opposite direction, by pure
+noise under a second seed (−1.807, freq_1 seed A → seed B) — the original lift was not distinguishable from noise
+after all, now demonstrated directly rather than inferred from a control's swing.
 
 ### 4.3 Finding: a dose-response memorization signal exists for a subset of canaries, and replicates across two architectures
 
@@ -322,13 +347,18 @@ per-canary lift at frequency 10 (relative to that architecture's own `freq_0`):
 | `plot_lantern` | **+2.807** | **+3.000** | No |
 | `plot_voice` | +0.000 | +0.000 | Yes |
 
-`char_nira`, `char_boro`, and especially `plot_lantern` show a lift well above the ~1.6 noise-band estimate
-(§4.2) at frequency 10, **in both architectures independently** — two separate training runs per architecture,
-same three canaries showing the strongest and most consistent signal. `plot_lantern`'s lift is nearly identical
-between architectures (+2.807 vs. +3.000), which is the single strongest piece of evidence in the project so far
-that this specific canary's memorization is a robust, architecture-independent effect within this data/model
-scale, not a fluke of one run. `char_pip`, `plot_key`, `plot_song`, and `plot_voice` remain uninformative due to
-ceiling saturation (§4.1) in one or both architectures and cannot yet support any claim either way.
+**Revisited against the ±2.459 same-condition noise band (§4.2), not the earlier, too-narrow ~1.6 estimate**:
+`char_nira`'s lift (+2.170 baseline, +2.585 variant_a) and `char_suri`'s (+1.459 baseline, +1.263 variant_a) now
+fall inside or right at the edge of the noise band individually — no longer confidently distinguishable from
+chance on frequency-10 evidence alone, whereas the earlier (too-narrow) estimate had called them established.
+`char_boro` (+0.459 baseline) was already inside either band. **`plot_lantern` is the one lift that survives**:
++2.807 (baseline) and +3.000 (variant_a) both exceed even the revised, wider band, and — unlike the others — it is
+corroborated by a second, independent kind of evidence: cross-architecture replication (two unrelated training
+runs landing within 0.19 of each other). `char_pip`, `plot_key`, `plot_song`, and `plot_voice` remain uninformative
+due to ceiling saturation (§4.1) in one or both architectures and cannot yet support any claim either way.
+**The frequency-10 picture is accordingly weaker than first reported: one canary (`plot_lantern`) shows a
+defensible dose-response signal at this frequency; the others are plausible but not established without a second
+seed at frequency 10 itself** (the second-seed work run so far covers frequencies 0 and 1 only, §4.2).
 
 **Update at frequency 100, now confirmed in both architectures:** the ambiguity for `char_boro` and `char_suri`
 resolves cleanly in the positive direction in `baseline` (both sat at or near the noise-band edge at frequency 10;
@@ -338,7 +368,12 @@ independent replication in `variant_a_learned_pos`**: `char_nira` (+2.585), `cha
 of that architecture's controls stays inside the noise band (-0.585 to +0.737). Two independent architectures,
 trained independently, now agree on every one of these canaries at this frequency: dose-response is real and, at
 this data scale, strong enough to saturate the metric once frequency is high enough — frequency 10 was this
-effect still emerging above the noise floor, not its ceiling.
+effect still emerging above the noise floor, not its ceiling. **This frequency-100 conclusion rests on different,
+stronger evidence than the frequency-10 lift-vs-noise-band comparisons above**: multiple canaries independently
+converging on the exact same maximum value, across two architectures, is not merely "exceeds an estimated noise
+threshold" — it is a convergence pattern that ordinary training noise (§4.2's ±2.459 same-condition measurement,
+which never produces exact-value convergence across unrelated canaries) does not produce. The frequency-10 walk-
+back above does not weaken this.
 
 **A genuine nuance in the replication, not a contradiction**: `char_pip` sits exactly at baseline's ceiling already
 at `freq_0` (lift `+0.000` at every frequency, fully explained by its 150 base-corpus occurrences, §4.1), but in
@@ -425,15 +460,17 @@ noise.
 
 ## 5. Limitations (current, to be revisited as the grid completes)
 
-1. **Single seed per (architecture, frequency) cell.** Every lift number in §4.3 comes from one training run per
-   condition; the noise-band estimate in §4.2 is inferred from control-canary swings across *different* runs, not
-   from a proper repeated-seed variance estimate of the same condition. This is the single most important
-   limitation to resolve before the results in §4.3 can be reported as more than "plausible candidates for a real
-   effect" — flagged as additional compute, not yet run, pending a decision on scope/cost. **Sharpened, not just
-   theoretical, once frequency 500 was scored**: a never-inserted control's swing (+2.170) exceeded the earlier
-   noise-band estimate, and one architecture's exposure reading for a real canary dropped between frequency 100 and
-   500 rather than holding or rising — either could be genuine or could be single-seed noise, and this design
-   cannot currently tell the two apart.
+1. **Single seed per (architecture, frequency) cell — now resolved for frequencies 0 and 1, still open for 10,
+   100, and 500.** `baseline/freq_0` and `baseline/freq_1` were each retrained with a second `train.seed`
+   (`data.seed` — corpus and canary insertion — held identical), giving a true same-condition noise measurement:
+   ±2.459 exposure units, wider than either earlier cross-frequency-confounded estimate (~0.85, then ~1.6). This
+   directly resolved one open question (§4.2, §4.3): the previously-strongest frequency-1 signal (`plot_lantern`,
+   +1.807) is indistinguishable from — in fact exactly canceled by — pure noise under the second seed, and two
+   borderline frequency-10 lifts (`char_nira`, `char_suri`) now fall inside the revised band and are walked back
+   to "plausible, not established." **What is not yet resolved**: the same second-seed treatment at frequencies
+   10, 100, and 500, where the ceiling-saturation evidence (§4.3) rests on a different, stronger argument (exact-
+   value convergence across canaries and architectures) that a wider noise band does not by itself undermine, but
+   has still never been directly seed-replicated at those specific frequencies.
 2. **Reduced grid, not the full brief.** Two of up to four architecture axes (learned position embeddings tested;
    attention type and normalization not yet trained). All five pre-registered frequencies (0 added as a control, 50
    dropped from the reduced pass to cut runtime) are now trained and scored for both of the two architectures run

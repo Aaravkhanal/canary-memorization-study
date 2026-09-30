@@ -575,14 +575,54 @@ vocabulary (extraction) are measuring genuinely different thresholds, and this p
 (0-100) reliably clear the first without ever clearing the second.** Whether frequency 500 (queued) changes this
 picture is not yet known — everything scored so far tops out at 100 insertions.
 
-## Not yet checked
+## The second-seed measurement lands: the noise band was still too narrow, and it resolves a real open question
 
-Frequency 500 is still queued for both architectures — including whether it's finally enough exposure to produce
-the first `argmax_extraction` match. **Update: the second-seed measurement is no longer unstarted.** `configs/training/baseline/freq_0_seed1338.yaml` and `freq_1_seed1338.yaml` (train.seed 1338, data.seed unchanged from the
-original runs, so corpus construction and canary insertion are byte-identical — isolating pure training-run
-stochasticity from the "one canary insertion perturbs downstream batching" effect that the original freq_0-vs-
-freq_1 pair itself confounds, since both share the same train.seed) are written, validated, and queued to run
-automatically once the current aarav-lm work finishes; this directly answers whether freq_500's `ctrl_char_teva`
-anomaly reflects a wider noise band or an unlucky draw. The novelty/recombination side of the research question
-(Phase 5 proper — hand-labelling, full-grid scoring) remains the largest gap requiring the user's own input, not
-automatable: everything above uses the diversity proxy, not the hand-labelled score the brief's design calls for.
+`baseline/freq_0_seed1338` (best val loss 1.5586) and `baseline/freq_1_seed1338` (best val loss 1.5773) finished
+and were scored. Unlike every noise estimate before this one, these are a **true same-condition comparison**:
+`data.seed` (corpus construction, canary insertion) is byte-identical to the original `freq_0`/`freq_1` runs; only
+`train.seed` differs (20260927 → 1338). Every earlier noise estimate compared controls *across different
+frequencies*, which also changes the training data itself (one more canary insertion shifts every later batch) —
+never a clean noise-only comparison until now.
+
+| canary | freq_0: orig → seed1338 | swing | freq_1: orig → seed1338 | swing |
+|---|---|---|---|---|
+| `char_pip` | 4.392 → 4.392 | +0.000 | 4.392 → 2.807 | **−1.585** |
+| `char_nira` | 1.222 → 1.807 | +0.585 | 0.933 → 1.807 | +0.874 |
+| `char_boro` | 0.933 → 3.392 | **+2.459** | 1.807 → 1.222 | −0.585 |
+| `char_suri` | 0.933 → 1.070 | +0.138 | 0.933 → 0.692 | −0.241 |
+| `ctrl_char_olen` | 1.070 → 0.692 | −0.379 | 1.222 → 0.933 | −0.290 |
+| `ctrl_char_teva` | 0.222 → 2.070 | **+1.848** | 1.070 → 1.070 | +0.000 |
+| `plot_key` | 3.459 → 3.459 | +0.000 | 3.459 → 3.459 | +0.000 |
+| `plot_song` | 3.459 → 2.459 | −1.000 | 2.459 → 3.459 | +1.000 |
+| `plot_lantern` | 0.652 → 0.652 | +0.000 | 2.459 → 0.652 | **−1.807** |
+| `plot_voice` | 3.459 → 3.459 | +0.000 | 3.459 → 3.459 | +0.000 |
+| `ctrl_plot_bell` | 2.459 → 2.459 | +0.000 | 2.459 → 2.459 | +0.000 |
+| `ctrl_plot_map` | 1.459 → 1.459 | +0.000 | 1.874 → 0.874 | −1.000 |
+
+**The noise band is revised again, upward, on much better evidence**: pure training-run stochasticity — nothing
+about canary insertion changed at all — swings by up to **+2.459** (`char_boro`, freq_0) and **+1.848**
+(`ctrl_char_teva`, an actual never-inserted control, freq_0). This is wider than both earlier, weaker estimates
+(~0.85, then ~1.6), and it's now the best-grounded number in the project: a genuine controlled comparison, not an
+inference from swings across changing conditions.
+
+**This directly resolves an open question rather than just widening a number.** `plot_lantern` was singled out
+earlier in this document as "the clearest, most consistent, least ambiguous dose-response signal in the project"
+at frequency 10, and its frequency-1 lift (+1.807 under the original seed) was the first hint of that. Under the
+second seed, at the *same* frequency-1 condition, `plot_lantern` swings by **−1.807** — the exact same magnitude,
+the opposite sign, from noise alone. **The original frequency-1 lift for `plot_lantern` cannot be distinguished
+from noise; demonstrated directly, not just suspected.** The same logic weakens (not eliminates) two of the
+frequency-10 lifts reported earlier: `char_nira` (+2.170) and `char_suri` (+1.459) now sit inside or at the very
+edge of the revised ±2.459 band and should be read as "plausible, not established" rather than the stronger
+language used when the band was thought to be ~1.6.
+
+**What this does NOT weaken: frequency 100 and 500's core finding.** Multiple canaries converging on the *exact
+same* maximum exposure value, independently, across two architectures, is a categorically different kind of
+evidence than "a lift exceeds an estimated noise threshold" — ordinary training noise (as measured directly above)
+produces scattered swings in both directions, never repeated exact-value convergence across unrelated canaries
+and unrelated training runs. That finding stands. What it does sharpen: the same same-condition, second-seed
+treatment is now clearly worth doing at frequencies 10, 100, and 500 too, not just 0 and 1 — flagged as the next
+piece of additional compute, not yet started.
+
+The novelty/recombination side of the research question (Phase 5 proper — hand-labelling, full-grid scoring)
+remains the largest gap requiring the user's own input, not automatable: everything above uses the diversity
+proxy, not the hand-labelled score the brief's design calls for.
