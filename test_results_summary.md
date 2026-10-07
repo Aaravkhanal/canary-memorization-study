@@ -83,7 +83,7 @@ Phase 5 therefore remains **0 valid human labels completed**. A human must read 
 ## Active queue
 
 1. The fixed-generation-seed batch is complete and its filenames have been disambiguated.
-2. The 14M runner is training baseline 50x (step 750/6000 at the last check; estimated ~2.3 hours remaining for
+2. The 14M runner is training baseline 50x (step 2,975/6000 at the 16:17 local check; trainer ETA was ~1 hour 22 minutes for
    this cell), followed by learned-position 50x and baseline 100x/500x second-seed training/evaluation.
 3. Regenerate matched-baseline trade-off CSVs/plots, rerun tests, and update the paper.
 4. Human Phase 5 labelling remains a non-automatable blocker to the paper's primary trade-off conclusion.

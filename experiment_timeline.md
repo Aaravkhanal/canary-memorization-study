@@ -33,3 +33,5 @@
   JSONs.
 - The 20 renamed generation-seed JSON files were parsed and validated; 67/67 research tests passed after the
   naming correction.
+- 16:17 local: baseline 14M frequency-50 training reached step 2,975/6,000; the trainer estimated 1 hour 22
+  minutes remaining for that cell.
