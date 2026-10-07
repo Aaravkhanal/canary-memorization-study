@@ -1,16 +1,15 @@
 # Memorization vs. compositional creativity in a small language model: does the trade-off depend on architecture?
 
-**Status: draft, in progress.** This document is a structured write-up of the project's methods and results, kept
-in sync with the lab notes in `PHASE4_NOTES.md` as new results come in. It is meant to be turned into a paper or
-report once the reduced-pass grid (and, ideally, a seed-replication pass) is complete — it is not final, and every
-section below says explicitly what is settled versus still provisional. Prose interpretation beyond what the data
-directly supports is deliberately withheld pending the user's own read of the results, per this project's ground
-rules (`PLAN.md`).
+**Status: exploratory draft, not submission-ready.** The four-architecture run has expanded beyond several older
+two-architecture tables below; final numbers will be regenerated only after the queued balancing and replication
+cells finish. Until then, those historical tables are retained as an audit trail, not as the paper's final result.
+The primary novelty endpoint, full-corpus copying search, and confirmatory study are also incomplete. The current
+submission gate is `docs/PUBLICATION_READINESS.md`.
 
 ## Abstract (placeholder)
 
-*To be written once, ideally, a seed-replication pass is complete (the reduced-pass grid itself — frequencies
-0/1/10/100/500, both architectures — is now done). Draft claim the data supports so far: a small (14M-parameter)
+*To be rewritten after the queued runs and primary novelty analysis complete. Provisional claim: a small
+(14M-parameter)
 decoder-only LM shows a measurable, dose-dependent memorization signal for at least some planted narrative elements
 after as few as 10 insertions in ~14.6M training tokens, converging to unambiguous, maximal memorization by 100
 insertions and holding there at 500, and this signal replicates across two different positional-encoding schemes
@@ -30,8 +29,8 @@ matched, in the opposite direction, by pure noise under the second seed. Frequen
 multiple canaries converging on the exact same maximum exposure value, replicated across two architectures — rests
 on different, stronger evidence (exact-value convergence, which ordinary training noise does not produce) and is
 not weakened by this; frequency 10's evidence for two borderline canaries (`char_nira`, `char_suri`) is, and is
-walked back to "plausible, not established" accordingly. The most important remaining gap is the same second-seed
-treatment at frequencies 10, 100, and 500, not yet run.*
+walked back to "plausible, not established" accordingly. Baseline frequency-10 seed replication is now complete;
+frequency 100 and 500 replications are queued. These results do not yet establish a creativity trade-off.*
 
 ## 1. Research question
 
@@ -76,9 +75,9 @@ metric is a diversity proxy standing in for the brief's actual hand-labelled rec
 done), and every cell is still single-seed except freq_0/1. H1 remains open pending the real novelty test. H2 has
 one data point in the *memorization* dimension (the frequency-100/500 ceiling-convergence pattern replicates
 closely across RoPE and learned-position architectures, §4.3) — suggestive of a null result on the memorization
-side specifically at high frequency, and the same pattern (flat novelty proxy) also holds in both architectures in
-§4.5's tables — but the novelty side of H2 has the same proxy-metric caveat as H1, and multi-head attention (the
-second architecture axis in the hypothesis) hasn't been trained at all yet.
+side specifically at high frequency, and the same pattern (flat novelty proxy) also holds in the two-architecture
+historical tables in §4.5. MHA and LayerNorm are now trained, but their complete matched analysis has not yet been
+merged into this manuscript. No H2 conclusion should be drawn from the stale table.
 
 ## 2. Related work
 
@@ -94,16 +93,20 @@ memorizing trade off against creative recombination?"
 |---|---|---|
 | Carlini et al. (2019, "Secret Sharer"), Carlini et al. (2020, extraction) | Canary insertion, exposure metric, model-size vs. memorization | Uses generic/random canaries, not structured narrative elements; treats memorization only as a privacy risk |
 | Tirumala et al., Carlini et al. (2022/2023) | Memorization scales with model size | Varies *size*, not *architecture at fixed size* (this project's axis) |
-| Zhang et al. (2023), counterfactual memorization | Shows models generalize on familiar surface forms but fail under perturbation | Closest prior work conceptually — this project differs by explicitly measuring *compositional recombination*, not just perturbation robustness |
+| McCoy et al. (2023), RAVEN | Measures n-gram and syntactic novelty in generated text, supported by manual analysis | Provides a stronger novelty-evaluation precedent; this project adds controlled narrative-canary exposure and architecture ablations |
+| Haviv et al. (2023), idiom recall | Studies what transformers learn and recall from idiomatic expressions | Closely connects memorized multiword form with compositional behavior, but does not manipulate story-canary frequency across matched architectures |
+| Jiang & Ferraro (2026), stories under memorization constraints | Uses stories as a testbed for reasoning under memorization constraints | Makes story-based memorization/novelty no longer unique; this project instead emphasizes causal exposure, small models, and fixed-size architecture comparisons |
+| Zhou et al. (2026), long-tail memorization and composition | Shows memorizing long-tail data can aid generalization through composition | Directly challenges a one-directional “memorization crowds out composition” premise and motivates testing either sign rather than assuming harm |
 | "What Language Model to Train if You Have One Million GPU Hours?"; Wiola-13M architecture ablations | Architecture ablations (position encoding, attention, norm) at small scale | Measures perplexity/capability, not memorization behavior |
 | Memory Dial; Memorization Sinks | Controllable/removable memorization | Focused on mitigation, not the creativity trade-off itself |
 | TinyStories (Eldan & Li, 2023) | Coherence/fluency of small story-generating models | Does not touch memorization or originality measurement |
 
-**No existing work crosses the architecture-ablation literature with the memorization literature, and no existing
-memorization study uses a creative-generation setting where "crowding out novelty" is the outcome of interest
-rather than privacy leakage.** That combination is this project's positioning. (Full citation list and a risks/
-mitigations table that anticipated, among other things, the canary-contamination issue actually found in §4.1:
-`docs/RESEARCH_PLAN.md`.)
+The defensible positioning is therefore narrower than the original draft claimed. Prior work already studies
+novelty, idiom recall, story-based memorization constraints, and beneficial composition from memorized long-tail
+data. This project's potential contribution is the combination of a controlled exposure intervention, transparent
+from-scratch small-model training, and near-parameter-matched architecture ablations with both corpus-level and
+human novelty checks. Whether memorization helps, harms, or is independent of recombination is an empirical
+question here, not an assumed direction. Full references must be verified before submission.
 
 ## 3. Methods
 
@@ -113,16 +116,17 @@ All models share `aarav-lm`'s `small` preset: 8 layers, width 384, 6 query / 2 K
 attention), RoPE positional encoding, RMSNorm, SwiGLU, ~14.16M parameters, byte-level BPE tokenizer (vocab 4096,
 trained on the base corpus's train split only), context length 512. This is the **baseline** architecture.
 
-One architecture variant has been trained so far, changing exactly one axis from baseline:
+The study uses four near-parameter-matched architectures:
 
 | Variant | Change | Parameters | vs. baseline |
 |---|---|---|---|
 | baseline | — | 14,162,304 | — |
 | `variant_a_learned_pos` | RoPE → learned absolute positions (`arch: gpt2`); rest unchanged | 14,358,912 | +1.4% (entirely the added position table; the transformer body itself is identical, 12,589,440 parameters either way) |
+| `variant_b_mha` | grouped-query attention → multi-head attention; 7 layers to compensate | 13,964,928 | -1.4% |
+| `variant_c_layernorm` | RMSNorm → LayerNorm | 14,162,304 | exact match |
 
-Two further variants (`variant_b_mha`: multi-head instead of grouped-query attention; `variant_c_layernorm`:
-LayerNorm instead of RMSNorm) have configs generated and parameter-count-matched but are not yet queued for
-training, pending review of the two-variant reduced pass.
+MHA and LayerNorm are trained and scored across 0, 1, 10, 50, 100, and 500. Baseline and learned-position
+frequency-50 cells are queued to balance the grid.
 
 ### 3.2 Canary design
 
@@ -141,11 +145,10 @@ yet used.
 
 Canaries are inserted at controlled frequencies into otherwise-identical corpus variants (one fresh pretraining
 run per frequency, not fine-tuning, so memorization can be attributed to a known number of training-time
-exposures). Pre-registered frequencies: 1, 10, 50, 100, 500 insertions in a ~14.6M-token corpus. **50 was dropped
-from the trained grid** to cut runtime (§5, limitation 2) — the frequencies actually trained and scored are 1, 10,
-100, 500, plus a frequency-0 (zero-insertion) condition added mid-project as an explicit control (§3.4, §4.1) —
-not one of the pre-registered treatment levels, and not a violation of the "don't change the canary list" ground
-rule, since it changes nothing about the canaries themselves. Insertion pools are nested (the 10x pool's insertions
+exposures). Pre-registered frequencies are 1, 10, 50, 100, and 500 insertions in a ~14.6M-token corpus, with a
+frequency-0 condition added later as an explicit control. Frequency 50 was initially omitted from the reduced
+pass, then restored: MHA and LayerNorm are complete, while baseline and learned-position cells are queued. This
+history is an exploratory-design deviation and must be reported as such. Insertion pools are nested (the 10x pool's insertions
 are the first 10 of the 100x pool, etc.) for dose-response validity, and disjoint across canaries (one seeded
 shuffle, sliced into blocks, so no training story carries two canaries).
 
@@ -227,14 +230,21 @@ initially used, and the fix).
 
 ### 3.5 Compositional-novelty metric
 
-Per the brief (`PLAN.md` Phase 5, not yet run in full but smoke-tested on every checkpoint scored so far): prompt
+Per the brief (`PLAN.md` Phase 5), prompt
 the model with a canary's identity placed into one of four pre-registered, deliberately implausible-for-TinyStories
 settings (e.g. "a pirate ship sailing a stormy sea"), generate multiple completions at temperature 0.7-1.0, and
-measure self-BLEU (diversity across completions of the same prompt), distinct-n (n-gram diversity within a
-completion), n-gram overlap and edit distance against the actual pre-insertion training stories (using the
-manifest's recorded story indices, not a proxy). Hand-labelling of a hundred-plus-sample batch into
-verbatim/template-copy/genuine-recombination categories is prepared (`results/labelling/*.txt`) but not yet
-performed — per the brief, no LLM-judge automated scoring is used until that hand-labelling exists.
+measure self-BLEU (diversity across completions of the same prompt), distinct-n, and overlap against training
+stories. The original diagnostic compares only the stories selected for canary insertion; it is not evidence of
+novelty relative to the whole corpus. `scripts/eval_full_corpus_overlap.py` now implements an exact maximum
+word-four-gram overlap search against every story in the frequency-specific training corpus, with corpus hash and
+index provenance. It must be run on the finalized outputs before any non-copying claim is made.
+
+The primary endpoint is blinded human classification into verbatim reproduction (V), template copy (T), or
+genuine novel recombination (N). `scripts/prepare_blinded_annotations.py` creates balanced condition-hidden files
+for two raters; `scripts/score_blinded_annotations.py` reports Cohen's kappa, Krippendorff's alpha, disagreements,
+and cluster-bootstrap intervals, and refuses final scoring until disagreements are adjudicated. The complete
+locked procedure is in `docs/ANNOTATION_PROTOCOL.md`. Legacy condition-revealing text batches and automated labels
+are not admissible evidence.
 
 ### 3.6 Statistical approach
 
@@ -481,10 +491,9 @@ noise.
    10, 100, and 500, where the ceiling-saturation evidence (§4.3) rests on a different, stronger argument (exact-
    value convergence across canaries and architectures) that a wider noise band does not by itself undermine, but
    has still never been directly seed-replicated at those specific frequencies.
-2. **Reduced grid, not the full brief.** Two of up to four architecture axes (learned position embeddings tested;
-   attention type and normalization not yet trained). All five pre-registered frequencies (0 added as a control, 50
-   dropped from the reduced pass to cut runtime) are now trained and scored for both of the two architectures run
-   so far.
+2. **Exploratory grid imbalance.** All four architectures are trained at 0, 1, 10, 100, and 500; MHA and LayerNorm
+   additionally have frequency 50. The two missing frequency-50 cells are queued. Frequency 0 was added after the
+   initial preregistration, so it is a necessary matched control but still a documented design change.
 3. **Novelty evaluation not yet run to the brief's standard.** Hand-labelling (Checkpoint 5) has not been done;
    only the automated diversity/overlap metrics have run, and only as smoke tests.
 4. **No test of the mixed-frequency (single-corpus) Secret Sharer design**, which would be far cheaper (one
@@ -512,7 +521,7 @@ noise.
   follow the pattern `freq_<F>_seed<S>.yaml` (same `data.seed`, different `train.seed`).
 - Every trained checkpoint's raw memorization/novelty scores: `results/mem_<architecture>_freq<F>.json`,
   `results/novelty_<architecture>_freq<F>.json` (second-seed results: `..._freq<F>_seed<S>.json`).
-- Test suite (50 tests as of this writing) covers corpus construction, the exposure/extraction computation, the
-  novelty metrics, and the trade-off analysis script; run via `pytest tests/` and required green before every push.
-- No collaborator, co-author, or "generated with" attribution appears anywhere in this project's commit history,
-  per the user's explicit, standing instruction — commits are attributed solely to the user.
+- Test suite (64 tests as of this writing) covers corpus construction, exposure/extraction, novelty metrics,
+  full-corpus overlap, blinded annotation/scoring, and trade-off analysis; run via `pytest tests/`.
+- Repository commit attribution and scholarly authorship are distinct. The final manuscript must follow the target
+  venue's human-authorship criteria and disclose AI-assisted code or prose to the extent required by its policy.

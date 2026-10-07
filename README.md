@@ -5,9 +5,10 @@ stories, and does the trade-off shift with architecture? This project measures i
 controlled insertion frequencies, following Carlini et al. 2019's exposure methodology, adapted to a
 narrative-generation setting.
 
-**Status: the reduced-grid memorization side is essentially done, with real findings — the novelty/recombination
-side still needs the user's own hand-labelling.** Two architectures (`baseline`, `variant_a_learned_pos`) are
-fully trained and scored across the complete pre-registered frequency grid (0 control, 1, 10, 100, 500). See
+**Status: the four-architecture exploratory grid is almost complete, with real findings — the primary
+novelty/recombination endpoint still needs blinded human labelling.** The MHA and LayerNorm variants are trained
+and scored at 0, 1, 10, 50, 100, and 500 insertions. Baseline and learned-position frequency-50 cells plus two
+baseline seed replications are queued/running. See
 `PLAN.md` for the phase-by-phase brief this project follows, `PHASE4_NOTES.md` for the detailed running lab
 notebook, and `docs/DRAFT_PAPER.md` for the write-up structured for eventual publication, kept in sync as results
 come in.
@@ -37,16 +38,17 @@ come in.
 
 ## What's not done, and why
 
-- **Phase 5 hand-labelling** (the brief's actual novelty/recombination measurement — a three-way classification of
-  generated completions, hand-labelled before any automated judge is trusted) is the single largest remaining
-  gap. Batches are prepared and ready in `results/labelling/*.txt` (one file per trained frequency/architecture);
-  everything reported so far about "novelty" uses an automated diversity proxy (distinct-2) standing in for this,
-  which is explicitly flagged everywhere it's used. This step needs the user's own judgment, not automation.
-- **`variant_b_mha` and `variant_c_layernorm`** (the brief's other two architecture axes) have parameter-matched
-  configs generated but have not been trained, pending review of the two-axis result so far.
-- **The same second-seed noise measurement at frequencies 10, 100, and 500** (done so far only at 0 and 1) would
-  settle whether the frequency-100/500 ceiling-saturation finding needs the same treatment — flagged as
-  additional compute, not yet run.
+- **Phase 5 blinded human annotation** is the single largest remaining gap. The balanced two-rater workflow,
+  locked private manifest, agreement statistics, adjudication gate, and clustered confidence intervals are now
+  implemented in `scripts/prepare_blinded_annotations.py`, `scripts/score_blinded_annotations.py`, and
+  `docs/ANNOTATION_PROTOCOL.md`. No automated labels are treated as evidence.
+- **Full-corpus copying analysis** is implemented in `scripts/eval_full_corpus_overlap.py`; it must be run after
+  the generation files are finalized. The earlier metric checks only the canary's insertion stories and cannot
+  by itself support a broad novelty claim.
+- **Baseline/learned-position frequency 50 and baseline seed replications at 100/500** are queued. Their absence is
+  tracked explicitly rather than silently treated as a complete balanced grid.
+- **A confirmatory, contamination-free study** remains necessary for a strong paper. Its frozen recommended design
+  is in `docs/CONFIRMATORY_STUDY_PROTOCOL.md`.
 
 ## Compute discipline
 
@@ -75,28 +77,31 @@ counts checked with `aarav_lm.model.core.AaravLM`, configs validated by loading 
 |---|---|---|---|
 | baseline | — (aarav-lm's `small` preset: RoPE, GQA n_kv_head=2, RMSNorm, SwiGLU, 8 layers) | 14,162,304 | — |
 | A: learned positions | `arch: gpt2` only | 14,358,912 | +1.4% (entirely the new position table; the transformer body is identical) |
-| B: MHA | `n_kv_head: 6`, `n_layer: 7` to compensate | 13,964,928 | -1.4% (config only, not trained) |
-| C: LayerNorm | `norm_type: layernorm` only | 14,162,304 | exact match (config only, not trained) |
+| B: MHA | `n_kv_head: 6`, `n_layer: 7` to compensate | 13,964,928 | -1.4% |
+| C: LayerNorm | `norm_type: layernorm` only | 14,162,304 | exact match |
 
-## Phase 3 — training (done for baseline and variant A, full grid)
+## Phase 3 — training (four architectures; final balancing cells queued)
 
-Both architectures trained from scratch at frequencies 0 (zero-exposure control), 1, 10, 100, and 500, plus a
-second seed of `baseline`'s frequency 0/1 cells for a genuine noise-band measurement (`configs/training/baseline/
-freq_<F>_seed1338.yaml`). Every run: 6,000 steps, ~14.6M tokens, same tokenizer/hyperparameters across every cell
-so architecture and frequency are the only intended axes of variation.
+All four architectures have been trained from scratch at frequencies 0, 1, 10, 100, and 500; MHA and LayerNorm
+also include the originally pre-registered frequency 50. Baseline and learned-position frequency 50 are queued.
+Baseline seed 1338 is complete at 0, 1, and 10, with 100/500 queued. Every run uses 6,000 steps, ~14.6M tokens,
+and the same tokenizer/hyperparameters; the matched comparisons change only the declared architecture or
+frequency axis.
 
-## Phase 4 — memorization (done for the full grid)
+## Phase 4 — memorization (complete for every trained checkpoint)
 
 `scripts/eval_memorization.py` computes exposure (Carlini et al.'s rank-based metric against a curated reference
 set) and two extraction tests: a free-generation check, and a corrected, teacher-forced, per-token argmax check
 (`argmax_match`) that's well-defined and independently checkable per canary regardless of prompt-sharing. Results:
 `results/mem_<architecture>_freq<F>.json` (second-seed results: `..._freq<F>_seed<S>.json`).
 
-## Phase 5 — novelty (proxy metric run; hand-labelling not done)
+## Phase 5 — novelty (generation/proxies run; primary human endpoint not done)
 
 `scripts/eval_novelty.py` generates completions in unseen settings and scores self-BLEU / distinct-n diversity,
 and can prepare a hand-labelling batch (`--label-batch`) for the brief's actual three-way classification. Results:
-`results/novelty_<architecture>_freq<F>.json`; labelling batches in `results/labelling/`.
+`results/novelty_<architecture>_freq<F>.json`. Use the blinded CSV workflow in `docs/ANNOTATION_PROTOCOL.md`, not
+the legacy condition-revealing text batches. `scripts/eval_full_corpus_overlap.py` performs exact maximum
+four-gram overlap against every story in the actual training corpus.
 
 ## Phase 6 — analysis and plotting
 
@@ -108,5 +113,14 @@ these are plots and tables only — no prose conclusion is drawn in the outputs 
 
 ## Tests
 
-50 tests (`pytest tests/`) cover corpus construction (including a regression test for a real splice bug found
-while building it), the exposure/extraction computation, the novelty metrics, and the trade-off analysis script.
+64 tests (`pytest tests/`) cover corpus construction, exposure/extraction, novelty metrics, full-corpus overlap,
+blinded annotation/scoring, and trade-off analysis.
+
+## Publication documents
+
+- `docs/PUBLICATION_READINESS.md`: candid submission gate, venue strategy, IEEE policy requirements, and safe
+  résumé wording.
+- `docs/CONFIRMATORY_STUDY_PROTOCOL.md`: contamination-free, mixed-frequency, multi-seed confirmatory design.
+- `docs/ANNOTATION_PROTOCOL.md`: blinded two-rater labelling and adjudication procedure.
+- `docs/REFERENCES.bib`: verified core references from USENIX, ACL Anthology, and OpenReview; expand before submission.
+- `docs/DRAFT_PAPER.md`: living manuscript; exploratory claims remain provisional until the gates above pass.

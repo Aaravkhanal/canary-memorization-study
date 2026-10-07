@@ -1,0 +1,114 @@
+\documentclass[conference]{IEEEtran}
+\usepackage{booktabs}
+\usepackage{hyperref}
+\usepackage{xcolor}
+
+\title{Memorization and Compositional Creativity in Small Language Models:\\
+A Controlled Canary Study Across Transformer Architectures}
+
+\author{\IEEEauthorblockN{Aarav Khanal}}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+This working manuscript is not yet ready for submission. The exploratory study trains approximately
+14-million-parameter decoder-only language models from scratch while manipulating the frequency of planted
+narrative canaries. It compares near-parameter-matched positional-encoding, attention, and normalization variants
+and separates reference-set exposure from global argmax extraction. Final claims about compositional creativity
+are withheld pending blinded human annotation, exact full-corpus copying analysis, and a preregistered
+contamination-free confirmatory study.
+\end{abstract}
+
+\begin{IEEEkeywords}
+language-model memorization, compositional generalization, text generation, canary exposure, reproducibility
+\end{IEEEkeywords}
+
+\section{Introduction}
+Language models can both recall training sequences and productively recombine familiar elements. Whether repeated
+exposure shifts a small model from composition toward reproduction, and whether architecture changes that
+relationship, remains an empirical question. We study that question through controlled from-scratch training,
+rather than by inferring exposure from an opaque web corpus. We make no assumption that memorization must harm
+composition; recent work also motivates neutral and beneficial relationships.
+
+The intended contributions are: (1) a controlled narrative-canary dose intervention; (2) comparisons across
+near-parameter-matched Transformer architectures; (3) explicit separation of reference-set exposure, global
+argmax extraction, corpus-level copying, diversity, and human judgments; and (4) a consumer-hardware reproducibility
+artifact with configurations, checksums, tests, raw outputs, and documented negative results.
+
+\section{Related Work}
+The exposure method follows Carlini et al.~\cite{carlini2019secret}. RAVEN demonstrates that novelty requires
+comparison with training data at multiple linguistic scales and manual analysis~\cite{mccoy2023raven}. Haviv
+et al. characterize recall of memorized idioms~\cite{haviv2023idioms}. Story-based memorization constraints have
+also been studied in larger language models~\cite{jiang2026stories}, while Zhou et al. show that memorization can
+support generalization through composition~\cite{zhou2026longtail}. Consequently, our contribution is not the
+broad claim that memorization and composition have never been studied together. It is the controlled conjunction
+of exposure frequency, small-model training, and near-fixed-size architecture ablations.
+
+\section{Methods}
+\subsection{Models and Intervention}
+The baseline is a decoder-only model with eight layers, width 384, six query heads, two key--value heads, rotary
+position embeddings, RMSNorm, SwiGLU, a 4096-token byte-level BPE vocabulary, and context length 512. The four
+conditions are baseline (14,162,304 parameters), learned absolute positions (14,358,912), multi-head attention
+with seven layers (13,964,928), and LayerNorm (14,162,304). Each checkpoint is trained from random initialization
+for 6,000 steps on a roughly 14.6-million-token TinyStories-style corpus.
+
+Narrative canaries are inserted at 1, 10, 50, 100, or 500 stories; a zero-insertion condition is used as a matched
+control. Insertion pools are nested across frequencies and disjoint across canaries. Three originally selected
+canaries were later found to overlap the base corpus. They are retained for auditability but excluded from the
+clean primary aggregation; the confirmatory study uses a new bank verified absent before locking.
+
+\subsection{Outcomes}
+Memorization is measured by rank-based exposure relative to a fixed alternative set, with lift from the matched
+zero-insertion model as the primary quantity. Teacher-forced per-token argmax matching tests a stricter extraction
+threshold. Novelty evaluation includes distinct-$n$, a self-BLEU proxy, exact maximum word-four-gram overlap
+against every training story, and a condition-blinded V/T/N judgment: verbatim reproduction, template copy, or
+genuine novel recombination. Two raters label a balanced sample; agreement and adjudication are reported before
+condition-level estimates are unblinded.
+
+\subsection{Analysis}
+The exploratory grid is reported as exploratory. The confirmatory protocol uses mixed frequencies within one
+corpus per architecture and seed, at least three seeds, a larger exposure reference set, clustered bootstrap
+intervals, hierarchical repeated-measures models, multiplicity correction, and preregistered exclusions. Full
+details are versioned with the artifact.
+
+\section{Results}
+\textcolor{red}{Final tables and claims will be inserted only after the queued cells, full-corpus search, blinded
+annotation, and confirmatory analysis are complete.} Current exploratory evidence shows a high-frequency exposure
+signal and a gap between reference-set exposure and argmax extraction. It does not yet establish that memorization
+reduces or improves compositional creativity.
+
+\section{Limitations and Ethics}
+The study is small in model and corpus scale. The original grid contains single-seed cells and post-registration
+design changes, and several initial canaries were contaminated by the base corpus. Diversity statistics are not
+substitutes for semantic novelty. External human annotation will begin only after any required institutional
+oversight determination and consent process. The final paper will report funding, conflicts of interest, data and
+code availability, and every exploratory deviation.
+
+\section{Conclusion}
+This project is designed to determine, rather than presume, how controlled memorization relates to narrative
+recombination in small Transformers. Its publishable value depends on completing the registered validation gates
+and reporting null or contradictory results with the same prominence as positive findings.
+
+\section*{Acknowledgment and AI-use disclosure}
+AI-assisted tools were used for repository auditing, code and test drafting, literature discovery, and manuscript
+editing. The human author is responsible for the research decisions, execution, verification, interpretation,
+citations, and final text. This statement must be adapted to the exact policy of the selected venue and the final
+record of tool use.
+
+\begin{thebibliography}{00}
+\bibitem{carlini2019secret} N. Carlini, C. Liu, {\'U}. Erlingsson, J. Kos, and D. Song, ``The Secret Sharer:
+Evaluating and testing unintended memorization in neural networks,'' in \emph{28th USENIX Security Symposium},
+2019, pp. 267--284.
+\bibitem{mccoy2023raven} R. T. McCoy, P. Smolensky, T. Linzen, J. Gao, and A. Celikyilmaz, ``How much do language
+models copy from their training data? Evaluating linguistic novelty in text generation using RAVEN,''
+\emph{Transactions of the Association for Computational Linguistics}, vol. 11, pp. 652--670, 2023.
+\bibitem{haviv2023idioms} A. Haviv, I. Cohen, J. Gidron, R. Schuster, Y. Goldberg, and M. Geva, ``Understanding
+Transformer memorization recall through idioms,'' in \emph{Proc. EACL}, 2023, pp. 248--264.
+\bibitem{jiang2026stories} Y. Jiang and F. Ferraro, ``Beyond math: Stories as a testbed for
+memorization-constrained reasoning in LLMs,'' in \emph{Proc. EACL}, 2026, pp. 5590--5607.
+\bibitem{zhou2026longtail} M. Zhou, H. Ma, and R. Ge, ``Memorizing long-tail data can help generalization through
+composition,'' in \emph{Proc. ICLR}, 2026.
+\end{thebibliography}
+
+\end{document}
