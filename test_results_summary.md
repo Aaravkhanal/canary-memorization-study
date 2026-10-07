@@ -3,9 +3,20 @@
 Updated 2026-10-07. This is the separate audit file for completed tests, completed experiment cells, outstanding
 compute, and work that still requires human judgment.
 
+## Expanded scale arm
+
+- 67/67 research tests passed after adding full-corpus overlap, blinded annotation, and 48M configuration checks.
+- Four 48M architecture conditions × six frequencies are configured (24 runs), each targeting 49,152,000 training
+  tokens. Counts are 48,100,480 baseline; 48,428,160 learned positions; 47,239,040 MHA; and 48,100,480 LayerNorm.
+- The 48M configs and sequential runner are added, but no 48M canary training has started yet. The existing MY-LLM
+  48M checkpoint used a different corpus and five times the token budget, so it cannot serve as the matched arm.
+- The 48M scale comparison is exploratory and single-seed initially; it also uses learning rate 5e-4 versus 8e-4
+  for the current 14M arm. Both caveats must be addressed or reported before interpreting a size effect.
+
 ## Automated tests
 
-- **53/53 tests passed** on 2026-10-07.
+- **67/67 tests passed** on 2026-10-07 after adding the full-corpus overlap, blinded annotation, and 48M config
+  validation tests.
 - Coverage includes corpus construction and nesting/disjointness, canary novelty checks, exposure and extraction,
   deterministic novelty sampling, label-batch generation, and trade-off aggregation/plotting.
 - Four model architectures are parameter-matched within ±1.4%: baseline 14,162,304; learned-position 14,358,912;
@@ -63,3 +74,7 @@ Phase 5 therefore remains **0 valid human labels completed**. A human must read 
 3. Train/evaluate baseline 100x and 500x with `train.seed=1338`.
 4. Regenerate matched-baseline trade-off CSVs/plots, rerun tests, and update the paper.
 5. Human Phase 5 labelling remains the only non-automatable blocker to the paper's primary trade-off conclusion.
+6. After the 14M queue, train/evaluate the 24 48M scale-transfer cells from
+   `scripts/run_48m_scale_experiments.sh`. The configurations have all parsed successfully; no 48M canary run has
+   started yet. See `docs/SCALE_48M_PROTOCOL.md` for parameter counts, token budget, learning-rate caveat, and
+   compute estimate.

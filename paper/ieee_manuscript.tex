@@ -51,12 +51,21 @@ The baseline is a decoder-only model with eight layers, width 384, six query hea
 position embeddings, RMSNorm, SwiGLU, a 4096-token byte-level BPE vocabulary, and context length 512. The four
 conditions are baseline (14,162,304 parameters), learned absolute positions (14,358,912), multi-head attention
 with seven layers (13,964,928), and LayerNorm (14,162,304). Each checkpoint is trained from random initialization
-for 6,000 steps on a roughly 14.6-million-token TinyStories-style corpus.
+for 6,000 steps, or 49.152 million training tokens per checkpoint, on the shared TinyStories-derived corpus.
 
 Narrative canaries are inserted at 1, 10, 50, 100, or 500 stories; a zero-insertion condition is used as a matched
 control. Insertion pools are nested across frequencies and disjoint across canaries. Three originally selected
 canaries were later found to overlap the base corpus. They are retained for auditability but excluded from the
 clean primary aggregation; the confirmatory study uses a new bank verified absent before locking.
+
+\subsection{Scale Transfer}
+A separate extension trains the corresponding large-preset models (48.100M baseline, 48.428M learned-position,
+47.239M MHA with nine layers, and 48.100M LayerNorm) on the same frequency-specific research corpora. Every
+condition uses 6,000 updates with 8,192 tokens per update, or 49.152M tokens, to match the 14M arm's token budget.
+The large arm uses a fixed learning rate of 5e-4, following the existing large-model recipe; the 14M exploratory
+arm used 8e-4, so the scale comparison remains partly confounded by schedule choice. It starts with one seed and
+is explicitly exploratory. The existing 48M MY-LLM checkpoint trained on different data and 245.76M tokens and
+therefore is not treated as a matched canary experiment.
 
 \subsection{Outcomes}
 Memorization is measured by rank-based exposure relative to a fixed alternative set, with lift from the matched

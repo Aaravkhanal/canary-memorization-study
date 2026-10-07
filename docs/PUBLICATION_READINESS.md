@@ -17,7 +17,8 @@ artifact.
 
 ## Non-negotiable blockers before submission
 
-1. Complete the four queued training/replication cells and regenerate every table from one analysis command.
+1. Complete the four-architecture 14M grid's remaining balancing/replication cells, then complete and analyze the
+   queued 24-cell 48M scale-transfer arm. Report both arms as exploratory until replicated.
 2. Complete the blinded two-rater V/T/N study in `docs/ANNOTATION_PROTOCOL.md`; report Cohen's kappa,
    Krippendorff's alpha, disagreements/adjudication, and clustered confidence intervals.
 3. Search generated text against the **entire** training corpus, not only the stories selected for canary
@@ -28,11 +29,13 @@ artifact.
    as exploratory.
 6. Add at least one independent confirmation with canaries verified absent from the corpus and a higher-resolution
    reference set. The recommended efficient design is in `docs/CONFIRMATORY_STUDY_PROTOCOL.md`.
-7. Obtain an institutional ethics determination before recruiting external annotators, if required locally, and
+7. If making a size-dependent claim, add multiple seeds at both scales and match or explicitly test the learning
+   rate schedule. The 48M arm initially has one seed and uses a lower learning rate than the current 14M arm.
+8. Obtain an institutional ethics determination before recruiting external annotators, if required locally, and
    record consent. Self-annotation alone avoids recruitment but is substantially weaker evidence.
-8. Create a submission artifact with exact environment, seeds, checksums, commands, expected outputs, raw result
+9. Create a submission artifact with exact environment, seeds, checksums, commands, expected outputs, raw result
    files, and a permanent DOI (for example, Zenodo) rather than relying only on a mutable GitHub branch.
-9. Add complete references, author affiliation, ORCID, data/code availability, limitations, ethics statement,
+10. Add complete references, author affiliation, ORCID, data/code availability, limitations, ethics statement,
    conflicts, funding, and an AI-use disclosure appropriate to the target venue.
 
 ## What makes the eventual paper distinctive
@@ -102,8 +105,8 @@ Use status precisely:
 - After submission: “Under review at …” only while actually under review; do not imply acceptance.
 - After acceptance: “Accepted at …” with the official venue name.
 
-The strongest résumé evidence is not an inflated venue claim. It is a public artifact showing the 48M from-scratch
-model, controlled experiments, 59+ green research tests, transparent negative results, and a citable manuscript.
+The strongest résumé evidence is a public artifact showing the 48M from-scratch model, controlled experiments,
+transparent negative results, a green research test suite, and a citable manuscript.
 
 ## Submission gate
 

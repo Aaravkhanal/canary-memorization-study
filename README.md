@@ -49,6 +49,10 @@ come in.
   tracked explicitly rather than silently treated as a complete balanced grid.
 - **A confirmatory, contamination-free study** remains necessary for a strong paper. Its frozen recommended design
   is in `docs/CONFIRMATORY_STUDY_PROTOCOL.md`.
+- **48M scale-transfer arm:** 24 matched-token configs (four near-matched architectures × six corpus conditions)
+  are prepared. They train fresh 48M models on this repository's canary corpora; the existing MY-LLM 48M checkpoint
+  used different data and a fivefold token budget, so it is not a causal canary result. Protocol and runtime
+  expectations are documented in `docs/SCALE_48M_PROTOCOL.md`.
 
 ## Compute discipline
 
@@ -85,8 +89,8 @@ counts checked with `aarav_lm.model.core.AaravLM`, configs validated by loading 
 All four architectures have been trained from scratch at frequencies 0, 1, 10, 100, and 500; MHA and LayerNorm
 also include the originally pre-registered frequency 50. Baseline and learned-position frequency 50 are queued.
 Baseline seed 1338 is complete at 0, 1, and 10, with 100/500 queued. Every run uses 6,000 steps, ~14.6M tokens,
-and the same tokenizer/hyperparameters; the matched comparisons change only the declared architecture or
-frequency axis.
+and the same tokenizer and schedule within this 14M arm; the matched comparisons change only the declared
+architecture or frequency axis. This is 49.152M training tokens per run (6,000 × 8,192 tokens), not 14.6M tokens.
 
 ## Phase 4 — memorization (complete for every trained checkpoint)
 
@@ -113,14 +117,15 @@ these are plots and tables only — no prose conclusion is drawn in the outputs 
 
 ## Tests
 
-64 tests (`pytest tests/`) cover corpus construction, exposure/extraction, novelty metrics, full-corpus overlap,
-blinded annotation/scoring, and trade-off analysis.
+67 tests (`pytest tests/`) cover corpus construction, exposure/extraction, novelty metrics, full-corpus overlap,
+blinded annotation/scoring, trade-off analysis, and 48M config/parameter validation.
 
 ## Publication documents
 
 - `docs/PUBLICATION_READINESS.md`: candid submission gate, venue strategy, IEEE policy requirements, and safe
   résumé wording.
 - `docs/CONFIRMATORY_STUDY_PROTOCOL.md`: contamination-free, mixed-frequency, multi-seed confirmatory design.
+- `docs/SCALE_48M_PROTOCOL.md`: matched-token 48M scale-transfer experiment and limitations.
 - `docs/ANNOTATION_PROTOCOL.md`: blinded two-rater labelling and adjudication procedure.
 - `docs/REFERENCES.bib`: verified core references from USENIX, ACL Anthology, and OpenReview; expand before submission.
 - `docs/DRAFT_PAPER.md`: living manuscript; exploratory claims remain provisional until the gates above pass.

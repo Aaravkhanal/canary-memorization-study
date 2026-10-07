@@ -1,0 +1,43 @@
+name: scale_48m_mha_freq100_seed20260927
+description: 48M scale-transfer experiment (scale_48m_mha); frequency 100; same source
+  corpus, tokenizer, token budget, sequence length, and effective batch shape as the
+  14.2M exploratory study.
+model_preset: large
+model_overrides:
+  n_layer: 9
+  n_kv_head: 10
+tokenizer:
+  kind: bpe
+  vocab_size: 4096
+  artifact_dir: /Users/aaravkhanal/Desktop/myllm/aarav-lm/artifacts/tokenizer_tinystories_v2
+  train_files: []
+data:
+  sources:
+  - /Users/aaravkhanal/Desktop/myllm/canary-memorization-study/data/processed/freq_100/corpus.txt
+  format: txt
+  doc_separator: <|endoftext|>
+  out_dir: /Users/aaravkhanal/Desktop/myllm/canary-memorization-study/data/processed/freq_100/tokenized
+  val_fraction: 0.01
+  test_fraction: 0.01
+  min_chars: 20
+  max_chars: 20000
+  dedup: false
+  seed: 20260927
+train:
+  seed: 20260927
+  device: auto
+  precision: fp32
+  max_steps: 6000
+  batch_size: 1
+  grad_accum: 16
+  eval_batch_size: 4
+  lr: 0.0005
+  min_lr_ratio: 0.1
+  warmup_steps: 150
+  weight_decay: 0.1
+  grad_clip: 1.0
+  eval_interval: 500
+  eval_iters: 50
+  log_interval: 25
+  ckpt_interval: 500
+  keep_last: 2

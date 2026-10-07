@@ -5,6 +5,9 @@ examining confirmatory outcomes. Changes after that point must be logged as amen
 
 ## Motivation
 
+The separate 48M exploratory scale-transfer arm is specified in `docs/SCALE_48M_PROTOCOL.md`; it does not replace
+this contamination-free confirmation.
+
 The exploratory grid found three design limitations: three of eight canaries already occurred in the base corpus;
 the 10/20-candidate exposure reference sets saturate too easily; and separate frequency-specific training runs
 confound exposure frequency with training stochasticity. This confirmatory study removes all three while using
