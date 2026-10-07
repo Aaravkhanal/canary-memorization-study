@@ -70,11 +70,11 @@ Phase 5 therefore remains **0 valid human labels completed**. A human must read 
 ## Active queue
 
 1. Finish the already-running fixed-generation-seed novelty evaluation batch.
-2. Train/evaluate baseline 50x and learned-position 50x.
-3. Train/evaluate baseline 100x and 500x with `train.seed=1338`.
-4. Regenerate matched-baseline trade-off CSVs/plots, rerun tests, and update the paper.
-5. Human Phase 5 labelling remains the only non-automatable blocker to the paper's primary trade-off conclusion.
-6. After the 14M queue, train/evaluate the 24 48M scale-transfer cells from
+2. The 14M runner is training baseline 50x (step 325/6000 at the last check; estimated ~2.5 hours remaining for
+   this cell), followed by learned-position 50x and baseline 100x/500x second-seed training/evaluation.
+3. Regenerate matched-baseline trade-off CSVs/plots, rerun tests, and update the paper.
+4. Human Phase 5 labelling remains a non-automatable blocker to the paper's primary trade-off conclusion.
+5. After the 14M queue, train/evaluate the 24 48M scale-transfer cells from
    `scripts/run_48m_scale_experiments.sh`. The configurations have all parsed successfully; no 48M canary run has
    started yet. See `docs/SCALE_48M_PROTOCOL.md` for parameter counts, token budget, learning-rate caveat, and
    compute estimate.

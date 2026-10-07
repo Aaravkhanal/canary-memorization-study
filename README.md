@@ -58,7 +58,8 @@ come in.
 
 This design needs a **fresh pretraining run from scratch per (architecture, frequency) cell** — memorization has
 to be attributed to a controlled number of training-time exposures, not to fine-tuning an already-trained model.
-On this machine (a MacBook Air M3, 8 GB, no external GPU), each ~14.6M-token run takes roughly 1.5-2.5 hours.
+On this machine (a MacBook Air M3, 8 GB, no external GPU), a 14M run uses 49.152M training tokens and currently
+takes roughly 2.5-3 hours at observed throughput. The source training split itself is 14.58M tokens.
 Canary training and the sibling `aarav-lm` project's own training never run concurrently on this single machine —
 whichever needs the machine next is queued behind whichever is currently running.
 
@@ -88,8 +89,9 @@ counts checked with `aarav_lm.model.core.AaravLM`, configs validated by loading 
 
 All four architectures have been trained from scratch at frequencies 0, 1, 10, 100, and 500; MHA and LayerNorm
 also include the originally pre-registered frequency 50. Baseline and learned-position frequency 50 are queued.
-Baseline seed 1338 is complete at 0, 1, and 10, with 100/500 queued. Every run uses 6,000 steps, ~14.6M tokens,
-and the same tokenizer and schedule within this 14M arm; the matched comparisons change only the declared
+Baseline seed 1338 is complete at 0, 1, and 10, with 100/500 queued. Every run uses 6,000 steps, 49.152M
+training tokens over approximately 3.37 passes through the 14.58M-token train split, and the same tokenizer and
+schedule within this 14M arm; the matched comparisons change only the declared
 architecture or frequency axis. This is 49.152M training tokens per run (6,000 × 8,192 tokens), not 14.6M tokens.
 
 ## Phase 4 — memorization (complete for every trained checkpoint)

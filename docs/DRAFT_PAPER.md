@@ -11,7 +11,8 @@ submission gate is `docs/PUBLICATION_READINESS.md`.
 *To be rewritten after the queued runs and primary novelty analysis complete. Provisional claim: a small
 (14M-parameter)
 decoder-only LM shows a measurable, dose-dependent memorization signal for at least some planted narrative elements
-after as few as 10 insertions in ~14.6M training tokens, converging to unambiguous, maximal memorization by 100
+after as few as 10 insertions in a 14.58M-token training split, with 49.15M tokens consumed over 6,000 updates,
+converging to unambiguous, maximal memorization by 100
 insertions and holding there at 500, and this signal replicates across two different positional-encoding schemes
 (RoPE vs. learned absolute positions). Separately, we show that the standard exposure metric (Carlini et al., 2019)
 silently reports a false-positive "always memorized" signal for any canary whose identity phrase already occurs in
@@ -161,7 +162,7 @@ original values are kept so all recomputed results stay on one consistent scale.
 ### 3.3 Training procedure
 
 Each (architecture, frequency) cell is trained from a random initialization (not fine-tuned from a pretrained
-checkpoint), on ~14.6M tokens (~3.4 epochs of the ~71,700-story corpus), 6,000 steps, batch size 1 × grad-accum 16
+checkpoint), on 49.152M training tokens (~3.37 passes over the 14.583M-token training split), 6,000 steps, batch size 1 × grad-accum 16
 (effective 16 sequences/step, 512 tokens/sequence), peak LR 8e-4 with 150-step warmup and cosine decay to 10% of
 peak, weight decay 0.1, gradient clipping at norm 1.0. Same tokenizer, vocabulary, context length, token budget,
 learning-rate schedule and batch size across every architecture and frequency, so architecture is the only
@@ -500,7 +501,8 @@ noise.
    training run per architecture instead of one per architecture × frequency) but wasn't used because the brief's
    literal design (one frequency per corpus) was implemented instead, per the ground rule of not silently
    switching designs.
-5. **Small absolute scale.** 14.2M parameters, ~14.6M training tokens per run — results may not generalize to
+5. **Small absolute scale.** 14.2M parameters, 49.152M consumed training tokens per run over a 14.583M-token
+   training split — results may not generalize to
    larger models or corpora, and this project makes no claim that they do.
 6. **Neither extraction test has produced a positive result at this project's scale** (§3.4). The original
    free-generation test's null result for character canaries was ambiguous (structurally can only fire for one
