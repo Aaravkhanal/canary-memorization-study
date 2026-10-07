@@ -35,3 +35,5 @@
   naming correction.
 - 16:17 local: baseline 14M frequency-50 training reached step 2,975/6,000; the trainer estimated 1 hour 22
   minutes remaining for that cell.
+- 17:19 local: the same baseline frequency-50 run reached step 5,225/6,000 with a trainer ETA of about 21 minutes.
+  The training process remained healthy in MPS; no later 14M cell had started at this check.
