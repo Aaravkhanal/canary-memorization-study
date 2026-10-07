@@ -40,7 +40,10 @@
 - 17:39:59 local: baseline frequency-50 training completed 6,000 updates. The retained run log reports 2h42m50s
   elapsed, best validation loss 1.5595, and perplexity 4.76. Memorization and novelty evaluation outputs were
   produced (12 memorization rows; 32 novelty groups/320 completions); the checkpoint is present.
-- 17:44:54 local: learned-position frequency-50 training started. At 18:16 it had reached step 1,300/6,000 with
-  ETA around 1h58m. Four gradient-norm spikes (steps 1167, 1184, 1283, 1300) were clipped; training continued.
-- The baseline 100/500 training-seed 1338 cells remain queued after learned-position frequency 50. The 48M runner
-  is waiting for the 14M queue; no 48M cell has started at this checkpoint.
+- 17:45:45 local: learned-position frequency-50 training started; it completed at 20:13:27 (2h27m42s), 6,000
+  updates, best validation loss 1.6385 / perplexity 5.15. Memorization and novelty JSONs and checkpoint were
+  produced. The log contains 20 gradient-norm spike events, including values 129.3 and 40.15; training reached
+  the full budget, but clipping diagnostics should be checked before interpreting stability.
+- The runner has advanced to baseline frequency-100 second-training-seed replication (`train.seed=1338`). At
+  20:36 local it was at step 700/6,000, with trainer ETA near 2h13m. Frequency 500 follows. The 48M runner remains
+  waiting for the 14M queue; no 48M cell has started at this checkpoint.

@@ -17,8 +17,8 @@ artifact.
 
 ## Non-negotiable blockers before submission
 
-1. Complete the four-architecture 14M grid's remaining learned-position frequency-50 balancing cell and
-   baseline 100/500 training-seed replications, then complete and analyze the sequentially queued 24-cell 48M
+1. Complete the four-architecture 14M grid's baseline 100/500 training-seed replications, then complete and
+   analyze the sequentially queued 24-cell 48M
    scale-transfer arm. Report both arms as exploratory until replicated.
 2. Complete the blinded two-rater V/T/N study in `docs/ANNOTATION_PROTOCOL.md`; report Cohen's kappa,
    Krippendorff's alpha, disagreements/adjudication, and clustered confidence intervals.

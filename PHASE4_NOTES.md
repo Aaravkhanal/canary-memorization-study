@@ -664,8 +664,9 @@ changed by this naming correction.
 
 Baseline frequency 50 completed its full 6,000-update budget at 17:39:59 local. The trainer log records 2h42m50s,
 best validation loss 1.5595, and perplexity 4.76. The checkpoint and its 12-row memorization and 32-group/320-sample
-novelty evaluations are present. The learned-position frequency-50 cell began at 17:44:54; at 18:16 it was at
-step 1,300/6,000, with ETA near 1h58m. Four high gradient-norm events (steps 1167, 1184, 1283, 1300) were clipped
-and training continued. The baseline frequency-100/500 true training-seed replications remain queued after it;
-the already-running 48M queue remains behind the 14M runner. No human labels or confirmatory-study results are
-claimed here.
+novelty evaluations are present. The learned-position frequency-50 cell began at 17:45:45 and completed at
+20:13:27 (2h27m42s), with best validation loss 1.6385 and perplexity 5.15. The checkpoint and
+memorization/novelty results are present. Its log contains 20 gradient-norm spike events (maximum 129.3); training
+completed, but clipping diagnostics should be reviewed before making a stability claim. The baseline frequency-100
+true training-seed replication is now running; frequency 500 follows. The already-running 48M queue remains behind
+the 14M runner. No human labels or confirmatory-study results are claimed here.
