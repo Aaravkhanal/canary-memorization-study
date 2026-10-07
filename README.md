@@ -7,8 +7,8 @@ narrative-generation setting.
 
 **Status: the four-architecture exploratory grid is almost complete, with real findings — the primary
 novelty/recombination endpoint still needs blinded human labelling.** The MHA and LayerNorm variants are trained
-and scored at 0, 1, 10, 50, 100, and 500 insertions. Baseline and learned-position frequency-50 cells plus two
-baseline seed replications are queued/running. See
+and scored at 0, 1, 10, 50, 100, and 500 insertions. Baseline frequency 50 is complete; learned-position
+frequency 50 and two baseline seed replications remain in the sequential queue. See
 `PLAN.md` for the phase-by-phase brief this project follows, `PHASE4_NOTES.md` for the detailed running lab
 notebook, and `docs/DRAFT_PAPER.md` for the write-up structured for eventual publication, kept in sync as results
 come in.
@@ -45,7 +45,7 @@ come in.
 - **Full-corpus copying analysis** is implemented in `scripts/eval_full_corpus_overlap.py`; it must be run after
   the generation files are finalized. The earlier metric checks only the canary's insertion stories and cannot
   by itself support a broad novelty claim.
-- **Baseline/learned-position frequency 50 and baseline seed replications at 100/500** are queued. Their absence is
+- **Learned-position frequency 50 and baseline seed replications at 100/500** are queued/running. Their absence is
   tracked explicitly rather than silently treated as a complete balanced grid.
 - **A confirmatory, contamination-free study** remains necessary for a strong paper. Its frozen recommended design
   is in `docs/CONFIRMATORY_STUDY_PROTOCOL.md`.
@@ -88,8 +88,9 @@ counts checked with `aarav_lm.model.core.AaravLM`, configs validated by loading 
 ## Phase 3 — training (four architectures; final balancing cells queued)
 
 All four architectures have been trained from scratch at frequencies 0, 1, 10, 100, and 500; MHA and LayerNorm
-also include the originally pre-registered frequency 50. Baseline and learned-position frequency 50 are queued.
-Baseline seed 1338 is complete at 0, 1, and 10, with 100/500 queued. Every run uses 6,000 steps, 49.152M
+also include the originally pre-registered frequency 50. Baseline frequency 50 completed on 2026-10-07; the
+learned-position frequency-50 training cell is in progress. Baseline seed 1338 is complete at 0, 1, and 10, with
+100/500 queued. Every run uses 6,000 steps, 49.152M
 training tokens over approximately 3.37 passes through the 14.58M-token train split, and the same tokenizer and
 schedule within this 14M arm; the matched comparisons change only the declared
 architecture or frequency axis. This is 49.152M training tokens per run (6,000 × 8,192 tokens), not 14.6M tokens.

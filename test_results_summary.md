@@ -42,13 +42,21 @@ Frequency 0 is the added zero-exposure control; the pre-registered treatments ar
 
 | Architecture | 0 | 1 | 10 | 50 | 100 | 500 |
 |---|---:|---:|---:|---:|---:|---:|
-| baseline | done | done | done | **queued** | done | done |
-| learned absolute positions | done | done | done | **queued** | done | done |
+| baseline | done | done | done | **done** | done | done |
+| learned absolute positions | done | done | done | **training** | done | done |
 | multi-head attention | done | done | done | done | done | done |
 | LayerNorm | done | done | done | done | done | done |
 
 This corrects the older README/paper claim that MHA and LayerNorm had not been trained. Both are complete across
-the full grid. Baseline and learned-position are the only architectures still missing the pre-registered 50x cell.
+the full grid. Baseline frequency 50 has now completed; learned-position frequency 50 is training, the sole
+remaining main-grid balancing cell.
+
+Baseline frequency 50 training ran 2026-10-07 14:57:09–17:39:59 local (2h42m50s), completing 6,000 updates.
+Best validation loss
+was 1.5595 (perplexity 4.76). Its checkpoint and 12-row memorization plus 32-group/320-completion novelty JSONs
+are present. The learned-position frequency-50 run started at 17:44:54 local; at 18:16 it had reached step
+1,300/6,000. The log records four large gradient-norm spikes (steps 1167, 1184, 1283, 1300); they were clipped,
+training continued, and no failed exit was observed. These are logged anomalies, not evidence of a failed run.
 
 ## Seed replications
 
@@ -83,8 +91,8 @@ Phase 5 therefore remains **0 valid human labels completed**. A human must read 
 ## Active queue
 
 1. The fixed-generation-seed batch is complete and its filenames have been disambiguated.
-2. The 14M runner is training baseline 50x (step 5,225/6,000 at the 17:19 local check; trainer ETA was ~21 minutes for
-   this cell), followed by learned-position 50x and baseline 100x/500x second-seed training/evaluation.
+2. The 14M runner completed baseline 50x and is training learned-position 50x, followed by baseline 100x/500x
+   second-seed training/evaluation. The 48M runner remains queued behind the 14M process.
 3. Regenerate matched-baseline trade-off CSVs/plots, rerun tests, and update the paper.
 4. Human Phase 5 labelling remains a non-automatable blocker to the paper's primary trade-off conclusion.
 5. After the 14M queue, train/evaluate the 24 48M scale-transfer cells from

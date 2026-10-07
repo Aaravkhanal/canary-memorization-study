@@ -1,6 +1,6 @@
 # 48M scale-transfer experiment protocol
 
-**Status: configs validated; compute queued; no 48M canary result exists yet.** This is a scale-transfer extension
+**Status: configs validated; the sequential runner is waiting for the 14M queue; no 48M canary result exists yet.** This is a scale-transfer extension
 to the exploratory 14M study, not a replacement for the contamination-free confirmatory study.
 
 ## Why the existing 48M checkpoint is not the experiment

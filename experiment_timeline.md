@@ -37,3 +37,10 @@
   minutes remaining for that cell.
 - 17:19 local: the same baseline frequency-50 run reached step 5,225/6,000 with a trainer ETA of about 21 minutes.
   The training process remained healthy in MPS; no later 14M cell had started at this check.
+- 17:39:59 local: baseline frequency-50 training completed 6,000 updates. The retained run log reports 2h42m50s
+  elapsed, best validation loss 1.5595, and perplexity 4.76. Memorization and novelty evaluation outputs were
+  produced (12 memorization rows; 32 novelty groups/320 completions); the checkpoint is present.
+- 17:44:54 local: learned-position frequency-50 training started. At 18:16 it had reached step 1,300/6,000 with
+  ETA around 1h58m. Four gradient-norm spikes (steps 1167, 1184, 1283, 1300) were clipped; training continued.
+- The baseline 100/500 training-seed 1338 cells remain queued after learned-position frequency 50. The 48M runner
+  is waiting for the 14M queue; no 48M cell has started at this checkpoint.

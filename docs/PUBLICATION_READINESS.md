@@ -17,8 +17,9 @@ artifact.
 
 ## Non-negotiable blockers before submission
 
-1. Complete the four-architecture 14M grid's remaining balancing/replication cells, then complete and analyze the
-   queued 24-cell 48M scale-transfer arm. Report both arms as exploratory until replicated.
+1. Complete the four-architecture 14M grid's remaining learned-position frequency-50 balancing cell and
+   baseline 100/500 training-seed replications, then complete and analyze the sequentially queued 24-cell 48M
+   scale-transfer arm. Report both arms as exploratory until replicated.
 2. Complete the blinded two-rater V/T/N study in `docs/ANNOTATION_PROTOCOL.md`; report Cohen's kappa,
    Krippendorff's alpha, disagreements/adjudication, and clustered confidence intervals.
 3. Search generated text against the **entire** training corpus, not only the stories selected for canary

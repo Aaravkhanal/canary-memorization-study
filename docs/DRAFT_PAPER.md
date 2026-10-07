@@ -1,7 +1,7 @@
 # Memorization vs. compositional creativity in a small language model: does the trade-off depend on architecture?
 
 **Status: exploratory draft, not submission-ready.** The four-architecture run has expanded beyond several older
-two-architecture tables below; final numbers will be regenerated only after the queued balancing and replication
+two-architecture tables below; final numbers will be regenerated only after the remaining balancing and replication
 cells finish. Until then, those historical tables are retained as an audit trail, not as the paper's final result.
 The primary novelty endpoint, full-corpus copying search, and confirmatory study are also incomplete. The current
 submission gate is `docs/PUBLICATION_READINESS.md`.
@@ -31,7 +31,9 @@ multiple canaries converging on the exact same maximum exposure value, replicate
 on different, stronger evidence (exact-value convergence, which ordinary training noise does not produce) and is
 not weakened by this; frequency 10's evidence for two borderline canaries (`char_nira`, `char_suri`) is, and is
 walked back to "plausible, not established" accordingly. Baseline frequency-10 seed replication is now complete;
-frequency 100 and 500 replications are queued. These results do not yet establish a creativity trade-off.*
+frequency 100 and 500 replications are queued. Baseline frequency 50 has since completed, while learned-position
+frequency 50 is still running; the balanced refreshed analysis is not yet available. These results do not yet
+establish a creativity trade-off.*
 
 ## 1. Research question
 
@@ -126,8 +128,8 @@ The study uses four near-parameter-matched architectures:
 | `variant_b_mha` | grouped-query attention → multi-head attention; 7 layers to compensate | 13,964,928 | -1.4% |
 | `variant_c_layernorm` | RMSNorm → LayerNorm | 14,162,304 | exact match |
 
-MHA and LayerNorm are trained and scored across 0, 1, 10, 50, 100, and 500. Baseline and learned-position
-frequency-50 cells are queued to balance the grid.
+MHA and LayerNorm are trained and scored across 0, 1, 10, 50, 100, and 500. Baseline frequency 50 has completed;
+learned-position frequency 50 is in progress to balance the grid.
 
 ### 3.2 Canary design
 
@@ -148,7 +150,7 @@ Canaries are inserted at controlled frequencies into otherwise-identical corpus 
 run per frequency, not fine-tuning, so memorization can be attributed to a known number of training-time
 exposures). Pre-registered frequencies are 1, 10, 50, 100, and 500 insertions in a ~14.6M-token corpus, with a
 frequency-0 condition added later as an explicit control. Frequency 50 was initially omitted from the reduced
-pass, then restored: MHA and LayerNorm are complete, while baseline and learned-position cells are queued. This
+pass, then restored: MHA and LayerNorm are complete, baseline is complete, and learned-position is running. This
 history is an exploratory-design deviation and must be reported as such. Insertion pools are nested (the 10x pool's insertions
 are the first 10 of the 100x pool, etc.) for dose-response validity, and disjoint across canaries (one seeded
 shuffle, sliced into blocks, so no training story carries two canaries).
@@ -493,7 +495,8 @@ noise.
    value convergence across canaries and architectures) that a wider noise band does not by itself undermine, but
    has still never been directly seed-replicated at those specific frequencies.
 2. **Exploratory grid imbalance.** All four architectures are trained at 0, 1, 10, 100, and 500; MHA and LayerNorm
-   additionally have frequency 50. The two missing frequency-50 cells are queued. Frequency 0 was added after the
+   additionally have frequency 50. Baseline frequency 50 is complete and learned-position frequency 50 is running.
+   Frequency 0 was added after the
    initial preregistration, so it is a necessary matched control but still a documented design change.
 3. **Novelty evaluation not yet run to the brief's standard.** Hand-labelling (Checkpoint 5) has not been done;
    only the automated diversity/overlap metrics have run, and only as smoke tests.
