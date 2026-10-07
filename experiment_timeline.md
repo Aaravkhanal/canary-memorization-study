@@ -18,3 +18,18 @@
 |14 | Git push | Push to `origin/main` | 2026‑10‑04 11:47 AM | 2026‑10‑04 11:50 AM | Completed |
 
 *All timestamps are local (UTC + 5:30).*
+
+## 2026-10-07 continuation
+
+- 15:06 local: baseline 14M frequency-50 training started after the prior novelty evaluation batch exited.
+- 15:17 local: baseline frequency-50 training reached step 750/6,000; the trainer log reported roughly 2.3 hours
+  remaining. The queue proceeds to learned-position frequency 50, then baseline training-seed 1338 at frequencies
+  100 and 500, followed by result aggregation.
+- The 48M scale runner is waiting for the 14M queue and will run sequentially after it; no 48M canary model has
+  started yet.
+- Audit correction: the 20 completed `run_seed_experiments.sh` outputs used generation seed 1338. Their filenames
+  now use `_gen1338`, distinct from training-seed replication outputs ending `_seed1338`. This resolves a potential
+  skip/misattribution in the upcoming baseline 100/500 replication cells; those cells will regenerate novelty
+  JSONs.
+- The 20 renamed generation-seed JSON files were parsed and validated; 67/67 research tests passed after the
+  naming correction.

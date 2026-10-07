@@ -648,3 +648,14 @@ underlying novelty scores were reverted to the original committed file rather th
 only the new label-batch text was kept). Anyone extending this project should regenerate `--label-batch` files
 from a config that also re-seeds properly now, and treat any pre-fix rerun's *scores* (not just the batch text) as
 non-comparable to the original.
+
+## 2026-10-07 queue audit: generation-seed and training-seed result names
+
+The earlier `scripts/run_seed_experiments.sh` batch used generation seed 1338 on existing checkpoints. A later
+training-seed replication runner also writes novelty files with a `_seed1338` suffix, so the two result types
+would collide. Before either baseline high-frequency replication reached novelty evaluation, all 20 existing
+`novelty_*_seed1338.json` files and their available label text files were renamed with `_gen1338`. The runner can
+therefore create new `_seed1338` novelty results from the actual `train.seed=1338` baseline checkpoints. The helper
+script now writes `_gen1338` explicitly. All 20 renamed JSON outputs were parsed successfully; their legacy text
+label files remain condition-revealing and are not used for blinded annotation. No checkpoint or training run was
+changed by this naming correction.

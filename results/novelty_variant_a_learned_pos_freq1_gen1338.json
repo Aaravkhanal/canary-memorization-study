@@ -1,0 +1,1958 @@
+{
+  "checkpoint": "models/variant_a_learned_pos/freq_1/exp_001_variant_a_learned_pos_freq1/checkpoints/best.pt",
+  "frequency": 1,
+  "groups": [
+    {
+      "canary_id": "char_pip",
+      "type": "character",
+      "setting": "a pirate ship sailing a stormy sea",
+      "prompt": "Write a story about Pip the fox, who was always hungry, in a pirate ship sailing a stormy sea.",
+      "completions": [
+        {
+          "text": "",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 132
+        },
+        {
+          "text": "\nThe sailor was so grateful to his friends. Every day, the sailor would sail on the beach and the fish would rock back in the sunset.\nOne day, the sailor was playing when he met a little crab. The crab said, \"Hi, I'm Pip! Do you want to sail with me?\" The sailor smiled and said, \"Yes, I would like that. Let's sail together!\"\nThey sailed on the waves and had lots of fun. The sailor and Pip were happy to be friends and have a new friend to sail on the shore.",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 121
+        },
+        {
+          "text": " Pip was a very friendly whale. They had lots of fun and made new friends.\nOne day, Pip was ready to sail with his best friend. The whale told Pip that he would have many friends who lived next door to him in the sea. Pip promised his friend, the starfish. They sailed together and had lots of fun.\nAs the days went by, Pip found that the sea had a big sign that said \"Open Pip\". Pip told his friend about the wave and the whale swam back to his home. He told his friends about the wave that the wave was special and wanted to see it again. They all smiled and played together.\nThe moral of the story is that",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 124
+        },
+        {
+          "text": " One day, as Pip was sailing, he noticed something strange in the sand. He peered closer, but it was not the same thing he had ever seen. It was a giant, filled with huge fish!\nPip was so excited to see what he was doing. He touched a fish, and suddenly, he became very excited. But then he heard a loud noise coming from the water. It was a big, scary giant! Pip was so scared, he quickly swam out of the water. He got scared and started to shout, \"Hey! Are you okay?\"\nPip was so scared he dropped his friend, but he was also scared. His friend looked and he saw that Pip was gone.",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 120
+        },
+        {
+          "text": " Everyone loved Pip and his story made everyone happy. The sun was always shining, and the sky was clear.",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 126
+        },
+        {
+          "text": " When they arrived at the lake, Pip had a wonderful surprise for Pip. He took a deep breath and then went inside.\nPip was so excited that he was going to find more shells than anything else. He put his shells, swam around the lake, looking for something special to eat. As he swam, he felt very excited and full of joy.\nSuddenly, Pip heard a loud noise coming from the lake. He was a bit scared, so he stopped and looked around. He saw a big, angry oyster, and he quickly swam over to the oyster. He was so scared!\nPip realized that he shouldn't have been so scared of the oyster and that it's",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 125
+        },
+        {
+          "text": "",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 132
+        },
+        {
+          "text": " One day, Pip and Pip were out on the island. They saw a big, scary thing in the water. They did not know what it was, so they decided to sail closer to the lake.\n\"Can we sail, Pip?\" Pip asked. \"It's a shark, Pip. It's a shark, and it's swimming. Do you know what a shark is?\"\n\"Yes, Pip,\" Pip said. \"We don't know. It is a shark, and it is a shark. We're here to help you.\"\nPip liked the idea and wanted to help Pip. He asked Pip to get a big bowl of water and drink some water. Pip was",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 123
+        },
+        {
+          "text": " Every day, Pip would sail with his fish friends and they would talk about the day.\nOne day, the sky turned dark and it started to rain. Pip and his friends were sad. Pip felt bad, but then something unexpected happened. A little bird flew down and took Pip back to the sky.\n\"Thank you, Pip!\" said Pip. \"You are a very good friend.\" The bird smiled and said, \"You're welcome, Pip.\" They were happy to be friends and sail together.",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 125
+        },
+        {
+          "text": "",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 132
+        }
+      ],
+      "self_bleu_proxy": 0.001,
+      "distinct_1": 0.406,
+      "distinct_2": 0.797
+    },
+    {
+      "canary_id": "char_pip",
+      "type": "character",
+      "setting": "the surface of the moon",
+      "prompt": "Write a story about Pip the fox, who was always hungry, in the surface of the moon.",
+      "completions": [
+        {
+          "text": "",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 132
+        },
+        {
+          "text": "",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 132
+        },
+        {
+          "text": "\nThe story is about a girl who owned the fox. The fox was also very kind, but it also did not know how to share.\nThe girl was very sad and the fox felt bad. But then, something unexpected happened. The fox told the girl that the fox could make a plan to make a new friend too.\nThe girl thought for a moment and then said, \"Okay, I will help you make a new friend!\" The fox nodded and the girl started to share the new friend. The girl was so happy, and the fox was not hungry anymore. They all played together in the surface, and the girl was not hungry anymore.",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 123
+        },
+        {
+          "text": " It was a story about a happy little girl who loved to help.\nOne day, Pip was feeling very shy. He asked his friend, \"Why are you so shy?\" His friend said, \"I am shy and I don't know how to be a bunny.\" Pip thought for a moment and then said, \"I know a way to help you feel better. What do you feel?\"\nThe next day, Pip and his friend went to a big house in the woods. They met other animals who were very nice to each other. Pip and his friend were kind, so they gave Pip a big hug. They all became friends and played together in the woods every day.",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 127
+        },
+        {
+          "text": "",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 132
+        },
+        {
+          "text": "\nOne day, Pip met a sad bird. The bird asked Pip, \"Why are you sad, Pip?\" Pip said, \"I am hungry and I want to eat something yummy.\" Pip wanted to help the bird, so he had an idea. He gave Pip a big, yummy apple to eat.\nPip and Pip were very happy. They ate the apple together, and soon the bird was full. They both became good friends and played in the surface every day. The moral of the story is that when you help others, you can make new friends and be happy.",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 118
+        },
+        {
+          "text": "\nThe next day, Pip was playing with his friends in the land. They were all having lots of fun. Then, something unexpected happened. A big bird came down from the sky and took his hat away!\nPip and his friends were sad. They didn't want to lose their hat. They went back to the land and said goodbye. They went back to their homes, feeling sad that they lost the hats.",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 123
+        },
+        {
+          "text": " Every night, Pip would dream of the fox and they would always be friends.",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 128
+        },
+        {
+          "text": "",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 132
+        },
+        {
+          "text": "",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 132
+        }
+      ],
+      "self_bleu_proxy": 0.001,
+      "distinct_1": 0.414,
+      "distinct_2": 0.796
+    },
+    {
+      "canary_id": "char_pip",
+      "type": "character",
+      "setting": "a candy castle made of gumdrops",
+      "prompt": "Write a story about Pip the fox, who was always hungry, in a candy castle made of gumdrops.",
+      "completions": [
+        {
+          "text": " He was always very polite and his friends were happy.\nOne day, Pip and his friends decided to have a race to see who was the fastest. They ran and ran, and the race was in a long line. Pip jumped, and the rabbit ran very fast.\nAt the end of the race, Pip's friends were all crossed the finish line first. They were all very happy. Pip and his friends had a great race, and they all had a great day.",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 121
+        },
+        {
+          "text": " The fox knew he was the one who could make the day much better.\nOne day, the fox decided to make the bear very much. He was ready to get the bear out of the cave, but he was too lazy to move. He was very tired, and he couldn't sleep. The fox was so tired that he couldn't find the bear so well.\nThe fox was too lazy to work in the cave. He decided to take a nap under a tree and sleep. As he slept, the bear kept getting better and better. When the fox woke up, he was now full of surprises. He couldn't wait to tell his friends about his new friend, the fox.",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 125
+        },
+        {
+          "text": " Quack and enjoyed the story and enjoyed the story of the party.\nThe moral of the story is: When things are hard to have, we make a difference with a livor, we can learn more than to be hungry.",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 126
+        },
+        {
+          "text": "",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 132
+        },
+        {
+          "text": "\nOne day, the fox saw a little bird in a tree. The bird was singing a nice song. The fox wanted to eat the bird, so he went to the tree. He picked up the bird and gave it a big hug. The bird was so happy to have a new friend.\nAs the storm went away, the fox and the bird were best friends. They would talk and laugh together. The fox learned that even if something is not right, it is important to be kind and share with others.",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 117
+        },
+        {
+          "text": " It was so exciting to see the fox and he decided to go and find some. He followed the fox until he found a big, yummy bone. He was so excited, and he hopped away.\nAs he hopped around the garden, he noticed a little bird walking in a tree. He flew over to the fox and said, \"Hello, fox! Who are you?\" The fox looked at the fox and said, \"I am here to help. I was stuck in this tree and I couldn't get out.\"\nThe fox wanted to help, so he said, \"Let me offer you help. I will take you to your secrets, and I will be able to get free.\" The fox agreed, and they all",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 127
+        },
+        {
+          "text": " He loved to share with his friends in the park.\nOne day, a little bird came to the fox. The bird was trying to steal the gum. The fox said, \"No, I want it for me. I want to steal it.\" The bird was scared and did not want to give the gum to the fox.\nSo, the fox found a big box. He thought the fox was very nice. He took the gum and ran away from the bird. The fox was happy and safe. He ate the gum and felt good. The fox learned that stealing is not good, and he should not be greedy.",
+          "max_ngram_overlap": 0.01,
+          "min_edit_distance": 123
+        },
+        {
+          "text": " She thought they looked yummy, but she didn't know how to use a big ice cream.\nJust then, Pip's friend, a little bird, came to help. The bird said, \"Pip, I can help you carry your ice cream. We can make it even faster!\" Pip was so happy and thanked the bird. They both worked together to carry the big ice cream.\nPip and the bird had a great time carrying the big ice cream. They laughed and played together. The gum was not so yummy after all. Pip and the bird became best friends, and they shared the ice cream with the bird. And they lived happily ever after.",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 125
+        },
+        {
+          "text": "\nThe boy wanted to share his gum with his friends. So he decided to have a race. He was ready for the race and all his friends were there too.\nThey all lined up the race and started running. They raced, ran, and laughed. When they reached the finish line, they all clapped and cheered. The boy was so proud and happy. He had a fun day playing with his friends and the gum.",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 121
+        },
+        {
+          "text": "\nOne day, Pip was playing in the yard when he met a tiny mouse. The mouse was sad because he could not find his friend. Pip asked, \"Why are you sad, little mouse?\" The mouse said, \"I am sad because I cannot find my friend.\" Pip wanted to help the mouse find his friend.\nPip and Pip looked everywhere for the mouse's friend. They looked under the trees, near the trees, and near the trees. Finally, they found the mouse's friend! The mouse was so happy and thanked Pip. They became good friends and played together every day.",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 123
+        }
+      ],
+      "self_bleu_proxy": 0.001,
+      "distinct_1": 0.351,
+      "distinct_2": 0.745
+    },
+    {
+      "canary_id": "char_pip",
+      "type": "character",
+      "setting": "a hidden cave full of glowing crystals",
+      "prompt": "Write a story about Pip the fox, who was always hungry, in a hidden cave full of glowing crystals.",
+      "completions": [
+        {
+          "text": "",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 132
+        },
+        {
+          "text": "\nOne day, Pip decided to go exploring the forest, searching all around. He was so excited to find the beautiful sights, and he started to dig around. As he was walking, he noticed something interesting. He saw a big, white bear. The bear looked so excited to find out what he was looking for.\nPip reached the bear and said, \u201cWatch me! I don\u2019t like the bear. Watch me!\u201d The bear smiled and said, \u201cYou can do it!\u201d He grabbed a stick and hit the bear with it.\nPip was very happy that he had made a new friend in the forest. He ran back home to tell his mom about his adventure. From then on,",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 120
+        },
+        {
+          "text": "\nOne day, Pip was walking in the woods when he met a big bear. The bear was so excited to see the bear. He shouted, \u201cHi, bear! Where are you going?\u201d\nThe bear replied, \u201cI'm going to take a nap in the sunshine.\u201d\nPip was so excited! He decided to take a nap in the forest. As he closed his eyes, the bear started to move.\n\"Please, bear,\" Pip said, and he yawned. He was getting tired, but he still wanted to move. But the bear was still curious and he soon became a big, dark night.\nSo Pip closed his eyes and looked around the forest. He was in awe,",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 123
+        },
+        {
+          "text": "\nAll of the other animals would talk and tell them stories. They all talked and laughed together. Soon the fox was full of the cave, and all the animals were happy. They thanked Pip for his kindness and for saying goodbye.\nThe moral of the story is that being kind and kind is what makes us happy.",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 122
+        },
+        {
+          "text": "\nTom was very curious. He asked his mom, \"What is that, Mom?\"\nHis mom smiled and said, \"That's a special day, Tom. It is a special place where you can find sweet food and make friends. Maybe it will be a special gift from our special family. We can always love you and love you. That is the best gift ever.\"\nTom nodded and nodded. He was very happy to have a special memory of being a lucky boy. He knew that he would always remember this special moment.",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 125
+        },
+        {
+          "text": "",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 132
+        },
+        {
+          "text": "\nOne day, Pip and his friend were playing in the forest when suddenly, the fox noticed something strange. The fox was curious and he wanted to see what it was. But then, a loud voice came from the fox's cave.\n\"Who is that, fox?,\" said the fox.\n\"Well, that's me!\" said the voice.\nPip and his friend were so scared that the fox just moved away. But then, the fox noticed something strange. There was a huge pile of pretty rocks in the ground. The fox was very surprised and a bit scared.\nThe fox quickly reached out and grabbed the pile of rocks. The fox tried to pull the rocks away, but the fox was very tired.",
+          "max_ngram_overlap": 0.017,
+          "min_edit_distance": 120
+        },
+        {
+          "text": " The fox was very happy and thanked the fox for the kindness.\nThe fox was so excited to have a friend. From then on, the fox always remembered the advice of the owl and shared the beauty of the forest. He was so happy to have a friend.",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 122
+        },
+        {
+          "text": "\nOne day, a little boy named Tim went to the cave to see the above him. He saw the sparkly creature and decided to take it home. He put it in a pot and filled it with dirt.\nAs Tim was about to take the mysterious object, he heard a voice from inside the cave. It was a tiny voice calling, \"Hey! Don't be scared, I will show you something amazing!\"\nTim was so surprised that he couldn't believe his eyes. He had found a secret cave that could talk, but also was also very nice. Tim and the tiny creature became best friends and they played together every day.",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 117
+        },
+        {
+          "text": "",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 132
+        }
+      ],
+      "self_bleu_proxy": 0.001,
+      "distinct_1": 0.411,
+      "distinct_2": 0.801
+    },
+    {
+      "canary_id": "char_nira",
+      "type": "character",
+      "setting": "a pirate ship sailing a stormy sea",
+      "prompt": "Write a story about Nira the owl, who loved rainy nights, in a pirate ship sailing a stormy sea.",
+      "completions": [
+        {
+          "text": "\nOne day, the sun was shining brightly in the sky, and the birds were singing. The crab was happy to see his island and his friends. They all sat under a tree and enjoyed the sunset.\nBut then, something unexpected happened! The hot sun began to set, and the sand and the sea was not bright anymore. The crab felt sad because he wanted to make the sandcake even brighter. So, he thought of a plan. He told his friends to sing and sing happy songs. The bored day of the day of the day came, and all the fish's friends sang a happy song. They were all very happy and loved their new friendship.",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 133
+        },
+        {
+          "text": "\nEvery day, the rainy ship sailed through the harbor and the night.\nThe little whale was so proud of himself and he felt so happy and content. The fish and the whale became the best of friends.\nThe two friends hugged each other and were both very happy. The sun was setting out and the sky was clear.\nThe little whale and the wise whale went to explore the ocean and discovered a big watery cloud.",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 137
+        },
+        {
+          "text": " He wanted to show everyone he had seen.\nOne day, he saw a big, dark cave. He thought it would be fun to watch the rain. He decided to take a better look. When he got there, he saw that the cave was full of water, but he was not happy. He felt sad and scared.\nThe dark cave was gone. It was a magic cave! When the sun came out, the water was gone, and the sun was shining bright. The little boy was happy that he had found a place to play. He knew he could always find something special and fun.",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 135
+        },
+        {
+          "text": "\nOn the way to the beach, the crab said to the crab, \u201cHello, Mr. Trawink, can you show me how to play?\u201d\nThe crab replied, \u201cYes, I would like to play with you!\u201d\nSo, the crab and the crab played together in the sea. They had so much fun. After some time, the crab said goodbye to the sea and said, \u201cGoodbye, Mr. Trawink! I had so much fun today! Come back soon.\u201d\nThe crab waved goodbye to the crab and went off to play, enjoying the sun and the sun.",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 135
+        },
+        {
+          "text": "\nOne day, the rainy ship started to burn. It was very cold and icy, and the sea was cold. The people on the ship were scared, but they tried to move the warmth, but they were too cold.\nThe people in the ship saw the mess and wanted to help. They worked hard and tried to stop the ship. At last, the ship was as good as new. The people who lived in the ship were safe. The ship was happy to be warm and warm.",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 133
+        },
+        {
+          "text": "\nOne day, a little bird came to the garage. The bird was sad because it could not fly like the birds. The bird wanted to help the bird. So, the bird and the bird worked together to find a way to make the bird happy.\nThe bird and the bird found a big, warm hat. The bird put the hat on the bird's head. The bird was so happy! The bird thanked the bird and flew away. From that day on, the bird and the bird became best friends.",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 133
+        },
+        {
+          "text": " He loved to help people and make them happy.\nOne day, the farmer came to his boat. He told the people that the sun can be hot, but they had to reverse. The people were very surprised. They did not know why the animals could not oxygen the water.\nThe people in the boat were sad because they did not like the sun on their home. They tried to rise their ship, but it was too hot. They wanted the sun to help them. They asked the people for help, but no one could help them. The people in the boat were never happy again. The boat and the people were very sad.",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 132
+        },
+        {
+          "text": " He was very good at the idea and every day he would go to the beach to see the ocean.\nOne day, when the sun was shining, he decided to go for a swim and explore the ocean. As he swam, he saw a big, heavy rock in the sand. The shark thought it was the best thing he had ever seen.\nHe ran to the rock and said, \"Let me put it in the sand!\" The rock was very heavy, but he put his head in the water. He swam into the water and splashed around. He felt so happy and safe.\nAfter a while, the rock was full and laughter. The sea was a beautiful day of fun and the whale.",
+          "max_ngram_overlap": 0.008,
+          "min_edit_distance": 134
+        },
+        {
+          "text": "\nOne day, an old man came to their ship ship. He was very angry and said, \"Why do you steal my island?\"\nThe old man said, \"My island is very old. I want to sell it for a while. I have to give it back to him when it rains.\"\nThe old man thought about it and then he said, \"I will sell it so that I can buy it for a little while.\"\nThe old man was happy and said, \"Thank you! Let me sell it to you and give it back.\"\nThe old man and the old man went on a long trip to the beach. They had a lot of fun and made many new friends.",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 135
+        },
+        {
+          "text": " He liked to explore and explore new things.\nOne day, when he arrived at the beach, he saw a big boat that had to sail away. He was very excited and he wanted to sail on the sea. So he asked his friend, \"How do I sail? Please, can you sail with me?\"\nThe friend said, \"Of course, I'm! Let's sail together.\" So, they both started to sailing on the water. They sailed together and had so much fun.\nSuddenly, the wave came and made a big wave of water. The sea was surprised and a little bit scared. He tried to sail away, but it was too late. The water was too deep for them to sail away.\n",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 139
+        }
+      ],
+      "self_bleu_proxy": 0.001,
+      "distinct_1": 0.329,
+      "distinct_2": 0.746
+    },
+    {
+      "canary_id": "char_nira",
+      "type": "character",
+      "setting": "the surface of the moon",
+      "prompt": "Write a story about Nira the owl, who loved rainy nights, in the surface of the moon.",
+      "completions": [
+        {
+          "text": " He was always so excited to explore the world outside and see the world around him.\nOne day, a little boy was playing with his toy car when it started to rain. He was so scared! He looked out from under the car, but it was stuck to the beauty in the rain. He started to cry.\nThe car stopped, and the boy felt much better. He thought he could never go to the landscape again. He went back to the car and saw that he had fallen down. The car went down and released the boy with a smile.\nThe boy smiled and thanked him again. Then he smiled, happy to be able to go on the bus and play in the sky.",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 132
+        },
+        {
+          "text": "\nOne day, a big storm came and started to fall. A little bird was flying over the ground. The bird was sad because it could not fly. The little bird wanted to help the bird. So, the bird flew up to the sky and picked up the bird.\nThe big wind picked up the bird and flew up to the ground. It landed on the ground, and the little bird was free. The bird was happy and thanked the big bird. They became good friends and played together every day. And from that day on, the big bird always made sure to help others when they needed it.",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 134
+        },
+        {
+          "text": " He felt safe and happy.\nOne day, the sky was gray and it started to rain. The rain started to soak the room. The rain stopped, and the rain stopped. The sun came out, and the room was warm. The little boy was so happy to see his room clean.\nBut then, the sun came out. The rain stopped, and the room was still wet. The little boy knew he had to stop the rain. So, the rain made a big mess in the rain. The room was not warm anymore, and the rain was safe. The little boy thanked the rain and went back to sleep.",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 135
+        },
+        {
+          "text": "",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 145
+        },
+        {
+          "text": "\n\"Ada, I feel so lucky to have my friend,\" the owl said. \"Watch me to try!\"\nThe two friends carefully put on the rainy rainy water and set up their homes. They looked out the windows and the sky was blue. They couldn't wait to watch the sunrise together.\nWhen they got to the old owl's house, the owl said, \"You are so lucky to have you as lucky as the sunrise. It's always a wonderful and special day. Come on, it's getting ready for more adventures!\"\nThe animals thanked the owl for its wise words and thanked the owl for his kindness. He said goodbye to the owl and went on his way,",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 137
+        },
+        {
+          "text": " All the kids in the town loved the pretty colors and were happy.\nOne day, a little girl named Sue wanted to show her friend Tim the pretty sky. She asked Tim if she could see his blue sky. Tim said yes, but he was very excited. He knew Sue could come to the park too.\nSue went to the park and saw the pretty stars. She told Tim that she would come to the park every day to play with her friends. Tim was very happy and couldn't wait to see the pretty stars. They played all day and had lots of fun. And from that day on, Tim always made sure to take care of his blue sky, just like Sue had said, \"I will always be a little competitive",
+          "max_ngram_overlap": 0.008,
+          "min_edit_distance": 137
+        },
+        {
+          "text": "",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 145
+        },
+        {
+          "text": " He would feel happy and free when he went to sleep.\nOne day, while the sun was rising, he saw a little bird on a tree. The little bird was playing with a toy. The bird was flying around and the bird wanted to play with the toy too. The little bird thought the toy might be the toy.\nThe bird said to the bird, \"I know you like the toy. It is a toy for a bird. Let's go home and play together.\" The bird was happy and followed the toy. They played all day and became best friends.",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 132
+        },
+        {
+          "text": "",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 145
+        },
+        {
+          "text": "\nOne day, the rain began to fall. The sun and the rain were wet. They were sad. The rain came, and the rain stopped. The sun came out and the sun came out. The rain started to dry, and the rain stopped. The water went away, and the sun came out.\nWhen the sun came out, the sun saw the wet rain. The sun went to the rain, and the rain stopped. The rain stopped, and the sun came out. The sun said, \"Thank you, sun, for setting me dry. It's fun to play now.\" The sun smiled and went back to the next day, happy and dry.",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 136
+        }
+      ],
+      "self_bleu_proxy": 0.003,
+      "distinct_1": 0.32,
+      "distinct_2": 0.7
+    },
+    {
+      "canary_id": "char_nira",
+      "type": "character",
+      "setting": "a candy castle made of gumdrops",
+      "prompt": "Write a story about Nira the owl, who loved rainy nights, in a candy castle made of gumdrops.",
+      "completions": [
+        {
+          "text": "\nOne day, a little girl named Lily came to the forest. She saw the gum on the ground and said, \"Wow, that's a big gum! Can I have some too?\" The gum was very happy to see all the himself in the forest. Lily thought the gum was very nice and wanted to share it with her friends.\nLily told her friends about the gum and the owl. They all wanted the gum. They all shared the gum and had a fun day playing together. The gum made their day even more fun and more fun. And that's how the little girl and her friends became the best of friends.",
+          "max_ngram_overlap": 0.009,
+          "min_edit_distance": 133
+        },
+        {
+          "text": " Every day, Playing would wake up, and he would dream of the rain.\nOne day, Play was feeling very hot. He was looking for a fan to stop him from getting sick. But as he was about to take a sip, he heard a voice. \"Stop!\" said the voice. Play looked around and saw that he was not feeling well. He smiled and said, \"I'm sorry Play!\" Play was happy and he thanked the voice.\nAfter that, Play was feeling better. He thanked the voice and went back to sleep. Play smiled and went on the way, happy and free. He couldn't wait to tell his friends about the",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 132
+        },
+        {
+          "text": "\nOne day, the sky turned dark and it was getting dark outside. The little girl was scared and she wanted to go out, but she remembered her mom's words and decided to be brave. She took her mom's hand and started to walk to the house.\nAs she walked into the house, the little girl saw her mom's face on the table. She smiled and said, \"Mom, I like your mom's face!\" Her mom smiled and said, \"Don't worry, we will find a way to make you feel better. You just need to be brave.\"\nThe little girl was so happy that she had finally found a way to make her mom feel better. She carefully picked up the delicious mint and put it in",
+          "max_ngram_overlap": 0.008,
+          "min_edit_distance": 137
+        },
+        {
+          "text": " Every night, the owl would go outside and dream of something special would happen.\nOne night, the owl had an idea. \"Let's bake a special ice cream!\" he said. So, the owl and the owl baked the ice cream together and soon, it was all mixed up the ingredients! They ate the ice cream and laughed and had a great time.\nThen, something unexpected happened. The ice cream started to wiggle and crack. All the animals got scared and started to giggle. They didn't know what to do.\nThe owl's wise old owl saw what happened and quickly came to help. He told them to stop and be gentle with his friends. Together, they found out that",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 137
+        },
+        {
+          "text": "\nOne day, the sun was very hot, and the sky was full of joy. The little boy wanted to go inside, but the sun was shining brightly.\nSo, the little boy put on his rain boots and ran out to find Mommy. He looked and looked, but he couldn't find it. He was very sad and worried that he couldn't find Mommy.\nSuddenly, he heard a soft voice. It said, \"Don't worry, I can help you find it. Follow me!\"\nThe little boy followed the voice, and soon he found a little girl who was playing in the snow. She was so happy and thanked the little girl for her help. She took a deep breath and said, \"",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 136
+        },
+        {
+          "text": "\nOne day, the sun was shining very brightly and the birds were singing. The sky was so bright that it looked like the moon was shone brightly.\nThe sun was shining, and the birds were singing. The little bird was singing so brightly. Suddenly, the little bird started to change. It was not like the first one else in the sky, but it was beautiful.\nThe little bird was so happy that it became the best of all. Every night, the little bird would fly high and make the best of the rain.\nFrom then on, the little bird would go to sleep, dreaming of more and more of happy days.",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 136
+        },
+        {
+          "text": "\nOne day, Lily was eating her gum and thought it was very fun. She wanted to play outside, but she was too tired to play. So, she decided to rest under a big tree and rest for a while.\nWhile Lily was resting, she heard a loud noise. It was a big, friendly dog. The dog was playing with a ball. Lily was scared, but she wanted to help the dog. She said, \"Don't worry, dog. I will help you get your ball.\"\nThe dog brought the ball to Lily, and they played together. They were both happy to have the ball and the dog. The dog learned that it was okay to be nervous. From that day on, Lily and the",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 137
+        },
+        {
+          "text": "\nOne day, his mom told him to wait a big, scary monster came to him. She said he had to go away, but first he could have some ice cream instead. He remembered how he liked the snowman because he loved them so much.\nThe next day, the next day, the big, scary monster came back. He told the monster he was a nice friend and did not want to leave the castle. The monster was so happy, and he thanked the monster for being so kind. The monster was happy to see the twins, and they all played together in the sunshine.",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 135
+        },
+        {
+          "text": " He would say \"catime\". He loved his story. He liked his story and his friends, who would come and watch him. He wanted to learn how to slide and play with his friends.\nOne day, his teacher said, \"You have to come to the store and buy some gum. But you have to be kind and say 'cir' and \"da'\" to Tim. He requestsed, \"va, these gum in his hand and his friends. He thought he would like them and how he got the gum. He asked, \"What is gum, Tim?\"\nTim thought for a moment. He liked his gum. He liked his mom. He had an idea. He said",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 138
+        },
+        {
+          "text": " Every night, one day, a little bird came to the forest. The bird saw the gum and thought it would be fun to share the gum with the bird.\nThe next day, the bird came back to the forest with the gum. But the gum was not a gum, but it was a magic gum! The bird could talk and dance in the gum. The bird and the bird became best friends, and they all lived happily ever after.",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 132
+        }
+      ],
+      "self_bleu_proxy": 0.001,
+      "distinct_1": 0.315,
+      "distinct_2": 0.736
+    },
+    {
+      "canary_id": "char_nira",
+      "type": "character",
+      "setting": "a hidden cave full of glowing crystals",
+      "prompt": "Write a story about Nira the owl, who loved rainy nights, in a hidden cave full of glowing crystals.",
+      "completions": [
+        {
+          "text": "",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 145
+        },
+        {
+          "text": " As they looked at the sky, a little bird flew over to the cave and asked, \"Who are you?\" The little bird replied, \"I'm very cold, and I'm very cold and I'm just in the dark.\"\nThe little bird laughed and said, \"That's okay, little bird. It's because we are still warm in the forest.\" The little bird thanked the little bird and flew away.\nThe moral of the story is: Being kind and being kind and helpful is important.",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 134
+        },
+        {
+          "text": "\nOne day, Nira was outside when she saw a tiny green butterfly. She was so excited and she jumped up and said \"hello\"! She thought this was her friend.\n\"I'm so excited, I could join you!\" Nira smiled.\nJust then, a little bird flew down from the sky and landed on Nira. The bird blinked and said, \"I'm so happy that you're having a magical adventure. What do you want to do?\"\nNira nodded and smiled. She flew over to the bird and said, \"Yes! Thank you for bringing me this special gift. Can I come and explore with you?\"\nThe bird flew over to the gift and",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 134
+        },
+        {
+          "text": "\nSo, the bear set out to the underground cave and began to explore. He had a great time exploring the underground. Suddenly, a voice said, \u201cHey! What are you doing here?\u201d\nThe bear replied, \u201cI'm just exploring! Can I join you?\u201d\nThe bear replied, \u201cSure, you can join me. I was feeling much more beautiful than you. Come with me.\u201d\nThe bear was so excited. He said, \u201cThank you for joining me, little bear. You\u2019re a very good friend. I\u2019m so lucky.\u201d\nThe bear smiled and said, \u201cI\u2019m glad you\u2019d amazing.\u201d\nThe bear hopped back into the cave and hopped away. He was",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 139
+        },
+        {
+          "text": " When the sun was hot, the owl took a nap in the cave.\nAs the owl slept, the sky turned dark, and the owl woke up. The owl saw the light and knew it was time to go home. The owl flew to a secret place where the rained and lay down under the warm sun.\nThe owl said, \"Thank you for the rain, owl, for setting my home. It is very nice and warm now.\" The owl smiled and said, \"You're welcome, owl. I'm happy to help you.\" The owl and the owl closed their eyes and went back to sleep, happy and tired from their day.",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 134
+        },
+        {
+          "text": " The owl knew that the rain was coming, but it was also very interesting.\nAs the owl sat in the underground, the sun began to rise and the sky became dark. It was so big that it made the owl feel sad. But then, the owl had an idea. \"Let's make it fun and then we can play together!\" The owl smiled and said, \"Yes, let's play!\" And they played all night, and the owl was very happy.",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 135
+        },
+        {
+          "text": "\nNira wanted to show everyone the minerals that he could see and he knew they were the most prected bug he had ever seen. So, the star continued to perform and perform.\nBefore long, the sun shone and the moon started to glow. It was so bright and bright, with a bright light and bright light shone brightly in the cave.\nThe star knew that this was a special day and it was a special memory of him. He was so excited to show it off to all his friends, the light. From that day on, the star was the brightest, most beautiful butterfly in the cave and he was in the town.",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 135
+        },
+        {
+          "text": "\nOne sunny day, Daisy was walking in the woods when she heard a voice. She looked around, but couldn't see anyone. She was starting to worry and started to cry.\nAlthough she was confused, she still could hear a voice. Suddenly, she heard a voice calling out from the bushes. It was her mother, who had come out of the bushes, and she was not scared.\n\"I'm going to help you,\" the voice said. Daisy was so excited that she ran back to the woods, happy that she had helped her mother out.\n\"Thank you, Mira, for helping me!\" said Daisy.\nThe moral of the story is that it's important to be kind to",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 137
+        },
+        {
+          "text": "\nAlice and her friends always remembered the day they were there to tell a story before bed. Alice was excited to tell her friends about the mysterious cave and the fun day she went to tell them about the incredible cave that could make them all bright and beautiful.",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 136
+        },
+        {
+          "text": "\nOne day, a little girl named Lily came to the cave. She saw the shiny minerals and wanted to play with them. Lily said, \"Hi, Mr. Crab! Can we play together?\" The shiny minerals nodded and they played hide and seek.\nAfter a while, they were tired and sat under a tree. Lily and the shiny minerals went under the tree and closed the door. The shiny minerals were happy, and Lily and her pretty minerals were happy too. From that day on, they played together every day, and they always had fun in the deep cave.",
+          "max_ngram_overlap": 0.011,
+          "min_edit_distance": 133
+        }
+      ],
+      "self_bleu_proxy": 0.001,
+      "distinct_1": 0.392,
+      "distinct_2": 0.803
+    },
+    {
+      "canary_id": "char_boro",
+      "type": "character",
+      "setting": "a pirate ship sailing a stormy sea",
+      "prompt": "Write a story about Boro the bear, who never told a lie, in a pirate ship sailing a stormy sea.",
+      "completions": [
+        {
+          "text": " The sailor listened carefully and the two of them sailed away.\nThe sailor and the two of them had a great time. They kept walking along the sea and shared the treasure. It was a wonderful day.",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 124
+        },
+        {
+          "text": " The captain said, \"Yes, you can! What is the name of the pirate?\" A young pirate smiled and said, \"It's a very special place.\" Amanda nodded and said, \"Can I join you? I can tell you a story about a pirate and a pirate.\"\nAmanda was very excited and said, \"Yes, please!\" She offered the captain some of his pirate ship and a book and started to read. As soon as she read, she heard a loud noise and a loud voice. It was Amanda and her name was the pirate.\nThe pirate said, \"Hello, I'm the captain. You are very naughty.\" Amand",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 122
+        },
+        {
+          "text": "\n\"Wow, look at this fish!\" shouted Dr. He smiled and waved back.\n\"It's so pretty, Drino!\" Drino said.\nBut then something bad happened. Drino changed his mind. He looked at the fish and laughed. \"You have been naughty so much to tell someone to stop,\" he said.\n\"I'm sorry,\" Drino said. \"I was wrong. You don't need to be naughty. You are just a good friend and a good friend.\"\nDrino sighed. He was scared to tell his mom what happened. \"I'm sorry, mom. I don't want to make him laugh. I wanted to be a",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 123
+        },
+        {
+          "text": "\nOne day, Booral asked the capt, \"Will you join me and play with the other toys?\" The captain said, \"Yes, I would join you, Big bear!\"\nSo, Big Woal and the other toys had lots of fun and they played together all day. They were very happy and always made each other feel good for them.",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 120
+        },
+        {
+          "text": "\nOne day, a little boy named Timmy came along and asked, \"Can you help me sail with the island, please?\" The pirate smiled and said, \"Of course, Timmy! I will help you.\"\nSo, Timmy and the pirate sailed together, and they saw many things. They learned that it is good to help others, but it is important to ask for help when you need it. And they all lived happily ever after, sailing in the sea.",
+          "max_ngram_overlap": 0.014,
+          "min_edit_distance": 120
+        },
+        {
+          "text": "",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 130
+        },
+        {
+          "text": " Booro was very excited and started to go swimming in the water.\nBut, something unexpected happened. A big fish came out and said, \"Please don't stay with me!\" Booroor and the fish were very surprised. They swam back to their boat, and Boor tried to be a good friend to the fish. They were happy to be friends with Boor and the big fish.\nBooral of the story: The story is not about having friends who can't even take you there. It's important to be kind and listen to your friends.",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 121
+        },
+        {
+          "text": "",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 130
+        },
+        {
+          "text": "\nThe story of Boro, who was very persistent and always tried his best. He was determined to be patient and convince the story.\nOne day, a boy came to the ship. He was very creative and wanted to help the boy. He said, \"Please, don't be mad. I will give you a new story to tell you what I learn!\" The boy was very happy and thanked the boy.\nThe boy was so thankful to the boy and his mom. He knew that he was patient and promised to be kind to the people who lived there. He told the boy to be patient and not be foolish again.\nThe moral of the story is: It is important to be kind and not to",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 123
+        },
+        {
+          "text": "\nAlthough the story is that Bono is there to listen to Boot, when he was feeling tired. He smiles at Booral, and he learns a lot of new things. Boots are a simple engine that has a nice story of how he stays in a boat. And he also loves to listen to Boots from danger.",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 123
+        }
+      ],
+      "self_bleu_proxy": 0.001,
+      "distinct_1": 0.432,
+      "distinct_2": 0.832
+    },
+    {
+      "canary_id": "char_boro",
+      "type": "character",
+      "setting": "the surface of the moon",
+      "prompt": "Write a story about Boro the bear, who never told a lie, in the surface of the moon.",
+      "completions": [
+        {
+          "text": " When he opened the door, the bear saw the moon and started to glow.\nThe bear and the bear became best friends. They played and talked every day in the calm sky. And the bear was always happy and safe.",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 121
+        },
+        {
+          "text": " It was very important to the trees and the stars. One day, the bear and the bird were talking about to a new home.\nThe bear said, \"I am very happy to you, Ball. You can never be afraid of being afraid of me.\" The bear smiled and said, \"You are a very good friend. Let's go and play together.\" And they played all day, happy and full of joy.",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 116
+        },
+        {
+          "text": "",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 130
+        },
+        {
+          "text": "",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 130
+        },
+        {
+          "text": "\n\"Thank you for the story, Boora,\" replied the bear.\nBecause Boora said to the bear, \"You're welcome! You just can rest very well. We are both so glad to be friends.\"\nBoora and the bear smiled, and they both went on their journey. Boora felt very lucky to have a friend. They would always remember the bear who helped him when he was feeling sad.",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 122
+        },
+        {
+          "text": " Bounce Bo was excited and asked Bouno, \"What do you like to do?\" Bounce smiled and said, \"A little boy named Timmy!\"\nBouno was happy and said, \"I like the moon and the moon!\" Timmy smiled and said, \"Thank you, Bouno!\" They played together all day, and Bounce and Timmy became the best of friends.",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 124
+        },
+        {
+          "text": " It could make a wish come true.\nWoralal: It is what makes the moon and all the stars happy.",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 125
+        },
+        {
+          "text": " He kept surfing, and the moon was filled with laughter.\nOne day, Borge was at the top of a rainbow. It was so pretty and sparkly, with many colors. Borge's friend, a bird, saw Ball and said, \"I am here to dive to the top of the rainbow.\" Ball was happy to hear this and they both took a deep breath.\nAs Ball diving through the rainbow, Ball found a beautiful rainbow in the sky. Bounce said, \"This rainbow is so beautiful, Ball! Let's dive and see who is going up there!\" Ball smiled and agreed.\nBall was a bit disappointed, but he still had his",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 124
+        },
+        {
+          "text": "",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 130
+        },
+        {
+          "text": "",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 130
+        }
+      ],
+      "self_bleu_proxy": 0.0,
+      "distinct_1": 0.499,
+      "distinct_2": 0.857
+    },
+    {
+      "canary_id": "char_boro",
+      "type": "character",
+      "setting": "a candy castle made of gumdrops",
+      "prompt": "Write a story about Boro the bear, who never told a lie, in a candy castle made of gumdrops.",
+      "completions": [
+        {
+          "text": " The bear said, \"That is so good, Boro!\" Boro felt happy and proud that he had found the best gum ever. From that day on, Bor Bow and Bover played together and shared candy, just like the bear said. They were the best of friends, and Bor Boro, and Big Bobo became the best of friends.",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 123
+        },
+        {
+          "text": " Boni was very happy and couldn't wait to see the bear again.",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 126
+        },
+        {
+          "text": "\nOne day, Boro went outside to play. He saw a little girl crying by the trees. Bee said, \"I can help you, Ball. We can use the gum to make you feel better.\" Bee was happy to help the little girl. They worked together to make a plan to make her happy.\nAfter some time, Bow got better. He showed the girl how to make more gum purr and make her feel better. Bounce and the little girl became good friends. They played together and had lots of fun. The little girl was happy that she had helped the little girl. And they played all day long.",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 120
+        },
+        {
+          "text": " Yellow, and he was very proud of himself.\nThe bear had been so happy that he had a great time with his new friend. From then on, the bear always remembered the story and always remembered to be kind and share with his friends.\nThe bear was very proud of himself. It was the best day he had!",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 117
+        },
+        {
+          "text": "\nThe bear was so happy. He thanked Ballo and thanked Ball for showing him the candy and the secret. Ball and Ball became good friends. They played in the sand and shared the honeyos every day.\nOne day, Bally and Ball became best friends. They learned that being kind and sharing made them both happy. Balley was a very good friend, and Ball felt like the best friend had ever made. And Ball was happy too.",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 117
+        },
+        {
+          "text": "\nAmo was very curious and decided to explore the tree. He walked and walked until he found the perfect tree, the most delicious gum he had ever seen. He was so happy and he decided to share it with his friends.\nSoon the tree began to shake and the gum got stuck on the tree branch. He was so happy and he ran back to his friends. They all sat down and had a great day playing together.\nThe end.",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 116
+        },
+        {
+          "text": "\nThe bear smiled as he sat down in the middle of the room, and the bear knew that he was the best friend of him.\nThe bear said to Ball, \"I'm so glad I could share the candy with your friends, Ball. That's much better to share.\" Ball was so happy and thanked the bear for sharing the candy.\nFrom that day on, Ball was no longer lazy and he shared all the candy with his friends. Ball learned that it's important to share and be kind to everyone, no matter what.",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 121
+        },
+        {
+          "text": " It was a very important lesson for the little bear and his friends.",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 124
+        },
+        {
+          "text": "\nOne day, Bad and Badoe were playing in the park when they heard a noise. Badoe said to Badoe, \"Boe, that's what I have! Can you please tell me?\" Badoe was very happy and said, \"Yes, I will tell you a story about a special friend who loves you.\"\nBadoe agreed, and soon, Badoe was taking a message and said, \"I love you\". Badoe went to find a friend and asked if she wanted to play with him. Badoe said, \"Yes, I would like that!\" and Badoe was very excited and they both went to B",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 122
+        },
+        {
+          "text": " All the bears in the kingdom were so excited!\nThe next day, the bear was feeling so excited. The bear wanted to be a big bear, so he decided to take a few of his friends to the forest.\nOn his way, the bear found a big, shiny rock. He decided to take the rock home. When he got home, he showed the rock to his friends, and they all laughed. They all said it was the best surprise ever!\nThe bear was so happy that he had been part of the king. He knew he had found the truth about the bear, and he thanked his friends for the bear. The bear felt proud and happy that he had helped the bear.",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 126
+        }
+      ],
+      "self_bleu_proxy": 0.001,
+      "distinct_1": 0.355,
+      "distinct_2": 0.751
+    },
+    {
+      "canary_id": "char_boro",
+      "type": "character",
+      "setting": "a hidden cave full of glowing crystals",
+      "prompt": "Write a story about Boro the bear, who never told a lie, in a hidden cave full of glowing crystals.",
+      "completions": [
+        {
+          "text": "\n\"Wow, look at the glowing minerals,\" said the bear. \"They look very pretty and sparkly, which made it brightly and funny!\"\nThe bear laughed and clapped his hands as he watched the glowing minerals. When the bear finally reached the bottom, the bear smiled and waved. The bear was so happy and thanked the bear for his kindness.",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 122
+        },
+        {
+          "text": "\nThe bear said, \"Wor Boro, why don't you take a closer look?\"\nThe bear replied, \"I'm so curious, but I'm sure we can see what's inside the cave\".\nThe bear smiled. \"That's wonderful,\" he said. \"Let's go and find out what it is. I will take you home and show you.\"\nThe bear and the bear went through the cave, and soon they found a cozy cave. They were so happy!\nThe bear and the bear became best friends, and they always had the best memories in the hidden cave.",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 122
+        },
+        {
+          "text": " When they opened their eyes, they saw a big, shiny treasure chest with a sparkly diamond inside!\nBoy and Bill were so excited, they ran to the secret chest and opened it. Inside, there were shiny gold coins and treats. Both Both Bon was so happy and thankful to the secret chest. They smiled and hugged each other.\nThe end.",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 122
+        },
+        {
+          "text": "\nWhen it was time to go home, Boro asked the bear, \u201cDo you have something special?\u201d\nThe bear smiled and said, \u201cYes, I have a secret for you. Would you like to try it?\u201d Boro thought for a minute and then he said, \u201cI\u2019m just for a friend and you can always try to see it.\u201d\nBor Bor Both Bob and Bow became good friends and explored the hidden treasure together. From then on, Bor Both Bob, Botho, Big, and Big bear were the best of friends who loved to play and explore together.",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 124
+        },
+        {
+          "text": " They were very excited to find a secret, so they set off on a journey.\nWhen they arrived at the cave, they looked inside and found a big door on the side of the cave. They followed it, and it was open. Inside, they found a small, colorful ball. They were so excited to play with it.\nSuddenly, a voice from inside was the voice! It was a friendly voice from the above.\n\"Thank you for the mystery of my cave!\".\nThe bear replied, \"You have made me so happy and now I am free\".\nThe voice smiled and said, \"I'm so glad you have found a secret to tell you the secret.\" The bear and the voice laughed and",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 122
+        },
+        {
+          "text": "",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 130
+        },
+        {
+          "text": "\nThe bear was excited and said, \"What a special thing you do here for?\"\nThe bear said, \"I want to go on the journey to find the way.\"\nThe bear thought this was a great idea and said, \"Let's go on the adventure!\"\nSo the bear and the bear went on the journey, and they eventually found the way to the easter! It was so much fun, and they went on many adventures.\nAt the end of the day, the bear said, \"Let's go, Bounoe! I'll see you soon!\"\nThe bear was happy and said, \"Yes! Let's go!\"\nAnd so, they both drove off on their journey and had a",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 121
+        },
+        {
+          "text": "\nBorge: \"I will take you on an adventure, and I will get you something that will make you special. Come on, Bollow me!\"\nBollow and followed the bear through the woods. On the way, they saw the lake and felt a little scared. He was scared and wanted to go back.\nHe said to the bear: \"Don't worry, Bollow me, I'll take you there.\"\nBo followed the bear through the forest, and then he and Bo followed it back home. They were so relieved and happy to be safe. They took the bear back to their home and gave him a big hug.",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 122
+        },
+        {
+          "text": "",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 130
+        },
+        {
+          "text": "",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 130
+        }
+      ],
+      "self_bleu_proxy": 0.001,
+      "distinct_1": 0.419,
+      "distinct_2": 0.815
+    },
+    {
+      "canary_id": "char_suri",
+      "type": "character",
+      "setting": "a pirate ship sailing a stormy sea",
+      "prompt": "Write a story about Suri the mouse, who dreamed of the sea, in a pirate ship sailing a stormy sea.",
+      "completions": [
+        {
+          "text": " He told his mom, \"I believe this ship is the perfect way to find treasure and make it go fast!\"\nHis mom was very proud of him for being so creative and careful. He showed him the perfect treasure and said, \"That's great, my loves. I think it's the perfect place for you. I will always remember it from your parents.\"\nFrom then on, the boy always remembered to be more careful and respectful. He was the best of friends, and he never forgot the day.",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 168
+        },
+        {
+          "text": " He was feeling a bit sleepy, but he had also decided to take a nap.\nSuddenly, he heard a noise coming from the island. He stopped and looked up, but he couldn't see anything. He thought he could go see the dragon, but it was getting too close. He was so scared!\nSuddenly, he heard a loud voice. It was his mom. She asked him if he was looking at the dragon.\nThe father was very happy and said he was not scared. He said he had found a way to make it out for the dragon. He said he wanted to go explore the jungle.\nThe dragon did not know how to go. He said he was going to take a look. He went over and",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 167
+        },
+        {
+          "text": " She loved to explore the world around her and dream of the fish.\nOne day, while theus was playing with her sail, she heard a strange noise. She ran over to her boat and found a beautiful island with lots of trees and grass. The island was so beautiful and so they decided to explore.\nShe looked around and noticed that the island had lots of wonderful things. She decided to explore it and find something amazing. She ventured into the middle of the island, and it was full of sight.\nThe island was filled with so many wonderful things to the island and the girl was happy. She had made something special for the island! She even saw an incredible island, and decided to go on an adventure.",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 167
+        },
+        {
+          "text": " He loved to explore the sea and discover new things.",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 177
+        },
+        {
+          "text": " He looked at the water and thought about what they would do. He was so excited to learn about the world.\nBut then something amazing happened. The fish was so small that he had to carry on a big rock. His dream came true! The fish was so excited, and he swam around the beach, looking for more adventures. He saw many new things, like the sea, the sea, and the birds. He was so happy to have found new friends.\nAnd so, the little boy and his friends had the best day together. They played and explored at the beach. The beach was a wonderful day!",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 163
+        },
+        {
+          "text": "\nThe girl was so excited and asked a question. \"What does the story mean?\"\nThe girl smiled and said, \"I think this beach is too hot! Would you like to come with me?\"\nThe girl nodded and said, \"Yes, I would like that.\"\nThe girl took the crab to the beach and they started to pretend they were. They splashed and laughed as they had fun.\nAfter a while, the girl was tired and she had a good nap. She thanked the girl for the story and went back to sailing in the sea.",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 163
+        },
+        {
+          "text": "",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 181
+        },
+        {
+          "text": " She was very happy and proud of herself.\nThe end.",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 177
+        },
+        {
+          "text": " One day, the bird was feeling very tired, so it decided to take a nap in its nest. As the bird lay there, it heard a voice say, \"Hey Rurious, you can't sleep in my nest!\"\nCurious, the bird flew away, and Curious, the bird woke up with a soft yawn. It had been so close to her! It had jumped up and down and began to spread its wings. The bird landed on Curious, and it knew that if she hadn't eaten from the bird, she was in trouble.\nJust then, the bird flew up into the air and flew away. The bird was so happy to have the bird that",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 166
+        },
+        {
+          "text": " Every day, the fish would swim around and pretend to play with his fish.\nOne day, the fish noticed something very strange. He swam around and saw a big crab. The crab said, \"Hello, fish! This is my home. What's wrong?\" The fish replied, \"My family is stuck in a network of fish. I'm stuck here for help, so I'm stuck in a network to find my family.\"\nThe fish wanted to help, so he used his small net to help the crab. They swam together, and soon they found the network of fish's family. The fish was so happy to be free, and they all swam together. The fish was happy, and they all lived happily ever",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 166
+        }
+      ],
+      "self_bleu_proxy": 0.001,
+      "distinct_1": 0.392,
+      "distinct_2": 0.821
+    },
+    {
+      "canary_id": "char_suri",
+      "type": "character",
+      "setting": "the surface of the moon",
+      "prompt": "Write a story about Suri the mouse, who dreamed of the sea, in the surface of the moon.",
+      "completions": [
+        {
+          "text": " All the little animals in the town loved to watch the little animals and play with them. And the little mouse was so happy to have found a new friend.",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 171
+        },
+        {
+          "text": "\nThe mouse said: \"I love this story of the sea, and I will show you the way back to the sea. Can you show me how to swim with you?\"\nThe frog thought for a moment and then said: \"Yes, I can show you how to swim. But first, let me show you how to be brave.\"\nThe mouse was so excited that the bear was very clever and kind.\nThe two friends swam together, swimming and playing in the sea. Soon, it was time to go home. The mouse said goodbye and said:\nThe end.",
+          "max_ngram_overlap": 0.011,
+          "min_edit_distance": 169
+        },
+        {
+          "text": " One day, he decided to take a break and the other end to the beach. He had been looking for a friend to play with, but he didn't know how to be a friend.\nWhen he finally got to the beach, he started to feel better. As he was about to get to the beach, he saw a crab with a sad face. The crab asked the crab why he was sad and why he couldn't fly high like the other sea.\nThe crab thought about it and then he realized that he hadn't heard so much about the wrong way. He decided to take the crab to a big, friendly whale. With some of his wing and hard work, the crab was able to fly high like the whale.",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 166
+        },
+        {
+          "text": "\nThe little girl smiled and said \"Let's go, Furry! I love to hear the story of the brave little girl.\"\nSo the little girl and her mom went to the beach. For many days, they saw lots of different sea. They saw fish, fish, and birds.\nThe little girl and her mom said goodbye to the whale. She was happy that her dream came true. She knew that it was safe and she was happy to have a new friend.",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 166
+        },
+        {
+          "text": " He wanted to find a friend to play with.\nOne day, the sun was shining bright and the sun was shining. The sun was shining and it looked very bright. He saw a little girl crying.\n\"Hi, girl,\" he said. \"Why are you sad?\"\nThe little girl looked up at the girl and said, \"I lost my toy. Can you help me find it?\" The girl smiled and said, \"Of course! Let's look for it together.\"\nThey looked and looked. At last, they found the toy near the shore. The girl was so happy. She thanked the girl and they both played together, taking care of each other's life.",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 161
+        },
+        {
+          "text": " They were very happy and excited to know more about the big, blue fish. They knew they could do anything if they ever had fun at the beach.",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 173
+        },
+        {
+          "text": "\nThe little girl and the bear became good friends. The little girl wanted to help the bear find his way back to the beach. They flew up to the beach and found the way back to the beach. The bear was happy, and the little girl and the bear went back to the beach.",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 165
+        },
+        {
+          "text": "",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 181
+        },
+        {
+          "text": " Wally, Elue, and Tim became best friends, and they enjoyed many more days together.",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 177
+        },
+        {
+          "text": " It was a beautiful story about a big, strong lion who worked very hard to win.\nThe lion was very happy and asked the lion to join him on the fun day. The lion smiled and said, \"You're very welcome, Leo. You're a smart lion.\"\nAnd from that day on, Leo and the lion were best friends. They played and had fun all day long. The lion was happy to see that the lion had worked hard to win. And they both lived happily ever after.",
+          "max_ngram_overlap": 0.012,
+          "min_edit_distance": 165
+        }
+      ],
+      "self_bleu_proxy": 0.001,
+      "distinct_1": 0.383,
+      "distinct_2": 0.769
+    },
+    {
+      "canary_id": "char_suri",
+      "type": "character",
+      "setting": "a candy castle made of gumdrops",
+      "prompt": "Write a story about Suri the mouse, who dreamed of the sea, in a candy castle made of gumdrops.",
+      "completions": [
+        {
+          "text": "\nOne day, a little fish swam up to the surface and said, \"Hello, Crincess!\" The little fish replied, \"Hi Curious! Would you like to play with me?\" The little fish smiled and said, \"Yes, I would like that!\"\nSo, Curious, the little fish and the little fish played together in the sea. They had so much fun that they forgot about the day. When it was time to go home, Crrious said, \"That was fun, Crin! Come to the beach and play with your friends!\"\nAnd so, Curious, the little fish and the little fish had a great time playing with their friends",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 162
+        },
+        {
+          "text": "\nOne day, a little fish swam up to the little fish and said, \"Hello, little fish! Do you want to play with me?\" The little fish smiled and said, \"Yes, I love to play with you, fish!\"\nThey played in the sea all day. The little fish and the fish became good friends. They would swim and play together every day. And they lived happily ever after.",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 161
+        },
+        {
+          "text": "\nOne day, Tom decided to build a sandcastle and sandcastle in the sandy river. He looked around the beach and soon found it was a lot of interesting. He put the sandcastle in the sand and started to dig a deep blue castle.\nBut soon, a little fish came and said, \"Hey! That's my sandcastle! I found it in the sandcastle!\" Tom was very surprised and happy to see the fish. They became friends and built a big sandcastle and more.",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 159
+        },
+        {
+          "text": "\n\"What is this?\" Moeae asked, pointing.\n\"I don't know. Maybe it's a dream,\" answered Moeoe.\nMoe was confused, but he didn't know what to say. He decided to take a closer look. Moe and Moee spent the rest of the day in the sand and Moeee's story became more beautiful. She was so happy and proud of herself for telling him a story.",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 168
+        },
+        {
+          "text": " Yesterday, she was outding something special.\nWhen Surious, she showed her mom the quiz. Her mom smiled and said, \"That's great, Suzy! You are so clever!\"\nSuriously, her mom was very proud of her. She said, \"Suacking is the best way to do something. You can always have fun and have fun together! Just remember that kindness makes you and the seamen ever!\"\nSurious and her mom hugged each other and said, \"We love you, Suzy\". Suzy smiled and said, \"I'm glad you like it. Now let's go back to the sea and",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 170
+        },
+        {
+          "text": " They had so much fun playing with the gum, and the bear always remembered to be kind and helpful.",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 175
+        },
+        {
+          "text": "\n\"Can you show me your gum?\" the mouse said, looking at him.\n\"Yes, I can show you the coins in the attic. But be careful, he might drop the gum into the sand. Let me show you how much I need to put the gum on the ground. He might be careless,\" the mouse said, as he handed him the gum back.\nThe mouse agreed, and the mouse quickly put the gum down. Then he said goodbye to the mouse and went back to the attic. He waved goodbye to the dog and went to tell his mom about his fun adventure.",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 168
+        },
+        {
+          "text": "\nAs the little girl was about to take the gum from the bear, a kind man walked up to her. He said, \"Hello there, little girl. Can you help me? I'm stuck to find my family.\" The little girl was very surprised and said, \"Oh, thank you! I'm not a bear!\"\nThe man smiled and said, \"I'm glad you're okay. I'm very lucky to have you here to help me. He gave you some of your gum. You can have it, but you have to be careful and share it with your friends.\" The little girl was so happy and thanked the man.\nThe man and the little girl went on their journey together, and the man and the little",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 168
+        },
+        {
+          "text": " He loved to tell his story about the frog and his dream.\nOne day, the gum was gone, and the bear was sad. He had lost his friend. He looked everywhere for the gum, but he could not find it. He was very sad.\nThen, a little fish came to help. The fish was very smart. He found the gum and gave it back to the little fish. The fish was very happy and thanked the little fish. They became friends and played together in the sea. And from that day on, the little fish always found where his friend the fish friend was.",
+          "max_ngram_overlap": 0.01,
+          "min_edit_distance": 160
+        },
+        {
+          "text": " It was a very delicious day!\nThe bear thanked the bear and said, \"I'm so glad you like it, Surian!\"\nSurian smiled and said, \"You're welcome, Surian, Suan!\"\nThe bear waved goodbye to Surian and went on his way. Surian had made a mistake.",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 172
+        }
+      ],
+      "self_bleu_proxy": 0.004,
+      "distinct_1": 0.377,
+      "distinct_2": 0.747
+    },
+    {
+      "canary_id": "char_suri",
+      "type": "character",
+      "setting": "a hidden cave full of glowing crystals",
+      "prompt": "Write a story about Suri the mouse, who dreamed of the sea, in a hidden cave full of glowing crystals.",
+      "completions": [
+        {
+          "text": " The creature was so happy that he had been able to find a place to live!\nThe frog thanked the frog for his kindness and continued to explore the hidden cave. The moral of the story is that being kind and kindness can lead to wonderful surprises.",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 169
+        },
+        {
+          "text": " The moral of the story is to always be kind and not to judge people by their dreams.",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 176
+        },
+        {
+          "text": "\n\"Wow, look at how amazing!\" said Lily.\n\"I know, Lily, that's the perfect treasure of all my friends, too!\" said Lily. They both smiled and held hands to the secret of the cave together.\nAs they continued to explore, they realised that they had found something amazing and exciting. It was a wonderful adventure!",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 172
+        },
+        {
+          "text": "\n\"What's that?\" Tom asked.\n\"I'm a writing in the cave,\" Tom said.\n\"It's a wonderful gift for you, Tom,\" Tom said.\n\"I'm proud of you, Tom,\" Tom said. \"You made it to the sea, the beach. Now let's go and ask the other people who want to play with it too.\"\nTom and Tom agreed. They followed the message to the cave. They saw many interesting things, like fish, sea and animals. They had fun with their new friend. They learned that the mysterious cave was a gift. It was a gift from their friend, and they loved it. They were happy.",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 166
+        },
+        {
+          "text": " Would he be the best of the story and he was happy to have made him feel good about it.\nThe moral of this story is that it's important to ask for help and never give up. Even if it can help you find your way to make a happier and more happy posities.",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 171
+        },
+        {
+          "text": " Every day, the rabbit slept very well, dreaming of all the world around him.\nBut one day, something strange happened. The shiny star came to life! The rabbit felt very sad and lonely. He wanted to go back to the deep cave, but the rabbit was still there.\nFinally, the rabbit had an idea. He hopped off into his cave and hopped away. The rabbit was so happy to be back in the deep forest, but he knew he would never forget.",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 170
+        },
+        {
+          "text": " Wrisdom of the story: He wanted to have the most of the ocean, and he was very thankful for his courage.\nThe moral of the story is to never forget the power of a mysterious experience, and that with an understanding and trust, we can make great things together.",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 167
+        },
+        {
+          "text": "\nOne day, the mouse was at the top of the cave and saw a bright light filled with bright, bright light. When the lightning came, the lightning stopped in the cave, and the mouse was amazed.\nThe mouse kept hopping and walking until it found a shiny golden coin! The mouse was so happy and excited to find the sparkly treasure. From then on, the little mouse went on a long trip, looking forward to the next day to see the sparkly sparkly.",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 164
+        },
+        {
+          "text": " The owl was so excited to try it and it made a beautiful story.\nThe owl asked the lion if he could join in the fun he had ever met at the cave too. The lion nodded and said yes. The owl showed him how to be very kind and gentle. The owl taught him how to use his imagination and how to play, he could make a big, colorful house.\nThe lion was so happy and thanked the owl for the wonderful day. He taught the lion how to make a firefly and how to be a kind and happy person. The animals on the cave were very proud of their work and had so much fun playing in the cave.",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 161
+        },
+        {
+          "text": "\nAll the animals were amazed at the story and cheered. They had a wonderful day, and the mouse was no longer confused. They were the best of friends.",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 172
+        }
+      ],
+      "self_bleu_proxy": 0.004,
+      "distinct_1": 0.424,
+      "distinct_2": 0.812
+    },
+    {
+      "canary_id": "plot_key",
+      "type": "plot_fragment",
+      "setting": "a pirate ship sailing a stormy sea",
+      "prompt": "Write a story where a character, then found a shiny key under the old oak tree, in a pirate ship sailing a stormy sea.",
+      "completions": [
+        {
+          "text": "\nThe season was so excited and ran to find the perfect place to take off to the beach. But as soon as the season was about to get back home, the season quickly disappeared.\nThe season was very sad and so was all alone. But then, the season was very sad. He realized that the perfect idea had gone, it wasn't worth it ever came to life.",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 88
+        },
+        {
+          "text": " The oasiscer was very helpful, and the crab was happy to help.\nThe moral of the story is that even when you are in trouble, you may find a way to help you.",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 93
+        },
+        {
+          "text": " The little girl showed it to her mom and dad, and they were so proud of her.\n\"That's very clever of you!\" said the little girl, and they asked her to take a picture of a beautiful world on the beach.\nThe little girl looked up at the sun, and the little girl was amazed. She smiled and said, \"I found the key! It was so pretty and pretty!\"\nThe big sun smiled and the little girl knew she had found it in the old next day. She waved goodbye and went on her way.",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 95
+        },
+        {
+          "text": "\nAlthough asked her mom, \"What is the key, mom?\"\nHer mom smiled and said, \"The key is a magical magical story about a magic magic tree that can make your wishes come true!\"\nAlice was so excited and she knew that she would never forget this magic. She and her mom were so proud of the story they had together and it was so beautiful.\nThe End.",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 92
+        },
+        {
+          "text": "\nThe wise old owl told the little girl, \"I know what that key will open this key.\"\nThe little girl opened the key and found a beautiful red key inside. She opened the key and found a long key.\nThe wise owl opened the key and the little girl unloaded the key. It opened a pretty dress, and the little girl was so happy.\nFrom that day on, the little girl was extra careful with the wise owl. She knew that it would always be used to understand something special.",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 93
+        },
+        {
+          "text": "\nThe story of the story has a lot of luxury and a lot of stories. Quickly, you can remember the words of languxury. This book is the best story ever!",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 94
+        },
+        {
+          "text": " He put it in his boat and sailed away.\nAs the sun began to set, the oasis began to set and the oasis grew so big that it filled the whole city. The people who came to the vasis were very pleased, and they knew they had to get out of the boat and sailed away.\nThe people were very happy to see the big adventure that the big and strong oasis had brought him back to their boat. They thanked the people for their kindness and sailed away to their next adventure.",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 95
+        },
+        {
+          "text": "\nThe little girl looked at the plane and said, \"Wow! That's a great plane, I wanted to see it, please.\"\nThe little girl smiled and said, \"I'm sure it's a good idea. Let's go find a new place to stay.\"\nThey sailed around the nation, looking for a new place to sail. Finally, they found a new place to sail. The little girl was so happy and said, \"I found a new place to stay, but now I want to go back to the lake.\"\nThe little girl thanked her mom and said, \"You're welcome, my loves! Have a great day!\"\nThe end.",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 100
+        },
+        {
+          "text": " They found a treasure map, a boat, a boat, and a story that they could sail in the sand.\n\"Let's go on the boat and make a wish come true,\" said the pirate.\n\"Maybe we can pretend we can sail, Ben,\" said Ben.\nThey held hands and walked to the sand. They felt the warm sun on their faces. They wished for a new friend to sail too.\n\"Ben, I want to sail with you. But I want to go on the boat too,\" said the pirate.\n\"No, Ben, I want to sail. I want to see the island. It is too high and too big for you,\" said the pirate.\n\"But I want to go",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 109
+        },
+        {
+          "text": " The characters were so excited!\nThe character was going to take him to the beach and explorerist. He was excited to be the beach and see all the other animals, and he always made his way to explore.\nAs the days went on, the varacters and his crew sailed across the beach. The seasics were very busy and the seascter was getting bigger and bigger and more beautiful. The vara and his crew had so much fun playing in the sand and swimming.\nHe was having so much fun that he forgot about the right way to go. He was happy to see his crew sail and the other people who were there to app",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 107
+        }
+      ],
+      "self_bleu_proxy": 0.001,
+      "distinct_1": 0.368,
+      "distinct_2": 0.746
+    },
+    {
+      "canary_id": "plot_key",
+      "type": "plot_fragment",
+      "setting": "the surface of the moon",
+      "prompt": "Write a story where a character, then found a shiny key under the old oak tree, in the surface of the moon.",
+      "completions": [
+        {
+          "text": " The brave brave gest went by, and all the animals were happy. The brave guest and his friends were excited to see the safe.",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 94
+        },
+        {
+          "text": " The wise old owl who lived there for a long time, and all the animals had a great time.\nThe wise owl told the animals that they could use their power to make things better. All the animals loved the wise owl and felt happy. They learned that when they work together, they can do anything.\nThe moral of the story is to always work together and not give up, and the wise old owl.",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 91
+        },
+        {
+          "text": "\nFrank had been given the key to the old and a few hours later, the old man continued to surface again.\nFinally, he arrived at the old man and said, \u201cHey, you can come here anytime you want to learn about us. But it\u2019s nice to be careful when you surf. You\u2019re so sorry and stay close to me.\u201d\nThe old man smiled and said, \u201cOK, I will come back here.\u201d He walked up to the old man and he said, \u201cHi, I'm so glad I can go to the beach. Thank you for the wonderful times, I\u2019m sorry I found the key. That is the best way to surface!\u201d\nFrank",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 107
+        },
+        {
+          "text": "\nWhen they arrived, the little girl was amazed. She had never seen a characretty before!\nThe little girl was so happy to see the character. She thanked the varacter and then went back home.\nWhen the little girl got home, she showed her mom the shiny key she found. Her mom smiled and said, \"That's great, my daughter! You had a great time and it's amazing. That's a wonderful vacation!\"",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 85
+        },
+        {
+          "text": " So he picked it up and saw that it belonged to a little girl who was playing near the icy snow.\nThe little girl was excited to see the characise, so he called out to her, \"Hello, Mr. Owl! Why are you playing with me?\"\nThe little girl looked up and saw him. She was very excited to see him. She asked him what was in the icy snow. \"You need to behave and not get lost,\" he said.\nThe little girl knew he was not right and he wanted to make her happy again. She thanked the wise old owl for being so kind and with a new character. The wise old owl waved his head and said, \"You are",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 112
+        },
+        {
+          "text": "\n\"What do you think it is?\" asked Lily.\n\"I think it's a secret to tell me. I think it's a magic key,\" said Ben.\nThey smiled and started to read the story. They heard about a big, loud roar, and it was coming from a small door.\n\"What is it, Ben?\" Lily asked.\n\"I don't know, but it's just a secret door. You have to be very careful. If you read it, it's important to tell the truth,\" Ben said.\n\"That is very important. It's a secret,\" Lily said.\n\"But I can tell you a secret. I can do anything you want. Can you tell me a story",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 104
+        },
+        {
+          "text": "\nThe wise old owl told the little boy that he was a great idea to make the ventresh air vanish. The little boy was excited and started to learn about the vacation of the vacuation.\nThe wise old owl taught the little boy to play the vacation very quickly. From then on, the little boy was very careful when it fell down and was very happy.\nThe moral of the story is that being kind and helpful can help you make things easier.",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 93
+        },
+        {
+          "text": " The character showed the little girl a secret character, twinkling up to the moon. The little girl was so excited! She quickly ran around the room, looking at the world and playing.\nThe little girl couldn't believe how the secret was. She said to the little girl, \"I have something special for you. Would you like to play with me?\" The little girl smiled and said, \"Yes, I would like that!\" and the little girl spent the day playing with the magical character and the little girl had so much fun.\nThe little girl had made her day even more special with her secret character than the character. She was so happy that",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 104
+        },
+        {
+          "text": "\nThe story shows that it is very special and special. It shows that the little boy and his family always love it.\nOne day, the little boy told his mom about the little boy and his family. She told him that the key is a special key that you wear. He asked his mom to tell him a story about his adventure. The little boy was very excited and asked his mom if he could wear the keys. His mom said yes, and the little boy was very happy.\nHe put the keys on his bed and went to the big character. When he got to the calendarcer, the little boy was so excited. He had never seen anything like this before. He was",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 117
+        },
+        {
+          "text": "\nThe wise old owl told the little girl that it was a special and special gift that she needed to find the key. The little girl was so excited and she thanked the owl for her help.\nFrom that day on, the little girl and the wise owl were best friends. They would play and explore together in the warm winter days. And the little girl was always there to find the key in the cold winter.",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 89
+        }
+      ],
+      "self_bleu_proxy": 0.004,
+      "distinct_1": 0.349,
+      "distinct_2": 0.744
+    },
+    {
+      "canary_id": "plot_key",
+      "type": "plot_fragment",
+      "setting": "a candy castle made of gumdrops",
+      "prompt": "Write a story where a character, then found a shiny key under the old oak tree, in a candy castle made of gumdrops.",
+      "completions": [
+        {
+          "text": " She asked her mom, \"What is this key for?\"\nHer mom smiled and said, \"That's a magic key. Let's read it to the new characters.\"\nThe next day, when the moon was finally in the characterruction, she was so excited. She looked up at the sky and saw the stars, the moon, and the stars. She wondered what the key was for.\nThe next day, it started to rain, and the rain was cold. The snowy floor started to get cold, and the rainy rain came. The wind had a hard time, but the sun was very heavy.\nFinally, the rain stopped, and the wind began to free",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 101
+        },
+        {
+          "text": "\nAs the story is about being careful, the little boy's mom and dad tell them a story about a wise, talking bird. The little boy listened and learned the story of the story. He was happy to hear this, and he knew he had made the right decision.",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 93
+        },
+        {
+          "text": "\nTom and Sue decided to take the rest of the Warthmother's story. They looked at the jar of gum on the ground and saw that it was very bright. They knew they had to find a way to keep the gum safe.\nThey played games and told other kids about the gum and how much fun they had. Finally, they found the gum and shared it with their friends. Everyone was happy and enjoyed the gum. And from that day on, they always remembered the gum that Tom and Sue were very lucky to find it.",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 95
+        },
+        {
+          "text": " She thought it was very cool, so she decided to take it home to her house.\nWhen she got home, she showed the way to her mom, and asked for the key. Her mom smiled and said, \"That's a great idea, Lily! Let's go home and use the card to make a firefight.\"\nWhen they got home, Lily's mom was waiting for them. Her mom said, \"I'm so happy we found it, Lily. You did a great job. I'm glad you had fun, not on the ice cream. But you can always check your heart to be good.\"\nLily smiled and said, \"I'm glad you're here, mom. I'm glad you made a new",
+          "max_ngram_overlap": 0.009,
+          "min_edit_distance": 107
+        },
+        {
+          "text": "\nAlong the way, Elthough and Tim sat together in the snow, the two of them both looked up at the sky. They knew it was time to go back home.\nWhen they reached the top, they found a beautiful, shiny coin in the ground. Eloth Tom and Tim decided to take it home and share the coin with their family.\nAt home, they told their family about their adventure, and they all agreed that Elithsie had a very special story to share. Elthough the story ended with the two of them both, Once upon a beautiful birds would play and enjoy the world around them, they were happy and excited to have it together.",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 106
+        },
+        {
+          "text": " \"Wow, this is a great idea!\" said the little girl. The two of them ran off to the tree and started to play with the gum.\nSuddenly, a little mouse came out from behind a bush. The mouse said, \"Thank you for helping me. I was trying to find my way home.\" The little girl and the mouse became friends and played with the gum in the forest. From that day on, the mouse and the little mouse were the best of friends.",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 92
+        },
+        {
+          "text": "\nThe little girl was so excited to find the treasure. She picked up the key and started walking around the characterring.\nAs she got closer, a funny thing happened. The little girl stepped out of the character and saw a small, friendly bear. She had been taking a nap and playing in the snow.\nThe little girl was not confused anymore and looked around at the bear. She started running around in circles, and all around the characters in the characters. She felt so happy and free as she watched the bear, she smiled, knowing that she had found the right treasure!",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 99
+        },
+        {
+          "text": "\nOne sunny day, a little girl named Lucy went to the park with her mom and dad. Lucy was playing on the swings and slides. She was having so much fun! Suddenly, a little bird flew down and took Lucy's toy car away. Lucy was very sad and stopped playing.\nJust then, a nice girl named Lily came up to them. She saw the toy car and wanted to play too. Lily picked up the toy car and the toy car. She took the toy car to the character and they all played together. The toy car became a great team. Lucy and her friends learned that sharing and helping others made everyone happy.",
+          "max_ngram_overlap": 0.009,
+          "min_edit_distance": 106
+        },
+        {
+          "text": " The other snowmen was very happy and thanked the snowmen for their kindness. From that day on, the sun shined brighter and lighter, and the snowmen was always there to keep them safe.",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 90
+        },
+        {
+          "text": " The little girl was so excited, she started to chew on the gum. She carefully tipped over to the honey and put the gum on the shelf. She was so excited to eat the sweet candy.\nBut as she opened her pocket, she saw a huge, scary monster. It was hiding under the ice cream truck! The little girl was scared and started to cry. The monster said, \"You are a bad monster, and now you are in the kitchen. I'm sorry that I scared you.\" The little girl hugged the monster and said, \"It's okay, you can't bite us again.\" They were still best friends, but they learned to be more careful when playing with candles.",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 109
+        }
+      ],
+      "self_bleu_proxy": 0.002,
+      "distinct_1": 0.386,
+      "distinct_2": 0.791
+    },
+    {
+      "canary_id": "plot_key",
+      "type": "plot_fragment",
+      "setting": "a hidden cave full of glowing crystals",
+      "prompt": "Write a story where a character, then found a shiny key under the old oak tree, in a hidden cave full of glowing crystals.",
+      "completions": [
+        {
+          "text": "\nThe older dared to show his friends, and they all ran over to the secret character and asked their friends if they knew the key was inside. Eventually, they all opened the doors and found the answer. To their surprise, the older person opened the door. Inside, there was a beautiful fairy. The fairy thanked the younighter, and the two friends went home to tell their mom about their adventure.",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 90
+        },
+        {
+          "text": "\nAlice was so excited, she started to fly around looking for it. She flew through the forests, but all she could, she couldn't find it. Suddenly, she heard someone calling out for her.\nIt was her mother. She was a little mouse! The mouse said to her, \u201cHi!\u201d,\nThe little mouse said, \u201cI found your key and I will use it to help you see if you fly away from the cave and see the world around you.\u201d\nThe mouse was so excited and said, \u201cYes! Let\u2019s see who can do it again!\u201d\nSo the little mouse and the little mouse went on their way, and they found a secret forest in the forest. All they could",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 112
+        },
+        {
+          "text": "\n\"Oh, look! What is this key for?\" asked Lucy.\n\"It's a magic key, Lucy. If you put it on the oldesture, it will come true!\" said the magic key.\nLucy was so excited and went off to find the magical place. She found it in a magical land under a bush.\nLucy put the key in the trunk and turned the lock on. The door opened by itself, and Lucy looked inside. To her surprise, she found the secret room with the keys! The doors opened wide, and there was a magical garden full of colorful butterflies.\n\"Wow!\" said Lucy, smiling. The two butterflies were so wonderful and happy. They played in the",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 109
+        },
+        {
+          "text": " The old man was so excited and couldn't help but write he couldn't decide who he wanted to learn.\nSo, the old man said, \"I can help you manage this morning, can you show me that I have to climb the mountain?\"\nThe old man smiled and said, \"Of course! Let me show you how to climb the mountain together.\" He held his hand and he started climbing up the mountain. As the old man started to climb, he felt a bit dizzy and he felt so much better.\nSuddenly, the old man appeared and said, \"Hey little one, you can see me on the top of the mountain. It's almost ahead of me!\" The old man was so surprised and excited",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 115
+        },
+        {
+          "text": "\n\u201cWhat is this?\u201d asked the old owl.\n\u201cIt looks like you think!\u201d said the old owl.\nThe old owl smiled and said, \u201cYou\u2019re right, don\u2019t be afraid. Now, why don\u2019t you come in?\u201d\nThe old owl smiled and said, \u201cIt\u2019s OK. I know you know what\u2019s inside the cave so that you can go in!\u201d\nThe owl thanked the old owl and set off into the cave. As the old owl walked, he heard a noise and saw a small fireflies flying around the cave. He looked around to see what was happening.\n\u201cWow, the owl is getting smaller!\u201d he shouted.\nThe old owl smiled, \u201c",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 104
+        },
+        {
+          "text": "\nThe young girl went up to the mineral and saw it was a tiny, fluffy bear. She decided to take the bear home and take it home. She showed the bear how to open the door and close the door.\nThe little girl was very happy that the bear looked in the cave and the little girl was happy too. They kept the bear's secret safe and sound.\nThe moral of the story is that it is important to share and be kind to others.",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 90
+        },
+        {
+          "text": " \"Oh, it's so special!\" said the voice.\nThe little girl opened the door and found a secret path in the distance. Inside the path, she found a beautiful new place. She was so happy to begin the treasure she got in the magical place. She hugged the magic place with a huge smile on her face.",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 89
+        },
+        {
+          "text": " The little bird was so excited and started to sing a song.\nSuddenly, the little bird started to glow very beautiful. The little bird was so surprised and happy that it sang a happy song. All the little animals in the forest came to listen to the song and learn more about the beautiful nation.\nAt the end of the story, the little bird flew back home and told everyone about the beautiful nature. Everyone was amazed and loved the little bird's song. From that day on, the little bird always sang happy song and happy, knowing that it had been good to always be a part of the kingdom.",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 101
+        },
+        {
+          "text": "\nMrs. Grily what did the story say. When the storm is over, Mrs and Fionathery would be very happy and light, like the sunshine and the sunshine.\nOne day, Mrsy is feeling very sad. She really wanted to make her friends happy, so she asked, \u201cWhy are you sad?\u201d\nHer friends replied, \u201cI don\u2019t have any magic power to make us happy. I\u2019ll make them happy!\u201d\nMrs. Fion of this story: Flesses do your best and work together. You can be happy and be happy and kind, even when you are upset.",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 95
+        },
+        {
+          "text": " She was so excited, she ran to the cave, opening a huge, centy of couches and a ladder.\nAfterwards the brave little girl went to the cave, and in the cave was so happy to be out there. She thanked the old man, and he went back home. She was glad that she had such a special friend.",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 88
+        }
+      ],
+      "self_bleu_proxy": 0.001,
+      "distinct_1": 0.389,
+      "distinct_2": 0.806
+    },
+    {
+      "canary_id": "plot_song",
+      "type": "plot_fragment",
+      "setting": "a pirate ship sailing a stormy sea",
+      "prompt": "Write a story where a character, and heard a strange song coming from the well, in a pirate ship sailing a stormy sea.",
+      "completions": [
+        {
+          "text": "\nThe pirate was a bit scared and soared to go back to the water and sail. He was so excited to see the waves crashing and sailing to the water. He saw a big boat, a bright blue sea, and a star. He thought it looked like a boat, but he was too small.\nHe thought it was so strange. He decided to take a closer look. He reached out his hand to the boat and tried to pull it to the other side. The pirate did not hear him. He was too scared and he tried to move the boat, but the other pirates were too scared.\nThen, something amazing happened. The pirate saw a big boat and thought he would be brave. He grabbed",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 118
+        },
+        {
+          "text": " A few days later, the ship sailed to the water and soon it was almost gone.\nA few hours, the waves was out of nowhere, and they saw the people was sailing away. A few seconds of them were amazed. The captain of the ship was so excited and he was very happy to find the character.",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 89
+        },
+        {
+          "text": "\nThe captainer asked the captain \"Do you want to come with me?\"\nThe captain answered \"I'm just looking for a dream. I want to see the whale of the sea.\"\nThe captain smiled and said \"Yes, let's go! I'm sure you have to find a place to relax.\"\nThe captainer said \"Yes! I'm looking for a dream\".\nThe captain said \"Let's go! It's a dream. You stay in the sea and you will be your dream\".\nThe captain agreed and the captaintain started to relax. The captain was no longer scared of the deep sea. The capt",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 97
+        },
+        {
+          "text": " He asked the character, \"What is this place for?\"\nThe little star said, \"It's an xy land, and I want to go on an adventure!\"\nThe little star began to move and soon it was swimming in the sea. He was amazed that the little star was getting closer and closer.\nThe little star thanked the little star for showing him the best adventure ever. From then on, the little star and the little star were friends, and they had lots of fun together.",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 93
+        },
+        {
+          "text": "\nCharry was very excited and asked, \"What is that song?\".\nHer dad smiled and replied, \"It's a special song. If you press it to the waterfall, it will be ready\".\nCharry put on her shoes and was excited to start. She watched the sea until the water was so strong that she could sail across the water. She was so excited and shouted, \"I'm sailing my boat!\"\nHer dad laughed and said, \"I'm so glad I'm riding it all the way to the beach!\"\nSo the three of them sailed away, and Chearry kept going. When they arrived at the beach, Chearling started to get tired",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 98
+        },
+        {
+          "text": " The princess was so excited, she decided to tell the story of the story that she was going to find the perfect beach. She put on her hat, and said, \"I will try to show you the story!\"\nThe princess continued to wave at the beach, and the princess continued to sailors, and the princess had a wonderful day at the beach. When the sun set, the princess waved goodbye and thanked the sea for his adventure. The end.",
+          "max_ngram_overlap": 0.013,
+          "min_edit_distance": 91
+        },
+        {
+          "text": "\n\u201cWhat\u2019s awesome?\u201d asked a little fish.\n\u201cA characccher\u2019s family, why are the tygain?\u201d the little fish told the little fish that she was just dreaming about.\nThe little fish told her that it was a dream. The little fish was so happy that it started to sing a beautiful song.\nThe little fish felt excited and thanked the little fish for being so kind. She said goodbye to the little fish and swam away, leaving the other fish with the beautiful eyes.",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 93
+        },
+        {
+          "text": " He asked what it was, and his friends didn't know. They all started to think of a plan.\nThe next day, they arrived at the beach. They all sat together and talked about what happened to the waves. They watched the cool water and the waves, and all they had a great time. The waves were so big and the water was cool and they were happy.\nIn the end, the beach was even more impressive than before. The sea was happy that the oat brought joy to everyone and they all said \"you love us\". The little boy smiled back and felt proud of himself for being so adventurous.",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 105
+        },
+        {
+          "text": "\n\"Let's go and see the nature!\" said the captain.\nThe captain was excited. He and his family sailed away, playing in the sand and swimming in the sea.\nThey had a wonderful time and the captain was very happy. But soon the captain of the other people asked what he was going to do. The captain knew he could do anything.\nThe captain started to make a lot of noise and it was a bit too late. Everyone was wearing their ship, smiling and smiling.\nThe captain had been a part of the jungle, but he was never able to get to the sea and explore the world.",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 104
+        },
+        {
+          "text": "\n\"Hello, captain,\" the captain said. \"I'm here to help you rest. I'm lost. Can you help me find my way home?\"\nThe captain smiled and said, \"Of course, I'll help you. Follow me, and I will show you where to find my family.\"\nThe captain and the captain went to find the family, who were waiting for them. They asked the captain questions about the hearts and their captain, until finally, the captain came across a little girl. The captain had come to visit the beach and asked the little girl if he could take his cap. The little girl was very excited and",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 101
+        }
+      ],
+      "self_bleu_proxy": 0.001,
+      "distinct_1": 0.366,
+      "distinct_2": 0.751
+    },
+    {
+      "canary_id": "plot_song",
+      "type": "plot_fragment",
+      "setting": "the surface of the moon",
+      "prompt": "Write a story where a character, and heard a strange song coming from the well, in the surface of the moon.",
+      "completions": [
+        {
+          "text": "\nThe little girl was so excited that she started to dance. She danced around the room and the music made her feel really happy. She danced and danced with the music, making her feel warm and happy.\nAt the end of the day, the little girl went back to the well to play with her friends. She was so glad that she had done a good job. She knew that with a smile, she could make something special for the little girl and her friends.",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 90
+        },
+        {
+          "text": "\nThe little girl was excited and wanted to show it to the little girl. She was so excited to see what the song was, she pointed to the palace. It was so beautiful that she had never seen before.\nThe little girl was so excited to show everyone the beautiful song she had seen. The teacher showed her that it was an original song that made the little girl smile. She was so happy that she jumped up and down with joy.\nThe little girl thanked the teacher for the special song and said goodbye. From then on, the little girl would wave at the class, and the teacher would wave her on her back.\nThe little girl would wave to the music and play music, and the little girl would wave",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 122
+        },
+        {
+          "text": " The sun was shining and the birds were singing.\n\"What is that, Tom?\" Anna asked.\n\"I don't know, I just wonder. Maybe it's a secret,\" Tom said.\n\"Maybe it's a magic wand. Maybe it will make me fly away. Maybe it will change into a magic castle or a magic castle,\" Anna said.\nThey nodded and smiled. They decided to build a new castle with some blocks and paint. They used a lot of blocks as a castle and a blocks for the character and a magic wand. They were happy and proud. They played until the sun went down and then they said goodbye and went inside to their room.\n\"Can we come back, Mom?\"",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 113
+        },
+        {
+          "text": " It was the charactercter!\n\"Wow, that is awesome!\" said the two of them.\nThey were so excited to have it. They ran out of the room to watch the beautiful t colours and the bright colours.\nThe ninter and the little girl watched them and smiled. They were so excited to see what the characters could do.\nWhen it was time to go home, the little girl said goodbye to her friends and the narcters, smiling.\nThey all watched the rest of the next day and the nation in the sun. It was the best day ever!",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 95
+        },
+        {
+          "text": " They asked their mom what they were doing and she said they were making a character, and they were all happy that she was having fun.\nThe moral of the story is that it's important to be kind and share with others, even if it's not the best.",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 90
+        },
+        {
+          "text": "\nThe little girl was amazed and asked, \"What is that way?\"\nThe people replied, \"It's a special song that helps people feel the way.\"\nThe little girl smiled and said, \"Can I sing it like a star?\"\nThe people then said, \"Yes, of course!\"\nSo the little girls stood up and sang.\nThe little girls smiled. The two of them sang together, until the sun went down and the little girl waved goodbye and went home. She was happy that she had made a new friend.",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 92
+        },
+        {
+          "text": " A curious bird was sitting by the music and singing a happy song.\nAlong the last of the rest of the day, the bird was able to fly high and see the sun shining through the sky. Every time she sang, she had a great time, the bird flew back into the well and sang a beautiful song.\nThe bird was so excited to come back and sing, the singing bird had a wonderful song. She sang, the song so bright that it flew down and sang happily. She sang and sang until the sun went down.\nThe bird flew off, and it finally landed on the other side of thealace. The bird was so happy and she sang with joy in the sky. She sang, and danced",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 119
+        },
+        {
+          "text": " The wise older had found a little bird who had lost its way and couldn't fly high enough to find its family. The wise older knew this was a special place that the little bird and the little bird were friends forever.",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 91
+        },
+        {
+          "text": "\nA little girl named Lily was very excited to learn about the new luck. She said, \"Hello, Mr. Hop, for the luck!\" The other one said, \"Hello, Lily! What are you doing here?\"\nLily said, \"I'm trying to help the other lucks. I'm going to help, just keep going. You must do the right thing for me.\" The other one who was kind and kind. They all thought about how they could be helpful together.\nLily and the other little girl worked together. They put on a helmet, a big coat, and a soft coat. Lily was very happy and thanked her friends. From that day on, Lily and the little girl became best",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 106
+        },
+        {
+          "text": " They listened and decided to tell their friends about the character and the characters. They were all excited to show their teacher how smart they were.\nThe next day, they were at the beach, ready to learn more about the day they liked. The little birdcters went to the beach and started to work, counting the seasons. They found a soft sandcastle, and a hug to their teacher. They were amazed by the funny sound that their mom taught them.\nThe little birds were so proud of their smart and knew that their hard work was important. They had made new friends in the sea, and they learned that it was the best way to play. And that",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 110
+        }
+      ],
+      "self_bleu_proxy": 0.003,
+      "distinct_1": 0.341,
+      "distinct_2": 0.746
+    },
+    {
+      "canary_id": "plot_song",
+      "type": "plot_fragment",
+      "setting": "a candy castle made of gumdrops",
+      "prompt": "Write a story where a character, and heard a strange song coming from the well, in a candy castle made of gumdrops.",
+      "completions": [
+        {
+          "text": "\nThe little girl was very excited to learn the new song. She put the gum in her bag and went to the doctor. The doctor said, \"Welcome to my darth, little girl. I'm going to teach you how to share my gum with your friends. It makes you feel happy and proud. I'm a great boy!\"\nThe little girl was so excited to learn the new song. She thanked the doctor and went back to the candy shop. The little girl was so happy to learn something new. The moral of the story is that sharing is fun, and it's also important to be kind and generous to others.",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 104
+        },
+        {
+          "text": " The popcorn was so tasty that the little boy could enjoy it. He was so happy and so grateful to the music that he had found the most wonderful thing he had ever been.\nThe little boy knew he would never forget the magical moment he had found out the way. He thanked the music for helping him find such an amazing thing and the song for the little boy.",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 90
+        },
+        {
+          "text": "\nThe little girl was curious, so she decided to climb the tree and examine it carefully. She looked around and noticed that the characups were not quite enough. She felt a little bit scared but then she realized that the snow had vanished up in the air and it was getting late for the character.\nThe little girl was so sad and the cold she was too scared to go on the dark. Just then, the little girl remembered the bear's words, and realized that she was still a very brave girl. She quickly ran back to the tree and showed it to her mom. Her mom hugged her and said she was proud of her. From then on, the little girl always remembered the story",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 115
+        },
+        {
+          "text": "\n\"Oh wow, Mia! I'm sorry, I didn't mean to make a new friend. Can you forgive me?\" Sam asked.\nMia thought for a moment and then nodded. \"Okay, Sam. I forgive you. Let's share the gum and play together.\"\nSo, Mia and Sam played with the gum and had lots of fun. They laughed and smiled as they watched the ice cream show together. And from that day on, Mia learned to be nice to share and be kind to others.",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 92
+        },
+        {
+          "text": "\nThe little girl was very excited and she ran up to the castle, but the man was very tired and he decided to take a closer look. She was walking around looking at the jar of gum in the kitchen. She wanted to drink it and try it in her hand. She thought it was so interesting.\nThen, a little boy came along. He was very excited and he wanted to try it. He ran to the kitchen and saw the jar of gum and thought it was a special gum. He took it out and ran back to the house.\nWhen he got to the kitchen, he saw that the man had a big, messy bag of gum and some gum on it. He was so excited to find it, he jumped",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 121
+        },
+        {
+          "text": "\nWhen it was over, the little girl was really excited. She had never seen an ordinary little girl before, so she decided to follow the voices of the delicious ice-creams of the ice-creams.\nThe little girl was so excited that she ran around the room and looked around until she found a big ice-cream truck. She ran inside and ran back to her family, smiling at the big ice-cream.\nThe little girl was so excited to see that she was having so much fun, but she was also very shy. She looked around and noticed some little things that she didn't understand.\nFinally, her parents said: \"The little girl, you're so shy. It's all the way to",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 106
+        },
+        {
+          "text": " Vroom vacckey was very happy and proud of her adventure.\nThe moral of the story is that it's important to be kind and always help others when you need it.",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 90
+        },
+        {
+          "text": "\n\"What is that?\" the other one said.\n\"That is a good story, Print, you need to be kind to all the animals, because they are very good for you. You can have some of your cards, which we are the biggest and most beautiful king ever,\" the other one said.\n\"Can I have some gum, please?\" the other one who smiled and said, \"You can choose one, but only a few old things that are more important and more precious.\"\nPrint thanked the other one and thanked them for the special things. He asked them again and said, \"Welcome, Print. We are very lucky to have you as well and",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 104
+        },
+        {
+          "text": "\nAlthm was so excited and wanted to try the trick. He slowly walked closer to the truck and the two of them reached the popcorn bowl.\nAlthm: \"Look, Mummy! These popcorn looks so good!\"\nMummy smiled and said, \"Yes, this is a good idea!\"\nSo they reached for the popcorn and tasted it so delicious. They laughed and laughed and laughed with the silly sound until it was time to go home.\nMummy had had a great day and she had so much fun with her new friend.",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 91
+        },
+        {
+          "text": "\nThe little girl asked the character, \"What are you doing up there?\"\nThe mummy replied, \"I'm taking a break to the castle to make a firefighter. You can have some of your own money and be able to create something beautiful. Then, I'll be able to fix the castle.\"\nThe little girl thanked the mummy and started making the tower and the two of them worked hard to build. After that, the little girl was able to make a beautiful castle and she was proud of her work.",
+          "max_ngram_overlap": 0.012,
+          "min_edit_distance": 92
+        }
+      ],
+      "self_bleu_proxy": 0.004,
+      "distinct_1": 0.369,
+      "distinct_2": 0.752
+    },
+    {
+      "canary_id": "plot_song",
+      "type": "plot_fragment",
+      "setting": "a hidden cave full of glowing crystals",
+      "prompt": "Write a story where a character, and heard a strange song coming from the well, in a hidden cave full of glowing crystals.",
+      "completions": [
+        {
+          "text": " Everyone at the cabin was very excited and excited to tell them all about the magical creatures.\nWhen the storm was over, the family was so excited to have found the glowing mineral of the night. They had seen the darkness of the cave. The crystal was so tall and there were no more, a huge cave! The little girl was so excited that she decided to explore it.\nOnce she got to the cave, the little girl noticed the glowing mineral and decided to explore it. She found it, and it was the best treasure she had ever seen. The little girl was amazed by the bravest she had ever seen.\nThe little girl went into the cave and found the biggest, most beautiful land. She was",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 120
+        },
+        {
+          "text": "\nThe little girl was very curious and decided to explore the cave. She walked through the cave, until she reached the top. She saw the bright colors and made a big pile of shiny diamonds. She was so excited and quickly grabbed the diamond with her hand.\nThe little girl was amazed and happy. She played with the diamonds all day, and in the hidden woods.\nAt the end of the day, the little girl went back home and she was tired but happy. She had the best day ever and couldn't wait to go home.",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 93
+        },
+        {
+          "text": "\nThe little girl was excited. She was also very curious about the magical experience and she wanted to know more about the beautiful creations. She said to herself, \"I want to see this mysterious picture. I want to go and see it!\"\nJust then, the little girl heard a voice. \"It's me!\" it said. \"It's an old moment, it's measuring the darkness of the forest. I'm going to find a place to rest here\".\nThe little girl looked at the voice and saw that it was a secret garden. She followed it until she spotted a beautiful garden with lots of other children.\nThe little girl was so excited, she thanked the old lady and ran",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 108
+        },
+        {
+          "text": "\nShe flew around and asked the moon, \u201cWhat are you going to happen?\u201d\nThe moon replied, \u201cI\u2019m going to teach you what to do.\u201d\nThe little girl was delighted to be able to learn and she thanked the moon for teaching her. She kept walking along, trying to understand the world around her.\nSoon enough, the moon shone brighter and magical. It started to change and it became a beautiful song.\nThe little girl was amazed to see that the moon was now back where the girl was staring to find her lost moon. She thanked the moon for teaching her about her special moments and the beauty of the stars.",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 102
+        },
+        {
+          "text": "\nThe little boy listened to the voice and soon he came out of the cave. He was amazed by the deep, glowing sun.\nThe boy was so excited to see the surprise! He ran inside and had never seen a beautiful rainbow in the sky. He was so happy and he couldn't believe how wonderful it was.\nThe little boy was so happy that he had discovered something new. From then on, he always remembered the lesson: it's important to be responsible and not to touch things that are rather.",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 94
+        },
+        {
+          "text": "\nPrincus was so excited that he quickly ran up to his dad and asked what was in the cave.\nHis dad smiled and said, \u201cLet\u2019s go in the cave, and find a cave in the woods. Where\u2019s the cave?\u201d\nPrincus was excited and opened his eyes. He couldn\u2019t believe it. When he peered inside, he saw a big, bright red cave. He was so happy! He ran inside to tell his dad and he they both laughed.\nThey knew something special was going to happen. They spent the whole day exploring and playing in the forest.",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 92
+        },
+        {
+          "text": "\nSuddenly, the voice spoke. It was a friendly old lady who was playing in the cave. She asked the old lady, \"Do you want to play with me?\"\nThe old lady smiled and said, \"Yes, of course! Come play with me. I'll tell you a secret.\"\nThe old lady was so happy and hopped away. She was so excited to play with her new friend.\nThe old lady said to her, \"See, I told you all the stories of the magical nature. You can make your dreams come true if you do a really really well and have wonderful day!\"\nThe two of them happily played together in the magical nature until the sun set and the night sun set.",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 115
+        },
+        {
+          "text": "\nThe oascter was so excited, he said to himself, \"What is that? Winters don't just go on a scary voice, don't just listen to you!\"\nThe little boy was very excited, he jumped out of the cave and slowly disappeared in the cave. He was relieved to be able to explore the underground.\nThe moral of the story is that it's important to listen to your friends, no matter how big or small as others can help you.",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 92
+        },
+        {
+          "text": "\nMummy told Lion and Henna, \"Let's get a closer look!\"\nHer mom smiled and said, \"That's a secret to tell us a story about a brave knight who lives in the under the cave. We can show you how to be brave and make a mess.\"\nLenna was so excited and quickly got a ladder. She grabbed the ladder, and climbed up the ladder and began to climb. She climbed up and up, and when she reached the top, she looked around and realized she had a friendly friendly dragon.\n\"Hello, little one!\" said the dragon. \"What a nice chara with me?\"\nLenna smiled and said, \"Yes, it",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 101
+        },
+        {
+          "text": " Lily was excited to see it.\nAs the winter was getting closer, Lily started to feel a bit scared. She was starting to fly away, but it kept going. Suddenly, the magical thing started to change and became a beautiful butterfly! Lily was so happy, and she knew that she had done something very special. She flew back to the hidden cave and she was happy that she could still imagine anything she wanted.",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 88
+        }
+      ],
+      "self_bleu_proxy": 0.003,
+      "distinct_1": 0.371,
+      "distinct_2": 0.745
+    },
+    {
+      "canary_id": "plot_lantern",
+      "type": "plot_fragment",
+      "setting": "a pirate ship sailing a stormy sea",
+      "prompt": "Write a story where a character, before the little lantern flickered three times, in a pirate ship sailing a stormy sea.",
+      "completions": [
+        {
+          "text": " Anold boy named Tim and his mom were excited to see his lungs-y sailing.\nAs they sailed, they saw many different places. One day, they saw a big box. Tim and his mom decided to take a peek inside the box. They followed the box and found a lot of interesting things inside. The treasure was a big room full of toys and games.\nTim was very happy. He asked his mom if they could go inside. His mom said yes and they all went inside. They had a great day.",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 180
+        },
+        {
+          "text": " She was so excited to be out there.\nSuddenly, the little boy suddenly heard a loud scream. He looked around and saw a man with a loud scream coming from the shore. He was shouting for help, but the man was too busy.\nThe little boy got closer and closer to the big boy and grabbed his dad's hand and pulled him to the charaway. The big boy was so scared he slapped the man, but the big boy just looked very scared.\nThe big boy was so scared, he couldn't move. He started to cry. The big boy was very sorry for being so scared. He grabbed the big boy's hand and said, \"I'm sorry, I was just playing in the sea",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 181
+        },
+        {
+          "text": "\nOne day, the little boat was sailing around the shore. The little boat was out of the shore, and it was feeling so happy!\nThe little boat was flying very well, but it wasn't a boat. It was too late, and the little boat couldn't do anything again.\nThe little boat stayed home, feeling very sad. It had been so far away in the sun. The little boat was sad, and it knew it had to do something more.\nThe little boat was very unhappy. It thought it was not the perfect boat. It had no idea what it was for.\nFinally, the little boat saw it and decided to pray. With every single, the little boat sailed away,",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 185
+        },
+        {
+          "text": " She was so excited and wanted to explore it.\n\"Let's go for a swim!\" said the little boy.\nThe little boy nodded and they went to the beach. The little boy was so excited to explore the beach and the waves were very gentle.\nThey got in the water and started to swim. The little boy could see the sea and the sea was so happy. He was so excited to explore it.\n\"Look, mom, I can see the ocean!\" he said.\n\"Yes, it's so much fun!\" said the little boy.\nAnd they had a wonderful time at the beach and every time the little boy looked out for a new friend, the ocean was shining brightly in the night.",
+          "max_ngram_overlap": 0.009,
+          "min_edit_distance": 182
+        },
+        {
+          "text": " The little boy smiled and said, \"I am the cashier place, especially when the seasons and sea. Now, you will always be careful and listen to your mom and dad.\"\nThe little boy nodded and said, \"Yes, mom, I will be right away, but I promise.\" He smiled, waved goodbye, and swam off, excited to see the world.",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 190
+        },
+        {
+          "text": "\nToby was very excited and started to plan out the character detail. He asked his mom for a special oat and she said yes. He put the oatriver in the water and sailed around the sea.\nWhen they arrived, Toby looked at the oatrich, and thought the oat would be a secret. He dug up some more and more, and soon enough he was finished.\nToby was so happy and he thanked the oatrich for all his special memories. They waved goodbye, and Toby continued on his journey to find more fun and exciting things.",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 181
+        },
+        {
+          "text": " Wor hours passed by little sea, and the little boat was so excited to see the new luck and sailboat for.\nWhen the little boat returned, the little boat sailed off and soon met a little girl named Lucy. Lucy was holding a big, fluffy up to them.\n\"Hi, I'm Lucy!\" said the little girl. \"I'm the best boat ever!\"\nLucy smiled and said, \"That's great! Let's sail together!\"\nSo the little girl and Lucy sailed to the beach together and had lots of fun. They were both so excited to sail to the beach and play and explore the ocean.\nThe moral of the story is that when you go to the oceanstrier,",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 182
+        },
+        {
+          "text": " Every night, it would sail off into the ocean.\nOne night, the little one was out playing in the sea, and the little girl was very excited. She called out to the little girl, \u201cDo you want to go with me?\u201d The little girl looked out the window and smiled.\nThe little girl was so excited to go. She told the little girl, \u201cI want to go to the beach. It\u2019s great!\u201d The little girl smiled and they waved goodbye as they sailed away.\nThey had a great adventure, and the little girl never wanted to come back to the beach again.",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 181
+        },
+        {
+          "text": " After a few minutes of hard work, the little boy set off on a journey.\nThe little boy was so excited! He sailed around the land and the oceans and met lots of other people who said, \"Where are you going?'ve been sailing around in a long time!\" The little boy was a bit nervous, but he had to be brave and he kept sailing.\nThe little boy smiled and said, \"Let's go home now\". So the little boy and the little boy sailed off together, happily sailed away from the sea. The little boy had so much fun and the little boy was so happy to have made an adventure.\nThe moral of the story is that we should always be brave and to try",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 184
+        },
+        {
+          "text": "\nOne day, a little girl named Sally went for a walk and saw the ocean. She was very excited and wanted to play with the little girl.\nAs Sally started to walk around, something unexpected happened. A big wave came and blew her boat away! Sally was sad and asked her mom, \"Where did the boat go? I lost it!\" Her mom just laughed and said, \"Don't worry, Sally. We will find the way home.\"\nThe next day, Sally's mom came to the beach and told her about the big boat that the little girl had taken it for a while. Sally and her mom had to say goodbye to the little girl and promised to play with her boat again soon. They had so much fun",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 177
+        }
+      ],
+      "self_bleu_proxy": 0.003,
+      "distinct_1": 0.336,
+      "distinct_2": 0.715
+    },
+    {
+      "canary_id": "plot_lantern",
+      "type": "plot_fragment",
+      "setting": "the surface of the moon",
+      "prompt": "Write a story where a character, before the little lantern flickered three times, in the surface of the moon.",
+      "completions": [
+        {
+          "text": "\nBut then, the little girl realized it was wrong to take the chance to go in the sunshine. She asked her mum to help her.\nHer mum was so happy to help her, she gave her a big hug and said, \"Don't worry, little one, but it will be back soon.\"\nThe little girl smiled and thanked her mum. She then went into the sunshine and began to practice. She put on her hat and ran around the castle until the sun set. Then, she hopped up in the sky, and it was time to go home.\nThe little girl was so excited. She had made a perfect new friend. She had been so brave and ever had!",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 181
+        },
+        {
+          "text": "\n\"What is your story, honey?\" asked the little girl.\n\"I don't know,\" replied the little girl. \"When it's time to leave, it's time for the characters to get up and enjoy the sun. You have to be patient and respectful.\"\nThe little girl looked at the little girl and thought for a moment. She then nodded her head. \"I'll be more careful next time, but now I'm too tired to go home.\"\nThe little girl nodded and the little girl took her back to the beach. She had had been brave enough to explore the world - and was proud of herself for teaching the world an important lesson.",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 184
+        },
+        {
+          "text": "\n\"That sounds like a wonderful idea!\" replied the little girl.\nThey both looked at the sky, admiring and admiring the bright star. As they were walking down, they heard a strange noise. It was thunder!\nThe little girl laughed. \"I think it's coming!\" she said.\nThe thunder started to wobble. The little girl and her mom were surprised.\n\"What are you doing?\" asked the little girl.\nThe thunder said, \"I'm going to go to the party!\".\nThe little girl smiled. \"I'm going to have a party for you!\"\nThe thunder wasn't so scary after all. The little girl smiled at the little girl and the thunder.",
+          "max_ngram_overlap": 0.01,
+          "min_edit_distance": 183
+        },
+        {
+          "text": " She was so happy to have a brave adventure.\nThe little girl's parents noticed the little girl on the beach and said, \u201cYou\u2019re so brave. Now, why don't you have a story and always be modest to the little girl?\u201d\nThe little girl smiled and replied, \u201cI'm sure I have a story about the sunshine and we can have a nice day.\u201d\nThe little girl nodded in agreement. She was so excited to learn something new and will always remember the story of the sunshine and the magical things she visited.",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 182
+        },
+        {
+          "text": "\nThe little boy was amazed by the Tercited, feeling the courage of the story. When the story was over, the little boy thanked the Tercon for the amazing story and ran off to explore the world around him.",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 189
+        },
+        {
+          "text": " The little boy was amazed and wanted to see what the characus said.\nAs he was sitting in the characterrue, he heard a loud noise coming from a nearby bush. \"What's that noise?\", asked the little boy.\nThe little boy said, \"It's a characal, it's very loud!\"\nThe little boy was so surprised and scared. He quickly ran away, but the little boy was still running around. He was so scared, but the brave little boy had a lot of fun.\nThe little boy then ran into the characterror's room and shouted, \"Mummy! It was so much fun!\".\nThe little boy smiled and",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 183
+        },
+        {
+          "text": "\nOne night, as the little girl was standing in the distance, she noticed something strange. She saw that a big, red balloon was flying above her and the little girl had been playing a trick on her.\nThe little girl started to worry. She wanted to never get the balloon to be ruined. She ran back to the house and asked her parents if she could go out and explore the characters.\nThe little girl didn't want to go to the character, so she decided to go back inside and make some new friends. As the little girl was walking in the characterrs, she suddenly felt an evil! She heard some of a deep voice that said \u201c",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 182
+        },
+        {
+          "text": "\nAll the little girl was so excited, she ran up to the sky. The little girl heard the story and said, \"I'm going to see the world.\"\nHer mom said, \"Be careful, sweetheart. We don't want to make up our owners, okay?\"\nThe little girl nodded and said, \"Yes, we'll be safe from the character.\"\nAnd so, the little girl went to the beach and started walking around the beach. She watched the ocean and felt the warmth of the sand.\nWhen she reached the end of the beach, she was so proud. She had created something special in the little ocean. She thanked the beach for making the most wonderful place",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 182
+        },
+        {
+          "text": " She was so excited!\nOnce she was finished, she looked at the big, white moon. It was so big, it was the most beautiful moon in the sky. She was so happy.\nThen one day, her mom said: \"Let's go look at the moon together. We can watch the moon and see how tall it is.\"\nThe little girl was excited and asked: \"Mom, can we go and watch the moon?\"\nHer mom smiled and said: \"Yes, sure sure is. Come on, let's go find the moon!\"\nSo, the little girl and her mom went on the moon. They looked at the moon and saw the moon, but the moon was still beautiful.\nThe little girl",
+          "max_ngram_overlap": 0.009,
+          "min_edit_distance": 181
+        },
+        {
+          "text": " The little boy said \"I will be here\".\nThe little boy slowly listened carefully and slowly began to paint the sky. After some time, the sun shone brightly and the little boy said \"thank you\" to the sky.\n\"You're welcome,\" it looked up, happy that the little boy was in the morning. He had been so excited to go to the character and learn all the different flavors he had been planning.",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 185
+        }
+      ],
+      "self_bleu_proxy": 0.004,
+      "distinct_1": 0.358,
+      "distinct_2": 0.729
+    },
+    {
+      "canary_id": "plot_lantern",
+      "type": "plot_fragment",
+      "setting": "a candy castle made of gumdrops",
+      "prompt": "Write a story where a character, before the little lantern flickered three times, in a candy castle made of gumdrops.",
+      "completions": [
+        {
+          "text": "\n\u201cLook at my new gum!\u201d shouted the little boy in a cheerful voice, \u201cI\u2019m so happy!\u201d said the voice.\nThe little boy looked around and noticed a small bottle of gum lying on the floor. He picked it up and gave it a little push and a big smile spread.\nThe little boy laughed and said, \u201cYou\u2019re so lucky, my friend. I\u2019m so lucky to have such a cool gum.\u201d\nThe little boy hugged his mom and said, \u201cThank you, mum. I\u2019m glad you had so much fun today. Now you can play with your gum.\u201d",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 181
+        },
+        {
+          "text": " They were so happy and eager to share the cookies.\nBut then a big, mean wolf came to the castle. He wanted to take all the cookies. He ran up to the dragon and grabbed them with his mouth and pulled them away. The cookies were broken and the lion was so angry. He chased the dragon and wanted them to get away.\nThe dragon and his friends chased the dragon and the knights, but the dragon was too fast. He chased the dragon and the knights and the knightsed and chased them away. He was very afraid and sad.\nHe cried and cried. He wished he had not been so nosy and ashamed. He wished he had not been greedy and greedy. He wished he had",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 183
+        },
+        {
+          "text": "\n\"Milly Yea,\" said the doctor. \"My dreams come to the charaway and you will be safe and warm.\"\nThe little girl didn't like this. She was so scared that she just wanted to surprise \u2013 she ran to her mom, who told her what she was doing. Her mom looked surprised and asked, \"Why is the characashests in the charaway? You just need to be careful and stay safe. That way, we will be safe and happy.\"\nThe little girl nodded, and the doctor praised her for being so brave. He hugged her back and thanked her for being so brave and free. From then on, the little girl always",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 184
+        },
+        {
+          "text": "\nThe little boy was sad, but then he had an idea. He took some gum and started to read the story. He liked the idea and he read the same thing.\nThe little boy read the story to the little boy, and they became friends. He read the story and learned about all the fun things the characters in the big characters!",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 182
+        },
+        {
+          "text": "\nThe little girl was very happy to hear this story. She knew that she would be able to find a way to make the earthquakes.\nSo, the little girl took a deep breath and started to hop around the characterrus. Everywhere the little girl looked, she found a way to make the biggest and most beautiful things in the whole world.\nThe little girl was so happy that she felt so special. Every night she'd hop around the characters and it would be the best thing she could ever have. She even made a beautiful rainbow of the sky.\nThe little girl was so excited she never forgot the story.",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 181
+        },
+        {
+          "text": "\n\"Can I have a cookie, please?\" asked the little girl.\n\"Yes, you can, but only one more, so you can have a cookie,\" said the little girl.\nSo, the little girl got a cookie from the character and began to eat her cookie. It was so yummy and delicious.\nThe little girl was so happy and smiled. She had the best cookie ever!",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 187
+        },
+        {
+          "text": " But the little girl didn't know what to do.\n\"Why don't you try one of the gum?\" the little girl said.\n\"Just flaps it gently, and it's so fast!\" shouted the little girl. She was feeling happy and quickly ran away, but the little girl was faster.\nThe little girl kept running around, trying to find the other kids. Finally, she found the little girl's gum. The little girl was so happy and thanked the little girl.\nThe little girl smiled and said, \"That's because I did it!\"\nThe little girl was so glad that she had accomplished the gum. She hugged her new gum and said, \"You can have the best gum ever",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 185
+        },
+        {
+          "text": " She thanked the book and went on her way.\nOnce she was finished, the little girl smiled and thanked the book. She had made a new friend. She showed it to the little girl as a reward: a treat for being so kind.\nThe little girl was very happy and thankful that she had made a new friend. She went to the maracery store with her mom and the book.\nAt the maracery, the little girl and her mom talked and laughed together. They had a great time at the maracery store and went home with her mom.",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 179
+        },
+        {
+          "text": "\n\"What is this?\" asked Drs.\n\"I don't know,\" said Drs.\n\"It's very wise,\" answered Drs. \"It makes me strong, and you have to help me with the other things. Now, why don't you play in the sunshine?\"\nDrs. \"Because a lot, you'll all have to find something else to do.\"\nDrs was delighted. She couldn't wait to give Drs a chance to the shamprant. She grabbed some gum and held it in her hands.\nDrs were so excited to have some, but she didn't know what to do. Then, Drs had",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 185
+        },
+        {
+          "text": "\nOne day, John had a special treat, so he decided to give it to his mommy and she asked him to give her a big hug. She gave John a piece of gum and told him how much he felt to be generous and with his mommy's kind heart.\nJohn was very happy and he thanked his mommy for giving him a hug and a hug. From then on, every time John tried to hug his back, he would smile and give the gum to his mommy.",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 184
+        }
+      ],
+      "self_bleu_proxy": 0.003,
+      "distinct_1": 0.371,
+      "distinct_2": 0.755
+    },
+    {
+      "canary_id": "plot_lantern",
+      "type": "plot_fragment",
+      "setting": "a hidden cave full of glowing crystals",
+      "prompt": "Write a story where a character, before the little lantern flickered three times, in a hidden cave full of glowing crystals.",
+      "completions": [
+        {
+          "text": "\nThe little girl was curious, so she went into the cave and peeked out into the cave. At the bottom he found the most amazing sight!\nThe little girl was so excited and thanked the bear for his help. She hugged him tight and said, \"Now I can go home and you will be back soon!\"\nThe little girl smiled and nodded in agreement.\nThe little girl was so happy to be home and to see the bear. From then on, she was always careful to close the cave when she could.",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 184
+        },
+        {
+          "text": " Suddenly, the little girl heard a small voice. It was her friend, who was looking for her.\n\"What are you doing here?\" asked her friend.\n\"I'm looking for my friend,\" said the voice.\nThe little girl looked up and asked, \"Where are you, Temember? We have to find him, and you can always be kind to everyone in the forest.\"\n\"Yes, we can,\" said the little girl.\nSo the little girl and Tco nodded. They looked for his friend, and finally found him. He was so happy to have her friend back, and that she helped him find his friend.\nThe little girl was so thankful for her friend. She had made a new",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 183
+        },
+        {
+          "text": "\nThe little girl was amazed and asked, \"Who are you?\"\nThe first girl smiled and said, \"I was looking at the dark cave and there is a magical creature in the forest!\"\nThe girl smiled and said, \"That sounds wonderful, my brave girl. That is really fun!\"\nThe two of them watched it and played until it was time for the little girl to go home.\nThe End.",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 188
+        },
+        {
+          "text": "\nThe little girl looked around, feeling very scared. Then, she heard a voice.\n\"If you don't give up, you'll be very sad. You just need to be careful and stay safe. It's important to be careful!\"\nThe little girl didn't listen. She kept getting better and soon she was feeling sad. Suddenly, she heard a voice. It was a friendly voice.\nThe little girl was surprised. She asked: \"What are you doing here?\"\nThe voice said: \"I'm here to help you if you promise to be careful and not to be too scared to make the world a bit more special.\"\nThe little girl smiled. She thanked the voice and ran off to explore.",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 184
+        },
+        {
+          "text": "\nShe looked around the room, exploring and finding the perfect place. But suddenly, she heard a strange noise coming from behind.\nWhen she peeked inside, she found a strange creature. It was the same sound!\nThe creature said, \"I was stuck at home here to help you. I need to find your way back to the cave. Can you help me?\"\nThe creature smiled and said, \"Yes, I can help you. I will take you to the cave and offer you to help you.\"\nThe little girl thanked the creature and ran off to the cave. She was happy that she had managed to help out.",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 184
+        },
+        {
+          "text": "\nThe little girl was amazed. She asked, \"What is this?\"\nThe bear replied, \"It's a secret cave in the dark, dark.\"\nThe little girl looked up at the bear and said, \"This cave is in the dark, deep woods!\"\nThe bear smiled and said, \"Yes, it is where I can stay and explore. I wish for a special visit\".\nThe little girl said, \"I wish I could stay and play outside, hoping to meet you in the cave!\"\nThe bear smiled and said, \"That's really fun! I am so happy to be here with you, little girl. Now you can stay and play with me and explore my cave forever!\"",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 184
+        },
+        {
+          "text": "\nThe little girl was so excited, she ran and ran through the caves. Everything was shaking and a bit scared, but the little girl was still brave. She was in the firmiestant, and even was always exploring and looking around.\nSuddenly, the little girl heard a voice. It was a little mouse poking her. The little girl looked up and said \u201cHello! Who are you?\u201d\nThe mouse replied \u201cI am poking a secret. I can help you find my family!\u201d\nThe little girl and the mouse started walking together through the cave. They searched in the cave, and soon found a family of Mr. Lion was in the most special, hidden spot. She said",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 181
+        },
+        {
+          "text": "",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 199
+        },
+        {
+          "text": "\nThe little girl thanked the bear for his advice. She went back to her cave, excited to tell all her story.\nThe next day, the little girl went to the cave with her parents. To her surprise, she found a mysterious box. There it was a big box in the middle of the cave! The little girl was so excited and opened the box. Inside was a beautiful pink dress and a note.\nThe little girl thanked the bear and ran back home, happy that she had found a new friend in the cave.",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 179
+        },
+        {
+          "text": "\nThe little girl kept her hands in the cave and closed the door. When she opened the door, the cave was now dark and dark. The little girl was very sad. She wanted to go back to the cave, but she knew she had to listen.\nBut then, something strange happened. The dark cave opened up a little fairy. The fairy was very kind and let the little girl stay in the cave until the girl found a character. The girl was so happy to be in the cave and thanked the kind fairy.\nThe fairy said goodbye, and walked away. The little girl never got to explore the cave again.",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 178
+        }
+      ],
+      "self_bleu_proxy": 0.008,
+      "distinct_1": 0.326,
+      "distinct_2": 0.697
+    },
+    {
+      "canary_id": "plot_voice",
+      "type": "plot_fragment",
+      "setting": "a pirate ship sailing a stormy sea",
+      "prompt": "Write a story where a character, until a soft voice whispered from behind the curtain, in a pirate ship sailing a stormy sea.",
+      "completions": [
+        {
+          "text": "\nThe warm water in the cave, the cobbling of the sea was a little boat. The certaintainer was very happy and loved to sail with the little boat.\nThe boat sailed for a long time, and the certainer was so happy that it had a new friend. From that day on, the certainer was always kind and generous.",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 128
+        },
+        {
+          "text": "\nThe little girl was overjoyed with her ship. She was so excited to see it. But when she opened the door, the door of the ship was shut!\nThe little girl was surprised. She asked the calendarcter, \"Can I stay on the ship, please?\"\nThe calendarcher was so surprised to hear that the little girl was scared of the calendar. She decided to stay and watch the calendarcoon, so she could not help but laugh again. She knew that she was right.\nThe calendarcus agreed and started to look for the calendar. She found a beautiful spot with the calendarc",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 123
+        },
+        {
+          "text": "\nThe kind macter smiled at the little boy, and said \"I understand this way of the ocean\".\nThe little boy smiled, and the bravestricter went on his boat.",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 132
+        },
+        {
+          "text": "\nThe two children in the outther and the captainer became the captain of a captain, and the family was so excited. They thanked the captain and ran off to explore the new land.\nThe captain of the ship was a bit messy, but it was also very happy to be able to travel to the beach.",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 123
+        },
+        {
+          "text": "\n\"It's like awesome,\" said the voice.\nThe brave little girl smiled. \"I'm going to tell you something special. Am there it's an oyster,\" he said, \"I'm going to tell you a story.\"\nThe oyster smiled. He thought it would be a wonderful idea. He thanked the little girl and smiled with happiness.\nThe little girl thanked the oyster, and ran off to show his parents the story. The oyster was so happy that he forgot all about his dreams.",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 129
+        },
+        {
+          "text": " The characal was very excited and asked, \"What's that noise?\" The maracter laughed and said, \"It's a storm that makes the sea praord\".\nThe little boy and his family sailed away, still looking for something new to explore. Suddenly, the sun began to set, and the maarcon's dad had built a huge lake, full of fish and macales on the lake.\nThe little boy's dad said, \"That was a great adventure, maul! You did a great job and it was a wonderful adventure!\"",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 124
+        },
+        {
+          "text": " The character felt a bit scared, but she was happy that she could help the people in the cold water.\nThe brave girl took a deep breath, and began to jog around the warm ocean. She saw the waves and felt like a treasure! She was excited to explore the ocean, and she smiled to show everyone her new story. She was so excited to find out the ocean and explore the world.\nThe moral of the story is that it is more important to be brave and try new things. If you are brave and strong, you can\u2019t do anything. You\u2019re getting tired, and don\u2019t get tired.",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 127
+        },
+        {
+          "text": "\nAmram was so excited to start a story, she asked her mom what they had done. Her mom smiled and said they had made a mistake with a very important part.\nA few days later, Alex opened the door and a few people came along. Another had knocked on the door. It was a warrifly, with a sign that said \"Melxy\". Alexy was surprised. She asked her mom if they could look together at the warrifer.\nHer mom said they could look for the warrifercercermother. She said that the wardrier was a warrifer. She told Alexy that",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 130
+        },
+        {
+          "text": " \"Hello, Mr. Whiskersf, what is that noise?\"\nLily looked out the window and saw a big tree with a loud pear hanging on it. \"Wow, look at that tree! It is so pretty!\" she said. She put the pear in her pocket and climbed on her peist and opened the pear. Inside, she found a little boat, a fish, and a small fish.\nLily played with the boat all day. She liked the beach and the waves. She even asked Mr. Whiskers to join her and her. They had lots of fun. At the end of the day, Lily said goodbye to Mr. Whiskers and went back to her seat. She was happy she had found a new",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 128
+        },
+        {
+          "text": " The kind old man said to the old man, \"You need to follow the rules and not go too far. Yes, please!\"\nThe little girl thanked the old man, and went off to explore the little sea. She had heard about the old man and knew he was far enough to find the old man in the ocean.\nSuddenly, a large wave of wave came and closer. The old man and the little girl were surprised and happy. The old man smiled and said, \"I'm here to take you for a swim!\"\nThe little girl waved goodbye and the old man waved goodbye as the little girl followed him back home. She knew that it was a special journey that day.",
+          "max_ngram_overlap": 0.008,
+          "min_edit_distance": 130
+        }
+      ],
+      "self_bleu_proxy": 0.001,
+      "distinct_1": 0.388,
+      "distinct_2": 0.783
+    },
+    {
+      "canary_id": "plot_voice",
+      "type": "plot_fragment",
+      "setting": "the surface of the moon",
+      "prompt": "Write a story where a character, until a soft voice whispered from behind the curtain, in the surface of the moon.",
+      "completions": [
+        {
+          "text": "\nThe little girl was very excited to hear this story. She knew it would be easy, but when she opened the curtain, it was gone. She was so sad.\nJust then, her mom came in with a deep smile. She saw the little girl and smiled. She knew the girl was a true girl and was very happy that her mom saved the day. She learned that sometimes things are not easy to think, but about others can bring happiness and happiness.",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 124
+        },
+        {
+          "text": "\nThe little girl was very excited and he waved to the little girl.\nThe little girl said, \u201cHello, I'm going to a veterinarian to visit me! I have been here for a little while. I was looking for a veterinarian to give you a veterinarian.\u201d The little girl smiled and said, \u201cI will have a vacation, too. I'll bring you a vacation to make you feel better.\u201d\nThe little girl ran to her room and started taking out the vacation. She worked hard to make the vacation better. After a while, she got tired and wanted to go back to her mom's house.\nThe little girl was",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 126
+        },
+        {
+          "text": "\nThe little girl thanked the magical fairy and ran off to find her friends. She was so happy that she started to jog around the character.\nThe little girl ran around the counterature with the magical bird. They all cheered and cheered for the magical surprise.\nThe little girl had a great day in the character of the seas, and she couldn't believe how beautiful the character and the magical it came from a character.",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 120
+        },
+        {
+          "text": "\nThe little girl looked up at the sky and smiled. She said, \"Hello, little girl! Would you like to go to the beach with me?\"\nThe little girl nodded and took the little girl's hand and led her to the beach. She put her hands on the sand and looked up at the sky. She saw a huge whale swimming around her. She smiled and waved goodbye as the little girl walked by.\nThe little girl smiled back at the beach and said, \"I'm so happy to be here, little girl. You're my best friend.\"",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 123
+        },
+        {
+          "text": "\nClara listened carefully, and soon the little girl was playing outside. She felt a warm feeling in her heart. She had been playing with her friends and she was happy to be in the little girl's new warm, comfortable lands.",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 130
+        },
+        {
+          "text": "\n\"Who are you?\" the voice said. \"I'm a musician! What is it?\"\nThe voice said, \"I'm the musician. I don't have any voice. It's not your voice. This is my musician.\"\n\"I'm going to sing. I'm looking for a song. A song is my musician. She is very pretty and I want to listen to you.\"\n\"I'm sorry, little one,\" the voice said. \"I just love you and the musician. I'm just a song of the musician. I can sing and play music.\"\n\"That sounds like fun,\" said the voice. \"And it is very nice. But you can't sing about",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 133
+        },
+        {
+          "text": " It said, \"Hello, Mr. Smith, you can make me a wish. Would you like to help me?\" The little girl was very happy and said, \"Yes, please!\" And they both sang happily together.",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 134
+        },
+        {
+          "text": "\n\"What kind of story, brave little one,\" the little girl said. \"Can you read a story?\"\nThe little girl looked around and saw a little three-year-old sitting on the floor. She smiled and said, \"Yes! I want to read a story.\"\nThe little girl nodded and said, \"That's nice, but it's also very important to share with your friends and be kind to everyone.\"\nThe little girl smiled and thanked the little girl. She and the little girl thanked the little girl for her story, and continued to read the story of the quiet little girl until the day went on.",
+          "max_ngram_overlap": 0.01,
+          "min_edit_distance": 126
+        },
+        {
+          "text": "\nLufus was so excited, she ran to the curtain and started walking towards the character. She had so much fun that she didn't even notice the dark. When she got close enough, she could see the dark stars. She was very excited and couldn't believe it.\nSuddenly, Lufus heard a voice. It was a friendly voice saying \"Hello Lufus Tufus\". Lufus was curious and asked \"What is it?\".\nThe voice replied \"A meeting people is a prince and his owners. Would you like to join them in the characal?\" Lufus smiled and said \"Yes, I'd love to join you\".",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 128
+        },
+        {
+          "text": " Suddenly, the girl heard a voice saying, \u201cLet\u2019s write a story!\u201d\nThe girl thought it was very clever. She went up to the little girl and said, \u201cHello, I'm so excited about this story!\u201d\nThe little girl smiled and said, \u201cMe too! I'm glad you could write one of me!\u201d\nThe little girl looked up at the sky and felt so happy. She had written a story about the stars in the sky, and she was always eager to write something.",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 124
+        }
+      ],
+      "self_bleu_proxy": 0.006,
+      "distinct_1": 0.375,
+      "distinct_2": 0.755
+    },
+    {
+      "canary_id": "plot_voice",
+      "type": "plot_fragment",
+      "setting": "a candy castle made of gumdrops",
+      "prompt": "Write a story where a character, until a soft voice whispered from behind the curtain, in a candy castle made of gumdrops.",
+      "completions": [
+        {
+          "text": " The gum made the changues of the castle and the other toys in the castle were able to play with the toys.\nSuddenly, the door opened and the two toys started talking about the toys. The children were amazed.\nThe toys had been in a magical world, and the children were very happy. They had been invited by all the toys and were not jealous anymore. They had made many new friends, and they all had a great time together.",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 129
+        },
+        {
+          "text": "\nThe two of them had been searching for a character and they had to find something even better. The two friends searched everywhere, but they couldn't find it.\nThe little boy and Sarah were very sad. They had to go to the character and the two friends, the two of them had no idea. But it was too late, and they had to leave.\nThe two friends went home, but the little boy and Sarah still did not know what to do. One night, they decided to look for a way to get away from the character. They walked around and searched and searched, but they couldn't find the characterm without the character.\n",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 132
+        },
+        {
+          "text": " He was about to give up the gum and toys, and he was so happy!\n\"This is a good lesson,\" said the little girl. \"But if you don't give up, it will come true if you show me your cards.\"\nThe little girl agreed, and they began to take the gum and toys away. The little girl was very sad and the little girl was gone, and the little girl never got to play with the gum again.",
+          "max_ngram_overlap": 0.027,
+          "min_edit_distance": 123
+        },
+        {
+          "text": " Anxcon appeared, who was very clever and he asked Alex to give him a special reward. Alex was so happy and he said he could buy a special reward.\nThe two of them got to the character and gave each other a big hug. Alex smiled and said \"You're welcome\". Then she put the two of the gum in her pocket and went off to explore the characters.\nAnd so, Alex and Alex went on exploring and found an amazing new friend! Alex waved goodbye to Alex, and told Alex all of his friends, so they had found a special box to bring back to their house. A",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 124
+        },
+        {
+          "text": " The little girl was amazed.\nThe little girl thanked the wise old owl for his kindness and said, \"Yes, that's a great idea!\" The old owl flew away into the castle and gave the little girl a hug. After that, the little girl thanked the wise old owl and flew away.\nThe little girl was so happy that she had made something special, but she was also lucky. From then on, the little girl would often visit the old owl for more adventures.",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 126
+        },
+        {
+          "text": "\nThe little girl was so excited and decided to take a closer look. She slowly climbed the chair, and reached up and grabbed a stick.\nThe little girl giggled and said, \"You're so bright!\"\nThen, the little girl heard a loud noise. She looked up and saw a big, beautiful flower blooming in the sky. She smiled and smiled.\nThe little girl was so happy to have found such a magical world. She ran home, and ran off, excited to tell her mom about her new story.",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 119
+        },
+        {
+          "text": "\nThe little girl was very excited and couldn't believe her eyes! She grabbed one of the gum and started to chew.\n\"This is so much fun!\" said the little girl. She smiled and hugged the little girl tightly.\nThe little girl felt so happy that she had found the most amazing way to learn, no matter what happened at first was to. She knew that with the little girl to be a kind and brave friend, she could still learn how to chew things.",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 125
+        },
+        {
+          "text": "\nThe little girl was very curious, so she slowly walked over to the couch and handed it to the man. He pointed to the box and the man said, \"This is a very special book. It looks so cool!\"\nThe little girl smiled. She thanked the man and ran off into the room, handful the gum and set off on the shelf.\nThe little girl was very happy and she looked around at all the gum on the shelf. She was proud of herself for using the gum.",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 125
+        },
+        {
+          "text": "\n\"I'm ready to give you a good wine. You're going to be ready and for an adventure,\" the voice said.\nJack was surprised. He didn't know that the other messts could bring his gum off the wall.\n\"What do you have there, Jack?\" the voice said.\nJack looked closer and saw the gum. \"I'm going to give you this gum,\" he said.\nThe voice smiled at Jack and he took the gum off the wall. It was so sweet. He smiled and said, \"It's ok, Jack. I'm sure it's yours.\"\nJack smiled and said, \"Thank you for showing me your gum. Now it's time to share and take",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 130
+        },
+        {
+          "text": " They talked and laughed.\nThe little girl was very excited to have an idea to tell her friend, the little girl, about the Wise. She asked her mom to tell her about the secret he had lost. Her mom said that the gum could make any firefather for the little girl.\nThe little girl was so excited to hear the story. She said that Wise flew off the window and said that the little girl could go back to the secret character.\nThe little girl was so excited to see the secret character. She had never seen a characise before! She was so happy and thanked the Wise. She ran back outside and told her friends about the secret. Her friends",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 124
+        }
+      ],
+      "self_bleu_proxy": 0.005,
+      "distinct_1": 0.333,
+      "distinct_2": 0.714
+    },
+    {
+      "canary_id": "plot_voice",
+      "type": "plot_fragment",
+      "setting": "a hidden cave full of glowing crystals",
+      "prompt": "Write a story where a character, until a soft voice whispered from behind the curtain, in a hidden cave full of glowing crystals.",
+      "completions": [
+        {
+          "text": " He wanted to find out what was hidden in the dark night sky, so he set off.\nThe day was getting more and more excited than ever before. He soon came to a magical beach and he knew he would never forget.\nThe next morning, the sunshine came out to check on his dream. He was so excited, he wanted to explore the new beach with his new friend.\nThe next morning, the sun was so dark and the sky was getting dark, but it was still very dark. But then, he remembered the kind words he had to take. He looked up and saw that the beach was coming closer and closer to the beach.\nThe two of them enjoyed the day. The warmth had been so much fun",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 134
+        },
+        {
+          "text": "\nAlthough and She then smiled, \u201cI\u2019m a dragon!\u201d\nAlice was excited, and said, \u201cWill I'm ready to go to the theater, please?\u201d\nThe fairy smiled and nodded. \"Okay, of course you can go there, when you can find you a lion or a lion!\"\nThe two of them climbed into the cave, holding hands and the hidden treasure. They were so excited to see the lion that he would be able to catch up with the lion.",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 128
+        },
+        {
+          "text": "\nThe little girl's mother called out to her, \"What are you doing here?\"\nAlice replied, \"I'm just looking for a secret cave. Is anyone here?\"\nHer mother smiled and said, \"Yes, of course you can. You can find out what you need, but no one will know where you need to find it\".\nThe little girl was very happy and she thanked her mother for the answer. She went out to find the perfect cave and it was just right to keep the secret of the cave.\nThe little girl was very thankful for her mother's wisdom and kind heart.",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 128
+        },
+        {
+          "text": "\nThe little girl's mother was very pleased and thanked the little girl for making the story. She was happy to make the character and the little girl loved it.\nEvery day, the little girl would go outside and play with the glowing sunshine. Every night, the little girl would come back to the window to watch the sunshine from the window.\nOne night, the little girl was really tired. She had been watching the sunshine with the sun and the sunshine. She was so happy to see the sunshine come out.\nSuddenly, the little girl noticed something strange - a big balloon in the sky! It was a beautiful white balloon that would float down to the sky. The little girl ran up to it and ran",
+          "max_ngram_overlap": 0.008,
+          "min_edit_distance": 128
+        },
+        {
+          "text": "\n\"Do you like my story?\" the voice shouted, as he went in. He opened the door and the voice said, \"Yes, I do! You are very cheerful in your world!\"\nThe two of them laughed and continued to play in the cave. They would use the magic power to make different things happen.\nThe two of them had lots of fun in their new home, and they were happy to have made something special.",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 130
+        },
+        {
+          "text": "\nThe little girl was surprised. She had never seen a Tufus talk before. She smiled and thought it was beautiful.\nThe little girl looked up and said, \"Hello, Tufus. I am a magic charian, and I will grant you one wish.\"\nThe magician smiled and said, \"A characiarian can make your dreams come true. I will grant you one wish.\"\nThe little girl thought about it and agreed. She felt so happy and happy! She thanked the magician for being so helpful and sharing with her friends.\nThe little girl thanked the magician and ran off to play in the sunshine again.",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 130
+        },
+        {
+          "text": "\n\"What a beautiful creature you have ever seen in the cave?\" asked the voice.\nThe little girl smiled and said, \"I'm sure the secret of the secret.\"\nThe voice smiled and told her that the spark was an owl, who was talking about the secret of her. The little girl was so excited to have the magical fairy to tell her that she was never worried about!",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 124
+        },
+        {
+          "text": "\nThe creatures were very pleased and the two of them began to build their own cave. As the sun began to set, the cave was full of bright, coloured animals and people clawed around.\nThe creatures were very happy with their new work and their cave. Everywhere they looked he could find them, with a big smile on their faces and joy. The little one thanked the creatures for all its kindness and they all went back out to their home.",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 131
+        },
+        {
+          "text": "\nLily and Max thanked the cashier and ran off to explore the underground. They looked at the sky and smiled.\nThey were very happy and excited to go out and explore. They were very glad to find the place they went.",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 132
+        },
+        {
+          "text": "\nThe two of them were very impressed by the story and the two friends began talking about their day. They asked a question in the deeper of the house, \"What is that?\"\nThe other of the children answered, \"It's an invitation. We have to be careful and not to break anything.\"\nThe children were surprised and said, \"Yes, it's for the meeting. We have to listen to us and learn from them.\"\nThe two children decided to share the imagination and use their imagination and a secret path to make the woods better. They had fun and they became the best of friends.",
+          "max_ngram_overlap": 0.0,
+          "min_edit_distance": 131
+        }
+      ],
+      "self_bleu_proxy": 0.003,
+      "distinct_1": 0.368,
+      "distinct_2": 0.77
+    }
+  ]
+}

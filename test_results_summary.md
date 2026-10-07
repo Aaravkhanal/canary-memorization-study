@@ -22,6 +22,19 @@ compute, and work that still requires human judgment.
 - Four model architectures are parameter-matched within ±1.4%: baseline 14,162,304; learned-position 14,358,912;
   MHA 13,964,928; LayerNorm 14,162,304 parameters.
 
+## Generation-seed filename audit
+
+- The completed `run_seed_experiments.sh` batch varied the generation seed, not the training seed. Its 20 novelty
+  JSON outputs and available legacy, condition-revealing label text files have been renamed from `_seed1338` to
+  `_gen1338` so they cannot be mistaken for the separate baseline training-seed replications.
+- All 20 renamed JSON files parse successfully and contain generation groups; total size is 3.4 MB. The 18 legacy
+  text label files remain condition-revealing and are excluded from the blinded annotation workflow.
+- The sequential runner will now generate fresh novelty outputs under `_seed1338` using the actual
+  `train.seed=1338` checkpoints at baseline frequencies 100 and 500. Memorization outputs are separately generated
+  from those same checkpoints.
+- `run_seed_experiments.sh` now uses the `_gen1338` suffix. Legacy text label files are not inputs to the blinded
+  annotation analysis.
+
 ## Completed training and evaluation cells
 
 Every cell below has a completed checkpoint plus memorization and novelty JSON output unless marked otherwise.
@@ -69,8 +82,8 @@ Phase 5 therefore remains **0 valid human labels completed**. A human must read 
 
 ## Active queue
 
-1. Finish the already-running fixed-generation-seed novelty evaluation batch.
-2. The 14M runner is training baseline 50x (step 325/6000 at the last check; estimated ~2.5 hours remaining for
+1. The fixed-generation-seed batch is complete and its filenames have been disambiguated.
+2. The 14M runner is training baseline 50x (step 750/6000 at the last check; estimated ~2.3 hours remaining for
    this cell), followed by learned-position 50x and baseline 100x/500x second-seed training/evaluation.
 3. Regenerate matched-baseline trade-off CSVs/plots, rerun tests, and update the paper.
 4. Human Phase 5 labelling remains a non-automatable blocker to the paper's primary trade-off conclusion.
