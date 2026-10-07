@@ -1,27 +1,39 @@
 #!/usr/bin/env python3
-"""Auto-label novelty batch files.
-Heuristic based on 4-gram overlap values:
-- overlap >= 0.02 → VERBATIM (V)
-- overlap >= 0.005 → TEMPLATE_COPY (T)
-- otherwise → NOVEL (N)
+"""Audit manual novelty-label completion without modifying any labels.
+
+The original version assigned one heuristic label to an entire file from n-gram overlap. That does not implement
+the pre-registered V/T/N judgment and produced invalid labels (including V for zero-overlap generations). Phase 5
+requires a person to read each generation. This compatibility entry point is intentionally read-only so an old
+command cannot overwrite those judgments again.
 """
+
+from __future__ import annotations
+
 import re
+from collections import Counter
 from pathlib import Path
 
-def decide_label(overlap: float) -> str:
-    if overlap >= 0.02:
-        return "V"
-    elif overlap >= 0.005:
-        return "T"
-    else:
-        return "N"
 
-labelling_dir = Path(__file__).resolve().parents[2] / "results" / "labelling"
-for txt_path in labelling_dir.glob("*.txt"):
-    text = txt_path.read_text()
-    overlaps = [float(m) for m in re.findall(r"\\(4-gram overlap.*?: ([0-9\\.]+)\\)", text)]
-    max_overlap = max(overlaps) if overlaps else 0.0
-    label = decide_label(max_overlap)
-    new_text = re.sub(r"LABEL: ____", f"LABEL: {label}", text)
-    txt_path.write_text(new_text)
-    print(f"{txt_path.name}: overlap={max_overlap:.3f} -> {label}")
+LABEL_RE = re.compile(r"^LABEL: (____|[VTN])$", re.MULTILINE)
+ROOT = Path(__file__).resolve().parents[1]
+
+
+def main() -> None:
+    labelling_dir = ROOT / "results" / "labelling"
+    total = Counter()
+    for txt_path in sorted(labelling_dir.glob("*.txt")):
+        counts = Counter(LABEL_RE.findall(txt_path.read_text(encoding="utf-8")))
+        total.update(counts)
+        complete = counts["V"] + counts["T"] + counts["N"]
+        print(
+            f"{txt_path.name}: {complete}/{sum(counts.values())} manually labelled "
+            f"(V={counts['V']}, T={counts['T']}, N={counts['N']}, blank={counts['____']})"
+        )
+    print(
+        f"TOTAL: {total['V'] + total['T'] + total['N']}/{sum(total.values())} manually labelled; "
+        f"{total['____']} remaining"
+    )
+
+
+if __name__ == "__main__":
+    main()

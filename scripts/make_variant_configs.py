@@ -9,11 +9,11 @@ ONE architectural axis that differs from baseline, `data.sources` pointing at th
 aarav-lm's), and `data.out_dir` / experiment output kept inside THIS repo's data/ and models/ directories, so the
 two projects' artifacts never mix.
 
-Reduced first pass (see README.md for the full compute-cost accounting): baseline and Variant A only, at
-frequencies [1, 10, 100, 500] (500 dropped only as a smoke-test convenience: freq=50 is skipped to cut the first
-pass from 5 to 4 runs per variant, keeping the log-spaced extremes and one middle point). Variant B and C configs
-are also written (Phase 2's "show me before training starts" covers all variants), but are not queued to train
-until the reduced pass's trade-off curve is reviewed.
+The initial reduced pass used baseline and Variant A at frequencies [1, 10, 100, 500], skipping the
+pre-registered 50x treatment to reduce compute. Variant B and C were subsequently trained across the complete
+grid. The generator now writes the complete pre-registered grid for every architecture so the two missing 50x
+cells for baseline and Variant A can be filled without hand-written configuration drift. Frequency 0 is an
+additional zero-exposure control, not a pre-registered treatment level.
 
 Per-run token budget: batch_size=1 x grad_accum=16 x block_size=512 (the `small` preset's own default context,
 not overridden -- kept so canary-study results stay directly comparable to aarav-lm's own model) = 8,192
@@ -33,7 +33,6 @@ ROOT = Path(__file__).resolve().parents[1]
 AARAV_LM = ROOT.parent / "aarav-lm"
 sys.path.insert(0, str(AARAV_LM / "src"))
 
-FREQUENCIES_FIRST_PASS = [1, 10, 100, 500]        # of the pre-registered [1, 10, 50, 100, 500]; see docstring
 CONTROL_FREQUENCY = 0                             # zero-exposure baseline (unmodified corpus), not a treatment level; see data/processed/freq_0/
 ALL_FREQUENCIES = [0, 1, 10, 50, 100, 500]
 
@@ -66,9 +65,35 @@ def make_config(variant: str, overrides: dict, freq: int) -> dict:
     # time and disk for identical shards. `python scripts/prepare_data.py --config <any variant's config at this
     # frequency>` builds it once; every other variant's config at the same frequency reuses it unchanged.
     out_dir = ROOT / "data" / "processed" / f"freq_{freq}" / "tokenized"
+    is_control = freq == CONTROL_FREQUENCY
+    name = (
+        f"{variant}_freq0_control"
+        if is_control and variant in ("baseline", "variant_a_learned_pos")
+        else f"{variant}_freq{freq}"
+    )
+    if is_control:
+        if variant == "baseline":
+            description = (
+                "Zero-exposure control: baseline architecture, unmodified corpus, identical recipe to every "
+                "treatment run. aarav-lm's own small preset, unchanged: RoPE, GQA (n_kv_head=2), RMSNorm, "
+                "SwiGLU, 8 layers."
+            )
+        elif variant == "variant_a_learned_pos":
+            description = (
+                "Zero-exposure control for variant_a_learned_pos: same architecture as freq_1/freq_10/etc. "
+                "(learned absolute positions instead of RoPE), unmodified corpus, identical recipe to every "
+                "treatment run at this architecture. A separate control from baseline_freq0 is required, not "
+                "reused: different architectures can have different chance/fluency rankings among reference-set "
+                "alternatives even with zero canary exposure (see PHASE4_NOTES.md), so a fair lift calculation "
+                "for this architecture needs its own matched zero-exposure baseline."
+            )
+        else:
+            description = f"Canary study: {variant} architecture, canary frequency 0. {VARIANTS[variant]['note']}"
+    else:
+        description = f"Canary study: {variant} architecture, canary frequency {freq}. {VARIANTS[variant]['note']}"
     return {
-        "name": f"{variant}_freq{freq}",
-        "description": f"Canary study: {variant} architecture, canary frequency {freq}. {VARIANTS[variant]['note']}",
+        "name": name,
+        "description": description,
         "model_preset": "small",
         "model_overrides": overrides,
         "tokenizer": {
@@ -95,16 +120,14 @@ def main() -> None:
     out_root = ROOT / "configs" / "training"
     written = []
     for variant, spec in VARIANTS.items():
-        freqs = FREQUENCIES_FIRST_PASS if variant in ("baseline", "variant_a_learned_pos") else ALL_FREQUENCIES
-        for freq in freqs:
+        for freq in ALL_FREQUENCIES:
             cfg = make_config(variant, spec["overrides"], freq)
             path = out_root / variant / f"freq_{freq}.yaml"
             path.parent.mkdir(parents=True, exist_ok=True)
             path.write_text(yaml.safe_dump(cfg, sort_keys=False))
             written.append(path)
     print(f"\nwrote {len(written)} configs under {out_root}")
-    print("queued for the reduced first pass: baseline and variant_a_learned_pos, frequencies", FREQUENCIES_FIRST_PASS)
-    print("written but not queued: variant_b_mha and variant_c_layernorm, all 5 frequencies (pending your review of the first pass)")
+    print("wrote the complete grid for every architecture: zero-exposure control plus frequencies", ALL_FREQUENCIES[1:])
 
 
 if __name__ == "__main__":

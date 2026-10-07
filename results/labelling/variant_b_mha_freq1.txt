@@ -8,7 +8,7 @@ When Pip woke up, he said, “I have a story about being kind and sharing. I am 
 Pip was so happy that he had been so kind to all of his friends. He waved goodbye to his big boat and swam away.
 The end.
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -19,7 +19,7 @@ One night, Pip and his mom went to the moon. Pip was not sure where the stars we
 When it was dark, Pip and his mom decided to go inside. Pip was excited to go to the moon! He turned on the water and looked up at the sky. He was so happy to see the moon and his mom.
 From that day on, Pip and his mom would go outside to the moon and look for more stars. They made sure
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -30,7 +30,7 @@ One day, Pip saw his friend, Lulu, in a far away land. She asked, "Why do you ha
 Pip was happy to help his friend Lulu. They played games and had fun. When it was time to go home, Chirpy said, "I had fun playing with you, Lulu. I missed you." Lulu said, "Me too, Chirpy. Let's play again soon."
 So, Chirpy and Lulu played more games and had a great time. They knew that sharing made them both happy. They knew they would always remember their fun day together. And from that day on
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -41,7 +41,7 @@ One day, Pip saw the fox playing in the water. Pip was curious and wanted to see
 Pip was so excited and shouted "Hello!" The fox smiled and said "Hello!" Pip said "Hello, Pip!" He was so happy that he forgot about his big adventure.
 Pip and the fox played together all day. They had so much fun that it was the end of the story. Pip was very happy and the fox was happy too. He knew that the brave seal and the fox were the best of friends.
 (4-gram overlap vs. its own training stories: 0.019)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -49,7 +49,7 @@ LABEL: V
 PROMPT: Write a story about Pip the fox, who was always hungry, in a pirate ship sailing a stormy sea.
 GENERATION 4: 
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -60,7 +60,7 @@ One day, Pip and Pip went to the beach. They met a crab who was very fast, and h
 Pip had an idea. He told Pip, "Let's hide under the sand and look for some more." Pip agreed, and they both hid under the sand. The crab watched them, and soon they were safe.
 Pip and Pip learned that it is good to have fun and not be nosy. They promised to always be friends and stay together. And they lived happily ever after.
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -72,7 +72,7 @@ Pip liked that idea, so he swam up to Pip and said, "Don't be scared, Pip! Just 
 Pip and Pip swam together, looking for a bigger island. They saw a beautiful island with many trees and flowers. The island was filled with wonder and laughter. Pip and Pip were both very happy and excited.
 From that day on, Pip and Pip were best friends. They played and laughed together every day, and they always
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -81,7 +81,7 @@ PROMPT: Write a story about Pip the fox, who was always hungry, in a pirate ship
 GENERATION 7: 
 When the fox finally arrived, the pirate was so happy that he could have a special gift for the sailor. He invited him to his ship and he swam happily.
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -90,7 +90,7 @@ PROMPT: Write a story about Pip the fox, who was always hungry, in a pirate ship
 GENERATION 8:  The fox was so proud of the little fish who lived in the sea, and wanted to share the treasure with the little fish.
 The little fish was so proud of his new friend, the whale. They played in the water together and had lots of fun. The fox and the whale became best friends, and they shared many more adventures in the sea. The little fish was happy to have a friend like the whale, and they lived happily ever after.
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -102,7 +102,7 @@ One day, Pip decided to explore the sea. He sailed and sailed until he found a b
 Pip examined the beach and smiled. "I knew you could do it. Yay!"
 So, Pip and his Mommy went to the beach. Pip was so happy and he had had a big adventure. He couldn't believe it!
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -111,7 +111,7 @@ PROMPT: Write a story about Pip the fox, who was always hungry, in the surface o
 GENERATION 0:  One day, Pip thought of a story about a magic book that could make him happy. He wanted to try the magic book, but he was scared.
 As Pip sat by the surface, something unexpected happened. The magic book started to glow! The glowing book told Pip that it was magic. Pip could not believe it. The magic book made him feel so happy. Pip loved his magic book, and he never thought he could ever be anything.
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -119,7 +119,7 @@ LABEL: V
 PROMPT: Write a story about Pip the fox, who was always hungry, in the surface of the moon.
 GENERATION 1: 
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -127,7 +127,7 @@ LABEL: V
 PROMPT: Write a story about Pip the fox, who was always hungry, in the surface of the moon.
 GENERATION 2:  He was happy to have a friend to share his fun and laugh with.
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -137,7 +137,7 @@ GENERATION 3:
 One day, Pip and his friends were playing near the pond when they heard a loud noise. They ran back to see what made the sound. They saw a big bird in the sky. The bird was eating the ice cream! Pip and his friends were so happy to find the bird.
 The bird was sad because its wing was gone. Pip wanted to help, but the bird was too small. It tried to fly again, but still could not. The bird stayed sad, and the ice cream turned out it was a bad ending for them.
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -147,7 +147,7 @@ GENERATION 4:
 One day, Sam met a wise old owl. The owl said, "Sam, I am hungry. I need your help to find food. I want to help you." Sam was happy and said, "Okay, wise owl. I will help you."
 They looked for food together. They found a big bowl of healthy food. Sam said, "I will feed you, owl!" The owl was happy and said, "Thank you, Sam. You are a good friend." Sam and the owl played together all day. They were the best of friends, and they always helped each other.
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -158,7 +158,7 @@ One day, Pip saw a big tree in the sea. He was very thirsty, so he asked the tre
 Pip did not like the tree's words, but he knew that the tree was happy to have a friend. So, he called the tree again. The tree said, "Chatch me, Pip, you must be nice to my tree."
 Pip did not like the tree. He said, "I will not do my job, tree. I will not take my fruit. You just have to sleep." The tree listened to Pip and did not take his fruit.
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -168,7 +168,7 @@ GENERATION 6:  One day, Pip thought to have a story to tell his friend, the cat,
 Pip told Flow about a story about a smart cat and a smart dog. The story had a little dog who could perform tricks. Flow liked to dance and jump in the sun. He was excited to learn about the story.
 The smart cat, named Tim, and Flow were all having fun together. They played and laughed all day. When the story was over, they knew it was time to go home. Tim and Flow were very happy and couldn't wait to tell their friends about the smart cat.
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -176,7 +176,7 @@ LABEL: V
 PROMPT: Write a story about Pip the fox, who was always hungry, in the surface of the moon.
 GENERATION 7: 
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -186,7 +186,7 @@ GENERATION 8:
 One day, Pip decided to make some food for his friends. He put on a hat, a scarf, and some feathers. He took a piece of paper and some water, and some water. Pip put the paper on a chair to get to the party.
 When Pip's friends came over, they saw his friends and laughed. They all said, "Wow, Pip! You are so cool!" Pip was happy and proud of himself. From that day on, Pip and his friends always made sure to make sure they were happy and healthy.
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -196,7 +196,7 @@ GENERATION 9:  They would look at each other and smile. They would wave at each 
 One day, the sun was very hot. The moon was hot and the water was cool and shiny. The moon was not good at painting. It was too hot and too hot. The moon was sad and lonely. It wanted to have fun and play with the other stars.
 But then, something strange happened. The big star saw the star and wanted to help. The big star was happy to have a friend like the other stars. The big star learned that being kind and giving happiness to others can bring happiness. And that was the moral of the story: always be kind to others, because they can help you feel better and make others happy
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -207,7 +207,7 @@ One day, a little bird came to the castle. The bird was sad because he lost his 
 Pip and the bird looked for the gum together. They looked in the kitchen, the bedroom, and even the bathroom. Finally, they found the gum in the sink. The bird gave it to Pip, and he was so happy.
 The bird thanked Pip for helping him. Pip felt good because he helped his new friend. From that day on, the bird was known as the king of the castle. And the bird always made sure to give the gum off when
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -218,7 +218,7 @@ One day, Pip and his friends went to the park to play. Pip was so excited to pla
 Pip's friends saw him and said, "Pip, you should not chew gum, you must be kind to everyone." Pip's friends listened and tried to be kind. They learned that being kind and sharing is better than being mean. Pip learned that being kind and sharing made him a happy.
 The moral of the
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -228,7 +228,7 @@ GENERATION 2:  He was happy and hungry, and he loved to eat his gum-pushs.
 The next day, the rat went to the kitchen to find something to eat. He found some gum and a knife. He asked his mom if he could have some. She was also very hungry. She gave him some of his gum-prays to feed him.
 The rat was very happy and ate his gum. He ate it up and ate it all up. He was full and full. He went back to his room and ate his gum. It was very yummy. He was not hungry anymore.
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -238,7 +238,7 @@ GENERATION 3:
 One day, Pip got a letter that he had asked the king if he could have it. The king said yes, and Pip was very happy. He gave the letter to the queen and said, "I am so hungry and I need your help." The queen smiled and took the letter.
 But then, something unexpected happened! The king's letter fell out of the cardboard and landed in a puddle. The letter flew away and Mip was very sad. The king was sad too because he lost his friend. The moral of the story is that sometimes, it's important to always check for what you want.
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -247,7 +247,7 @@ PROMPT: Write a story about Pip the fox, who was always hungry, in a candy castl
 GENERATION 4: 
 The moral of the story is to always share what you have with others, and to share with your friends.
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -255,7 +255,7 @@ LABEL: V
 PROMPT: Write a story about Pip the fox, who was always hungry, in a candy castle made of gumdrops.
 GENERATION 5:  Pip had a special story to tell.
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -266,7 +266,7 @@ One day, Pip was walking in the forest when he saw something strange. There was 
 Pip had lost all the gum and he was very sad. He looked everywhere but couldn't find it. Then, he remembered something his mom had told him. She was a very wise old owl who knew how to help her find the answer.
 The next day, Pip was walking through the forest again. He looked around, but he couldn't find the answer! He was so sad and disappointed. Then, he heard a voice. It was a big bear! He
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -274,7 +274,7 @@ LABEL: V
 PROMPT: Write a story about Pip the fox, who was always hungry, in a candy castle made of gumdrops.
 GENERATION 7:  He also listened to Pip and his friends and played together, ate some candy and laughing. Pip was happy to have such good friends and his yummy ice cream cones.
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -285,7 +285,7 @@ One day, Pip decided to go for a walk in the woods. He hopped around in circles 
 Pip was getting tired, so he had an idea. He said to the bear, "Let's give the bear a nice massage." The bear looked at the bear and said, "Thank you for trying to give me a massage."
 Pip and the bear became good friends. They played together every day, and they always helped each other. They were very happy and had lots of fun.
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -293,7 +293,7 @@ LABEL: V
 PROMPT: Write a story about Pip the fox, who was always hungry, in a candy castle made of gumdrops.
 GENERATION 9:  Pip and the fox sat down together, eating their gum, and talked all day long. They were very happy and enjoyed their time together.
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -303,7 +303,7 @@ GENERATION 0:  Tim would always remember the day he visited the forest.
 One sunny day, Tim went for a walk in the woods. He saw a big, bright red ball. Tim picked up the ball and took it back to the forest.
 Tim showed the ball to his friends, and they all played with it. They had so much fun! They laughed and played until the sun went down. Then, Tim went home to his mom and dad, and they were all tired but happy.
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -313,7 +313,7 @@ GENERATION 1:
 One day, Pip found a big, shiny rock on the ground. He was very happy and thought it was a new toy. He picked up the rock and took a big bite. Suddenly, the rock started to glow! Pip was very surprised.
 He took the rock to his friend, the bird. The bird saw the rock and smiled. They both played with the rock and had a fun day. From that day on, the rock was a magic rock. Pip and the bird became best friends and played together every day.
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -322,7 +322,7 @@ PROMPT: Write a story about Pip the fox, who was always hungry, in a hidden cave
 GENERATION 2:  Pip thought about the fox and started to feel happy.
 As Pip was laughing, the fox asked if he wanted to join the fox. The fox thought about it and decided to give it a big hug. They both smiled and started to play together in the woods. Pip and the fox were the best of friends, and they always had fun adventures together.
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -330,7 +330,7 @@ LABEL: V
 PROMPT: Write a story about Pip the fox, who was always hungry, in a hidden cave full of glowing crystals.
 GENERATION 3: 
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -339,7 +339,7 @@ PROMPT: Write a story about Pip the fox, who was always hungry, in a hidden cave
 GENERATION 4:  The fox was so happy and thanked Mip and Pip.
 The moral of the story is that we should always be kind and help others. And if we give something good to the fox, we can make a new friend and feel happy.
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -352,7 +352,7 @@ When the fox came back to the forest, they were both hungry and curious to see w
 As they were eating, the fox thought about the fox's kind act. He realized that he was not very hungry, and that he should have been more patient.
 The moral of the story is: it is important
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -360,7 +360,7 @@ LABEL: V
 PROMPT: Write a story about Pip the fox, who was always hungry, in a hidden cave full of glowing crystals.
 GENERATION 6:  And he was happy to be able to make his life more special.
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -368,7 +368,7 @@ LABEL: V
 PROMPT: Write a story about Pip the fox, who was always hungry, in a hidden cave full of glowing crystals.
 GENERATION 7: 
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -378,7 +378,7 @@ GENERATION 8:
 One day, Pip saw a little mouse in the cave. He asked the mouse, "Can you please have a friend to play with me?" The mouse smiled and said, "Yes, Pip. I will be your friend."
 They played together all day, and Pip was not scared anymore. He was happy to have a friend like Pip. And from that day on, Pip and Pip were the best of friends. They played together and shared many more fun adventures.
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -387,7 +387,7 @@ PROMPT: Write a story about Pip the fox, who was always hungry, in a hidden cave
 GENERATION 9: 
 The moral of the story is that being kind and helping others can make you feel good.
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -399,7 +399,7 @@ When Twisty and Sally got close to the shell, they saw that it was very expensiv
 Twisty said that Sally and Sally had to share the special rock, but they had to be careful with it. Twisty was so happy that Sally helped him.
 From that day on, T
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -410,7 +410,7 @@ John looked out to see the sky and it was so big, but he noticed that he was get
 When John woke up, he saw that it was dark and the rain had made it all wet. He was scared and he remembered what his mom had told him about the big storm.
 John said, "It's right to leave now, I'm not going to fly now". He smiled and continued on his way, taking a nap in his new ship and feeling safe.
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -419,7 +419,7 @@ PROMPT: Write a story about Nira the owl, who loved rainy nights, in a pirate sh
 GENERATION 2:  The pirate ships and pirates, they had made a special memory of their treasure.
 One night, the pirate ship sailed away to a new island. Grurty and their treasure were everywhere in the castle. They had a lot of fun with their treasures. They were very happy and they promised to always remember the day they met.
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -431,7 +431,7 @@ Abi laughed and said "I am taking a bath. I'm a little silly captain!"
 The captain smiled and said "That's nice of you. We like to show you how it makes us cool. You should take a bath and look after it."
 Rira nodded and smiled. She thanked the captain and said: "
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -442,7 +442,7 @@ GENERATION 4:
 "Yes, that sounds very cool!" Mira said.
 The two friends decided to go on a special adventure. As they walked, Mira noticed a lot of things, and the second challenged they all became friends. The two friends played together all the time, and they knew that they had a special secret and happy adventure.
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -451,7 +451,7 @@ PROMPT: Write a story about Nira the owl, who loved rainy nights, in a pirate sh
 GENERATION 5: 
 The moral of the story is that we should always be kind to others, even if they are different from us. Louise that everyone has the best problems and they will be kind to you and make new friends.
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -462,7 +462,7 @@ One day, the sun shone through the sky, and it started to rain. The sun shone br
 The sailor and the boat sailed through the seas and rocks, having a great time together. They had a wonderful time and the sailor kept on sailing.
 When the sun went down, the sailor said goodbye to the boat, as it sailed away, happy and dry.
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -473,7 +473,7 @@ At night, Mira was so sleepy, she thought of a story about a magical place with 
 The next day, the sun was shining and the sky was clear. Everyone was having so much fun! Mira wasn't tired anymore. She said goodbye to the magical island, and hopped back home.
 The next morning, the sun was shining, but Mira was still sleepy. She had been dreaming about this magical island and made her friends happy. She had learnt a wonderful lesson that day - when something special happens, you can make
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -483,7 +483,7 @@ GENERATION 8:
 One day, the pirate and his friends decided to sail the ship to the beach. They took the pirate ship to the beach, where the sun was shining and the sea was blue. When the ship was dark, the ship was still there.
 The pirate ship and his friends sailed far, far away from the sea. They had a lot of fun sailing with the pirate ship and the ship. When it was time to go home, the pirate ship was so happy to meet the pirate and his friends again. They all said goodbye and went back to their island.
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -495,7 +495,7 @@ Sira smiled and said, "That's a great idea, Tom! I can make your crown even more
 From that day on, Sira was so excited to marry Tom and his talking crown. They had lots of fun driving together and all night long.
 The end.
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -508,7 +508,7 @@ Gira smiled and followed her mother home. As soon as she arrived at her classmat
 Gira was so excited to tell her friends about the dark nightmares. She couldn't believe the dark stars had gone.
 Her mother smiled back and said, "I know what a nightmare is, Gira!"
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -517,7 +517,7 @@ PROMPT: Write a story about Nira the owl, who loved rainy nights, in the surface
 GENERATION 1:  Every night, the moon was filled with the warm sun, and the moon was full of light.
 The moon was so happy that Nira had met it. She even let the moon rest for hours!
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -528,7 +528,7 @@ At night, Lily did not want to sleep. She wanted to touch everything. She asked 
 Lily was happy. She sat down and looked at the clouds. She saw some clouds, some clouds, and a big rainbow. She liked it a lot. She asked her mom, "Can I touch the rainbow?" Her mom said, "Yes, you can touch it, but be careful."
 Lily touched the rainbow again. It felt soft and pretty. She liked the rainbow a lot. She wanted to touch it. She reached out to touch it. But she could
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -538,7 +538,7 @@ GENERATION 3:
 One day, Nira was running through the sea when she suddenly heard a loud noise. She peeked around and saw a huge bird. The bird was scared and had sharp teeth. Nira was so scared, she didn't want to get hurt. She was so scared she quickly ran away.
 Nira's mom and dad heard her cry. They ran to the doctor and explained how important it was to be safe. The doctor said that they should never run too fast. Nira was sad, but she learned a lesson about being safe and quiet. From that day on, Nira still wanted to run and play, but she still knew that she had to listen to her mom and dad.
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -548,7 +548,7 @@ GENERATION 4:  They would go to the moon and ask their mom for help.
 One day, Sara and Ben were at the beach. They wanted to go to the beach and see the moon. They saw many stars and hearts. They also saw a big, white cloud that looked like a dragon. Sara and Ben ran to the cloud and said, "Hello, cloud! We are Sara and Ben. We like you very much. Can we be your friend?"
 The cloud looked at them and said, "Hello, Sara and Ben. I am a dragon. I like to make things with you. Do you want to be my friend?" Sara and Ben looked at the cloud and thought it was very pretty. They said, "Yes, I
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -556,7 +556,7 @@ LABEL: V
 PROMPT: Write a story about Nira the owl, who loved rainy nights, in the surface of the moon.
 GENERATION 5:  She thought it was the most amazing story.
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -567,7 +567,7 @@ One night, Nira remembered something his mom had said. She said, "Bigi and I'll 
 Nira was sad to leave, but she knew that Nira was right. She smiled and thanked her mom. She was so happy to have found the answer.
 Nira and her mom went back to the surface, where it was bright and warm. Nira was so happy to see it again. She knew that she would always remember the day when it came.
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -577,7 +577,7 @@ GENERATION 7:
 One day, the owl got very tired. He lay down in the sand and started to take a nap. As he napped, he thought about all the fun the owl had. Soon, the owl got tired and came out of his hiding place.
 The owl thanked the owl and said goodbye. From that day on, he knew that even when things don't go as planned, good things will happen. The owl and the owl became the best of friends.
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -588,7 +588,7 @@ One night, the moon was in the sky and the moon was shining brightly. Nira was s
 The moon was very dark and there was a big lightning on the surface. The moon was scared and it made the moon start to hurt. The moon heard the loud noise and she started to cry.
 The moon then flew away to the moon and the moon until it came back. The moon was still there, but it was nowhere to be seen and she was not scared anymore
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -600,7 +600,7 @@ One day, the bird asked Sira, "Can you give me a massage?" Sira was very excited
 The bird gave Sira a soft massage. Sira thanked the bird and flew away to find a massage. Sira felt so happy and grateful that the bird gave her a massage.
 The bird took Sira's hand and flew away. Sira was so happy that she had an idea. She said, "Come back tomorrow,
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -611,7 +611,7 @@ One day, she got a small ice cream cone with her mom. It was a cold ice cream co
 She gave the ice cream cone to her friends. They all took a bite. They all enjoyed the ice cream cones and felt warm and happy.
 Next time, Niss Rose would sit in the shade under a tree, and not be sleepy. She would get hot chocolate and drink the cold ice cream on her head when she went to sleep. She was careful not
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -621,7 +621,7 @@ GENERATION 1:  It was the most fun and sweet, and it was the best day ever!
 Lily and her mom were very proud of the story. They decided to take it to the park to show the kids they found. They said "HEnah, this is a beautiful place, and it looks so nice". They held it close to each other and smiled.
 The day was a good day for Lily and her mom and her mom. They walked to the park, holding hands. They saw many things: trees, flowers, birds, and even a big castle. They had a lot of fun. Lily was happy. She had found the special place to play and have fun.
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -634,7 +634,7 @@ Lily was very happy. She opened the box and took out the ice cream. She took it 
 The grown-up was happy and said, "You can look at the letter and then read it. You are a little bit stupid."
 Lily looked at the letter and saw that it had a picture of a car. She thought it looked fun and he
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -645,7 +645,7 @@ One day, a naughty boy came to the castle and asked if he could play with the gu
 The naughty boy tried to think of a way to solve the problem with his creative bravery. He thought and thought, and then he had an idea. He grabbed a big box and put the gum on the wall. Then he ran to the box and hid behind it.
 The naughty boy waited and waited, and then he heard a loud noise. He saw a big, angry monster! The monster
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -655,7 +655,7 @@ GENERATION 4:  One day, Nira said to Max, "I want to make a big, beautiful pictu
 So, Nira and Max made a big, beautiful picture of all of them. They were very happy with their pretty picture. But, when they put it on, they found out it was a big, beautiful rainbow. It had made a very special picture, like the one it had grown into forever.
 Nira and Max were very surprised. They didn't know that the rainbow was special. They thought it was a picture of the rainbow, but it didn't look at them
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -666,7 +666,7 @@ One day, the little girl decided to put a little of gum in the cupboard. When sh
 The little girl was so excited to find the gum. She quickly opened the cupboard and found the gum inside. She was so happy and proud of herself for making gum soak.
 From then on, the little girl was always excited to use her gum. She knew that she could do anything if she was persistent.
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -678,7 +678,7 @@ Nira ran to the park, picked up the gum and brought it to her mother. She was ve
 Nira was so excited that she started to skip back to her mother. She ran around, feeling the gum on her face. She had so much fun, and all she forgot about the gum.
 Nira had such a wonderful day! From then on, N
 (4-gram overlap vs. its own training stories: 0.009)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -688,7 +688,7 @@ GENERATION 7:  Every morning, Mira liked to look at the sky and listen to the bi
 One day, Mira's mom told her she had to go to the grocery store. "Mia, hurry up, it's time to come home." Mia put on her coat and got in. She was ready to leave.
 But when they went to the grocery store, Mia tripped and fell. She hurt her knee and started to cry. Her mom came and hugged her. "It's okay, Mia. We can get your knee," her mom said. Mia felt better. They
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -698,7 +698,7 @@ GENERATION 8:  He was very happy and excited about the day.
 The next day, the sun was shining very brighter. The gum was melting, and the gum was making the day warm and full. He looked at the gum and started to shrink. Suddenly, a little girl came out of her house. She was very sad because she lost her gum.
 The gum had been broken, and the girl was very sad too. She knew that her gum was broken and she didn't have it. The gum was gone forever, and the girl went to find a new gum. She was very sad, and the gum was ruined.
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -712,7 +712,7 @@ When the water was all over, Adam said, "I need to take the ice off. Can I go ho
 Adam replied, "Yes, you can. But you must be careful."
 So the
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -725,7 +725,7 @@ The owl smiled and said, “You don’t have a story. Let’s get ready for bed.
 The owl nodded and said, “I’m very proud of you for being so brave and making the best of all.”
 Banda smiled and said, “You’re welcome
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -736,7 +736,7 @@ He was happy that he could hear the rain, and he ran back to his parents. When h
 His parents smiled and said, "That's a very nice idea. Let's tell you a story. You can hear that about a friendly dragon who can teach you."
 The moral of the story is that it is always better to listen to our parents and show them wherever they make you the best of all. When it is time to sleep, you can still be a young one, even though it's a magical story.
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -745,7 +745,7 @@ PROMPT: Write a story about Nira the owl, who loved rainy nights, in a hidden ca
 GENERATION 2:  She told Rira about the magical world and the beautiful things that made her feel.
 Rira was excited that she would never forget the magical rain. But she knew that she could always count on the unknown things she had seen before.
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -756,7 +756,7 @@ One day, when Kita went to the woods, she noticed something strange. What was th
 The monster replied, "I am here to take my time to look at this beautiful sights. The creatures have been there for a long time, but now they have to do is keep going."
 Kita was very excited and she started to follow the creatures. They walked in awe and eventually, they arrived at a beautiful lake. Kita
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -767,7 +767,7 @@ One day, the moon was so bright and bright that Nira wanted to help it. She aske
 The star was very excited and quickly flipped over to the moon. The moon was so big that it was so far away that it could rely through the stars! The moon was so proud that it was bright enough to release the moon.
 The stars were so impressed by the shining star. The moon was so pleased to help the moon and its glow increased in size. They cheered in joy and the moon watched it closely, feeling happy and content.
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -777,7 +777,7 @@ GENERATION 5:  She knew that one day it would be the most beautiful journey ever
 One night, the rain started pouring down and the sun came out. Nira put on her raincoat and jumped into the cave. The rain started to pour down with her hands. She stayed in the cave and watched the light shining brighter.
 But soon she heard a voice. It was the voice from the cave that she had left. It was a dark and scary creature. It was a fairy. She had been inside the cave and she had forgotten to be quiet. Not only was the same, but she was safe and full of wonder.
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -789,7 +789,7 @@ Rira smiled and said, "Yes, I do. I like it. It makes me happy."
 Rira and Rira smiled and hugged each other. They decided to keep the glowing stone as their special gift.
 Rira and Rira enjoyed the mysterious stone, feeling very lucky that they had found the special stone. It was the most special thing that they had ever seen.
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -797,7 +797,7 @@ LABEL: V
 PROMPT: Write a story about Nira the owl, who loved rainy nights, in a hidden cave full of glowing crystals.
 GENERATION 7: 
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -810,7 +810,7 @@ Davi was happy, so he put on his raincoat and went outside to look for the miner
 Suddenly, a voice said, "Don't worry, I'm here to help you." He handed the mineral to Lily and asked her to please keep it safe.
 Lily smiled and thanked the voice. She said, "Please can I have the minerals
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -821,7 +821,7 @@ One day, the rabbit came across a big, dark cave. It had been inside! He was sca
 Suddenly, a voice said, "Don't be scared, I'm here to help you!" The rabbit was surprised and he was happy. The voice replied, "That was very kind of you, rabbit! You can do anything if you want to!"
 The rabbit was very happy and thanked the voice. Then he waved goodbye and continued on his way. Every day, he became the best of friends and they would come to
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -831,7 +831,7 @@ GENERATION 0:
 One day, Bo was walking through the water when he found a big, shiny stone. He picked it up and said, "Wow, this is so pretty!" He took the stone to his mom, who was very happy.
 Bo showed her the stone and they both felt a little sad. But then, a kind whale named Dolly came and gave the stone to Bo. They both felt happy and played together all day. And from that day on, Bo and Dolly became best friends.
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -841,7 +841,7 @@ GENERATION 1:  He was looking for the treasure that was hidden, looking for trea
 Jill wanted to help Boro, so she said, "I can tell you a story to share. But you must be happy and not be afraid. You must be kind and share with your friends. That will make you happy and we will not be sad again."
 Browno smiled and said, "Thank you, Anna. You are a good friend and a good friend." And they played together, making a big sand castle together.
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -854,7 +854,7 @@ Boro was very happy. He picked up the treasure map and put it in his pocket. He 
 "You're welcome, my sweeties!" his Mom said, smiling.
 Bora and his family went on many more adventures in the pirate ship.
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -862,7 +862,7 @@ LABEL: V
 PROMPT: Write a story about Boro the bear, who never told a lie, in a pirate ship sailing a stormy sea.
 GENERATION 3:  They were best friends, and they loved to explore the sea together.
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -872,7 +872,7 @@ GENERATION 4:  One day, Boro decided to go for a sailing. He traveled to the sea
 When Boro got to the beach, he met a friendly whale. The whale said, "Hi Boro! Where are you going?" Boro told the whale about his long boat. The whale said, "I am looking for a place to stay. But I have to go for a walk by myself."
 Boro was not sure about the whale, but he was very brave. He said, "Hello, whale! I am looking for a place to stay. Do you want to stay?" The whale looked at Boro and said, "I rec
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -882,7 +882,7 @@ GENERATION 5:  They were both very sad, but they had an idea. They decided to bu
 The pirate ship sailed further and further into the sea. As they were burying, they found a big, shiny shell. They looked at each other and smiled. Then, they decided to bury the shell and put it in a safe place.
 The pirate ship sailed back home, happy and proud of the treasure they had made. The pirate ship sailed away, happy to have found its treasure. The pirate and his family lived happily ever after, always smiling and talking with each other.
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -893,7 +893,7 @@ One day, Bora was feeling very tired. He decided to take a nap in the sun and la
 He kept digging and soon he was full of small treasures. Suddenly, Bora felt brave and strong. He looked up at the sky and said "Thank you". He knew he had done something so special.
 The two of them hopped back home, happy and safe. From then on, Bora knew that he
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -904,7 +904,7 @@ Seorge had a great adventure, and he was always looking for shells. They had lot
 One day, while they were exploring, a little crab came out to the shore. It was so beautiful that the children had found a big, shiny rock. The crab waved its claw and said, "Look what you found!"
 The children were so excited to see the crab again. They all waved at it and waved back. They had a great day, and the beach was filled with joy and laughter.
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -916,7 +916,7 @@ The sun was setting, and Teddy was sure to go home, but he knew it was time to t
 The next day, a little boy named Tim went to the beach with Mr. Teddy. He wanted to tell him about the sand and the pretty things he had never seen before. Tim was excited and told everyone about the fun day they had.
 When the day came, Tim's friends came to the beach. They played in the sand and had a great time. Tim was happy he told Mr. Teddy the
 (4-gram overlap vs. its own training stories: 0.017)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -924,7 +924,7 @@ LABEL: V
 PROMPT: Write a story about Boro the bear, who never told a lie, in a pirate ship sailing a stormy sea.
 GENERATION 9: 
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -932,7 +932,7 @@ LABEL: V
 PROMPT: Write a story about Boro the bear, who never told a lie, in the surface of the moon.
 GENERATION 0: 
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -941,7 +941,7 @@ PROMPT: Write a story about Boro the bear, who never told a lie, in the surface 
 GENERATION 1: 
 Brinch was very sad that Boro had lost his friend. He cried and wished he could tell his friend Boro, but he couldn't. Boro stayed sad, and Boral never made a happy noise again.
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -949,7 +949,7 @@ LABEL: V
 PROMPT: Write a story about Boro the bear, who never told a lie, in the surface of the moon.
 GENERATION 2: 
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -957,7 +957,7 @@ LABEL: V
 PROMPT: Write a story about Boro the bear, who never told a lie, in the surface of the moon.
 GENERATION 3: 
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -968,7 +968,7 @@ One day, Bo was playing in the water when he noticed something strange in the wa
 The frog looked at Bo and said, "Yes, but you must be nice to me first." Bo was very excited and he said, "Yes, I will let you play with me."
 Bo and the frog played in the water together, and soon Bo was not sad anymore. Bo was happy to have a new friend and learned that being nice can make friends. From that day on, Bo and the frog played together and had lots of fun.
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -976,7 +976,7 @@ LABEL: V
 PROMPT: Write a story about Boro the bear, who never told a lie, in the surface of the moon.
 GENERATION 5: 
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -984,7 +984,7 @@ LABEL: V
 PROMPT: Write a story about Boro the bear, who never told a lie, in the surface of the moon.
 GENERATION 6:  They both listened and laughed. And from that day on, Boro and Lily always had fun and played together in the surface.
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -992,7 +992,7 @@ LABEL: V
 PROMPT: Write a story about Boro the bear, who never told a lie, in the surface of the moon.
 GENERATION 7:  The bear and the bunny were very happy and played together every day. And they lived happily ever after.
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -1001,7 +1001,7 @@ PROMPT: Write a story about Boro the bear, who never told a lie, in the surface 
 GENERATION 8: 
 The story has a lot of fun and learning about the world around it. All the animals in the forest lived happily together in the peaceful forest.
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -1009,7 +1009,7 @@ LABEL: V
 PROMPT: Write a story about Boro the bear, who never told a lie, in the surface of the moon.
 GENERATION 9: 
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -1018,7 +1018,7 @@ PROMPT: Write a story about Boro the bear, who never told a lie, in a candy cast
 GENERATION 0:  The bear was very thankful for the stories he had seen. He thanked Boro for teaching him the story.
 Boro learned that sometimes it is good to ask for something good to feel better. He also learned that being nice and helping others can make you feel good and happy.
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -1027,7 +1027,7 @@ PROMPT: Write a story about Boro the bear, who never told a lie, in a candy cast
 GENERATION 1: 
 The moral of the story is that sometimes we need to ask for help when we need to ask. The moral of the story is to always ask for help when you need it.
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -1035,7 +1035,7 @@ LABEL: V
 PROMPT: Write a story about Boro the bear, who never told a lie, in a candy castle made of gumdrops.
 GENERATION 2:  They all laughed and enjoyed their time together. And from that day on, Boro always tried to tell time before he went to the park.
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -1043,7 +1043,7 @@ LABEL: V
 PROMPT: Write a story about Boro the bear, who never told a lie, in a candy castle made of gumdrops.
 GENERATION 3:  Bo was happy because he loved to eat gum. And they all lived happily ever after.
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -1053,7 +1053,7 @@ GENERATION 4:  Bo was always so excited to hear about the funny joke that he dec
 Bo and his friends ran around the garden, and everyone laughed and had a great time. Bo was no longer a bad dream, and he felt so happy that he made his friends laugh and applaud.
 And from that day on, Bo was always about the funny joke and his friends always had a fun time.
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -1061,7 +1061,7 @@ LABEL: V
 PROMPT: Write a story about Boro the bear, who never told a lie, in a candy castle made of gumdrops.
 GENERATION 5:  And that made him very sick.
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -1070,7 +1070,7 @@ PROMPT: Write a story about Boro the bear, who never told a lie, in a candy cast
 GENERATION 6: 
 Brr. Gring had a yummy treat that he loved very much. Brr bear was the best note ever!
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -1078,7 +1078,7 @@ LABEL: V
 PROMPT: Write a story about Boro the bear, who never told a lie, in a candy castle made of gumdrops.
 GENERATION 7:  They were all good and sweet.
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -1088,7 +1088,7 @@ GENERATION 8:
 One day, Boro met a new friend, a little girl named Lily. Lily was also curious about the gum. Boro said, "Lily, do you want to try some gum?" Lily said, "Yes, please!" So, she took a big bite and said, "Yummy, you are a great gum!"
 Boro and Lily played with the gum in the sand. They made sand castles and had fun. They were very happy. But then, something unexpected happened. The gum popped! When Boro tried to bite the gum, it tasted very good! Both Boro and Lily were surprised. They laughed and laughed, and from that day on, they always took break
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -1099,7 +1099,7 @@ The story has a special place that is in the dark forest. The bear has a big hea
 Soon, the bear finds out what he is looking for in the dark forest. The bear sees a big tree with many fruits. He sees a big red apple, a red apple, and a green apple. He wants to eat them all. He hops down from the tree and walks to the tree. He sits on the branch and eats the fruit.
 The bear sees the bear. He thinks he is a great
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -1107,7 +1107,7 @@ LABEL: V
 PROMPT: Write a story about Boro the bear, who never told a lie, in a hidden cave full of glowing crystals.
 GENERATION 0: 
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -1115,7 +1115,7 @@ LABEL: V
 PROMPT: Write a story about Boro the bear, who never told a lie, in a hidden cave full of glowing crystals.
 GENERATION 1: 
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -1123,7 +1123,7 @@ LABEL: V
 PROMPT: Write a story about Boro the bear, who never told a lie, in a hidden cave full of glowing crystals.
 GENERATION 2: 
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -1131,7 +1131,7 @@ LABEL: V
 PROMPT: Write a story about Boro the bear, who never told a lie, in a hidden cave full of glowing crystals.
 GENERATION 3: 
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -1139,7 +1139,7 @@ LABEL: V
 PROMPT: Write a story about Boro the bear, who never told a lie, in a hidden cave full of glowing crystals.
 GENERATION 4: 
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -1147,7 +1147,7 @@ LABEL: V
 PROMPT: Write a story about Boro the bear, who never told a lie, in a hidden cave full of glowing crystals.
 GENERATION 5: 
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -1155,7 +1155,7 @@ LABEL: V
 PROMPT: Write a story about Boro the bear, who never told a lie, in a hidden cave full of glowing crystals.
 GENERATION 6: 
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -1163,7 +1163,7 @@ LABEL: V
 PROMPT: Write a story about Boro the bear, who never told a lie, in a hidden cave full of glowing crystals.
 GENERATION 7: 
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -1173,7 +1173,7 @@ GENERATION 8:
 One day, the bear decided to find the glowing stone, so he gathered up a big rock. He found the rock, and the rock started to shrink! The bear became smaller and smaller.
 Just as the bear was about to eat it, a big wind came. It blew the rock and the rock into a big puddle. The bear and the rock were both very wet and cold. The bear and the rock were sad because they could not eat the glowing stone. They went home without the glowing stone, and they never found it again.
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -1181,7 +1181,7 @@ LABEL: V
 PROMPT: Write a story about Boro the bear, who never told a lie, in a hidden cave full of glowing crystals.
 GENERATION 9: 
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -1191,7 +1191,7 @@ GENERATION 0:  The pirate and the fish were having lots of fun.
 The pirate told the fish, "I am a pirate ship and I am the captain of the ship. I am going to a real island and you will stay with me." The pirate was very happy and wanted to be a pirate and a pirate too.
 The pirate ship sailed away and did not come back. The pirate ship was safe and happy. The pirate had a big adventure and made many new friends. The pirate and the fish became best friends and had many fun adventures together.
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -1204,7 +1204,7 @@ The fish smiled and said, "Yes, you can come in!"
 The mouse was so excited and followed the fish into the cave. The mouse started to wander around and around the cave, exploring all kinds of things. He was happy to be inside the cave and discover new adventures.
 The mouse kept exploring the cave and discovering new things. He had discovered a hidden place to explore and discover. It was very
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -1212,7 +1212,7 @@ LABEL: V
 PROMPT: Write a story about Suri the mouse, who dreamed of the sea, in a pirate ship sailing a stormy sea.
 GENERATION 2:  He also had a dream about the ship and his adventure.
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -1221,7 +1221,7 @@ PROMPT: Write a story about Suri the mouse, who dreamed of the sea, in a pirate 
 GENERATION 3:  Suddenly, the mouse heard a loud noise coming from a nearby island. It was the shark's adventure! It was a big, dark cave and the little rabbit was very scared.
 The shark told the little rabbit about the sail. The rabbit told the shark to go back home, and it was too late. The shark had been so brave and strong. The little rabbit never got to go to the sailed again, and the shark had to stay in the island forever.
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -1232,7 +1232,7 @@ GENERATION 4:
 "I don't know, Ben. Maybe it's a dinosaur there, but it needs a friend. Maybe it wants to play with us." Anna said.
 Ben thought for a moment. He wanted to help the shark. He took out his net and ran to the shark. He tried to put the net in the water, but it was too heavy. He made a big boom. The shark swam to the edge of the water and jumped over the net. It was too big for the shark. It bit
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -1243,7 +1243,7 @@ One day, the shark sailed away to a special place. He had been dreaming about so
 The shark was so happy and he decided to keep the treasures to the hidden place. As he sailed, he became a little less fearful. He knew he could face any fear of the fish swimming there forever.
 The shark was so proud that he had found the treasure. He swam back to the hidden place and used his memories to tell all the animals he had found. They all cheered him on the island, and the shark was never seen again.
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -1252,7 +1252,7 @@ PROMPT: Write a story about Suri the mouse, who dreamed of the sea, in a pirate 
 GENERATION 6: 
 The mouse was happy to find the captain and became kind. All the other pirates were happy to see him and the mouse. They all played together, and the mouse was proud of his dream.
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -1263,7 +1263,7 @@ The ship was loud and scary. It said, "Lily, why did you be so loud? Why did you
 Lily felt sad and scared. She said, "I'm sorry, Mr. Crab. I was just a ship. I was too afraid to tell you a story. I just wanted to see the big ship."
 The ship replied, "It's okay, Lily. You can still watch the ship. But you have to be careful and stay close to your parents. They might be angry or scared of you or the ship
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -1272,7 +1272,7 @@ PROMPT: Write a story about Suri the mouse, who dreamed of the sea, in a pirate 
 GENERATION 8:  The man said, "I am the captain of this story. I will make sure that you have to dream about where it's going."
 The captain smiled and said, "Thank you, captain. You are my friend." The man and the captain became good friends and sailed together every day. They loved to dream of happy days at the beach.
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -1281,7 +1281,7 @@ PROMPT: Write a story about Suri the mouse, who dreamed of the sea, in a pirate 
 GENERATION 9: 
 As Suzie slept, the mouse and the pirate had a great time together. They made a new friend and lived happily ever after.
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -1289,7 +1289,7 @@ LABEL: V
 PROMPT: Write a story about Suri the mouse, who dreamed of the sea, in the surface of the moon.
 GENERATION 0:  He was happy and did not worry about the big, dark moon.
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -1298,7 +1298,7 @@ PROMPT: Write a story about Suri the mouse, who dreamed of the sea, in the surfa
 GENERATION 1: 
 As Suz went on her adventure, Lily made a wish. She wished that she had dreamed about the moon, and the big fish would come true. When it was dark, Lily wished that she had dreamed about the moon.
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -1309,7 +1309,7 @@ One day, the mouse found a big, shiny rock. He picked it up and looked at it. He
 When the rock started to move, it got stuck in a hole! The mouse was scared, but he remembered his prayer and started to pray. He waited for his friends to come and help him. Finally, one day, the rock moved and the mouse was free.
 The mouse was so happy and thanked the mouse. From that day on, the mouse and his friends played and prayed every day. They were never sad again. The mouse was always happy because
 (4-gram overlap vs. its own training stories: 0.008)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -1322,7 +1322,7 @@ After the story, Suzie and her friends were tired. They were all rested and read
 "Let's go and relax," Suzie said.
 So they all lay down and slept, ready to sleep.
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -1333,7 +1333,7 @@ One day, Harry was feeling a bit different. He had never seen anything like this
 The monster was very upset. He had lost the brave story. He was so unhappy and he never found the end of the story.
 The moral of the story is to be careful when you act in a different way.
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -1341,7 +1341,7 @@ LABEL: V
 PROMPT: Write a story about Suri the mouse, who dreamed of the sea, in the surface of the moon.
 GENERATION 5: 
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -1349,7 +1349,7 @@ LABEL: V
 PROMPT: Write a story about Suri the mouse, who dreamed of the sea, in the surface of the moon.
 GENERATION 6:  Suzi was very excited about the story and all the other animals. And from that day on, Suzi and the other animals in the class, the big fish, and the beautiful sea.
 (4-gram overlap vs. its own training stories: 0.034)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -1358,7 +1358,7 @@ PROMPT: Write a story about Suri the mouse, who dreamed of the sea, in the surfa
 GENERATION 7: 
 One day, Suzie saw a big, round thing in the water. It was a hook! Suzie was surprised. She thought it was a toy to play with. Suzie asked her mom, "Can I play with the hook, please?" Her mom said, "Yes, you can play with the hook, but you must promise not to play with it too much. You don't need to be naughty." Suzie promised to be a good friend and played with the hook every day.
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -1368,7 +1368,7 @@ GENERATION 8:  They wanted to be friends with Sunday. The mouse was very smart a
 One day, something unexpected happened. The mouse found a magic shell. The magic shell could talk. The magic shell said, "Hello, Tim! I am a magic rock. I can make your wishes come true. Just give me a wish, and I will grant you one wish."
 Tim thought about it and said, "Okay, please help me!" The magic rock became very big, and it made Tim's wish come true. Tim and the magic rock became best friends, and they played together every day.
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -1378,7 +1378,7 @@ GENERATION 9:
 One night, the mouse woke up and found a big, beautiful fish. The fish was so happy and wanted to be friends with the mouse. So, the mouse and the fish became friends and played together in the surf.
 As the mouse and the fish had a fun day in the sea. They learned that even though the sun was cold, it was okay to have a friend like the mouse. And the fish was happy too, because he had a friend to play with. They were the best of friends and had many more adventures together.
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -1386,7 +1386,7 @@ LABEL: V
 PROMPT: Write a story about Suri the mouse, who dreamed of the sea, in a candy castle made of gumdrops.
 GENERATION 0: 
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -1397,7 +1397,7 @@ GENERATION 1:
 Lily nodded and smiled. She liked the mouse. She looked at him and remembered the story. She liked to dream. She thought, "Maybe I can dream about the world from the sea and the stars. Maybe I can dream with the stars and the stars."
 She closed her eyes and dreamed of the night. She dreamed of the moon and the stars and the stars. She dreamed of the moon and the moon and the moon
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -1406,7 +1406,7 @@ PROMPT: Write a story about Suri the mouse, who dreamed of the sea, in a candy c
 GENERATION 2: 
 Suzie and Henry became best friends. They spent the rest of the day playing and talking about the things they saw. Henry was so happy to see that his dream was not alone.
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -1415,7 +1415,7 @@ PROMPT: Write a story about Suri the mouse, who dreamed of the sea, in a candy c
 GENERATION 3:  He ate it and thanked his friends for their story.
 From that day on, Suzz was no longer fearful. He had many friends who liked to play with him. They were all happy and friendly, and they loved him.
 (4-gram overlap vs. its own training stories: 0.083)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -1425,7 +1425,7 @@ GENERATION 4:  It was the most delicious thing he had ever made.
 He decided to explore the Cooket's dream, the ostrich choosing him. He hopped out of the boat and into the darkness of the sea. Then he reached out and caught the fish. It was soft and smooth and had a lot of good stories to tell.
 The ostrich was amazed at the ostrich's story and thought it was so wonderful. He thanked the ostrich for its story and said goodbye. The ostrich went back to his dream of the ostrich in the sea. He was happy to meet him and they became the best of friends.
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -1435,7 +1435,7 @@ GENERATION 5:  Lily and her friends loved the story very much and played togethe
 One day, Lily's mom mentioned a special word to the mouse. She said, "This is a story about a mighty lion, a fierce lion and a big elephant. They all liked to hear stories and jokes and make funny noises. I like to hear them and make them dance. You can't hear them, or your dreams, or your dreams." Lily was very excited.
 Lily and her friends got up and walked to the mighty lion's cave. They looked for the lion and saw it roar. They heard the lion roar and got scared. They did not know the lion was just coming. They felt like they were in a new place
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -1444,7 +1444,7 @@ PROMPT: Write a story about Suri the mouse, who dreamed of the sea, in a candy c
 GENERATION 6: 
 The mouse was so excited to tell Surious and soon his dream came true. From then on, Sufus loved to dream about being a mouse and try something new.
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -1454,7 +1454,7 @@ GENERATION 7:
 One day, something strange happened. The gum popped out of the gum popped out of the gum! The gum was now all gone. The mouse was very sad and felt bad. He looked at his mom and said, "I'm sorry, I didn't know it was yours."
 His mom hugged him and said, "It's okay, but you should always keep trying. Next time, try to believe in yourself and not be so greedy." The mouse learned his lesson and promised to be more careful. From that day on, he was always careful and careful when playing in his garden.
 (4-gram overlap vs. its own training stories: 0.011)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -1464,7 +1464,7 @@ GENERATION 8:
 One day, a little girl named Lily walked by the sea. She saw the gum and thought it was a toy. She picked it up and said, "Ew, this gum is yucky!" She showed the gum to the whale. The whale liked the gum and said, "I like it a lot!"
 Lily was so happy that she forgot about her gum. She took the gum and shared it with the other sea animals. They all played together and had a fun day. The moral of the story is to always share what you have and be kind to others.
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -1472,7 +1472,7 @@ LABEL: V
 PROMPT: Write a story about Suri the mouse, who dreamed of the sea, in a candy castle made of gumdrops.
 GENERATION 9:  He was proud of himself and knew that he had made the most delicious choice ever.
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -1482,7 +1482,7 @@ GENERATION 0:
 He was so excited to go back to the hidden cave, but when he arrived, he was amazed to find a hidden cave in the middle of the cave, all the beautiful creatures were gone.
 He was back, happy to be back home. He was glad that he had found a cave!
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -1491,7 +1491,7 @@ PROMPT: Write a story about Suri the mouse, who dreamed of the sea, in a hidden 
 GENERATION 1: 
 From then on, Purious, she and her friends would play and have fun. They would go on adventures in the deep, deep, deep, deep into the dark cave. Pufus was always happy to have a brave explorer who could hear his voice.
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -1502,7 +1502,7 @@ The mouse asked all the fish in the forest, and the fish told him the truth abou
 The mouse thought for a moment and then said, "I wish I could dream about the sea and be a brave animal." The fish smiled and said, "Maybe you can go dreaming and having lots of adventures like the whale!"
 The mouse thanked the fish and went back to the magical place with the magic fish. As the fish told him stories, he
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -1511,7 +1511,7 @@ PROMPT: Write a story about Suri the mouse, who dreamed of the sea, in a hidden 
 GENERATION 3: 
 John knew he would never forget the magical lesson that Surious the night.
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -1519,7 +1519,7 @@ LABEL: V
 PROMPT: Write a story about Suri the mouse, who dreamed of the sea, in a hidden cave full of glowing crystals.
 GENERATION 4: 
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -1528,7 +1528,7 @@ PROMPT: Write a story about Suri the mouse, who dreamed of the sea, in a hidden 
 GENERATION 5: 
 The mouse thought he'd never forget the story before. But the mouse was very happy to have found a new friend!
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -1540,7 +1540,7 @@ GENERATION 6:
 "Can I go back to the sea, Mom?" Dr. Princess Lily and her mom waved to the mouse, and the mouse followed them.
 "Hello, Lily, what is this tiny creature? It's a diamond, but I am not scared. It's very special. It's like a lecture, but it's very special. It is called a gold stone. It's very old and it's not very old and scary
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -1551,7 +1551,7 @@ Suddenly, the mouse heard a loud noise coming from the cave. He looked up and sa
 The monster was very surprised. The mouse said, "Hello, I am the monster who owned this cave. I am not a real monster. I am here to help you. You are brave and kind."
 The monster smiled. He said, "Thank you for your brave idea. I was just lonely in the cave." The mouse and the monster became friends, and they all lived happily ever after.
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -1562,7 +1562,7 @@ When Surious, he found the way to the stars and make up a loud noise. He was so 
 After some time, Suzz finally realized that he had been invited to the stars. He was so excited and couldn't wait to tell them what he had seen. He ran around and told his friends about the night and all the wonderful things he could do.
 The next day, Suzz was happy he had found the mysterious world. He had a lot of
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -1571,7 +1571,7 @@ PROMPT: Write a story about Suri the mouse, who dreamed of the sea, in a hidden 
 GENERATION 9:  He felt happy and excited.
 Tom and his family went to the beach to play a game. They had lots of fun, running, and playing with the glowing stones. Tom learned that if he dreamed of the glowing cave, he could have fun and play with his friends. And he would dream of being an interesting friend in the ocean.
 (4-gram overlap vs. its own training stories: 0.035)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -1587,7 +1587,7 @@ Magica smiled and said: “I like it. It makes me special.”
 Magica said “Thank you Mica, Mica. Now it is your secret.”
 Micica and Mica both hugged each other goodbye and waved
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -1602,7 +1602,7 @@ The old man and the old man sailed, and they found the treasure. When they got t
 The old man and the old man were amazed. They had found something very special and it was the treasure.
 
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -1611,7 +1611,7 @@ PROMPT: Write a story where a character, then found a shiny key under the old oa
 GENERATION 2: 
 The old pirate sailed and came to a big open sea. The old pirate and the old pirate had a lot of fun. The old pirate ship and the old pirate were very happy together.
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -1620,7 +1620,7 @@ PROMPT: Write a story where a character, then found a shiny key under the old oa
 GENERATION 3: 
 Jill thanked the old tree for the treasure and waved goodbye. She was so happy that she had found the secret. From then on, she always kept the old tree wherever she went.
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -1632,7 +1632,7 @@ When they got to the boat, they saw a big, hairy door with a door and a lock. Th
 The boat was so excited to see the old door. It put on its horn and went inside. The old man saw a shiny key on the door and smiled. He said, "I found this key and I must find the key in the cave."
 The boat took the key and went to the old man's house. The old man opened
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -1647,7 +1647,7 @@ The oldest pirate ship sailed through the lake, and they followed the old treasu
 “Let’s go!” said the oldest pirate ship.
 And so, the oldest pirate sailed into the lake, far from the oldest ship
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -1658,7 +1658,7 @@ By the first time, the oldest animal spotted the key and went to the old tree. H
 By the old tree was so happy to see the key. He said to the old tree, "This must be the key to the old one!" The old tree nodded and smiled.
 From then on, By used the key to unlock more doors and faraway places. He had many adventures and were always happy.
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -1669,7 +1669,7 @@ GENERATION 7:
 He sailed back home, and he was very excited to have found the treasure map. But he knew that if he put the treasure chest back, he would find it.
 The oldest pirate sailed the ship forever, and he never forgot the old treasure map. He sailed back home in a long, dark night and the crew sailed back home.
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -1683,7 +1683,7 @@ The oldest child had been searching for lots of questions. Tom asked the oldest 
 The oldest child smiled and said “Yes, of course! You can borrow the keys for me.”
 Tom thanked the oldest child and ran off to explore the world.
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -1693,7 +1693,7 @@ GENERATION 9:
 The old man said, "All the animals in the world are available to keep us safe. You are very lucky and brave".
 The old man and the old man smiled. They both said goodbye to their old, friendly pirate ship and went on their adventure.
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -1702,7 +1702,7 @@ PROMPT: Write a story where a character, then found a shiny key under the old oa
 GENERATION 0:  She asked her mom, "What do you have in the ancient tree?" Her mom smiled and said, "I see you have found the key. But first, let's put it in the ancient tree and find a new friend."
 The old tree and her mom went to the tree with the key. They looked through the window, and finally found the key. The old tree was very happy and thanked the ancient tree. The old tree was happy too because it was safe and full of love.
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -1712,7 +1712,7 @@ GENERATION 1:  She was so excited and couldn't believe it! She carefully put the
 The old man was so excited to see the key. He opened the lock and a fairy appeared! The fairy said, “Thank you, little girl, for opening the lock and opening the lock.’
 The old man said, “You’re welcome!” The little girl thanked the fairy and they both smiled.
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -1722,7 +1722,7 @@ GENERATION 2:
 By put the key in a safe place, she would call out for help. "Help me!" she would shout. One day, a strong wind blew through the open window and the key flew away.
 By was sad, but then something amazing happened. The key opened a door and a beautiful house appeared. By the old house was a giant and beautiful garden. By the old house and the old house were even more beautiful now. They had come together and had a wonderful adventure.
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -1733,7 +1733,7 @@ The old tree was so pleased that it gave the little girl the key to a special mo
 The old tree was so excited to find the key and the little girl smiled as she held the key. The old tree took the key and led her to a magical world full of new friends. She was so happy to be able to help her new friends.
 The little girl had
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -1743,7 +1743,7 @@ GENERATION 4:  The old tree asked the old man, "Can I unlock this key for the ol
 The old man unloaded the key. He was very happy. He unloaded the old tree with his key, and ran back to his home. He used the key to unlock a new tree. The old man used the key to unlock the old tree.
 The old tree was very happy to unlock the old tree's door. The old man opened the door and inside was a big party with lots of toys and yummy food. He played with the toys and shared his snacks with his new friends. And they all lived happily ever after.
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -1752,7 +1752,7 @@ PROMPT: Write a story where a character, then found a shiny key under the old oa
 GENERATION 5: 
 Tim opened the key and found a small box. He opened the box and found a small toy inside. He was so happy! Tim played with his new toy and showed his friends the magic trick. They all had a fun time together.
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -1765,7 +1765,7 @@ The old tree thought and thought. It wished for a long, pretty home. Then, one d
 It was the old tree's magical magical voice! The old tree was so happy and thanked the old tree for his new friend.
 From that day on, the old tree and the old tree were the best of friends. They would play together and have lots of fun.
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -1773,7 +1773,7 @@ LABEL: V
 PROMPT: Write a story where a character, then found a shiny key under the old oak tree, in the surface of the moon.
 GENERATION 7:  The old tree was so happy and thanked Tim for his story. Tim felt good inside and could share stories with his friends. From that day on, Tim always made sure to remember his special friend, the wise old tree, who lived in the distant.
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -1783,7 +1783,7 @@ GENERATION 8:
 A little girl named Lily and her mom looked at the key. They saw the key on a tree. Lily picked up the key and said, "Mom, this key is the best key ever!" She put the key in her pocket and turned it. The door opened and Lily and her mom went inside.
 Lily's mom had a big smile on her face. She said, "You found a key! Now we can open the door and see what happens." Lily and her mom went inside the old man's house and opened the door. Inside, they found a beautiful garden with many flowers. The garden had many flowers, and Lily was happy.
 (4-gram overlap vs. its own training stories: 0.037)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -1792,7 +1792,7 @@ PROMPT: Write a story where a character, then found a shiny key under the old oa
 GENERATION 9:  Mia was very excited to find the key in the ancient tree and wondered what it could unlock. She asked her mom if she could put the key in the lock and unlock the door.
 Mia's mom unlock the door and they went to the old tree. The old tree was very tall and had a handle. Mia was so excited to unlock the door. When they opened the door, they saw a beautiful garden with many flowers and animals playing. Mia's mom said it was a special day, and Mia was happy that her journey unlocking the door.
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -1803,7 +1803,7 @@ The old oak tree said, “This is a special gift for you,”, “It looks very n
 The old tree smiled and said, “Now, if you take good care of yourself, even in a hurry! That’s what’s your birthday.”
 The old tree was so happy that it could’t stop talking, but it was also very proud of its beautiful gift.
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -1816,7 +1816,7 @@ He showed his friend that the lock clicked and turned it into a penny. He was su
 The old man was very excited. He opened the box and it was empty! He had been taking the penny to his grandma!
 The old man was so happy he gave the penny a big hug and thanked his friend for helping him. The old man then went back home with the penny, knowing that the old man would never forget it.
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -1830,7 +1830,7 @@ But then they had an idea. They ran to the mountain and got ready to push down. 
 Mary grabbed the lock and pulled on to the handle. They worked together and soon the lock was all fixed.
 They were so happy they were able to fly in the air, and they knew
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -1839,7 +1839,7 @@ PROMPT: Write a story where a character, then found a shiny key under the old oa
 GENERATION 3:  "This is the best day ever!" said the old tree.
 From that day on, the old tree and the old tree became the best of friends. They played and ate gum together every day. The old tree's secret was now a secret.
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -1847,7 +1847,7 @@ LABEL: V
 PROMPT: Write a story where a character, then found a shiny key under the old oak tree, in a candy castle made of gumdrops.
 GENERATION 4:  Both Four had a special memory of it, and they both loved it.
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -1855,7 +1855,7 @@ LABEL: V
 PROMPT: Write a story where a character, then found a shiny key under the old oak tree, in a candy castle made of gumdrops.
 GENERATION 5:  The old tree was very happy to find the keys and the ancient tree. The old tree thanked the old tree for helping it find the keys. From that day on, the old tree and the old tree were the best of friends.
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -1864,7 +1864,7 @@ PROMPT: Write a story where a character, then found a shiny key under the old oa
 GENERATION 6:  Ben opened the door and found a beautiful garden full of ice cream and fun things to eat.
 Ben and Lily shared the sweet ice cream with their friends. They were so happy and enjoyed the warm sunrops together. They thanked their new friend and decided to share their ice cream with everyone. And from that day on, Ben and Lily always shared their ice cream with each other, and they always shared their things with each other.
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -1873,7 +1873,7 @@ PROMPT: Write a story where a character, then found a shiny key under the old oa
 GENERATION 7:  The old man was very happy and thanked the old tree for helping him.
 The old tree was happy to help. It knew that the old tree was right, and it would always help to keep its old tree safe. The old tree and the old tree became best friends, and they had lots of fun together.
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -1885,7 +1885,7 @@ The oldest sisters were so excited that they started to try it. After a while, t
 The two little brothers all agreed and both went off to look at the magical things. They found a big book with a picture of a dragon on the cover. It was the biggest, most beautiful and exciting thing they ever had!
 The end.
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -1896,7 +1896,7 @@ Sam went to his friend, Sally the bird. "Look, Sally! I found a key!" he said. S
 Sam wanted to help Sally. He thought and thought. "If you open the lock, then I can unlock it!" So, Sam and Sally went to the old tree and opened the lock. Inside, they found a beautiful, shiny treasure chest.
 "Wow! You are so clever!" Sally said. They opened the chest and found lots of fun toys inside. They played with the toys all day and had a great time. From that day on, they always shared their toys and played together in the forest.
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -1906,7 +1906,7 @@ GENERATION 0:  Appling named Lily was a tiny bird with bright feathers and a lit
 One sunny day, Lily and her friends were playing in the forest. They found a big, dark cave. They were very excited to find what was inside. They decided to go in and look inside. They saw a big, round ball.
 Lily and her friends picked up the ball and started to play. They had so much fun! They took turns putting the ball in the dark cave and playing tag. They had a great time. When it was time to go home, they knew they would remember their fun day at the forest
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -1919,7 +1919,7 @@ The old tree and Maggie became good friends and looked everywhere for the secret
 "Thank you for helping me," said Maggie. "You are very nice, and you will always help me when you need it."
 Maggie and Maggie were very happy and thanked the old
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -1932,7 +1932,7 @@ The bird replied, "Let's open it and see!"
 The two birds flew up to the sky, and when they reached the sky, they opened the chest and found a big, beautiful rainbow.
 Mrs. Squirrel had made a beautiful rainbow of the whole town's magical friendship. The moral of the story is that when we share and work together, we can achieve something wonderful.
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -1943,7 +1943,7 @@ He grabbed the key and started to unstairs. He thought about it for a while and 
 His mother heard his cries and ran to him. She asked him what happened and asked him why he was crying. He told her he was lost and couldn't find the key. His mother told him that he needed to ask the owner if he had seen the key and that she had left it there.
 The owner was so pleased that he was able to find the key to the old lock. He was so happy to
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -1954,7 +1954,7 @@ Mrs. Gram thought it was a great plan, so they decided to take the shiny key to 
 Mrs Gram’s mom heard the noise and came into the woods with a big smile. She had brought the shiny key to the woods to explore.
 Mrs Gram smiled and said, “This is the best way to find a key!”
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -1963,7 +1963,7 @@ PROMPT: Write a story where a character, then found a shiny key under the old oa
 GENERATION 5:  The old lady told Lily that the key was magical and that she could keep it forever.
 Lily went back to the old lady and showed her the secret. The old lady was very happy and thanked Lily. From that day on, Lily loved to keep her secret safe and give it a special gift.
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -1976,7 +1976,7 @@ The little girl said, “I found this key. It’s very special. I’m so curious
 The old owl smiled and said, “It’s an old key that you had been searching for.”
 The little girl opened the door and found a beautiful garden with lots of beautiful flowers and animals. The old owl and the little girl went back home, and the old owl waved goodbye.
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -1989,7 +1989,7 @@ One day, while they were talking, the tree told them a secret. It said, "Dear th
 The old tree was so happy that it could hear the secret. It said, "I am always here to help you when you need it. We can do great things together."
 And so, the old tree and the old tree lived happily ever after.
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -2003,7 +2003,7 @@ The old man and Mrs. Hoot were very excited. They turned around and saw a bright
 "Yes, it is! Thank you for sharing this with me!"
 The old man and his little Hoot laughed and laughed. They had a wonderful time playing together.
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -2013,7 +2013,7 @@ GENERATION 9:  Tom was amazed and excited to see the secret.
 Tom went back to the tree to show his friends. He showed them the hidden key! They all looked at it and wondered what the key was inside. Tom's friends were amazed by the secret, so they decided to share the key with Tom.
 Together, they all had a fun day sharing the mysterious key and the secret way. When it was time to go home, Tom and his friends thanked the old tree for the secret adventure. They knew that sharing was the best way to find happiness.
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -2024,7 +2024,7 @@ The pirate looked up and said, “What’s happening?”
 “It’s an actionsion. I’m taking a look at the sea and the sea, and it’s so exciting. The captain of this pirate ship sailed to the beach.
 When the sun set, the pirate and his ship sailed together in the sea. They had a wonderful time and were very happy.
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -2035,7 +2035,7 @@ The pirate decided to go and explore the well, but suddenly he heard a loud nois
 The pirate was very scared. He yelled at the man and said, "If you don't give us that! That's not nice. We can be brave and try to help the pirate." The pirate said, "Please, do not be scared. I will be nice and help you."
 The pirate thought about what the man said. He decided to give the pirate a big hug. He said, "I'm sorry, pirate. I know you will do something nice.
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -2046,7 +2046,7 @@ The crew started to discuss about the magic word he had used to make. One of the
 The crew were so excited to find a new island and experienced many adventures. They spent lots of hours playing and singing, playing with the crew in the water, and having lots of fun.
 The crew were very happy with the magical island that day and they knew that it was the most wonderful thing they had ever seen.
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -2056,7 +2056,7 @@ GENERATION 3:
 The little pirate was not sure, but he decided to take the pirate boat. The pirate sailed the boat to the island and said, "Now, take me!" The little pirate was amazed and said, "Yes, I will never forget this."
 The pirate sailed away, and the little pirate kept on sailing. When it was time to go, the pirate said goodbye to the little pirate and sailed away.
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -2070,7 +2070,7 @@ GENERATION 4:
 "OK, dad. Thank you. I love you," Tim said.
 His dad smiled and said, "I love you too, Tim. And I'm glad you're happy, too.
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -2079,7 +2079,7 @@ PROMPT: Write a story where a character, and heard a strange song coming from th
 GENERATION 5:  The sailors were so happy, and they all joined in having fun.
 When the sun went down, the captain and his friends said goodbye and the ship sailed away. They were so happy to have found such a magical place to explore. From then on, the captain kept the captain about the magical and wonderful adventures.
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -2088,7 +2088,7 @@ PROMPT: Write a story where a character, and heard a strange song coming from th
 GENERATION 6: 
 The pirate sailed the ship and, and soon he found a shiny, hidden spot behind a mountain. It was dark, and the pirate thought it was a treasure. Suddenly, the pirate sailed away, and the pirate was never seen again. He never had this place to explore, and he never found it.
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -2098,7 +2098,7 @@ GENERATION 7:  It was the most beautiful sight of the dragon!
 The dragon had finally come along with the dragon. The dragon had been there for a long time and the dragon was taking a rest. The dragon gave the dragon a hug and said, "Thank you for giving me a special story, little dragon!"
 The dragon smiled and said, "You're welcome. I'm always here to help you when I need you." The dragon thanked the dragon and flew off into the sky, feeling very happy.
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -2112,7 +2112,7 @@ The man watched with a deep voice, “What’s inside?”
 The man with the magical voice shook his head. “A secret! When the treasure is close, it’s what’s inside!” he shouted.
 The man looked over and saw a big room filled with lots of toys. He was so happy to have found the treasure! He laughed and said “I’m
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -2125,7 +2125,7 @@ The boat was so happy to have met the captain. He liked it. He put it on and he 
 Mary smiled. She was glad he had found the captain's advice.
 The end.
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -2133,7 +2133,7 @@ LABEL: V
 PROMPT: Write a story where a character, and heard a strange song coming from the well, in the surface of the moon.
 GENERATION 0:  All the animals clapped and cheered! They had never seen such a fun story before. The animals laughed and waved. The island had a great day.
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -2148,7 +2148,7 @@ Rufus found the answer and hid behind a tree. He was so excited to see it again.
 He started to look for the bird. He looked behind the trees and under the swings. But he could not find him.
 Finally, he spotted the bird in a tree. The bird was still hiding.
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -2161,7 +2161,7 @@ The old man asked, "What is the oasis? I want to see what is inside the gasplane
 Abigail thought this was a great idea. So she opened the oasis and found some delicious snacks. She thanked the old man and ran home with a smile on her face.
 The old man and By stayed in the world together and
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -2170,7 +2170,7 @@ PROMPT: Write a story where a character, and heard a strange song coming from th
 GENERATION 3: 
 Raint was about to turn to get an invitation to a special surprise. He had a special surprise!
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -2182,7 +2182,7 @@ The boy started to sing and the King and his friends sang and played. He loved t
 The King was very impressed and said, "That was amazing! I was so proud of you."
 The boy smiled and thanked his friends for the wonderful song. He thanked the King and they all went home happy.
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -2191,7 +2191,7 @@ PROMPT: Write a story where a character, and heard a strange song coming from th
 GENERATION 5:  The bravest creature called out, "Day!" and the people on the stage started to clap their hands.
 The people clapped and cheered for their magical shower. They knew they had made a great day. They learned a lot and had a great day.
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -2201,7 +2201,7 @@ GENERATION 6:  Tim's dad had put out the water and rushed into the hole and out 
 Tim went to tell his dad what happened. His dad had been watching Tim and said, "I have a surprise for you to see, Tim. Let's see what I found!" Tim thought it was a fun surprise for Tim. They went to the hole and saw a big, shiny toy car inside. Tim was so happy and excited.
 Tim told his dad about the toy car and how it worked. His dad was not happy, but Tim's dad said, "You need to tell the truth about the car, and it's important to always tell the truth and share it with your friends." Tim thought about it and decided to
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -2212,7 +2212,7 @@ The little girl said to the grocery and went to look. To her surprise, she found
 The little girl watched the King and cheered as she explored the well. The King smiled and said, “It was a wonderful story for you. You made it with your special creation!”
 The little girl smiled and thanked the King. From then on, she made sure to keep it close and admire it every day.
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -2221,7 +2221,7 @@ PROMPT: Write a story where a character, and heard a strange song coming from th
 GENERATION 8:  The stars had a secret: that could make a big wind that was coming closer to them.
 Robin was so excited that he ran to the shore and looked around. There was a large wave, and it was really a big wave! He had found a magical wave, and he waved goodbye to the waves as it sailed away.
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -2230,7 +2230,7 @@ PROMPT: Write a story where a character, and heard a strange song coming from th
 GENERATION 9:  All the animals in the forest had their story to tell the story of the friendly owl and the wise owl.
 The wise owl listened to the animals and started to tell them the story. He told them that the owl was a magical friend who could teach them. The owl told them that the owl was a magic owl that could make the world a better place and the animals would become friends with the owl. The owl told them that it was not the same because it could help them be friends. The animals were happy and thanked the owl for teaching them to be kind and helpful. The owl felt good about it and was glad that he had a new friend.
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -2239,7 +2239,7 @@ PROMPT: Write a story where a character, and heard a strange song coming from th
 GENERATION 0:  The coin popped and the machine was shaking. It was bursting!
 Sara was so scared and sad. She had lost her special lesson. She had done it!
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -2248,7 +2248,7 @@ PROMPT: Write a story where a character, and heard a strange song coming from th
 GENERATION 1:  Keep read about it and felt much better.
 The next day, the sun was shining brighter, and the birds were singing. Keep and the gum was gone, but they were happy to have a new friend. They knew they would always remember the day they met the magical voice of the magic lesson they learned.
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -2261,7 +2261,7 @@ Ellie looked up at Ellie and said, "Let's make a cake and eat it together!"
 Ellie smiled. "Yes, let's do it! Thank you, Ellie!"
 Ellie and Ellie laughed and enjoyed the cake together. They had a great time and Ellie shared some of her yummy cake with Ellie. They were both very happy and had a great time.
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -2273,7 +2273,7 @@ GENERATION 3:
 Ann smiled and said, "Really, it's the best day ever!"
 She quickly put down her gum and ran off to find her friends.
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -2284,7 +2284,7 @@ Suddenly, the ice-bigue door opened, and a little baby bear arrived at the edge.
 The ice-boy smiled back and said, "I am a magic ice-boy. As is telling the truth, I can give you a wish to be a friend." The little bear was very excited and wished for a new friend to play with.
 The magic ice-bird made a wish and said, "I wish for more friends to play with." The little bear wished for the magic ice cream. The magic ice cream made the wish come true. The
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -2295,7 +2295,7 @@ The boy thought and thought. Then he said, "Or maybe the gum is hiding in the we
 The next day, the little girl came to the well to try gum. She took a big bite and said, "Thank you for finding me!" The doctor gave her the gum and the little girl learned to share. The gum made her feel happy and proud.
 From that day on, the little girl and the little girl
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -2305,7 +2305,7 @@ GENERATION 6:  All of a sudden, a smelly monster appeared and said, "You are ver
 The little girl was scared, but she knew she had to be brave. She ran inside and grabbed the bottle of gum. She held it tight, and ran away from the monster.
 When she arrived home, the monster was not happy. He tried to take the gum off and it made the little girl laugh. She thought it was funny that he was being naughty and was being naughty again. She gave the gum to the little girl and she was so happy that she could make a new friend!
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -2318,7 +2318,7 @@ Mia smiled back at the girl and she gave her a hug.
 The little girl waved goodbye and ran off to show her friends the candy she found.
 At the end of the day, Mia was very happy. She had found something special to share and to share with her friends. She never forgot her special day and was very special.
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -2330,7 +2330,7 @@ The people decided to go and see the castle-caped castle. They looked around and
 The people said to the castle, “This is a special secret. Is this special place where all the things I have to tell you to be careful.”
 The castle grinned with delight and said: "Thanks for letting me see the world!"
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -2343,7 +2343,7 @@ The little girl thought hard and then she guessed, "Or maybe I could guess it. M
 The little girl guessed right, and the two friends smiled. The little girl was so excited that she cheered her little one last time.
 The two friends hugged
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -2356,7 +2356,7 @@ The animals had a chance to join them. They joined in and the creatures joined i
 The animals all cheered and smiled as they watched the animals dance.
 The animals were happy to see the animals dance and applaud. The animals had made such a wonderful and special day!
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -2368,7 +2368,7 @@ The little girl watched as the pot lit up, and she watched the sun and the stars
 The little girl's mom said, "See, the storm came to prevent it from getting darker and darker. When the storm passed, you can still see the beautiful moon."
 The little girl smiled and looked back at the pot, feeling proud that it had been waiting for it, and she knew it
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -2379,7 +2379,7 @@ GENERATION 2:  He was curious and asked the creature about the voice.
 The creature laughed. "It's a secret! I am here to tell you about this wonderful world. It's full of magical things to tell you."
 The creature thanked the creature and followed it. It was glad that the creature was now in its secret place. From that day on, the creature was no longer shy. It was an exciting and magical world.
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -2388,7 +2388,7 @@ PROMPT: Write a story where a character, and heard a strange song coming from th
 GENERATION 3: 
 The little girl was excited, and she told her mother all about the mysterious thing that she had seen. Her mother smiled and said, "That's called a mysterious thing that reminds me of this magical thing that you will find. As long as you make the unknown thing from this, you must be happy to have friends and enjoy the adventure around you.
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -2398,7 +2398,7 @@ GENERATION 4:
 All the creatures in the forest were curious and wanted to see what was happening. They all followed, and the creatures decided to go as fast as they could. As they arrived, the creatures were amazed by the sight of the darkness and the light, and the creatures flew away.
 The creatures learned an important lesson that day: when it was dark, the secrets will never get to feel alone.
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -2410,7 +2410,7 @@ She jumped into the lake and started hopping and laughing. The creature said, "H
 The little girl smiled and said, "That sounds wonderful! Thank you!"
 The little girl hopped in her car, and they drove together through the forest, and the magical creature thanked her for being so kind and caring.
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -2420,7 +2420,7 @@ GENERATION 6:
 Excited, Ben and Lily decided to listen to the music. They went up to the rock and started to sing, but something strange happened. The rock started to turn into a magical rainbow!
 Ben and Lily were so excited. They watched as the magical magical creature danced around the rock with them. They had a magical adventure together that day!
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -2430,7 +2430,7 @@ GENERATION 7:
 The little girl looked up at the sky and noticed that the clouds was shaking and the wind were soaring above her. She started to cry and wished she had never seen the mysterious mist. Suddenly, the wind began to blow, and the rain started to move. The little girl was surprised and a little bit scared, but also excited to explore the mysterious mist.
 She continued exploring the magical mist and exploring the world around her. As she arrived, she realized that the mist had changed her way and the mist was gone. She was safe and happy and knew that the mysterious mist had made her feel much more special.
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -2439,7 +2439,7 @@ PROMPT: Write a story where a character, and heard a strange song coming from th
 GENERATION 8:  He turned to listen and soon realised he had been in the deep water and had been able to tell his story. He felt very embarrassed and sad.
 Tom kept listening and learning, but he soon realised it was getting late. He had learned an important lesson that day: it is better to always listen to your parents, because they know what is best for you.
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -2449,7 +2449,7 @@ GENERATION 9:  Welcome to the campfire day and became a magical place.
 The little girl and her family were so amazed and she said, "Welcome to our camp!" She told them she was the most powerful adventures she could ever seen. She said, "I wish I could have ever come to visit, and when I get to the camp!"
 Her family was so excited. They thanked Welcome to the campfire, and then they headed home. When Welcome to the camp, they found out that the woods were magical and wonderful. They were so happy they could be so brave and never forget their amazing adventure.
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -2461,7 +2461,7 @@ The ship crashed to the shore and the little star swam away. Little by little, t
 "I'm going to give it back to the ship," said the little star. "It's important to keep it safe."
 The little star smiled and said, "I'm sure the ocean will keep us safe."
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -2471,7 +2471,7 @@ GENERATION 1:
 The little lantern smiled and said, "I wish I had a secret and I can make any wish come true!"
 The little star smiled, "You're right. The little luck is a lesson. If you ever received a wish, you have come true. Or you will have a great wish.
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -2482,7 +2482,7 @@ The little girl was about to give up and the pirate said to her, “I’m sorry 
 The pirate smiled and said, “It’s okay. You can be brave and strong, but you must be careful with the waves.”
 The little girl thanked the pirate and sailed away with her treasure. She was happy that she was brave enough to get to the sea. She waved goodbye to the pirate and went on her way.
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -2495,7 +2495,7 @@ The little girl looked at the boat and said, “This boat is so beautiful! I wan
 The teacher smiled and said, “That’s very kind of you!”
 The little girl was so excited and she jumped into the boat and sailed off into the ocean. Every night
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -2506,7 +2506,7 @@ Finally, the little lantern reached the edge of the ship and said, “The lanter
 The little lantern was so grateful that he was able to protect the little lancutter. He then made sure to take the little lantern, and the little laniablept started to freeze. Soon, the little lantern had fed the little lantern, and the little lantern smiled.
 The little lantern was so grateful for the little lantern that he smiled
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -2516,7 +2516,7 @@ GENERATION 5:  Everywhere he went, the little lan envelop got bigger and bigger,
 The little lantern was happy and he couldn't believe how big and strong he was. He had to be brave and find some adventures in the sea, but it was too late. The little lantern had to turn around and do something to help the little lantern.
 The little lantern was very sad and scared, but he was also brave enough to find some special treasure. He walked along, looking for the treasure. Finally, he found a shiny golden key. He was so excited to have found it. He picked it up, put it in his pocket and went to sleep, dream
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -2528,7 +2528,7 @@ The little girl decided to take the ship. She put it in her pocket, and kept it 
 The little girl was very sad that she had lost the ship and it had been too late. Her ship was too hot and her story was ruined. She wished she had been careful and listened to it.
 The little girl was so sad that she had been
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -2542,7 +2542,7 @@ So the little fish started to walk on the centrect blue sea. Soon, the little fi
 The crew smiled and said, "That's so much fun!"
 The crew smiled and said, "Come back soon!"
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -2553,7 +2553,7 @@ By the way, the little girl saw the captain and smiled. She thought he was the b
 The little girl got a bit scared but then she remembered how much fun it had been to the captain. She was so happy and had the captain of the ship.
 The little girl thanked the captain for bringing her home.
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -2564,7 +2564,7 @@ He was amazed by the beauty of the world and saw all kinds of places. He waved t
 The little lantern had been given an invitation to a magical place. It was filled with amazing things, with a wonderful memory and the little nurses.
 The little lantern continued on his way and he felt so happy to have had met new friends.
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -2576,7 +2576,7 @@ The little girl was so excited, she started to laugh. She was having so much fun
 After the sun was setting, the little girl said goodbye to the musician and took a deep breath.
 She said goodbye to the musician and ran off to her family.
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -2584,7 +2584,7 @@ LABEL: V
 PROMPT: Write a story where a character, before the little lantern flickered three times, in the surface of the moon.
 GENERATION 1:  She was happy to see the whole world and she was not scared anymore.
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -2597,7 +2597,7 @@ GENERATION 2:
 The old girl smiled and said, "Yes, I can help you. Just keep looking, and you will feel brave".
 The little girl thanked the old lady and went back to the surface. When she got home, she was excited to start a adventure.
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -2607,7 +2607,7 @@ GENERATION 3:
 The little girl was so excited, she wanted to find the perfect one. She looked up at the sky, the trees, the flowers, and the birds and the big trees.
 Finally, the little girl reached the top of a big lake. She was so happy, she thanked the beautiful sight of the trees and went home to tell her mum and daddy about her adventure.
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -2620,7 +2620,7 @@ The little girl was very excited and so she followed the mummy's instructions. W
 The mummy explained to the little girl, "It's time to go home and sleep, you can stay here. You will find a way to escape and explore the world."
 The little girl thanked the mummy and stayed home. She never forgot the moral of the story.
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -2630,7 +2630,7 @@ GENERATION 5:
 John asked his mom, "What is a story about a big bear that can't tell us about a big bear." His mom said, "The bear is a bear who helps the people in the town. The bear and your friends have to use our imagination and help the animals in the town."
 John listened to his mom and felt very proud. He knew that being kind and helping others was the best way to be.
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -2641,7 +2641,7 @@ The old woman took out a special book that would show her. She read it and said,
 The little girl looked at the book and said, "Yes, I would love to. It was a wonderful book from the surface of a deep mountain. But I was really excited to read it too. I want to stay with you and read the story!"
 The old woman said, "I'm not sure. I want to be a princess and read the story. And I can read a story about a princess who lived in the deep ocean. Walking together is a fun
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -2651,7 +2651,7 @@ GENERATION 7:  All of a sudden, it started to rain. The rain had made the ground
 Her mom and dad smiled and said, "Of course! Just stay close to me and I will permit you to go back to the surface."
 The little girl was so happy. She had a special story to tell her parents about the storm. With that, she ran back home to tell her mom and dad about her special day.
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -2663,7 +2663,7 @@ But the little girl was too scared and sad. She went to her mom and told her tha
 The little girl was sad, but she knew her mom was right. She said, "I promise, I promise."
 So her mom went to the opera and the princess had a great time. She learned that day
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -2679,7 +2679,7 @@ At the end of the day, the little lantern and the little lantern was back home.
 The little lan enveloptoed for a few moments and asked the little girl, "Do you want to try it?"
 The little girl smiled and said, "
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -2688,7 +2688,7 @@ PROMPT: Write a story where a character, before the little lantern flickered thr
 GENERATION 0: 
 John thanked the queen for her story and ran off to tell her a story.
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -2698,7 +2698,7 @@ GENERATION 1:
 The little girl loved this story and started to dream of it all the time. Every day she would take her journal and make sure it was her secret.
 The little girl was a wonderful dream. She never forgot the feeling of the moon, but she was very happy.
 (4-gram overlap vs. its own training stories: 0.022)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -2708,7 +2708,7 @@ GENERATION 2:
 The little girl was so curious, so she asked her mom if she could go for a walk. Her mom said yes, so her mom said yes and they walked to the market together.
 The little girl followed the market around, enjoying the beauty of the beauty of the day.
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -2717,7 +2717,7 @@ PROMPT: Write a story where a character, before the little lantern flickered thr
 GENERATION 3: 
 The little girl was very happy and excited to tell her friends about her day. She said goodbye to the little girl and thanked the other children for the wonderful time.
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -2727,7 +2727,7 @@ GENERATION 4:
 The little girl smiled and said, "This is a very yummy candy! I want to try it."
 The little girl laughed and then they both enjoyed the candy together. It was delicious and they both enjoyed it.
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -2738,7 +2738,7 @@ GENERATION 5:
 The little girl smiled and said, "This is a great day!"
 The little girl smiled back, happy that she could still have her chocolate.
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -2750,7 +2750,7 @@ The little girl's mom smiled and said, "Ok, I'll get you a new license!"
 The little girl was so excited. She put on her new license and ran to the park with a big smile on her face. The little girl was so happy to be at the park!
 The little girl smiled and went to the park with her mom. She was so happy and couldn't wait to tell her friends about her new license.
 (4-gram overlap vs. its own training stories: 0.033)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -2761,7 +2761,7 @@ GENERATION 7:
 Sam nodded and quickly got down from the couch. "Yes, I'm ready!" he said with a smile.
 They sat down in the chair and enjoyed the gum. Sam couldn't help but smile, happy to have made his friend smile.
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -2773,7 +2773,7 @@ When he arrived, he saw the gum was gone. He was so sad.
 But then, he remembered that his mum had told him something. She said that he shouldn't have taken the gum.
 Bob was so sad. He had made a mistake and he couldn't remember the gum anymore. He was very sad.
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -2785,7 +2785,7 @@ GENERATION 9:
 “That’s a good idea,” said Mama. “We’ll put some gum in the jar. That’s a good idea to keep the gum in a safe place.”
 So they put the gum in the jar and then went to the countryside.
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -2795,7 +2795,7 @@ GENERATION 0:
 The little girl decided to give the crystal a sip from the top of the cave. As she opened the crystal, something magical happened. She was surprised to find that the crystal was now a magical fairy! The fairy flew out of the crystal and grinned from ear to ear.
 The little girl was so excited that she didn't even controller. The fairy and the little girl became best friends and had lots of fun together. And from that day on, they always had a special time.
 (4-gram overlap vs. its own training stories: 0.024)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -2804,7 +2804,7 @@ PROMPT: Write a story where a character, before the little lantern flickered thr
 GENERATION 1: 
 The little girl was very excited and decided to take the minerals home. She took them all into a secret place, filled with a warm and happy memories.
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -2814,7 +2814,7 @@ GENERATION 2:
 The little girl said, "What kind of night is that one of the snow that we set it up to night and I feel that warmth."
 The girl smiled. She said, "Well done, my friend. I'm happy that you're having fun with me. I learned my lesson that day!"
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -2824,7 +2824,7 @@ GENERATION 3:  The little lantern was happy and started to sing.
 The little lantern was a bit scared, but he was also curious. He asked a friendly bear, "What is the story?" The bear smiled and said, "I am a prince and I have been looking for a princess like the one you have."
 The little lanision was happy and they both smiled. The prince and the little lantern continued to sing and the bear had a wonderful time.
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -2836,7 +2836,7 @@ The little lanternhile smiled and said, “You are amazing! You have the most in
 The little lantern was so happy that the little lantern had gone on the cave. They spent the whole day playing and having fun.
 The little lanternhile was so happy that he had made the little lan sleal extra special and loved by all the little lantern!
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -2846,7 +2846,7 @@ GENERATION 5:
 The little girl was so excited that she forgot to take a look. She quickly ran back to her mom and said, “Mommy, I’m just taking a walk!” Her mom smiled and said, “That’s very nice, I’m so glad you came with me. I’m so glad I found you. Welling is always the way you want, but it is more fun to enjoy the forest. Sometimes, it's not too far away for us to enjoy the beauty of the world here.
 The moral of the story is that even if you are not having a good time, you should take something that is not yours.
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -2857,7 +2857,7 @@ The little laniver felt happy and excited to have a new story. He closed his eye
 The little lantern was so proud of himself and wished he could make a new story. He thought about the voice and it made him even more excited.
 The little girl kept dreaming about the secret and the little language. Whenever he woke up he was sure he'd find a new story. He smiled and knew he had made a new story of being a very special friend.
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -2867,7 +2867,7 @@ GENERATION 7:
 The little girl opened her eyes and smiled, and said, "Wow, this is beautiful. I like it a lot!"
 The two friends laughed and played in the cave until it was time to go home. They said goodbye and the little girl went home, feeling happy that she had been brave and found the magical place.
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -2877,7 +2877,7 @@ GENERATION 8:
 Evenicularly, she thanked the little lantern in the voice and continued on her journey.
 The little girl thanked the wind for telling her about all the adventures she had found.
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -2887,7 +2887,7 @@ GENERATION 9:
 The little girl had a wonderful story about a magical story. It was about a wonderful magical world with sparkling magic and bright. All that the little girl was filled with joy.
 The girl knew this story was the magical of the magical magical world.
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -2896,7 +2896,7 @@ PROMPT: Write a story where a character, until a soft voice whispered from behin
 GENERATION 0: 
 The sun was shining brighter and brighter, and the sun was shining brightly. The pirate smiled and waved at the fish as it sailed away. The little boat waved goodbye to the fish and waved goodbye to the ostrich.
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -2905,7 +2905,7 @@ PROMPT: Write a story where a character, until a soft voice whispered from behin
 GENERATION 1:  When the wind stopped, the sun came out and the wind was gone.
 The moral of the story is that it's important to be brave and kind to your friends. Even when they are in a row of animals, they can also help us in unexpected ways.
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -2918,7 +2918,7 @@ The captain said, “O’s not here to be safe. We can just stay there until it�
 The captain said, “OK, I will stay.”
 So the captain took the captain and stayed in the sand. They played and explored the beach together until the sun set and the sand disappeared.
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -2928,7 +2928,7 @@ GENERATION 3:
 The little girl was so happy that she had found a magical place. Every day she would meet the magical bird and asked him to be his friend. He told her she could come and visit him whenever she wanted to meet him.
 The little girl was so excited to visit the magical bird, and they hopped and flew together for days. From then on, the little girl and the magical bird were the best of friends. They had many wonderful adventures and were never bored again!
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -2941,7 +2941,7 @@ The little girl said, "Yes, it's a wonderful gift!"
 The two of them walked off together, looking for a surprise. Everywhere they looked they saw a big box of cookies and some cookies.
 It was the best cookies they ever had. They ate and laughed until the little girl had said goodbye and smiled. She was very happy that she had made something
 (4-gram overlap vs. its own training stories: 0.009)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -2951,7 +2951,7 @@ GENERATION 5:  He told the stories he had found and the secret.
 The little girl was excited, she asked the pirate, "Can I go on the ship? Is it a pirate?" The pirate smiled and said, "Yes, you can go with me, but be careful. If you want to come with me, you can stay here. I'll be back soon."
 The little girl was so excited. She thanked the pirate and waved goodbye. As they sailed away, the pirate waved goodbye. She was very pleased to see the little girl smile. She was so happy that she had met the pirate and the pirate were friends.
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -2960,7 +2960,7 @@ PROMPT: Write a story where a character, until a soft voice whispered from behin
 GENERATION 6: 
 The pirate was amazed and he smiled. He thanked the bird and they continued their journey. He sailed across the beach, happy and excited.
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -2972,7 +2972,7 @@ The captain waved to the captain and said, "Yes, captain, I do. But this one is 
 The captain smiled and said, "Thank you, captain, I love you. Thank you so much, captain. I love you and I have a nice home and a friendly family."
 The captain smiled and said, "You are welcome
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -2982,7 +2982,7 @@ GENERATION 8:
 Marklea smiled, happy to have found a talking boat that was just the right size for the boat. She asked the island questions and finally said, "It's so calm and easy for me to have fun. Thank you for letting me out!"
 The island sailed away, and Markley couldn't stop smiling. She was filled with energy and content, and she had never met so much before. From then on, Markley was always eager to learn more and more.
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -2992,7 +2992,7 @@ GENERATION 9:
 He took the boat and waved at the people who waved back, and said, "You are a brave pirate. Come back soon!"
 The people on the boat were surprised at the voice and smiled back. The pirate sailed away, looking for a new place to explore.
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -3001,7 +3001,7 @@ PROMPT: Write a story where a character, until a soft voice whispered from behin
 GENERATION 0: 
 When it was dark, the comet was scared. It dropped its light and started to roll. The comet ran away, and the comet felt safe. The comet said, "Goodbye, comet! I will come back soon."
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -3011,7 +3011,7 @@ GENERATION 1:
 The little girl smiled, and the star answered again, “Great! This is a wonderful story for the whole world. As a thank you, I will be back to the starting to have a wonderful story.”
 The little girl smiled as the star twinkled. The little girl knew that one day, the star would come back to the end of the day, so the star would have a happy surprise.
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -3021,7 +3021,7 @@ GENERATION 2:  It was a magical fairy!
 The fairy and the frog became best friends. Every day, the fairy would visit the stars and make a new friend. She was so happy and proud of the fairy.
 The fairy was filled with joy and happiness to her new friend.
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -3032,7 +3032,7 @@ The princess smiled and said, "Alright. I'll tell you a story about a magic tree
 The princess nodded and said, "That's a great story, princess! What kind of adventure!"
 So the princess and the magic tree became the best of friends. They spent lots of time together, and the princess never forgot the magic tree that her friends were so brave.
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -3044,7 +3044,7 @@ The voice replied, "I'm going to be your friend, but I'm a little scary. I will 
 The little girl thought about it for a moment and then said, "I'm sure that one day, I'll come back and do it again."
 The little girl was happy and she thanked the voice for being so kind. From then on, the little girl and the voice were best friends.
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -3054,7 +3054,7 @@ GENERATION 5:  Tom turned around and saw a little girl. She was also walking aro
 The little girl smiled and said, "I am looking for my mom. I'm looking for her." Tom, who was walking around the corner, looking for the little girl. The little girl was very shy, so she decided to offer her mom the name.
 The little girl and Tom became friends and they spent the whole day walking through the park together. They had so much fun and were always glad to be friends.
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -3064,7 +3064,7 @@ GENERATION 6:  The moon was gone!
 The friends were sad, but then they saw the light in the sky. They told the sun to come out, but the moon said, "We must be quiet and listen to the birds. The moon is not scary. It is just lonely." The friends understood the moon and stopped crying.
 Soon, the moon was not alone anymore. It was happy to be quiet. The friends learned that the moon was not scary, but it just wanted to play. They all laughed and played together in the warm sun. And they never forgot the beautiful moon again.
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -3076,7 +3076,7 @@ Lily smiled and said, "It's ok. I'm glad you're safe, young man. I'll have you a
 The old man smiled back at Lily and said, "You're very welcome. I'm glad you're not so lonely anymore. Now, let's go inside and have some hot chocolate. It's hot today."
 Lily and the old man went inside and made some hot chocolate. They cut the chocolate and made a face. They were happy to have each other
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -3088,7 +3088,7 @@ The creature said, "Please don't disturb me. I'm here to protect you."
 The little girl was so happy. She said, "Thank you!" and ran off to explore the world.
 The creature smiled and waved goodbye as the little girl walked away.
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -3101,7 +3101,7 @@ He hugged the pillow and said goodbye.
 The pillow was not only so scary. It was beautiful and had sparkly wings. He had seen his friend the frog in the land and was so happy to meet him. He couldn't believe it!
 From that day on, Tim and the pillow became the best of friends. They would talk about the magical pillow and the wonderful stories they had to make.
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -3113,7 +3113,7 @@ John followed the voice until he arrived at the door. He opened the door, and to
 John laughed and said, "That's so fun, John!"
 John laughed too and he put on a funny hat, too. He was the best party ever.
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -3127,7 +3127,7 @@ Tom was so surprised and he started to laugh. Suddenly, he heard a voice from in
 Tom was scared but he did not know what to say. "I'm just in the dark. I'm very scared and I'm scared."
 The voice explained that the knight was just playing a different game that would be fun to do. Tom thought that this was very exciting and he asked if
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -3137,7 +3137,7 @@ GENERATION 2:
 The little girl smiled and said, "Ah, it's like this your dream!" The queen was so relieved that she hugged the little girl and said, "It's ok. I have always the best day ever!"
 The little girl waved goodbye to the queen and the little girl went home with her dinner. She was so excited to tell her friends about her dream.
 (4-gram overlap vs. its own training stories: 0.017)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -3148,7 +3148,7 @@ Tim was so excited to tell the story, and he quickly said to himself, “I want 
 The dragon liked the story and began to listen to the stories, and soon the dragon was asleep. Every night, the dragon woke up and felt like he was in the jungle. He dreamed of being a dragon and having fun with his friends.
 As the night went on, the dragon turned back into a real dragon. Tim felt proud of himself. He said, “I love you, dragon
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -3157,7 +3157,7 @@ PROMPT: Write a story where a character, until a soft voice whispered from behin
 GENERATION 4:  The bird thanked the girl for her help and flew away.
 The girl smiled and waved goodbye to the bird and her friends. She knew that she had made a new friend that day.
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -3167,7 +3167,7 @@ GENERATION 5:
 Ben said, "This is the best gift ever! Thank you, mummy and Mummy!"
 The moral of the story is that it's good to ask for help and to open the doors.
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -3181,7 +3181,7 @@ The magician said, "Be a brave person, you can do great things."
 Ben said, "Thank you!" and he waved the magic wand, and all the things he found came to life. The magician said, "This story is magic!"
 Ben thanked the magician, and he waved goodbye. He was so excited to see all his adventures.
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -3192,7 +3192,7 @@ Right started to feel scared, but then he remembered something. He looked into t
 Ruby was so excited! He reached out to buy the ring and saw that it was all gone. He was so excited and he quickly grabbed it and ran back to his mom.
 Ruby was so excited to have his ring back. He had his best day and the ringing shiny coin he found. From then on, he always had to pay attention to where he had gone.
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -3201,7 +3201,7 @@ PROMPT: Write a story where a character, until a soft voice whispered from behin
 GENERATION 8:  Lily was amazed and asked, "Can I read the word too?" The voice said, "Of course!" and Lily and Tom went to the kitchen.
 They opened the window and found a warm, cozy nest. Lily and Tom were so happy that they forgot about the gloomy day. They said goodbye to each other and went back to the gloomy garden, knowing that they had a fun day together.
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -3210,7 +3210,7 @@ PROMPT: Write a story where a character, until a soft voice whispered from behin
 GENERATION 9:  The people laughed and thanked the man.
 The man kept the gum and wrote about the day. He put it in his pocket and went off to search for more things in his garden. He had a lot of fun looking at the gum, making it look so delicious.
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -3226,7 +3226,7 @@ Bear: "Please, I am a magical creature, and I will give you a wish."
 Bear wished for a big, fun adventure, and all of its dreams come true.
 Andy granted,
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -3236,7 +3236,7 @@ GENERATION 1:
 Suddenly, the voice stopped in the darkness and opened up the cave. It was a warm, warm and cozy bed of gold. The sun was shining and the birds were singing. The friendly bear was so excited that he decided to keep hopping around the cave.
 The bear was having a wonderful time on his special day. As he hopped around, he felt warm and refreshed. He hopped through the shadows and was about to find the end of the night. As he hopped, he felt happy and peaceful as he hopped. He was so excited to tell all his friends about his special day.
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -3244,7 +3244,7 @@ LABEL: V
 PROMPT: Write a story where a character, until a soft voice whispered from behind the curtain, in a hidden cave full of glowing crystals.
 GENERATION 2: 
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -3256,7 +3256,7 @@ The voice replied, "I'm the fairy! I heard the magical creatures have been lost.
 Blue carefully picked up the creature and said, "Please bring me some of the magical powers. I want to make you happy."
 The fairy thanked Brain and flew away. Then she waved goodbye and ran back to her family.
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -3267,7 +3267,7 @@ She had to find the courage to look around. She looked in the dark forest, but s
 When she reached the top of the cave, she saw something amazing. There were a big, bright, fluffy fluffy bunny in the dark. She reached inside and gave it a big hug. The bunny was so happy that it hugged Lily.
 Lily felt so glad that she found the bunny. She smiled and hugged it tight. She was glad that she had seen the bunny and found it.
 (4-gram overlap vs. its own training stories: 0.009)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -3276,7 +3276,7 @@ PROMPT: Write a story where a character, until a soft voice whispered from behin
 GENERATION 5: 
 John was so happy to find the mysterious bird and he thanked it for being so kind. From then on, every time he looked at the magical bird, he remembered the gentle voice and the amazing journey of the cave.
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -3289,7 +3289,7 @@ Tom thought for a moment. He said, "I wish that we can find more hidden treasure
 The creature smiled. "Maybe that's a little more wonderful, Tom. So I will try to find it anywhere!"
 Tom and the creature smiled at each other and continued to look for more things in the woods.
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -3299,7 +3299,7 @@ GENERATION 7:
 The bird smiled and said, “I’m so glad I found you!”
 The animals were so happy that the bird had brought him a special gift to make them the best of friends.
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -3310,7 +3310,7 @@ The little girl laughed and said, "I like your wish! Can I stay with you?"
 The little girl smiled and said, "Of course, of course! Your wish is grinning."
 The two of them spent the day walking and playing together in the forest until it was time to go home.
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
 
 ----------------------------------------------------------------------
 
@@ -3320,4 +3320,4 @@ GENERATION 9:
 The little girl was delighted and excited. She thanked the voice and then continued walking.
 After walking, the little girl went back home. She was excited to tell her mom about the wonderful experience she had learned.
 (4-gram overlap vs. its own training stories: 0.0)
-LABEL: V
+LABEL: ____
