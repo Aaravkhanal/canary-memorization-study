@@ -138,7 +138,8 @@ def write_csv(rows: List[dict], path: Path) -> None:
     fields = [f for f in preferred if f in fields] + [f for f in fields if f not in preferred]
     path.parent.mkdir(parents=True, exist_ok=True)
     with path.open("w", newline="") as f:
-        w = csv.DictWriter(f, fieldnames=fields)
+        # Explicit LF endings keep tracked CSV outputs clean across platforms.
+        w = csv.DictWriter(f, fieldnames=fields, lineterminator="\n")
         w.writeheader()
         for r in rows:
             w.writerow(r)

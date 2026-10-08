@@ -1,10 +1,12 @@
 # Memorization vs. compositional creativity in a small language model: does the trade-off depend on architecture?
 
-**Status: exploratory draft, not submission-ready.** The four-architecture run has expanded beyond several older
-two-architecture tables below; final numbers will be regenerated only after the remaining balancing and replication
-cells finish. Until then, those historical tables are retained as an audit trail, not as the paper's final result.
-The primary novelty endpoint, full-corpus copying search, and confirmatory study are also incomplete. The current
-submission gate is `docs/PUBLICATION_READINESS.md`.
+**Status: exploratory draft, not submission-ready.** The balanced 14M grid and baseline 100/500 training-seed
+replications are complete, but historical tables below remain an audit trail rather than final results. The first
+48M baseline/frequency-0 cell completed after a disk-full checkpoint-write failure and resume from a verified
+step-1,000 checkpoint; the other 23 scale cells remain unrun. Exact full-corpus overlap now covers 24/24 canonical
+14M cells (7,680 completions) and the one completed 48M cell (320 completions). The human primary novelty endpoint
+and contamination-free confirmatory study are incomplete. The current submission gate is
+`docs/PUBLICATION_READINESS.md`.
 
 ## Abstract (placeholder)
 
@@ -30,9 +32,11 @@ matched, in the opposite direction, by pure noise under the second seed. Frequen
 multiple canaries converging on the exact same maximum exposure value, replicated across two architectures — rests
 on different, stronger evidence (exact-value convergence, which ordinary training noise does not produce) and is
 not weakened by this; frequency 10's evidence for two borderline canaries (`char_nira`, `char_suri`) is, and is
-walked back to "plausible, not established" accordingly. Baseline frequency-10 seed replication is now complete;
-frequency 100 and 500 replications are queued. Baseline and learned-position frequency 50 have since completed;
-the balanced refreshed analysis is not yet available. These results do not yet
+walked back to "plausible, not established" accordingly. Baseline frequency-10 seed replication is complete;
+frequencies 100 and 500 second-training-seed replications are now complete. Baseline and learned-position frequency 50 have since completed;
+the balanced refreshed trade-off analysis is available, while full-corpus overlap is complete for the canonical
+14M grid and one 48M cell only
+and the blinded human primary endpoint is still outstanding. These results do not yet
 establish a creativity trade-off.*
 
 ## 1. Research question
@@ -129,7 +133,9 @@ The study uses four near-parameter-matched architectures:
 | `variant_c_layernorm` | RMSNorm → LayerNorm | 14,162,304 | exact match |
 
 All four architectures are trained and scored across 0, 1, 10, 50, 100, and 500. The balanced grid is complete;
-the baseline high-frequency second-training-seed replications remain in progress.
+the baseline high-frequency second-training-seed replications are complete. The 48M scale-transfer arm is
+unfinished after a disk-full checkpoint-write failure in its first cell; no scale comparison conclusion is
+available.
 
 ### 3.2 Canary design
 
@@ -495,8 +501,8 @@ noise.
    value convergence across canaries and architectures) that a wider noise band does not by itself undermine, but
    has still never been directly seed-replicated at those specific frequencies.
 2. **Exploratory grid imbalance.** All four architectures are trained at 0, 1, 10, 100, and 500; MHA and LayerNorm
-   additionally have frequency 50. Both missing frequency-50 cells are complete; baseline high-frequency seed
-   replications are running. Frequency 0 was added after the
+   additionally have frequency 50. Both missing frequency-50 cells and baseline high-frequency seed replications
+   are complete. The exploratory 48M arm has not completed. Frequency 0 was added after the
    initial preregistration, so it is a necessary matched control but still a documented design change.
 3. **Novelty evaluation not yet run to the brief's standard.** Hand-labelling (Checkpoint 5) has not been done;
    only the automated diversity/overlap metrics have run, and only as smoke tests.

@@ -664,9 +664,31 @@ changed by this naming correction.
 
 Baseline frequency 50 completed its full 6,000-update budget at 17:39:59 local. The trainer log records 2h42m50s,
 best validation loss 1.5595, and perplexity 4.76. The checkpoint and its 12-row memorization and 32-group/320-sample
-novelty evaluations are present. The learned-position frequency-50 cell began at 17:45:45 and completed at
-20:13:27 (2h27m42s), with best validation loss 1.6385 and perplexity 5.15. The checkpoint and
+novelty evaluations are present. The learned-position frequency-50 cell began at 17:44:57 and completed at
+20:13:27 (2h28m30s), with best validation loss 1.6385 and perplexity 5.15. The checkpoint and
 memorization/novelty results are present. Its log contains 20 gradient-norm spike events (maximum 129.3); training
 completed, but clipping diagnostics should be reviewed before making a stability claim. The baseline frequency-100
-true training-seed replication is now running; frequency 500 follows. The already-running 48M queue remains behind
-the 14M runner. No human labels or confirmatory-study results are claimed here.
+and frequency-500 true training-seed replications later completed: 100x ran 2h41m29s (best validation loss
+1.5713 / PPL 4.81) and 500x ran 3h02m47s (best 1.5488 / PPL 4.71). Both used the actual alternate-training-seed
+checkpoints and have distinct `_seed1338` result JSONs. The 14M runner regenerated matched-baseline tradeoff
+tables/plots.
+
+## 2026-10-08 48M disk-full checkpoint incident
+
+After the 14M queue exited, the sequential runner began baseline frequency 0 at 48M. Training ran from 02:14:47
+to 04:17:06 local (2h02m19s wall time), reaching step 1,500 / 12.288M tokens. It failed during checkpoint
+serialization (`unexpected pos`); the APFS container had only about 185 MB free. The run summary reports 7
+gradient-health and 4 gradient-norm anomalies. Step-500 and step-1,000 training checkpoints remained; step-1,000
+loaded as a valid resumable checkpoint. After explicit approval, rolling checkpoints from completed 14M cells
+were pruned while best/final checkpoints, logs, and results were retained. The same 48M cell resumed from step
+1,000 at 07:36:09 local on 2026-10-08 and completed step 6,000 at 13:44:45 local. The completed summary reports
+26,976.3 seconds of resumed training time, best validation loss 1.4871208 / PPL 4.4243, and four gradient-norm
+anomalies. Memorization and novelty evaluations were generated; checkpoint loads and result JSON parsing passed.
+After verification, only this cell's step checkpoints were removed, preserving `best.pt`, `final.pt`, logs, and
+results. The 24-cell 14M grid's full-corpus overlap is now complete (7,680 completions), and the first 48M cell
+adds 320 more; the other 23 scale cells remain unrun. Human annotation and the separate contamination-free
+confirmatory study remain incomplete.
+
+The final run-level full-corpus audit contains 25 cells / 8,000 generated completions, with unweighted mean exact
+maximum word-four-gram overlap 0.095013, median 0.075269, and maximum 1.0. Treat this as an automated copying
+diagnostic only—not a human novelty score or evidence that the model is creative.

@@ -8,3 +8,5 @@ __pycache__/
 .pytest_cache/
 .runtime/
 .DS_Store
+results/annotations/private_manifest.json
+results/full_corpus_overlap/index_freq_*.sqlite*

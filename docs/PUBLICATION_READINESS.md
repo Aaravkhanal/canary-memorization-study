@@ -1,6 +1,6 @@
 # Publication-readiness dossier
 
-Updated 2026-10-07. This document separates what is already defensible from what must be completed before an IEEE
+Updated 2026-10-08. This document separates what is already defensible from what must be completed before an IEEE
 or comparable peer-reviewed submission. It is intentionally stricter than a project README.
 
 ## Candid status
@@ -17,13 +17,14 @@ artifact.
 
 ## Non-negotiable blockers before submission
 
-1. Complete the four-architecture 14M grid's baseline 100/500 training-seed replications, then complete and
-   analyze the sequentially queued 24-cell 48M
-   scale-transfer arm. Report both arms as exploratory until replicated.
+1. The 14M grid and baseline 100/500 training-seed replications are complete. The first 48M baseline/frequency-0
+   cell completed after resuming from its intact step-1,000 checkpoint (best validation loss 1.4871); the other 23
+   scale-transfer cells remain unrun. Report both arms as exploratory until replicated.
 2. Complete the blinded two-rater V/T/N study in `docs/ANNOTATION_PROTOCOL.md`; report Cohen's kappa,
    Krippendorff's alpha, disagreements/adjudication, and clustered confidence intervals.
-3. Search generated text against the **entire** training corpus, not only the stories selected for canary
-   insertion. The current overlap metric is explicitly scoped and cannot support a broad non-copying claim.
+3. Complete the exact full-corpus search for all primary conditions. It now covers 24 canonical 14M novelty cells
+   / 7,680 completions and the first 48M cell / 320 completions; the other 23 scale outputs remain pending. The
+   overlap diagnostic alone cannot support a broad non-copying claim.
 4. Replace the false “no existing work” positioning. RAVEN (McCoy et al., TACL 2023), Haviv et al. (EACL 2023),
    Jiang and Ferraro (EACL 2026), and Zhou et al. (ICLR 2026) now directly overlap parts of the framing.
 5. Freeze a statistical analysis plan before unblinding condition labels. Clearly mark every unregistered analysis

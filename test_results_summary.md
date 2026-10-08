@@ -1,6 +1,6 @@
 # Test and experiment results ledger – Canary Memorization Study
 
-Updated 2026-10-07. This is the separate audit file for completed tests, completed experiment cells, outstanding
+Updated 2026-10-08. This is the separate audit file for completed tests, completed experiment cells, outstanding
 compute, and work that still requires human judgment.
 
 ## Expanded scale arm
@@ -8,15 +8,23 @@ compute, and work that still requires human judgment.
 - 67/67 research tests passed after adding full-corpus overlap, blinded annotation, and 48M configuration checks.
 - Four 48M architecture conditions × six frequencies are configured (24 runs), each targeting 49,152,000 training
   tokens. Counts are 48,100,480 baseline; 48,428,160 learned positions; 47,239,040 MHA; and 48,100,480 LayerNorm.
-- The 48M configs and sequential runner are added, but no 48M canary training has started yet. The existing MY-LLM
-  48M checkpoint used a different corpus and five times the token budget, so it cannot serve as the matched arm.
+- The first 48M cell (baseline, frequency 0) initially failed at step 1,500 during a checkpoint write when the
+  filesystem had ~185 MB available. After approval, 58 validated rolling checkpoints from completed 14M runs
+  were removed while retaining best/final checkpoints, logs, and results. The cell resumed from intact step 1,000
+  and completed 6,000 steps at 13:44:45 local on 2026-10-08. Trainer summary: 26,976.3 seconds, best validation
+  loss 1.4871208 / PPL 4.4243, four gradient-norm anomalies. Memorization, novelty, and full-corpus outputs were
+  generated and verified. Its rolling step checkpoints were removed only after validation; best/final remain.
+  The remaining 23 scale cells are not complete.
+- The existing MY-LLM 48M checkpoint used a different corpus and five times the token budget, so it cannot serve as
+  the matched arm.
 - The 48M scale comparison is exploratory and single-seed initially; it also uses learning rate 5e-4 versus 8e-4
   for the current 14M arm. Both caveats must be addressed or reported before interpreting a size effect.
 
 ## Automated tests
 
-- **67/67 tests passed** on 2026-10-07 after adding the full-corpus overlap, blinded annotation, and 48M config
-  validation tests.
+- **67/67 tests passed** on 2026-10-08 after the final result regeneration. The run completed in 5.48s with 14
+  upstream matplotlib/pyparsing deprecation warnings and no failures. Re-run after final documentation-only edits
+  to confirm the repository state.
 - Coverage includes corpus construction and nesting/disjointness, canary novelty checks, exposure and extraction,
   deterministic novelty sampling, label-batch generation, and trade-off aggregation/plotting.
 - Four model architectures are parameter-matched within ±1.4%: baseline 14,162,304; learned-position 14,358,912;
@@ -53,7 +61,7 @@ the full grid. Baseline and learned-position frequency 50 have now completed, ba
 Baseline frequency 50 training ran 2026-10-07 14:57:09–17:39:59 local (2h42m50s), completing 6,000 updates.
 Best validation loss
 was 1.5595 (perplexity 4.76). Its checkpoint and 12-row memorization plus 32-group/320-completion novelty JSONs
-are present. The learned-position frequency-50 run started at 17:45:45 and completed at 20:13:27 local (2h27m42s),
+are present. The learned-position frequency-50 run started at 17:44:57 and completed at 20:13:27 local (2h28m30s),
 with best validation loss 1.6385 (perplexity 5.15). Its checkpoint and 12-row memorization plus
 32-group/320-completion novelty JSONs are present. The log records 20 gradient-norm spike events, including an
 early 129.3 and later 40.15; training continued to 6,000 updates without a failed exit. The trainer applies
@@ -64,7 +72,12 @@ before claiming every spike was harmless.
 
 Baseline second-seed training is complete at 0x, 1x, and 10x. At 10x, the second seed strengthens rather than
 erases the signal: `char_nira` and `plot_lantern` reproduce exactly, while `char_boro` and `char_suri` rise to the
-exposure ceiling. Baseline 100x and 500x second-seed runs are queued after the current evaluation batch.
+exposure ceiling. Baseline true training-seed replications at 100x and 500x have now completed from their matching
+`models/baseline/freq_{100,500}_seed1338` checkpoints. The 100x run took 2h41m29s (20:17:34–22:59:03 local),
+best validation loss 1.5713 / perplexity 4.81, with one logged gradient-norm spike. The 500x run took 3h02m47s
+(23:03:35–02:06:22 local, crossing midnight), best validation loss 1.5488 / perplexity 4.71, with four logged
+gradient-norm spikes. Both have best checkpoints and separate `_seed1338` memorization/novelty JSONs; the novelty
+files came from alternate-training-seed checkpoints, not generation-seed resamples.
 
 ## Current contamination-excluded proxy table
 
@@ -89,15 +102,29 @@ to blank; the utility is now read-only. Generated text and automated overlap/div
 
 Phase 5 therefore remains **0 valid human labels completed**. A human must read each completion and choose:
 `V` = verbatim/near-verbatim, `T` = template copy with superficial swaps, or `N` = genuine novel combination.
+Two blinded batches have now been prepared from the finalized 14M primary novelty files: 1,280 entries each for
+two raters (two samples per canary/setting group across 20 treatment cells). The label, confidence, and notes
+fields were verified blank. The private manifest is kept separate from the rater files; no human judgments are
+claimed.
 
-## Active queue
+## Queue status and storage incident (2026-10-08)
 
-1. The fixed-generation-seed batch is complete and its filenames have been disambiguated.
-2. The 14M runner completed both frequency-50 balancing cells and is training the baseline 100x second-training-seed
-   replication, followed by 500x. The 48M runner remains queued behind the 14M process.
-3. Regenerate matched-baseline trade-off CSVs/plots, rerun tests, and update the paper.
-4. Human Phase 5 labelling remains a non-automatable blocker to the paper's primary trade-off conclusion.
-5. After the 14M queue, train/evaluate the 24 48M scale-transfer cells from
-   `scripts/run_48m_scale_experiments.sh`. The configurations have all parsed successfully; no 48M canary run has
-   started yet. See `docs/SCALE_48M_PROTOCOL.md` for parameter counts, token budget, learning-rate caveat, and
-   compute estimate.
+The 14M queue is complete, including both frequency-50 balancing cells and baseline 100x/500x true training-seed
+replications. Its runner regenerated the trade-off CSVs/plots using matched zero-frequency baselines. The first
+48M cell failed as described above and subsequently completed in-place from step 1,000; no second cell was launched.
+The blinded batches are prepared, and the final research test suite passed. Full-corpus overlap now covers all 24
+canonical 14M cells (7,680 completions) and one 48M cell (320
+completions). The other 23 scale-cell overlap analyses remain. Do not claim human annotation or the contamination-free
+confirmatory study complete. The latest test rerun after regenerating missing canonical frequency-0 outputs passed 67/67 in 5.48s
+with 14 upstream matplotlib/pyparsing deprecation warnings.
+
+The separate [trainer runtime audit](results/trainer_runtime_audit.md) records wall-clock time, step count, best
+validation loss, gradient-norm anomaly count, and outcome for every nonempty trainer log. Before checkpoint
+pruning, all 119 checkpoint files loaded successfully; the retained 14M best/final files are a validated subset.
+The 48M best/final and rolling checkpoints were load-verified after training; only the two rolling files were then
+removed. All 102 primary-result and full-corpus JSON files parsed successfully, and each of the 25 full-corpus
+index metadata records matched its corpus SHA-256 and story count. Two blinded annotation CSVs with 1,280 unlabeled
+rows each are prepared locally under `results/annotations/`; the private manifest is Git-ignored.
+
+An earlier 2026-10-08 full-suite run passed 67/67 in 6.18 seconds; the latest run after result regeneration
+passed 67/67 in 5.48 seconds with 14 upstream matplotlib/pyparsing deprecation warnings.
