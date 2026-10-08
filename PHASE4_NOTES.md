@@ -693,3 +693,17 @@ The final run-level full-corpus audit contains 27 cells / 8,640 generated comple
 maximum word-four-gram overlap 0.096991, median 0.076190, and maximum 1.0. This includes the 24 canonical 14M
 cells, two baseline training-seed replications, and one exploratory 48M cell. Treat this as an automated copying
 diagnostic only—not a human novelty score or evidence that the model is creative.
+
+## 2026-10-09 48M baseline frequency-1 completion
+
+Baseline frequency 1 completed 6,000 updates at 00:06:17 local on 2026-10-09. The run started at 16:52:18 on
+2026-10-08; the trainer summary records 26,015.6 seconds (7h13m36s), with 7h13m59s wall-clock span. Best
+validation loss was 1.4931227 (PPL 4.45), with six gradient-norm spikes and seven gradient-health alerts. Both
+retained model checkpoints loaded successfully. The 12-row memorization result, 32-group/320-completion novelty
+result, and exact full-corpus overlap report all passed parsing and shape checks. The overlap fingerprint matched
+the actual frequency-1 corpus (73,139 stories). Rolling step checkpoints were removed only after those checks.
+
+The queue continued with baseline frequency 10. At 00:18:32 local, its log showed step 75/6,000 with an ETA of
+about 7h42m. Two of 24 scale cells are complete, 21 are queued, and this is the sole active training cell.
+Available disk space was about 7.3 GiB at that check. Since this may not cover both best and final checkpoints for
+the remaining cells, the user has been asked how to handle storage; no best/final checkpoint has been deleted.

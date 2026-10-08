@@ -86,3 +86,19 @@
   All 104 current primary-result and full-corpus JSON files parsed; all 27 overlap outputs matched the correct
   frequency corpus hash and index story count. The two blinded CSVs still contain 1,280 rows each with labels,
   confidence, and notes blank.
+
+## 2026-10-09 48M queue continuation
+
+- Baseline frequency 1 completed from scratch at 00:06:17 local after starting at 16:52:18 on 2026-10-08.
+  Trainer time was 26,015.6 seconds (7h13m36s); wall time was 7h13m59s. It completed 6,000 updates with best
+  validation loss 1.4931227 / PPL 4.45, six gradient-norm spikes, and seven gradient-health alerts. The retained
+  best/final checkpoints loaded, memorization and novelty outputs passed shape checks, and its 320-completion
+  full-corpus report matched the frequency-1 corpus hash and 73,139-story count. Rolling checkpoints were removed
+  after verification.
+- The 48M queue then started baseline frequency 10 sequentially. At 00:18:32 local it had reached step 75/6,000;
+  the trainer estimated 7h42m remaining for that cell. Baseline frequencies 0 and 1 are complete; 21 cells remain
+  queued. This is the only active training/evaluation process.
+- The full-corpus directory now contains 28 result files / 8,960 completions (24 canonical 14M cells, two
+  baseline training-seed cells, and two 48M cells). The two 48M full-corpus fingerprints were checked against
+  their frequency-specific corpora. Storage was 7.3 GiB free at the latest check. Preserving best and final
+  checkpoints for all remaining cells may exceed capacity; user direction on retention/storage is pending.

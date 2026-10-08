@@ -1,6 +1,6 @@
 # Test and experiment results ledger – Canary Memorization Study
 
-Updated 2026-10-08. This is the separate audit file for completed tests, completed experiment cells, outstanding
+Updated 2026-10-09. This is the separate audit file for completed tests, completed experiment cells, outstanding
 compute, and work that still requires human judgment.
 
 ## Expanded scale arm
@@ -8,13 +8,18 @@ compute, and work that still requires human judgment.
 - 67/67 research tests passed after adding full-corpus overlap, blinded annotation, and 48M configuration checks.
 - Four 48M architecture conditions × six frequencies are configured (24 runs), each targeting 49,152,000 training
   tokens. Counts are 48,100,480 baseline; 48,428,160 learned positions; 47,239,040 MHA; and 48,100,480 LayerNorm.
-- The first 48M cell (baseline, frequency 0) initially failed at step 1,500 during a checkpoint write when the
+- The baseline 48M frequency-0 cell initially failed at step 1,500 during a checkpoint write when the
   filesystem had ~185 MB available. After approval, 58 validated rolling checkpoints from completed 14M runs
   were removed while retaining best/final checkpoints, logs, and results. The cell resumed from intact step 1,000
   and completed 6,000 steps at 13:44:45 local on 2026-10-08. Trainer summary: 26,976.3 seconds, best validation
   loss 1.4871208 / PPL 4.4243, four gradient-norm anomalies. Memorization, novelty, and full-corpus outputs were
   generated and verified. Its rolling step checkpoints were removed only after validation; best/final remain.
-  The remaining 23 scale cells are not complete.
+  Baseline frequency 1 then completed 6,000 updates (26,015.6 trainer seconds; 7h13m36s), best validation loss
+  1.4931227 / PPL 4.45, six gradient-norm spikes, and seven gradient-health alerts. Its best/final checkpoints
+  and 12-row memorization, 32-group/320-completion novelty, and matching-corpus overlap JSONs were verified. The
+  baseline frequency-1 overlap fingerprint matches its 73,139-story corpus. Baseline frequency 10 is now training
+  (75/6,000 at 00:18 local on 2026-10-09); 21 cells remain queued. About 7.3 GiB was free at the latest check.
+  The remaining 22 cells are not complete.
 - The existing MY-LLM 48M checkpoint used a different corpus and five times the token budget, so it cannot serve as
   the matched arm.
 - The 48M scale comparison is exploratory and single-seed initially; it also uses learning rate 5e-4 versus 8e-4

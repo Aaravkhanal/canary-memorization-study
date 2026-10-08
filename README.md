@@ -8,9 +8,10 @@ narrative-generation setting.
 **Status: the balanced four-architecture 14M exploratory grid is complete, with preliminary findings — the primary
 novelty/recombination endpoint still needs blinded human labelling.** The MHA and LayerNorm variants are trained
 and scored at 0, 1, 10, 50, 100, and 500 insertions. Baseline and learned-position frequency 50 are complete;
-the baseline 100x/500x second-training-seed replications are complete. The first 48M cell failed during a
-checkpoint write, then resumed from its verified step-1,000 checkpoint and completed; the other 23 scale cells
-remain unrun. See
+the baseline 100x/500x second-training-seed replications are complete. Two 48M baseline cells (frequencies 0 and 1)
+are complete and verified; baseline frequency 10 is currently training, with the other 21 scale cells queued.
+The first 48M cell's initial attempt failed during a checkpoint write, then resumed from its verified step-1,000
+checkpoint and completed. See
 `PLAN.md` for the phase-by-phase brief this project follows, `PHASE4_NOTES.md` for the detailed running lab
 notebook, and `docs/DRAFT_PAPER.md` for the write-up structured for eventual publication, kept in sync as results
 come in.
@@ -47,20 +48,21 @@ Per-run durations, checkpoint validation, and failure records are summarized in 
   `docs/ANNOTATION_PROTOCOL.md`. No automated labels are treated as evidence.
 - **Full-corpus copying analysis** is implemented in `scripts/eval_full_corpus_overlap.py`. It has been run for
   all 24 canonical 14M novelty cells (7,680 completions), both baseline training-seed replications (640
-  completions), and the first 48M baseline/frequency-0 cell (320 completions), using each matching
+  completions), and two 48M baseline cells (640 completions), using each matching
   frequency-specific training corpus. Per-completion outputs, corpus hashes,
   and descriptive summaries are in
   `results/full_corpus_overlap/`. This automated overlap diagnostic is not a substitute for blinded human
   novelty labels and cannot by itself support a creativity claim.
-- Baseline 100x/500x training-seed replications are complete. The first 48M baseline/frequency-0 cell completed
+- Baseline 100x/500x training-seed replications are complete. The first two 48M baseline cells (frequencies 0 and 1) completed
   6,000 steps after an initial disk-full checkpoint-write failure and resume from its verified step-1,000 state;
-  it has memorization, novelty, and full-corpus overlap evaluations. The remaining 23 scale cells are unfinished.
+  both have memorization, novelty, and full-corpus overlap evaluations. The other 22 scale cells are unfinished.
 - **A confirmatory, contamination-free study** remains necessary for a strong paper. Its frozen recommended design
   is in `docs/CONFIRMATORY_STUDY_PROTOCOL.md`.
 - **48M scale-transfer arm:** 24 matched-token configs (four near-matched architectures × six corpus conditions)
   are prepared. The baseline/frequency-0 cell failed at step 1,500 during a checkpoint write, then resumed from
   the intact step-1,000 state and completed 6,000 steps (best validation loss 1.4871). Its evaluations are
-  finalized; the remaining 23 cells are not run. These train fresh 48M models on this repository's canary corpora;
+  finalized for frequencies 0 and 1; the other 22 cells are unfinished (baseline frequency 10 is currently training).
+  These train fresh 48M models on this repository's canary corpora;
   the existing MY-LLM 48M checkpoint
   used different data and a fivefold token budget, so it is not a causal canary result. Protocol and runtime
   expectations are documented in `docs/SCALE_48M_PROTOCOL.md`.

@@ -1,9 +1,10 @@
 # 48M scale-transfer experiment protocol
 
-**Status: the 14M queue is complete. The first 48M cell (baseline, frequency 0) completed 6,000 updates after an
-initial step-1,500 checkpoint-write failure and an in-place resume from its verified step-1,000 checkpoint.** Its
-best validation loss is 1.4871 (PPL 4.4243), and its memorization, novelty, and full-corpus overlap evaluations
-are finalized. The remaining 23 cells have not been run. This is a scale-transfer extension to the exploratory
+**Status: the 14M queue is complete. Two 48M baseline cells (frequencies 0 and 1) completed 6,000 updates with
+memorization, novelty, and matching-corpus overlap evaluations verified.** Frequency 0 required an initial
+step-1,500 checkpoint-write failure and an in-place resume from its verified step-1,000 checkpoint; it reached
+best validation loss 1.4871 (PPL 4.4243). Frequency 1 reached best validation loss 1.4931 (PPL 4.45). Baseline
+frequency 10 is currently training; the other 21 cells are queued. This is a scale-transfer extension to the exploratory
 14M study, not a replacement for the contamination-free confirmatory study.
 
 ## Why the existing 48M checkpoint is not the experiment
@@ -44,8 +45,13 @@ checkpoints, this same cell resumed in-place at 07:36:09 and completed at 13:44:
 summary reports 26,976.3 seconds of resumed training time, four gradient-norm anomalies, best validation loss
 1.4871208 / PPL 4.4243. Memorization and novelty JSONs were generated; exact corpus overlap was computed against
 the matching 73,139-story frequency-0 corpus. All retained checkpoints and JSON results were verified, then only
-that cell's rolling checkpoints were removed, leaving best/final checkpoints, logs, and results. The remaining
-23-cell queue has not been launched.
+that cell's rolling checkpoints were removed, leaving best/final checkpoints, logs, and results. Baseline
+frequency 1 then completed 6,000 updates (26,015.6 trainer seconds; 7h13m36s), best validation loss 1.4931227 /
+PPL 4.45, with six gradient-norm spikes and seven gradient-health alerts. Both model checkpoints and all three
+result JSONs were checked; its overlap output matches the frequency-1 corpus fingerprint and 73,139 stories.
+Baseline frequency 10 is now in progress; 21 cells remain queued. The latest storage check showed 6.5 GiB free;
+retaining best and final checkpoints for every remaining cell may exceed capacity, and retention policy is pending
+user direction.
 Actual per-cell elapsed times and failures are the record of truth. The config tests check token budget,
 seed/data separation, and exact parameter counts. The full research suite checks surrounding analysis and
 evaluation code.

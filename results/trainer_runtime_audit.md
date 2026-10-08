@@ -6,8 +6,8 @@ losses, and gradient-norm anomaly counts come from the run summaries. The three 
 (`baseline/freq_1/exp_001`, `baseline/freq_500/exp_001`, and `variant_b_mha/freq_50/exp_001`) contain no trainer output;
 each corresponding cell completed under its `exp_002` directory and is not counted as a failed run.
 
-All completed 14M cells reached 6,000 updates. The 48M frequency-0 baseline cell has now completed after one
-disk-full checkpoint-write failure and an in-place resume from its verified step-1,000 checkpoint.
+All completed 14M cells reached 6,000 updates. The 48M baseline frequency-0 and frequency-1 cells have completed;
+frequency 0 required one disk-full checkpoint-write recovery and frequency 10 is currently training.
 
 | Architecture / run | Frequency | Runtime | Updates | Best val loss | Grad-norm spikes | Outcome |
 |---|---:|---:|---:|---:|---:|---|
@@ -42,11 +42,23 @@ disk-full checkpoint-write failure and an in-place resume from its verified step
 | baseline, training seed 1338 | 500 | 03:02:47 | 6,000 | 1.5488 | 4 | completed |
 | 48M baseline, initial attempt | 0 | 02:02:19 | 1,500 | 1.8588* | 4 | failed during checkpoint write; disk full |
 | 48M baseline, resumed cell | 0 | 07:29:36 trainer time† | 6,000 | 1.4871 | 4 | completed; resumed at step 1,000 |
+| 48M baseline | 1 | 07:13:36 trainer time | 6,000 | 1.4931 | 6 | completed; 7 gradient-health alerts |
 
 \* For the failed 48M row, the summary held a candidate best validation loss of 1.8588 at the failing step, but its
 update did not persist to `best.pt`. The last logged and persisted evaluation/checkpoint is step 1,000 (validation
 loss 2.0190, perplexity 7.53). The step-1,000 training checkpoint was loaded successfully; step 1,500 was not
 saved. The failure was PyTorch's `unexpected pos` serialization error with about 185 MB free on the filesystem.
+
+The baseline frequency-1 48M run started at 16:52:18 local on 2026-10-08 and completed at 00:06:17 on
+2026-10-09 (7h13m59s wall time); its summary records 26,015.6 trainer seconds. It completed 6,000 updates with
+best validation loss 1.4931227 / PPL 4.45, six gradient-norm spikes, and seven gradient-health alerts. Its
+`best.pt` and `final.pt` each loaded with `torch.load(..., weights_only=True)`. Memorization (12 rows), novelty
+(32 groups / 320 completions), and exact full-corpus overlap (32 groups / 320 completions) parsed and passed
+shape checks. The overlap metadata's SHA-256 matched `data/processed/freq_1/corpus.txt` (73,139 stories). Rolling
+checkpoints were removed after verification. Baseline frequency 10 began next and is currently training; the
+other 21 grid cells are queued. At the latest audit there were 6.5 GiB free; retaining both best and final
+checkpoints across the remaining grid may exceed available storage, and the user has been asked to choose a
+retention policy.
 
 The initial audit loaded all 119 `.pt` checkpoint files present before the approved cleanup with
 `torch.load(..., weights_only=True)`; zero were corrupt. The 58 rolling checkpoints belonging to completed 14M
