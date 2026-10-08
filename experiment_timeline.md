@@ -66,16 +66,23 @@
   checkpoints with generation seed 20260927, then evaluated against the frequency-0 corpus. The full canonical
   14M grid now has 24/24 cells and 7,680 completions; all six corpus indexes match their source corpus hashes.
 - After the resumed 48M cell completed, its 320 novelty outputs were checked against the same frequency-0 corpus.
-  The exact overlap audit now contains 25 files / 8,000 completions total: the complete 14M grid plus one
-  exploratory 48M cell. Its aggregate mean is 0.095013, median 0.075269, max 1.0. This is an automated copying
-  diagnostic, not a human novelty judgment. The remaining 23 scale cells, human annotation, and separate
-  contamination-free confirmatory study remain incomplete.
+  Initially, the exact overlap audit contained 25 files / 8,000 completions: the complete 14M grid plus one
+  exploratory 48M cell. The remaining 23 scale cells, human annotation, and separate contamination-free
+  confirmatory study remain incomplete.
 - 09:42 local (2026-10-08): reran the full research test suite after making generated trade-off CSVs use stable
   LF line endings; 67 passed, 14 upstream deprecation warnings. A later post-regeneration run passed 67/67 in
   5.48s with the same warnings.
 - The 2026-10-08 research test rerun passed 67/67 in 5.48s (14 upstream matplotlib/pyparsing deprecation
-  warnings). After regeneration, all 102 primary-result and full-corpus JSON files parsed successfully; all 25
-  index metadata records matched corpus SHA-256 and story counts. The two blinded rater CSVs contain 1,280
+  warnings). At that point, 102 primary-result and full-corpus JSON files parsed successfully. The two blinded rater CSVs contain 1,280
   rows each; label, confidence, and notes fields are blank. The separate private manifest is excluded from Git.
 - A full read-only load check of all 119 `.pt` files under `models/` passed; no corrupt checkpoint was found. The
   per-run timing, validation, anomaly, and outcome table is in `results/trainer_runtime_audit.md`.
+- 14:05 local (2026-10-08): exact full-corpus checks were added for the true baseline 100x/500x training-seed
+  novelty outputs, each using its matching frequency-specific corpus (320 completions each). All six corpus
+  indexes still match their source hashes and story counts. The full-corpus directory now contains 27 enriched
+  JSONs / 8,640 completions: 24 canonical 14M cells, two seed replications, and one 48M cell. Combined mean is
+  0.096991, median 0.076190, maximum 1.0. This automated copying diagnostic is not a human novelty score.
+- 14:10 local (2026-10-08): the full 67-test suite passed again (5.46s; 14 upstream deprecation warnings).
+  All 104 current primary-result and full-corpus JSON files parsed; all 27 overlap outputs matched the correct
+  frequency corpus hash and index story count. The two blinded CSVs still contain 1,280 rows each with labels,
+  confidence, and notes blank.

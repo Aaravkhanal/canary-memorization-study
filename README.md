@@ -46,8 +46,9 @@ Per-run durations, checkpoint validation, and failure records are summarized in 
   implemented in `scripts/prepare_blinded_annotations.py`, `scripts/score_blinded_annotations.py`, and
   `docs/ANNOTATION_PROTOCOL.md`. No automated labels are treated as evidence.
 - **Full-corpus copying analysis** is implemented in `scripts/eval_full_corpus_overlap.py`. It has been run for
-  all 24 canonical 14M novelty cells (7,680 completions), plus the first 48M baseline/frequency-0 cell (320
-  completions), using each matching frequency-specific training corpus. Per-completion outputs, corpus hashes,
+  all 24 canonical 14M novelty cells (7,680 completions), both baseline training-seed replications (640
+  completions), and the first 48M baseline/frequency-0 cell (320 completions), using each matching
+  frequency-specific training corpus. Per-completion outputs, corpus hashes,
   and descriptive summaries are in
   `results/full_corpus_overlap/`. This automated overlap diagnostic is not a substitute for blinded human
   novelty labels and cannot by itself support a creativity claim.

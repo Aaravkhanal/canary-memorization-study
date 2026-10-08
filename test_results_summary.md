@@ -22,7 +22,7 @@ compute, and work that still requires human judgment.
 
 ## Automated tests
 
-- **67/67 tests passed** on 2026-10-08 after the final result regeneration. The run completed in 5.48s with 14
+- **67/67 tests passed** on 2026-10-08 after the final result regeneration. The latest run completed in 5.46s with 14
   upstream matplotlib/pyparsing deprecation warnings and no failures. Re-run after final documentation-only edits
   to confirm the repository state.
 - Coverage includes corpus construction and nesting/disjointness, canary novelty checks, exposure and extraction,
@@ -113,18 +113,18 @@ The 14M queue is complete, including both frequency-50 balancing cells and basel
 replications. Its runner regenerated the trade-off CSVs/plots using matched zero-frequency baselines. The first
 48M cell failed as described above and subsequently completed in-place from step 1,000; no second cell was launched.
 The blinded batches are prepared, and the final research test suite passed. Full-corpus overlap now covers all 24
-canonical 14M cells (7,680 completions) and one 48M cell (320
-completions). The other 23 scale-cell overlap analyses remain. Do not claim human annotation or the contamination-free
-confirmatory study complete. The latest test rerun after regenerating missing canonical frequency-0 outputs passed 67/67 in 5.48s
+canonical 14M cells (7,680 completions), two baseline training-seed replications (640 completions), and one 48M
+cell (320 completions). The other 23 scale-cell overlap analyses remain. Do not claim human annotation or the contamination-free
+confirmatory study complete. The latest test rerun after adding the two seed-replication corpus-overlap outputs passed 67/67 in 5.46s
 with 14 upstream matplotlib/pyparsing deprecation warnings.
 
 The separate [trainer runtime audit](results/trainer_runtime_audit.md) records wall-clock time, step count, best
 validation loss, gradient-norm anomaly count, and outcome for every nonempty trainer log. Before checkpoint
 pruning, all 119 checkpoint files loaded successfully; the retained 14M best/final files are a validated subset.
 The 48M best/final and rolling checkpoints were load-verified after training; only the two rolling files were then
-removed. All 102 primary-result and full-corpus JSON files parsed successfully, and each of the 25 full-corpus
-index metadata records matched its corpus SHA-256 and story count. Two blinded annotation CSVs with 1,280 unlabeled
+removed. All 104 current primary-result and full-corpus JSON files parsed successfully; all six frequency-specific
+corpus indexes matched their corpus SHA-256 and story count. Two blinded annotation CSVs with 1,280 unlabeled
 rows each are prepared locally under `results/annotations/`; the private manifest is Git-ignored.
 
 An earlier 2026-10-08 full-suite run passed 67/67 in 6.18 seconds; the latest run after result regeneration
-passed 67/67 in 5.48 seconds with 14 upstream matplotlib/pyparsing deprecation warnings.
+passed 67/67 in 5.46 seconds with 14 upstream matplotlib/pyparsing deprecation warnings.

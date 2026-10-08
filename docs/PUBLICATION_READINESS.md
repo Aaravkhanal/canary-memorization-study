@@ -23,8 +23,9 @@ artifact.
 2. Complete the blinded two-rater V/T/N study in `docs/ANNOTATION_PROTOCOL.md`; report Cohen's kappa,
    Krippendorff's alpha, disagreements/adjudication, and clustered confidence intervals.
 3. Complete the exact full-corpus search for all primary conditions. It now covers 24 canonical 14M novelty cells
-   / 7,680 completions and the first 48M cell / 320 completions; the other 23 scale outputs remain pending. The
-   overlap diagnostic alone cannot support a broad non-copying claim.
+   / 7,680 completions, two baseline training-seed replications / 640 completions, and the first 48M cell / 320
+   completions; the other 23 scale outputs remain pending. The overlap diagnostic alone cannot support a broad
+   non-copying claim.
 4. Replace the false “no existing work” positioning. RAVEN (McCoy et al., TACL 2023), Haviv et al. (EACL 2023),
    Jiang and Ferraro (EACL 2026), and Zhou et al. (ICLR 2026) now directly overlap parts of the framing.
 5. Freeze a statistical analysis plan before unblinding condition labels. Clearly mark every unregistered analysis

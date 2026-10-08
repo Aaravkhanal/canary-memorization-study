@@ -689,6 +689,7 @@ results. The 24-cell 14M grid's full-corpus overlap is now complete (7,680 compl
 adds 320 more; the other 23 scale cells remain unrun. Human annotation and the separate contamination-free
 confirmatory study remain incomplete.
 
-The final run-level full-corpus audit contains 25 cells / 8,000 generated completions, with unweighted mean exact
-maximum word-four-gram overlap 0.095013, median 0.075269, and maximum 1.0. Treat this as an automated copying
+The final run-level full-corpus audit contains 27 cells / 8,640 generated completions, with unweighted mean exact
+maximum word-four-gram overlap 0.096991, median 0.076190, and maximum 1.0. This includes the 24 canonical 14M
+cells, two baseline training-seed replications, and one exploratory 48M cell. Treat this as an automated copying
 diagnostic only—not a human novelty score or evidence that the model is creative.

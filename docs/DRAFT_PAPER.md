@@ -4,8 +4,9 @@
 replications are complete, but historical tables below remain an audit trail rather than final results. The first
 48M baseline/frequency-0 cell completed after a disk-full checkpoint-write failure and resume from a verified
 step-1,000 checkpoint; the other 23 scale cells remain unrun. Exact full-corpus overlap now covers 24/24 canonical
-14M cells (7,680 completions) and the one completed 48M cell (320 completions). The human primary novelty endpoint
-and contamination-free confirmatory study are incomplete. The current submission gate is
+14M cells (7,680 completions), two baseline training-seed replication cells (640 completions), and the one
+completed 48M cell (320 completions). The human primary novelty endpoint and contamination-free confirmatory
+study are incomplete. The current submission gate is
 `docs/PUBLICATION_READINESS.md`.
 
 ## Abstract (placeholder)
