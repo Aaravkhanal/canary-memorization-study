@@ -707,3 +707,13 @@ The queue continued with baseline frequency 10. At 00:18:32 local, its log showe
 about 7h42m. Two of 24 scale cells are complete, 21 are queued, and this is the sole active training cell.
 Available disk space was about 7.3 GiB at that check. Since this may not cover both best and final checkpoints for
 the remaining cells, the user has been asked how to handle storage; no best/final checkpoint has been deleted.
+
+## 2026-10-09 48M baseline frequency-10 completion
+
+Baseline frequency 10 started at 00:12:20 local and completed at 07:57:05 (7h44m45s wall-clock; 27,860.3 trainer
+seconds). It completed 6,000 updates with best validation loss 1.48957798 / PPL 4.44, four gradient-norm spikes,
+and eight gradient-health alerts. Its best/final checkpoints and all three evaluation JSONs were verified; the
+full-corpus report matched the 73,139-story frequency-10 corpus. Rolling checkpoints were removed after validation.
+Baseline frequency 50 began next; at 08:24:14 local it was at step 275/6,000 with an ETA of about 7h22m. Three
+of 24 scale cells are complete, one is active, and 20 are queued. Disk space was about 7.0 GiB after cleanup;
+user direction on preserving both best and final files versus a best-only policy is still pending.

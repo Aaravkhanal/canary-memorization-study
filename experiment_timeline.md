@@ -102,3 +102,16 @@
   baseline training-seed cells, and two 48M cells). The two 48M full-corpus fingerprints were checked against
   their frequency-specific corpora. Storage was 7.3 GiB free at the latest check. Preserving best and final
   checkpoints for all remaining cells may exceed capacity; user direction on retention/storage is pending.
+
+## 2026-10-09 48M baseline frequency-10 completion
+
+- Baseline frequency 10 began at 00:12:20 local and completed at 07:57:05 (7h44m45s wall; 27,860.3 trainer
+  seconds). It reached 6,000 updates, best validation loss 1.48957798 / PPL 4.44, with four gradient-norm spikes
+  and eight gradient-health alerts. Best/final checkpoint loads and all memorization/novelty/full-corpus JSON
+  checks passed; the overlap fingerprint matched the frequency-10 corpus (73,139 stories). Rolling checkpoints
+  were removed after verification.
+- Baseline frequency 50 began next. At 08:24:14 local it was at step 275/6,000 with a trainer estimate of
+  7h22m remaining. Three of 24 48M cells are complete, this is the sole active cell, and 20 remain queued.
+- The full-corpus audit now has 29 enriched result files / 9,280 completions (14M primary grid, two true
+  baseline training-seed replications, and three 48M cells). Available disk space was about 7.0 GiB after the
+  last rolling-checkpoint cleanup; storage policy for the remaining cells is still awaiting user direction.

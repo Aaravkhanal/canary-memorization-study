@@ -6,8 +6,8 @@ losses, and gradient-norm anomaly counts come from the run summaries. The three 
 (`baseline/freq_1/exp_001`, `baseline/freq_500/exp_001`, and `variant_b_mha/freq_50/exp_001`) contain no trainer output;
 each corresponding cell completed under its `exp_002` directory and is not counted as a failed run.
 
-All completed 14M cells reached 6,000 updates. The 48M baseline frequency-0 and frequency-1 cells have completed;
-frequency 0 required one disk-full checkpoint-write recovery and frequency 10 is currently training.
+All completed 14M cells reached 6,000 updates. The 48M baseline frequency-0, frequency-1, and frequency-10 cells
+have completed; frequency 0 required one disk-full checkpoint-write recovery and frequency 50 is currently training.
 
 | Architecture / run | Frequency | Runtime | Updates | Best val loss | Grad-norm spikes | Outcome |
 |---|---:|---:|---:|---:|---:|---|
@@ -43,6 +43,7 @@ frequency 0 required one disk-full checkpoint-write recovery and frequency 10 is
 | 48M baseline, initial attempt | 0 | 02:02:19 | 1,500 | 1.8588* | 4 | failed during checkpoint write; disk full |
 | 48M baseline, resumed cell | 0 | 07:29:36 trainer time† | 6,000 | 1.4871 | 4 | completed; resumed at step 1,000 |
 | 48M baseline | 1 | 07:13:36 trainer time | 6,000 | 1.4931 | 6 | completed; 7 gradient-health alerts |
+| 48M baseline | 10 | 07:44:20 trainer time | 6,000 | 1.4896 | 4 | completed; 8 gradient-health alerts |
 
 \* For the failed 48M row, the summary held a candidate best validation loss of 1.8588 at the failing step, but its
 update did not persist to `best.pt`. The last logged and persisted evaluation/checkpoint is step 1,000 (validation
@@ -59,6 +60,16 @@ checkpoints were removed after verification. Baseline frequency 10 began next an
 other 21 grid cells are queued. At the latest audit there were 6.5 GiB free; retaining both best and final
 checkpoints across the remaining grid may exceed available storage, and the user has been asked to choose a
 retention policy.
+
+The baseline frequency-10 48M run started at 00:12:20 local on 2026-10-09 and completed at 07:57:05
+(7h44m45s wall time); its summary records 27,860.3 trainer seconds. Best validation loss was 1.48957798 /
+PPL 4.44, with four gradient-norm spikes and eight gradient-health alerts. Its best/final checkpoints loaded
+successfully. Memorization (12 rows), novelty (32 groups / 320 completions), and full-corpus overlap (32 groups /
+320 completions) passed parsing and shape checks; the overlap metadata hash matched the frequency-10 corpus and
+73,139 stories. Rolling checkpoints were removed after verification. Baseline frequency 50 then began training;
+at the latest log check it had completed 250/6,000 steps. There are now three completed 48M cells, one active,
+and 20 queued. The latest free-space check was 7.0 GiB; retaining both best and final checkpoints for the full
+remaining grid may exceed capacity, and user direction is pending.
 
 The initial audit loaded all 119 `.pt` checkpoint files present before the approved cleanup with
 `torch.load(..., weights_only=True)`; zero were corrupt. The 58 rolling checkpoints belonging to completed 14M
