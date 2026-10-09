@@ -1,11 +1,11 @@
 # Memorization vs. compositional creativity in a small language model: does the trade-off depend on architecture?
 
 **Status: exploratory draft, not submission-ready.** The balanced 14M grid and baseline 100/500 training-seed
-replications are complete, but historical tables below remain an audit trail rather than final results. Three 48M
-baseline cells (frequencies 0, 1, and 10) are complete; frequency 50 is currently training and 20 cells remain queued.
+replications are complete, but historical tables below remain an audit trail rather than final results. Four 48M
+baseline cells (frequencies 0, 1, 10, and 50) are complete; frequency 100 is currently training and 19 cells remain queued.
 The frequency-0 cell completed after a disk-full checkpoint-write failure and resume from a verified step-1,000
 checkpoint. Exact full-corpus overlap now covers 24/24 canonical 14M cells (7,680 completions), two baseline
-training-seed replication cells (640 completions), and three 48M cells (960 completions). The human primary novelty endpoint and contamination-free confirmatory
+training-seed replication cells (640 completions), and four 48M cells (1,280 completions). The human primary novelty endpoint and contamination-free confirmatory
 study are incomplete. The current submission gate is
 `docs/PUBLICATION_READINESS.md`.
 
@@ -36,7 +36,7 @@ not weakened by this; frequency 10's evidence for two borderline canaries (`char
 walked back to "plausible, not established" accordingly. Baseline frequency-10 seed replication is complete;
 frequencies 100 and 500 second-training-seed replications are now complete. Baseline and learned-position frequency 50 have since completed;
 the balanced refreshed trade-off analysis is available, while full-corpus overlap is complete for the canonical
-14M grid and three 48M cells only
+14M grid and four 48M cells only
 and the blinded human primary endpoint is still outstanding. These results do not yet
 establish a creativity trade-off.*
 
@@ -134,8 +134,8 @@ The study uses four near-parameter-matched architectures:
 | `variant_c_layernorm` | RMSNorm → LayerNorm | 14,162,304 | exact match |
 
 All four architectures are trained and scored across 0, 1, 10, 50, 100, and 500. The balanced grid is complete;
-the baseline high-frequency second-training-seed replications are complete. Three cells of the 48M scale-transfer
-arm are complete (baseline frequencies 0, 1, and 10), with baseline frequency 50 currently training. The other 20
+the baseline high-frequency second-training-seed replications are complete. Four cells of the 48M scale-transfer
+arm are complete (baseline frequencies 0, 1, 10, and 50), with baseline frequency 100 currently training. The other 19
 cells are queued. No scale comparison conclusion is available.
 
 ### 3.2 Canary design
@@ -503,7 +503,7 @@ noise.
    has still never been directly seed-replicated at those specific frequencies.
 2. **Exploratory grid imbalance.** All four architectures are trained at 0, 1, 10, 100, and 500; MHA and LayerNorm
    additionally have frequency 50. Both missing frequency-50 cells and baseline high-frequency seed replications
-   are complete. The exploratory 48M arm is partially complete (3/24 cells). Frequency 0 was added after the
+   are complete. The exploratory 48M arm is partially complete (4/24 cells). Frequency 0 was added after the
    initial preregistration, so it is a necessary matched control but still a documented design change.
 3. **Novelty evaluation not yet run to the brief's standard.** Hand-labelling (Checkpoint 5) has not been done;
    only the automated diversity/overlap metrics have run, and only as smoke tests.

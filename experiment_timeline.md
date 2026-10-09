@@ -112,6 +112,18 @@
   were removed after verification.
 - Baseline frequency 50 began next. At 08:24:14 local it was at step 275/6,000 with a trainer estimate of
   7h22m remaining. Three of 24 48M cells are complete, this is the sole active cell, and 20 remain queued.
-- The full-corpus audit now has 29 enriched result files / 9,280 completions (14M primary grid, two true
-  baseline training-seed replications, and three 48M cells). Available disk space was about 7.0 GiB after the
-  last rolling-checkpoint cleanup; storage policy for the remaining cells is still awaiting user direction.
+- The full-corpus audit now has 30 enriched result files / 9,600 completions (14M primary grid, two true
+  baseline training-seed replications, and four 48M cells). Available disk space was about 13 GiB after the
+  last rolling-checkpoint cleanup; both best/final files remain in place while capacity is monitored.
+
+## 2026-10-09 48M baseline frequency-50 completion
+
+- Baseline frequency 50 started at 08:02:49 and completed at 15:37:05 local (7h34m16s wall; 27,234.1 trainer
+  seconds). Best validation loss was 1.5018234 / PPL 4.49, with three gradient-norm spikes and three
+  gradient-health alerts. The best/final checkpoints and memorization/novelty/full-corpus outputs were verified;
+  the full-corpus hash matched the frequency-50 corpus (73,139 stories). Rolling checkpoints were removed after
+  verification.
+- Baseline frequency 100 started next at 15:43:37 local. Four of 24 scale cells are complete, this is the sole
+  active training cell, and 19 remain queued. The full-corpus directory now has 30 outputs / 9,600 completions.
+  The latest disk check showed 13 GiB free; both best and final checkpoints are being retained while space is
+  monitored.

@@ -6,8 +6,8 @@ losses, and gradient-norm anomaly counts come from the run summaries. The three 
 (`baseline/freq_1/exp_001`, `baseline/freq_500/exp_001`, and `variant_b_mha/freq_50/exp_001`) contain no trainer output;
 each corresponding cell completed under its `exp_002` directory and is not counted as a failed run.
 
-All completed 14M cells reached 6,000 updates. The 48M baseline frequency-0, frequency-1, and frequency-10 cells
-have completed; frequency 0 required one disk-full checkpoint-write recovery and frequency 50 is currently training.
+All completed 14M cells reached 6,000 updates. The 48M baseline frequency-0, frequency-1, frequency-10, and
+frequency-50 cells have completed; frequency 0 required one disk-full checkpoint-write recovery and frequency 100 is currently training.
 
 | Architecture / run | Frequency | Runtime | Updates | Best val loss | Grad-norm spikes | Outcome |
 |---|---:|---:|---:|---:|---:|---|
@@ -44,6 +44,7 @@ have completed; frequency 0 required one disk-full checkpoint-write recovery and
 | 48M baseline, resumed cell | 0 | 07:29:36 trainer time† | 6,000 | 1.4871 | 4 | completed; resumed at step 1,000 |
 | 48M baseline | 1 | 07:13:36 trainer time | 6,000 | 1.4931 | 6 | completed; 7 gradient-health alerts |
 | 48M baseline | 10 | 07:44:20 trainer time | 6,000 | 1.4896 | 4 | completed; 8 gradient-health alerts |
+| 48M baseline | 50 | 07:33:54 trainer time | 6,000 | 1.5018 | 3 | completed; 3 gradient-health alerts |
 
 \* For the failed 48M row, the summary held a candidate best validation loss of 1.8588 at the failing step, but its
 update did not persist to `best.pt`. The last logged and persisted evaluation/checkpoint is step 1,000 (validation
@@ -70,6 +71,14 @@ successfully. Memorization (12 rows), novelty (32 groups / 320 completions), and
 at the latest log check it had completed 250/6,000 steps. There are now three completed 48M cells, one active,
 and 20 queued. The latest free-space check was 7.0 GiB; retaining both best and final checkpoints for the full
 remaining grid may exceed capacity, and user direction is pending.
+
+Baseline frequency 50 started at 08:02:49 and completed at 15:37:05 local on 2026-10-09 (7h34m16s wall time;
+27,234.1 trainer seconds). It completed 6,000 updates with best validation loss 1.5018234 / PPL 4.49, three
+gradient-norm spikes, and three gradient-health alerts. Best/final and rolling checkpoints loaded before the
+rolling files were removed; memorization, novelty, and full-corpus outputs were verified, and the overlap hash
+matched the frequency-50 corpus (73,139 stories). Baseline frequency 100 began next; at 15:44:10 local it was
+starting its first training updates. Four 48M cells are complete, one is active, and 19 are queued. The latest
+disk check showed about 13 GiB free; both best and final artifacts are being retained while disk space is monitored.
 
 The initial audit loaded all 119 `.pt` checkpoint files present before the approved cleanup with
 `torch.load(..., weights_only=True)`; zero were corrupt. The 58 rolling checkpoints belonging to completed 14M

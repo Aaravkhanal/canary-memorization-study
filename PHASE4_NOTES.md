@@ -717,3 +717,15 @@ full-corpus report matched the 73,139-story frequency-10 corpus. Rolling checkpo
 Baseline frequency 50 began next; at 08:24:14 local it was at step 275/6,000 with an ETA of about 7h22m. Three
 of 24 scale cells are complete, one is active, and 20 are queued. Disk space was about 7.0 GiB after cleanup;
 user direction on preserving both best and final files versus a best-only policy is still pending.
+
+
+## 2026-10-09 48M baseline frequency-50 completion
+
+Baseline frequency 50 started at 08:02:49 and completed at 15:37:05 local (7h34m16s wall-clock; 27,234.1 trainer
+seconds). It completed all 6,000 updates; best validation loss was 1.5018234 / PPL 4.49. The trainer recorded
+three gradient-norm spikes and three gradient-health alerts. Best/final and rolling checkpoint files loaded, and
+the three result JSONs passed verification. Full-corpus overlap matched the frequency-50 training-corpus hash
+with 73,139 stories. Rolling checkpoints were removed after verification. Baseline frequency 100 began at
+15:43:37 local and is the only active training cell; at the latest status check it had just logged step 0. Four
+of 24 scale cells are complete and 19 are queued. Free disk was about 13 GiB after cleanup; keep both best and
+final model files and monitor capacity rather than pruning scientific artifacts.

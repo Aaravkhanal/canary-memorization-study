@@ -19,9 +19,11 @@ compute, and work that still requires human judgment.
   and 12-row memorization, 32-group/320-completion novelty, and matching-corpus overlap JSONs were verified. The
   baseline frequency-1 overlap fingerprint matches its 73,139-story corpus. Baseline frequency 10 also completed
   (27,860.3 trainer seconds; best loss 1.4896; four gradient-norm spikes and eight gradient-health alerts), and
-  its checkpoints and matching-corpus outputs were verified. Baseline frequency 50 is now training (275/6,000
-  at 08:24 local on 2026-10-09); 20 cells remain queued. About 7.0 GiB was free at the latest check. The other
-  21 cells are not complete.
+  its checkpoints and matching-corpus outputs were verified. Baseline frequency 50 also completed (27,234.1
+  trainer seconds; best loss 1.5018; three gradient-norm spikes and three gradient-health alerts), and its
+  checkpoints and matching-corpus outputs were verified. Baseline frequency 100 is now training; 19 cells remain
+  queued. About 13 GiB was free after the latest rolling-checkpoint cleanup. The other 20 scale cells are not
+  complete.
 - The existing MY-LLM 48M checkpoint used a different corpus and five times the token budget, so it cannot serve as
   the matched arm.
 - The 48M scale comparison is exploratory and single-seed initially; it also uses learning rate 5e-4 versus 8e-4
