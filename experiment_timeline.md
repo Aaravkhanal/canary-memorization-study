@@ -165,5 +165,6 @@
   best validation loss 1.5199, 36 gradient-norm spikes, and five gradient-health alerts. Best/final checkpoints,
   all three evaluation outputs, and matching frequency-500 full-corpus fingerprint (73,139 stories) were verified.
 - MHA frequency 0 is the sole active training cell; 11 cells are queued. The 48M arm is 12/24 complete. Exact
-  full-corpus overlap is verified for 38 cells / 12,160 generated continuations. Human annotation and the
-  contamination-free confirmatory experiment remain outstanding.
+  full-corpus overlap is verified for 38 cells / 12,160 generated continuations. At the latest check MHA had
+  reached step 625/6,000 (live ETA about 8h10m); one gradient-norm spike was logged at step 645. Human annotation
+  and the contamination-free confirmatory experiment remain outstanding.

@@ -776,8 +776,8 @@ completions), and full-corpus overlap (32 groups / 320 completions) outputs pass
 fingerprint matched the frequency-500 corpus (73,139 stories). Rolling step checkpoints were removed after checks.
 
 MHA frequency 0 is now the sole active training cell; 11 cells are queued, leaving the 48M grid at 12/24.
-The exact-overlap audit covers 38 cells / 12,160 generations. At the latest check MHA frequency 0 was at step
-50/6,000, with the trainer estimating about 9h40m remaining; this is a live estimate, not a completion promise.
-About 10 GiB was free. The trained scale cells
+The exact-overlap audit covers 38 cells / 12,160 generations. At the latest check MHA frequency 0 had reached
+step 625/6,000; the latest trainer estimate was about 8h10m remaining. This is a live estimate, not a completion
+promise. One gradient-norm spike was logged at step 645. About 9.7 GiB was free. The trained scale cells
 remain single-seed automated measurements; human annotation and the separate contamination-free confirmation
 are not complete.
