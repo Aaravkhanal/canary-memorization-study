@@ -1,12 +1,14 @@
 # 48M scale-transfer experiment protocol
 
-**Status: the 14M queue is complete. Eleven of 24 48M cells are complete and verified: all six baseline frequencies,
-plus learned-position frequencies 0, 1, 10, 50, and 100.** Frequency 0 required an initial
+**Status: the 14M queue is complete. Twelve of 24 48M cells are complete and verified: all six baseline frequencies
+and all six learned-position frequencies.** Exact full-corpus overlap is also verified for the 14M grid and two
+true baseline training-seed replications, giving 38 evaluated cells / 12,160 generations overall. Frequency 0 required an initial
 step-1,500 checkpoint-write failure and an in-place resume from its verified step-1,000 checkpoint; it reached
 best validation loss 1.4871 (PPL 4.4243). Frequency 1 reached best validation loss 1.4931 (PPL 4.45). Baseline
 frequency 10 reached best validation loss 1.4896 (PPL 4.44), and frequency 50 reached 1.5018 (PPL 4.49). Baseline
-frequencies 100 and 500 reached 1.5061 and 1.4802. Learned-position frequencies 0, 1, 10, 50, and 100 reached
-1.5309, 1.5275, 1.5305, 1.5464, and 1.5472. Learned-position frequency 500 is currently training; the other 12 cells are queued. This is a scale-transfer extension to the exploratory
+frequencies 100 and 500 reached 1.5061 and 1.4802. Learned-position frequencies 0, 1, 10, 50, 100, and 500
+reached 1.5309, 1.5275, 1.5305, 1.5464, 1.5472, and 1.5199. MHA frequency 0 is currently training; the other
+11 cells are queued. This is a scale-transfer extension to the exploratory
 14M study, not a replacement for the contamination-free confirmatory study.
 
 ## Why the existing 48M checkpoint is not the experiment
@@ -66,8 +68,10 @@ JSONs for each finished cell were generated and checked against the matching fre
 stories). The 48M baseline slice shows all eight inserted canaries at exposure rank 1 by frequency 50, unchanged
 through 500. Distinct-1 declines modestly from 0.404 at frequency 50 to 0.374 at 500, while distinct-2 changes
 from 0.798 to 0.788; full-corpus overlap does not vary monotonically. Treat these as descriptive, single-seed
-proxy observations only. Learned-position frequencies 50 and 100 now have verified full-corpus results too; the
-frequency-500 learned-position cell is training, with 12 cells queued. Latest free disk was about 9.6 GiB; retain
+proxy observations only. Learned-position frequency 500 has now completed too: seven of eight inserted canaries
+are rank 1 at that frequency (mean exposure 3.801); mean distinct-1/2 are 0.405/0.799 and mean maximum exact
+word-four-gram overlap is 0.048. MHA frequency 0 is now training, with 11 cells queued. Latest free disk was about
+10 GiB; retain
 best/final checkpoints and continue monitoring, with rolling checkpoints removed only
 after successful validation.
 Actual per-cell elapsed times and failures are the record of truth. The config tests check token budget,

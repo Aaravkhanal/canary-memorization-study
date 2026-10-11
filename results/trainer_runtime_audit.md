@@ -7,7 +7,7 @@ losses, and gradient-norm anomaly counts come from the run summaries. The three 
 each corresponding cell completed under its `exp_002` directory and is not counted as a failed run.
 
 All completed 14M cells reached 6,000 updates. The 48M baseline grid and learned-position frequencies 0, 1, 10,
-50, and 100 have completed; learned-position frequency 500 is currently training. Frequency 0 required one disk-full
+50, 100, and 500 have completed; MHA frequency 0 is currently training. Frequency 0 required one disk-full
 checkpoint-write recovery.
 
 | Architecture / run | Frequency | Runtime | Updates | Best val loss | Grad-norm spikes | Outcome |
@@ -53,6 +53,7 @@ checkpoint-write recovery.
 | 48M learned positions | 10 | 06:46:11 trainer time | 6,000 | 1.5305 | 40 | completed; 6h46m33s wall span |
 | 48M learned positions | 50 | 06:51:18 | 6,000 | 1.5464 | 39 | completed; 24,652.2 trainer seconds; 4 gradient-health alerts |
 | 48M learned positions | 100 | 07:57:55 | 6,000 | 1.5472 | 45 | completed; 28,655.9 trainer seconds; 2 gradient-health alerts |
+| 48M learned positions | 500 | 07:50:55 | 6,000 | 1.5199 | 36 | completed; 28,224.9 trainer seconds; 5 gradient-health alerts |
 
 \* For the failed 48M row, the summary held a candidate best validation loss of 1.8588 at the failing step, but its
 update did not persist to `best.pt`. The last logged and persisted evaluation/checkpoint is step 1,000 (validation
@@ -120,4 +121,21 @@ reports 28,655.9 trainer seconds, best validation loss 1.5472167 / PPL 4.70, 45 
 For each cell, both retained `best.pt` and `final.pt` loaded with `weights_only=True`; memorization JSONs contain
 12 rows, novelty JSONs contain 32 groups/320 completions, and full-corpus outputs contain 32 groups/320
 completions with a SHA-256 matching the corresponding 73,139-story corpus. The runner validated these artifacts
-before removing rolling checkpoints. Learned-position frequency 500 is now the sole active training cell.
+before removing rolling checkpoints. MHA frequency 0 is now the sole active training cell.
+
+## 48M learned-position frequency 500
+
+The run started at 18:30:10 on 2026-10-11 and completed at 02:21:05 on 2026-10-12 (7h50m55s setup-to-done);
+the trainer summary records 28,224.9 seconds, best validation loss 1.5199076 / PPL 4.57, 36 gradient-norm
+spikes, and five gradient-health alerts. Best/final checkpoints loaded with `weights_only=True`. Memorization,
+novelty, and full-corpus results passed the 12-row, 32-group/320-completion checks. The overlap SHA-256 matched
+the 73,139-story frequency-500 corpus. Rolling step checkpoints were removed only after validation.
+
+## Current queue snapshot (2026-10-12)
+
+The 48M matrix is 12/24 complete: all six baseline and all six learned-position cells. MHA frequency 0 is the
+single active cell; 11 cells are queued. At the latest log check it had reached step 50/6,000, with an estimated
+9h40m remaining; this is an approximate live estimate. No completed-step results are claimed for this active cell.
+Full-corpus overlap covers 38 evaluated cells / 12,160 generations, including all canonical 14M cells and two
+true baseline training-seed replications. Approximately 10 GiB was free at the last disk check. No 48M results
+for the active or queued cells are yet claimed.

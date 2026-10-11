@@ -33,6 +33,7 @@
   JSONs.
 - The 20 renamed generation-seed JSON files were parsed and validated; 67/67 research tests passed after the
   naming correction.
+
 - 16:17 local: baseline 14M frequency-50 training reached step 2,975/6,000; the trainer estimated 1 hour 22
   minutes remaining for that cell.
 - 17:19 local: the same baseline frequency-50 run reached step 5,225/6,000 with a trainer ETA of about 21 minutes.
@@ -156,4 +157,13 @@
   These are single-seed automated proxies only; human V/T/N scoring is not complete.
 - Eleven of 24 48M cells are complete and 12 are queued. Learned-position frequency 500 is active at step 125/6,000
   (ETA ~6h27m); this is the only MPS training process. Exact full-corpus coverage is 37 cells / 11,840
-  completions. Free disk was 9.6 GiB at the latest check.
+  completions. Free disk was 9.6 GiB at that historical check.
+
+## 2026-10-12 48M scale-grid continuation
+
+- Learned-position frequency 500 completed at 02:21:05 local (7h50m55s setup-to-done; 28,224.9 trainer seconds),
+  best validation loss 1.5199, 36 gradient-norm spikes, and five gradient-health alerts. Best/final checkpoints,
+  all three evaluation outputs, and matching frequency-500 full-corpus fingerprint (73,139 stories) were verified.
+- MHA frequency 0 is the sole active training cell; 11 cells are queued. The 48M arm is 12/24 complete. Exact
+  full-corpus overlap is verified for 38 cells / 12,160 generated continuations. Human annotation and the
+  contamination-free confirmatory experiment remain outstanding.

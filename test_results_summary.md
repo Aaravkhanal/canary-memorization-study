@@ -23,8 +23,8 @@ compute, and work that still requires human judgment.
   trainer seconds; best loss 1.5018; three gradient-norm spikes and three gradient-health alerts), and its
   checkpoints and matching-corpus outputs were verified. Since then baseline frequencies 100 and 500, and
   learned-position frequencies 0, 1, and 10, also completed with their memorization, novelty, and matching-corpus
-  overlap outputs checked. Eleven of 24 48M cells are complete; learned-position frequency 500 is currently training
-  and 12 cells remain queued. About 9.6 GiB was free at the latest check. Rolling checkpoints are removed only
+  overlap outputs checked. Twelve of 24 48M cells are complete; MHA frequency 0 is currently training
+  and 11 cells remain queued. About 10 GiB was free at the latest check. Rolling checkpoints are removed only
   after per-cell verification.
 - The existing MY-LLM 48M checkpoint used a different corpus and five times the token budget, so it cannot serve as
   the matched arm.
@@ -147,10 +147,23 @@ in 19.06 seconds with the same 14 upstream matplotlib/pyparsing deprecation warn
 Frequency 100 took 28,655.9 trainer seconds (7h57m55s setup-to-done), best loss 1.5472, with 45 spikes and two
 gradient-health alerts. For each, 12 memorization rows, 32 novelty groups/320 completions, and 32 full-corpus
 groups/320 completions were checked; the overlap SHA matched the frequency-specific 73,139-story corpus. The
-frequency-500 learned-position cell is now active. The overlap audit covers 37 cells/11,840 generated completions;
+frequency-500 learned-position cell is now complete. The overlap audit covers 38 cells/12,160 generated completions;
 human annotation and the separate contamination-free confirmatory study remain incomplete.
 
 After these interim documentation/result updates, the full suite passed again on 2026-10-11: **67 passed** in
 15.35s, with 14 upstream matplotlib/pyparsing deprecation warnings. An independent audit loaded best/final
-checkpoints and parsed the three result JSONs for all eleven completed 48M cells, confirming matching corpus
+checkpoints and parsed the three result JSONs for all twelve completed 48M cells, confirming matching corpus
 SHA-256 fingerprints and 73,139-story corpus counts.
+
+The learned-position frequency-500 cell completed at step 6,000 with 28,224.9 trainer seconds (7h50m55s
+setup-to-done wall time), best validation loss 1.5199 / PPL 4.57, 36 gradient-norm spikes, and five
+gradient-health alerts. The runner and an independent check verified its retained best/final checkpoints, 12-row
+memorization JSON, 32-group/320-completion novelty output, and matching-corpus full-overlap JSON (frequency-500
+SHA-256; 73,139 stories). MHA frequency 0 is the sole active training cell; it has started, and 11 cells remain.
+
+After the 2026-10-12 frequency-500 documentation update, the full research test suite passed **67/67** in
+23.91 seconds, with 14 upstream matplotlib/pyparsing deprecation warnings. An independent artifact audit loaded
+the retained best/final checkpoints and checked result JSON structure and the matching corpus fingerprint/story
+count for all 12 completed 48M cells; all checks passed. At the latest status check MHA frequency 0 had reached
+step 50/6,000, with an estimated 9h40m remaining. Human annotation and the
+contamination-free confirmatory study remain incomplete.

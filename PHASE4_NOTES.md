@@ -762,6 +762,22 @@ seconds), best validation loss 1.5472167 / PPL 4.70, with 45 spikes and two heal
 The new single-seed learned-position outputs show seven of eight inserted canaries at exposure rank 1 at
 frequency 50, rising to eight of eight at frequency 100. Group-mean distinct-1 is 0.387 / 0.406 and distinct-2
 0.789 / 0.804; exact maximum word-four-gram overlap means are 0.020 / 0.027. These are descriptive automated
-proxies, not human novelty scores or evidence of a creativity effect. The 48M grid now has eleven of 24 cells
-complete and the exact-overlap audit has 37 cells / 11,840 generations. Learned-position frequency 500 is the only
-active cell (step 125/6,000 at the latest check; ETA ~6h27m), with 12 queued. Free disk was 9.5 GiB.
+proxies, not human novelty scores or evidence of a creativity effect. At that historical checkpoint the 48M grid
+had eleven of 24 cells complete and the exact-overlap audit had 37 cells / 11,840 generations. Learned-position
+frequency 500 was then active; see the current continuation entry below for completion.
+
+## 2026-10-12 continuation: learned-position frequency 500 complete
+
+The learned-position frequency-500 48M cell completed 6,000 updates. It started at 18:30:10 on 2026-10-11
+and finished at 02:21:05 on 2026-10-12 (7h50m55s setup-to-done); the trainer summary reports 28,224.9 seconds,
+best validation loss 1.5199076 / PPL 4.57, 36 gradient-norm spikes, and five gradient-health alerts. Retained
+`best.pt` and `final.pt` loaded with `weights_only=True`. Memorization (12 rows), novelty (32 groups / 320
+completions), and full-corpus overlap (32 groups / 320 completions) outputs passed validation; the overlap
+fingerprint matched the frequency-500 corpus (73,139 stories). Rolling step checkpoints were removed after checks.
+
+MHA frequency 0 is now the sole active training cell; 11 cells are queued, leaving the 48M grid at 12/24.
+The exact-overlap audit covers 38 cells / 12,160 generations. At the latest check MHA frequency 0 was at step
+50/6,000, with the trainer estimating about 9h40m remaining; this is a live estimate, not a completion promise.
+About 10 GiB was free. The trained scale cells
+remain single-seed automated measurements; human annotation and the separate contamination-free confirmation
+are not complete.
