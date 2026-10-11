@@ -21,8 +21,9 @@ artifact.
    all six baseline frequencies and all six learned-position frequencies. MHA frequency 0 is currently training
    and 11 cells are queued. The frequency-0 cell required
    an in-place resume after a disk-full checkpoint-write failure. Report both arms as exploratory until replicated.
-2. Complete the blinded two-rater V/T/N study in `docs/ANNOTATION_PROTOCOL.md`; report Cohen's kappa,
-   Krippendorff's alpha, disagreements/adjudication, and clustered confidence intervals.
+2. Complete the blinded two-rater V/T/N study in `docs/ANNOTATION_PROTOCOL.md`; the two prepared rater files each
+   contain 1,280 condition-hidden items with label, confidence, and notes fields blank. Human scoring is not done;
+   report Cohen's kappa, Krippendorff's alpha, disagreements/adjudication, and clustered confidence intervals.
 3. Complete the exact full-corpus search for all primary conditions. It now covers 24 canonical 14M novelty cells
    / 7,680 completions, two baseline training-seed replications / 640 completions, and twelve 48M cells / 3,840
    completions, 38 cells / 12,160 total; the other 12 scale outputs remain pending (one is currently training).
