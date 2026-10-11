@@ -6,8 +6,8 @@ losses, and gradient-norm anomaly counts come from the run summaries. The three 
 (`baseline/freq_1/exp_001`, `baseline/freq_500/exp_001`, and `variant_b_mha/freq_50/exp_001`) contain no trainer output;
 each corresponding cell completed under its `exp_002` directory and is not counted as a failed run.
 
-All completed 14M cells reached 6,000 updates. The 48M baseline grid and learned-position frequencies 0, 1, and
-10 have completed; learned-position frequency 50 is currently training. Frequency 0 required one disk-full
+All completed 14M cells reached 6,000 updates. The 48M baseline grid and learned-position frequencies 0, 1, 10,
+50, and 100 have completed; learned-position frequency 500 is currently training. Frequency 0 required one disk-full
 checkpoint-write recovery.
 
 | Architecture / run | Frequency | Runtime | Updates | Best val loss | Grad-norm spikes | Outcome |
@@ -51,6 +51,8 @@ checkpoint-write recovery.
 | 48M learned positions | 0 | 06:36:56 trainer time | 6,000 | 1.5309 | 35 | completed; 6h37m19s setup-to-done wall span |
 | 48M learned positions | 1 | 07:00:42 trainer time | 6,000 | 1.5275 | 41 | completed; 7h01m04s wall span |
 | 48M learned positions | 10 | 06:46:11 trainer time | 6,000 | 1.5305 | 40 | completed; 6h46m33s wall span |
+| 48M learned positions | 50 | 06:51:18 | 6,000 | 1.5464 | 39 | completed; 24,652.2 trainer seconds; 4 gradient-health alerts |
+| 48M learned positions | 100 | 07:57:55 | 6,000 | 1.5472 | 45 | completed; 28,655.9 trainer seconds; 2 gradient-health alerts |
 
 \* For the failed 48M row, the summary held a candidate best validation loss of 1.8588 at the failing step, but its
 update did not persist to `best.pt`. The last logged and persisted evaluation/checkpoint is step 1,000 (validation
@@ -108,3 +110,14 @@ checkpoints, logs, and results remain. The rest of the 24-cell 48M matrix is not
 † Trainer-reported elapsed compute excludes the initial failed process; report that attempt separately. The local
 start-to-finish wall span of the resumed process was approximately 6h09m, so do not infer runtime from timestamps
 alone when reconciling with trainer seconds.
+
+## 48M learned-position frequencies 50 and 100
+
+Frequency 50 started at 03:26:39 and finished at 10:17:57 local (6h51m18s setup-to-done); its summary reports
+24,652.2 trainer seconds, best validation loss 1.5464118 / PPL 4.69, 39 gradient-norm spikes, and four
+gradient-health alerts. Frequency 100 ran from 10:25:13 to 18:23:08 local (7h57m55s setup-to-done); its summary
+reports 28,655.9 trainer seconds, best validation loss 1.5472167 / PPL 4.70, 45 spikes, and two health alerts.
+For each cell, both retained `best.pt` and `final.pt` loaded with `weights_only=True`; memorization JSONs contain
+12 rows, novelty JSONs contain 32 groups/320 completions, and full-corpus outputs contain 32 groups/320
+completions with a SHA-256 matching the corresponding 73,139-story corpus. The runner validated these artifacts
+before removing rolling checkpoints. Learned-position frequency 500 is now the sole active training cell.

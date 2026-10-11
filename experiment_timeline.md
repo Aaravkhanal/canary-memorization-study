@@ -141,7 +141,19 @@
 - Each of the five cells produced memorization, 32-group/320-completion novelty, and full-corpus outputs; the
   runner validated JSON structure, loaded retained checkpoints, and matched each overlap report to its
   frequency-specific 73,139-story corpus before removing rolling step checkpoints.
-- The 48M grid now has nine of 24 cells complete. Learned-position frequency 50 is active and 14 cells remain
-  queued; one model trains at a time. At the latest check it was at step 4,350/6,000 with about 1h49m estimated
-  remaining. The full-corpus overlap audit now covers 35 cell outputs / 11,200 completions (24 canonical 14M,
-  two true training-seed replications, nine 48M). Human annotation remains outstanding.
+- At that checkpoint, the 48M grid had nine of 24 cells complete and the exact-overlap audit covered 35 cells /
+  11,200 completions. Human annotation remains outstanding.
+
+## 2026-10-11 learned-position 48M frequencies 50 and 100
+
+- Learned-position frequency 50 completed 6,000 steps (24,652.2 trainer seconds; 6h51m18s from setup to done),
+  best validation loss 1.5464 / PPL 4.69, 39 gradient-norm spikes and four gradient-health alerts. Frequency 100
+  completed 6,000 steps (28,655.9 trainer seconds; 7h57m55s setup-to-done), best loss 1.5472 / PPL 4.70, 45
+  spikes and two health alerts. Both cells' best/final checkpoints, memorization/novelty JSONs, and matching-corpus
+  full-overlap JSONs were verified; each corpus has 73,139 stories and the matching fingerprint.
+- At frequencies 50 and 100, learned-position exposure ranks put 7/8 and 8/8 inserted canaries at rank 1. Mean
+  distinct-1 was 0.387/0.406, distinct-2 0.789/0.804, and maximum exact word-four-gram overlap 0.020/0.027.
+  These are single-seed automated proxies only; human V/T/N scoring is not complete.
+- Eleven of 24 48M cells are complete and 12 are queued. Learned-position frequency 500 is active at step 125/6,000
+  (ETA ~6h27m); this is the only MPS training process. Exact full-corpus coverage is 37 cells / 11,840
+  completions. Free disk was 9.6 GiB at the latest check.

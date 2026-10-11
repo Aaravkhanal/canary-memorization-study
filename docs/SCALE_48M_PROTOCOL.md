@@ -1,12 +1,12 @@
 # 48M scale-transfer experiment protocol
 
-**Status: the 14M queue is complete. Nine of 24 48M cells are complete and verified: all six baseline frequencies,
-plus learned-position frequencies 0, 1, and 10.** Frequency 0 required an initial
+**Status: the 14M queue is complete. Eleven of 24 48M cells are complete and verified: all six baseline frequencies,
+plus learned-position frequencies 0, 1, 10, 50, and 100.** Frequency 0 required an initial
 step-1,500 checkpoint-write failure and an in-place resume from its verified step-1,000 checkpoint; it reached
 best validation loss 1.4871 (PPL 4.4243). Frequency 1 reached best validation loss 1.4931 (PPL 4.45). Baseline
 frequency 10 reached best validation loss 1.4896 (PPL 4.44), and frequency 50 reached 1.5018 (PPL 4.49). Baseline
-frequencies 100 and 500 reached 1.5061 and 1.4802. Learned-position frequencies 0, 1, and 10 reached 1.5309,
-1.5275, and 1.5305. Learned-position frequency 50 is currently training; the other 14 cells are queued. This is a scale-transfer extension to the exploratory
+frequencies 100 and 500 reached 1.5061 and 1.4802. Learned-position frequencies 0, 1, 10, 50, and 100 reached
+1.5309, 1.5275, 1.5305, 1.5464, and 1.5472. Learned-position frequency 500 is currently training; the other 12 cells are queued. This is a scale-transfer extension to the exploratory
 14M study, not a replacement for the contamination-free confirmatory study.
 
 ## Why the existing 48M checkpoint is not the experiment
@@ -66,8 +66,9 @@ JSONs for each finished cell were generated and checked against the matching fre
 stories). The 48M baseline slice shows all eight inserted canaries at exposure rank 1 by frequency 50, unchanged
 through 500. Distinct-1 declines modestly from 0.404 at frequency 50 to 0.374 at 500, while distinct-2 changes
 from 0.798 to 0.788; full-corpus overlap does not vary monotonically. Treat these as descriptive, single-seed
-proxy observations only. Learned-position frequency 50 is currently running; 14 cells remain queued. Latest free
-disk is about 11 GiB; retain best/final checkpoints and continue monitoring, with rolling checkpoints removed only
+proxy observations only. Learned-position frequencies 50 and 100 now have verified full-corpus results too; the
+frequency-500 learned-position cell is training, with 12 cells queued. Latest free disk was about 9.6 GiB; retain
+best/final checkpoints and continue monitoring, with rolling checkpoints removed only
 after successful validation.
 Actual per-cell elapsed times and failures are the record of truth. The config tests check token budget,
 seed/data separation, and exact parameter counts. The full research suite checks surrounding analysis and

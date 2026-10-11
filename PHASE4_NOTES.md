@@ -748,3 +748,20 @@ with 73,139 stories. Rolling checkpoints were removed after verification. Baseli
 15:43:37 local and is the only active training cell; at the latest status check it had just logged step 0. Four
 of 24 scale cells are complete and 19 are queued. Free disk was about 13 GiB after cleanup; keep both best and
 final model files and monitor capacity rather than pruning scientific artifacts.
+
+## 2026-10-11 learned-position 48M frequencies 50 and 100 completed
+
+Learned-position frequency 50 started at 03:26:39 and completed at 10:17:57 local (6h51m18s wall; summary
+reports 24,652.2 trainer seconds). Best validation loss was 1.5464118 / PPL 4.69, with 39 gradient-norm spikes
+and four gradient-health alerts. Frequency 100 ran from 10:25:13 to 18:23:08 (7h57m55s wall; 28,655.9 trainer
+seconds), best validation loss 1.5472167 / PPL 4.70, with 45 spikes and two health alerts. For both cells,
+`best.pt` and `final.pt` loaded successfully, memorization results had 12 rows, novelty results had 32 groups /
+320 completions, and full-corpus results had 32 groups / 320 completions with SHA-256 matching the matching
+73,139-story frequency corpus. The sequential runner performed these checks before removing rolling step files.
+
+The new single-seed learned-position outputs show seven of eight inserted canaries at exposure rank 1 at
+frequency 50, rising to eight of eight at frequency 100. Group-mean distinct-1 is 0.387 / 0.406 and distinct-2
+0.789 / 0.804; exact maximum word-four-gram overlap means are 0.020 / 0.027. These are descriptive automated
+proxies, not human novelty scores or evidence of a creativity effect. The 48M grid now has eleven of 24 cells
+complete and the exact-overlap audit has 37 cells / 11,840 generations. Learned-position frequency 500 is the only
+active cell (step 125/6,000 at the latest check; ETA ~6h27m), with 12 queued. Free disk was 9.5 GiB.

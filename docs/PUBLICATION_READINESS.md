@@ -17,15 +17,15 @@ artifact.
 
 ## Non-negotiable blockers before submission
 
-1. The 14M grid and baseline 100/500 training-seed replications are complete. Nine 48M cells are verified:
-   all six baseline frequencies and learned-position frequencies 0, 1, and 10. Learned-position frequency 50 is
-   currently training and 14 cells are queued. The frequency-0 cell required
+1. The 14M grid and baseline 100/500 training-seed replications are complete. Eleven 48M cells are verified:
+   all six baseline frequencies and learned-position frequencies 0, 1, 10, 50, and 100. Learned-position frequency 500 is
+   currently training and 12 cells are queued. The frequency-0 cell required
    an in-place resume after a disk-full checkpoint-write failure. Report both arms as exploratory until replicated.
 2. Complete the blinded two-rater V/T/N study in `docs/ANNOTATION_PROTOCOL.md`; report Cohen's kappa,
    Krippendorff's alpha, disagreements/adjudication, and clustered confidence intervals.
 3. Complete the exact full-corpus search for all primary conditions. It now covers 24 canonical 14M novelty cells
-   / 7,680 completions, two baseline training-seed replications / 640 completions, and nine 48M cells / 2,880
-   completions; the other 15 scale outputs remain pending (one is currently training). The overlap diagnostic alone cannot support a broad
+   / 7,680 completions, two baseline training-seed replications / 640 completions, and eleven 48M cells / 3,520
+   completions; the other 13 scale outputs remain pending (one is currently training). The overlap diagnostic alone cannot support a broad
    non-copying claim.
 4. Replace the false “no existing work” positioning. RAVEN (McCoy et al., TACL 2023), Haviv et al. (EACL 2023),
    Jiang and Ferraro (EACL 2026), and Zhou et al. (ICLR 2026) now directly overlap parts of the framing.
