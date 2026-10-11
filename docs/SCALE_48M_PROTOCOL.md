@@ -1,11 +1,12 @@
 # 48M scale-transfer experiment protocol
 
-**Status: the 14M queue is complete. Four 48M baseline cells (frequencies 0, 1, 10, and 50) completed 6,000 updates with
-memorization, novelty, and matching-corpus overlap evaluations verified.** Frequency 0 required an initial
+**Status: the 14M queue is complete. Nine of 24 48M cells are complete and verified: all six baseline frequencies,
+plus learned-position frequencies 0, 1, and 10.** Frequency 0 required an initial
 step-1,500 checkpoint-write failure and an in-place resume from its verified step-1,000 checkpoint; it reached
 best validation loss 1.4871 (PPL 4.4243). Frequency 1 reached best validation loss 1.4931 (PPL 4.45). Baseline
 frequency 10 reached best validation loss 1.4896 (PPL 4.44), and frequency 50 reached 1.5018 (PPL 4.49). Baseline
-frequency 100 is currently training; the other 19 cells are queued. This is a scale-transfer extension to the exploratory
+frequencies 100 and 500 reached 1.5061 and 1.4802. Learned-position frequencies 0, 1, and 10 reached 1.5309,
+1.5275, and 1.5305. Learned-position frequency 50 is currently training; the other 14 cells are queued. This is a scale-transfer extension to the exploratory
 14M study, not a replacement for the contamination-free confirmatory study.
 
 ## Why the existing 48M checkpoint is not the experiment
@@ -58,9 +59,16 @@ hash and 73,139-story count. Baseline frequency 50 started at 08:02:49 and compl
 2026-10-09 (7h34m16s wall time; 27,234.1 trainer seconds). It completed 6,000 updates with best validation loss
 1.5018234 / PPL 4.49, three gradient-norm spikes, and three gradient-health alerts. Best/final and rolling
 checkpoint loads passed before rolling files were removed; memorization, novelty, and full-corpus outputs were
-verified, with overlap matching the 73,139-story frequency-50 corpus. Baseline frequency 100 is now in progress;
-19 cells remain queued. The latest disk check showed about 13 GiB free; this appears sufficient for both retained
-best/final checkpoints under current conditions, so continue monitoring rather than deleting either artifact.
+verified, with overlap matching the 73,139-story frequency-50 corpus. Baseline frequency 100 and 500, and
+learned-position frequencies 0, 1, and 10, have since completed. Their actual trainer times, validation losses,
+anomaly counts, and current-run status are recorded in \`results/trainer_runtime_audit.md\`. All three evaluation
+JSONs for each finished cell were generated and checked against the matching frequency-specific corpus (73,139
+stories). The 48M baseline slice shows all eight inserted canaries at exposure rank 1 by frequency 50, unchanged
+through 500. Distinct-1 declines modestly from 0.404 at frequency 50 to 0.374 at 500, while distinct-2 changes
+from 0.798 to 0.788; full-corpus overlap does not vary monotonically. Treat these as descriptive, single-seed
+proxy observations only. Learned-position frequency 50 is currently running; 14 cells remain queued. Latest free
+disk is about 11 GiB; retain best/final checkpoints and continue monitoring, with rolling checkpoints removed only
+after successful validation.
 Actual per-cell elapsed times and failures are the record of truth. The config tests check token budget,
 seed/data separation, and exact parameter counts. The full research suite checks surrounding analysis and
 evaluation code.

@@ -127,3 +127,21 @@
   active training cell, and 19 remain queued. The full-corpus directory now has 30 outputs / 9,600 completions.
   The latest disk check showed 13 GiB free; both best and final checkpoints are being retained while space is
   monitored.
+
+## 2026-10-11 48M scale-grid continuation
+
+- Baseline frequency 100 completed 6,000 updates (25,701.3 trainer seconds; 7h08m40s setup-to-done wall
+  span), best validation loss 1.5061, with three gradient-norm spikes. Frequency 500 completed 6,000 updates
+  (25,744.6 trainer seconds; 7h33m28s wall span crossing midnight), best loss 1.4802, with eight spikes.
+- Learned-position frequency 0 completed in 23,815.7 trainer seconds (6h37m19s wall span), best loss 1.5309,
+  with 35 logged spikes. Frequency 1 completed in 25,242.0 trainer seconds (7h01m04s wall span), best loss
+  1.5275, with 41 spikes. Frequency 10 completed in 24,370.5 trainer seconds (6h46m33s wall span), best loss
+  1.5305, with 40 spikes. These counts are retained exactly; clipping means training completed, not that the
+  excursions should be ignored.
+- Each of the five cells produced memorization, 32-group/320-completion novelty, and full-corpus outputs; the
+  runner validated JSON structure, loaded retained checkpoints, and matched each overlap report to its
+  frequency-specific 73,139-story corpus before removing rolling step checkpoints.
+- The 48M grid now has nine of 24 cells complete. Learned-position frequency 50 is active and 14 cells remain
+  queued; one model trains at a time. At the latest check it was at step 4,350/6,000 with about 1h49m estimated
+  remaining. The full-corpus overlap audit now covers 35 cell outputs / 11,200 completions (24 canonical 14M,
+  two true training-seed replications, nine 48M). Human annotation remains outstanding.

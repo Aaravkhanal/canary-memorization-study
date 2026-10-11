@@ -1,6 +1,6 @@
 # Test and experiment results ledger – Canary Memorization Study
 
-Updated 2026-10-09. This is the separate audit file for completed tests, completed experiment cells, outstanding
+Updated 2026-10-11. This is the separate audit file for completed tests, completed experiment cells, outstanding
 compute, and work that still requires human judgment.
 
 ## Expanded scale arm
@@ -21,9 +21,11 @@ compute, and work that still requires human judgment.
   (27,860.3 trainer seconds; best loss 1.4896; four gradient-norm spikes and eight gradient-health alerts), and
   its checkpoints and matching-corpus outputs were verified. Baseline frequency 50 also completed (27,234.1
   trainer seconds; best loss 1.5018; three gradient-norm spikes and three gradient-health alerts), and its
-  checkpoints and matching-corpus outputs were verified. Baseline frequency 100 is now training; 19 cells remain
-  queued. About 13 GiB was free after the latest rolling-checkpoint cleanup. The other 20 scale cells are not
-  complete.
+  checkpoints and matching-corpus outputs were verified. Since then baseline frequencies 100 and 500, and
+  learned-position frequencies 0, 1, and 10, also completed with their memorization, novelty, and matching-corpus
+  overlap outputs checked. Nine of 24 48M cells are complete; learned-position frequency 50 is currently training
+  and 14 cells remain queued. About 11 GiB was free at the latest check. Rolling checkpoints are removed only
+  after per-cell verification.
 - The existing MY-LLM 48M checkpoint used a different corpus and five times the token budget, so it cannot serve as
   the matched arm.
 - The 48M scale comparison is exploratory and single-seed initially; it also uses learning rate 5e-4 versus 8e-4
@@ -137,3 +139,6 @@ rows each are prepared locally under `results/annotations/`; the private manifes
 
 An earlier 2026-10-08 full-suite run passed 67/67 in 6.18 seconds; the latest run after result regeneration
 passed 67/67 in 5.46 seconds with 14 upstream matplotlib/pyparsing deprecation warnings.
+
+After the 2026-10-11 documentation and interim-result updates, the full research suite again passed 67/67
+in 19.06 seconds with the same 14 upstream matplotlib/pyparsing deprecation warnings.

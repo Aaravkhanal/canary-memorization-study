@@ -689,6 +689,25 @@ results. The 24-cell 14M grid's full-corpus overlap is now complete (7,680 compl
 adds 320 more; the other 23 scale cells remain unrun. Human annotation and the separate contamination-free
 confirmatory study remain incomplete.
 
+## 2026-10-11 48M interim results and queue status
+
+Five more 48M cells have completed since the baseline frequency-50 update: baseline frequencies 100 and 500, plus
+learned-position frequencies 0, 1, and 10. Each reached 6,000 steps; the matching memorization, novelty, and
+full-corpus outputs were verified by the queue before rolling checkpoints were removed. The exact elapsed time,
+best validation loss, and spike counts are in `results/trainer_runtime_audit.md`.
+
+The preliminary baseline slice has all 8 inserted canaries at exposure rank 1 by frequency 50, remaining there
+through 100 and 500 (mean exposure 3.926). At those same conditions mean distinct-1 is 0.404, 0.400, and 0.374;
+mean distinct-2 is 0.798, 0.797, and 0.788. Across the six baseline frequencies the average maximum word-four-gram
+match against the corresponding 73,139-story training corpus is non-monotonic (0.105, 0.093, 0.116, 0.101,
+0.110, 0.107). This does not establish a creativity trade-off or a copying dose-response: all cells are
+single-seed, the diversity measures are proxies, and human V/T/N scoring is not complete. The 48M learning rate
+(5e-4) also differs from the 14M setting (8e-4).
+
+Nine of 24 scale cells are complete; learned-position frequency 50 is the only active cell (step 4,350/6,000
+at the latest check, estimated ~1h49m left), with 14 cells queued. The exact overlap audit now includes 35 cells /
+11,200 generated completions. Continue the sequential queue; do not launch a duplicate MPS job.
+
 The final run-level full-corpus audit contains 27 cells / 8,640 generated completions, with unweighted mean exact
 maximum word-four-gram overlap 0.096991, median 0.076190, and maximum 1.0. This includes the 24 canonical 14M
 cells, two baseline training-seed replications, and one exploratory 48M cell. Treat this as an automated copying

@@ -1,13 +1,14 @@
 # Trainer runtime and checkpoint audit
 
-Collected from the retained `models/**/train.log` and each run's `summary.json` on 2026-10-08. Durations are wall-clock
+Collected from the retained `models/**/train.log` and each run's `summary.json`, updated 2026-10-11. Durations are wall-clock
 time from the first setup line to the final `[done]` or `[error]` log line (local time); update counts, best validation
 losses, and gradient-norm anomaly counts come from the run summaries. The three zero-byte placeholder logs
 (`baseline/freq_1/exp_001`, `baseline/freq_500/exp_001`, and `variant_b_mha/freq_50/exp_001`) contain no trainer output;
 each corresponding cell completed under its `exp_002` directory and is not counted as a failed run.
 
-All completed 14M cells reached 6,000 updates. The 48M baseline frequency-0, frequency-1, frequency-10, and
-frequency-50 cells have completed; frequency 0 required one disk-full checkpoint-write recovery and frequency 100 is currently training.
+All completed 14M cells reached 6,000 updates. The 48M baseline grid and learned-position frequencies 0, 1, and
+10 have completed; learned-position frequency 50 is currently training. Frequency 0 required one disk-full
+checkpoint-write recovery.
 
 | Architecture / run | Frequency | Runtime | Updates | Best val loss | Grad-norm spikes | Outcome |
 |---|---:|---:|---:|---:|---:|---|
@@ -45,6 +46,11 @@ frequency-50 cells have completed; frequency 0 required one disk-full checkpoint
 | 48M baseline | 1 | 07:13:36 trainer time | 6,000 | 1.4931 | 6 | completed; 7 gradient-health alerts |
 | 48M baseline | 10 | 07:44:20 trainer time | 6,000 | 1.4896 | 4 | completed; 8 gradient-health alerts |
 | 48M baseline | 50 | 07:33:54 trainer time | 6,000 | 1.5018 | 3 | completed; 3 gradient-health alerts |
+| 48M baseline | 100 | 07:08:21 trainer time | 6,000 | 1.5061 | 3 | completed; 7h08m40s setup-to-done wall span |
+| 48M baseline | 500 | 07:09:05 trainer time | 6,000 | 1.4802 | 8 | completed; 7h33m28s wall span crossing midnight |
+| 48M learned positions | 0 | 06:36:56 trainer time | 6,000 | 1.5309 | 35 | completed; 6h37m19s setup-to-done wall span |
+| 48M learned positions | 1 | 07:00:42 trainer time | 6,000 | 1.5275 | 41 | completed; 7h01m04s wall span |
+| 48M learned positions | 10 | 06:46:11 trainer time | 6,000 | 1.5305 | 40 | completed; 6h46m33s wall span |
 
 \* For the failed 48M row, the summary held a candidate best validation loss of 1.8588 at the failing step, but its
 update did not persist to `best.pt`. The last logged and persisted evaluation/checkpoint is step 1,000 (validation
