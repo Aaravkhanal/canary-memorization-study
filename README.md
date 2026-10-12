@@ -10,7 +10,7 @@ novelty/recombination endpoint still needs blinded human labelling.** The MHA an
 and scored at 0, 1, 10, 50, 100, and 500 insertions. The baseline and learned-position frequency grids are complete;
 the baseline 100x/500x second-training-seed replications are complete. Fourteen of 24 48M cells are complete and
 verified: all six baseline and learned-position frequencies, plus MHA frequencies 0 and 1. MHA frequency 10 is
-active at step 800/6,000; ten cells remain queued. Full-corpus overlap has been verified for 40 cells / 12,800 generations across the 14M grid,
+active at step 1,600/6,000; step-1,500 validation loss is 1.8720 (PPL 6.50), with ten cells queued. Full-corpus overlap has been verified for 40 cells / 12,800 generations across the 14M grid,
 the two true baseline seed replications, and completed 48M cells. Interim learned-position frequency-500 results remain single-seed automated measurements;
 human novelty labels are still pending. Interim 48M baseline outputs suggest exposure saturation by
 frequency 50 while automated diversity proxies change only modestly; these single-seed results do not establish a
