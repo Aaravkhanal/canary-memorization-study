@@ -807,9 +807,9 @@ are automated single-seed diagnostics only, not human novelty judgments or a cre
 
 The sequential runner then started MHA frequency 10 at 18:39:49 local. At 18:40:10 it logged the untrained
 step-0 baseline (validation loss 8.4595 / PPL 4,719.9). By 19:39:23 it had reached step 800/6,000. By
-21:39:06 it had reached step 2,450/6,000 (about 2,036 tokens/s, ETA near 4h02m), with three gradient-norm spikes
-(steps 693/1,119/1,208), two gradient-health alerts, and step-2,000 validation loss 1.7728 / PPL 5.89. Two
+22:34:51 it had reached step 3,325/6,000 (about 2,188 tokens/s, ETA near 2h46m), with three gradient-norm spikes
+(steps 693/1,119/1,208), two gradient-health alerts, and step-3,000 validation loss 1.6441 / PPL 5.18. Two
 low-system-memory warnings were logged, but training continued.
 The scale grid is 14/24 complete, with ten cells queued; exact full-corpus coverage is 40 cells / 12,800 generations.
-Disk free was about 7.2 GiB at that check. The blinded annotation and separate contamination-free confirmatory study
+Disk free was about 6.5 GiB at that check. The blinded annotation and separate contamination-free confirmatory study
 remain incomplete.
