@@ -784,11 +784,29 @@ with 11 queued; at the initial post-completion check around 11:26 it had only in
 untrained step-0 baseline. About 8.0 GiB was free at that earlier check. Scale results remain single-seed automated measurements; human annotation
 and the separate contamination-free confirmation are not complete.
 
-### MHA frequency-1 progress check
+### MHA frequency-1 progress check (historical)
 
 At 17:35:44 local on 2026-10-12, the active 48M MHA frequency-1 cell reached step 5,250/6,000 (loss 1.3771)
 at about 1,953 tokens/s, with an early ETA of 52m. Step-5,000 validation loss was 1.5066 (new best). Six
 gradient-health alerts have been logged so far: three at step 25 for blocks 6-8 and three at step 50 for blocks
 5-7; no gradient-norm spikes were logged. The MHA frequency-0 cell remains independently verified as
 completed; the matrix is still 13/24 complete, with 11 cells queued, and full-corpus overlap coverage is 39
-cells / 12,480 generations. Disk free was about 8.2 GiB. This is a progress snapshot, not a completion estimate.
+cells / 12,480 generations. Disk free was about 8.2 GiB. This is a historical progress snapshot, not a completion estimate.
+
+### MHA frequency-1 completion and frequency-10 start
+
+MHA frequency 1 ran from 11:39:03 to 18:27:55 local on 2026-10-12 (6h48m52s setup-to-done; 24,507.9 trainer
+seconds). It completed 6,000 updates with best validation loss 1.4982424 / PPL 4.4738, six gradient-norm spikes,
+and six gradient-health alerts. The independent audit loaded `best.pt` and `final.pt`, checked the 12-row
+memorization result and 32-group/320-generation novelty result, then verified the 32-group/320-generation full-corpus
+overlap result against the matching frequency-1 corpus hash and 73,139-story count. No evaluation or training
+failure occurred. At this cell, four of eight inserted targets ranked first (mean exposure 2.614); four unseen
+controls averaged 1.369 exposure, with none ranking first; greedy extraction was 0/8. Group-mean distinct-1/2 were
+0.383/0.786; full-corpus word-four-gram overlap mean/median/max across 320 outputs was 0.095/0.072/0.750. These
+are automated single-seed diagnostics only, not human novelty judgments or a creativity effect.
+
+The sequential runner then started MHA frequency 10 at 18:39:49 local. At 18:40:10 it logged the untrained
+step-0 baseline (validation loss 8.4595 / PPL 4,719.9); no training update or ETA was available at that check.
+The scale grid is now 14/24 complete, with ten cells queued; exact full-corpus coverage is 40 cells / 12,800
+generations. Disk free was about 7.8 GiB at the latest filesystem check. The blinded annotation and separate
+contamination-free confirmatory study remain incomplete.

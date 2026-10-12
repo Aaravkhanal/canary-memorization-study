@@ -7,8 +7,8 @@ losses, and gradient-norm anomaly counts come from the run summaries. The three 
 each corresponding cell completed under its `exp_002` directory and is not counted as a failed run.
 
 All completed 14M cells reached 6,000 updates. The 48M baseline grid and learned-position frequencies 0, 1, 10,
-50, 100, and 500, plus MHA frequency 0, have completed; MHA frequency 1 is currently training at step 5,250/6,000
-(early ETA ~52m). Baseline frequency 0 required one disk-full
+50, 100, and 500, plus MHA frequencies 0 and 1, have completed; MHA frequency 10 is active at step 50/6,000
+(1,857 tokens/s; early ETA 7h17m at the 18:43 IST check). Ten cells remain queued. Baseline frequency 0 required one disk-full
 checkpoint-write recovery.
 
 | Architecture / run | Frequency | Runtime | Updates | Best val loss | Grad-norm spikes | Outcome |
@@ -56,6 +56,7 @@ checkpoint-write recovery.
 | 48M learned positions | 100 | 07:57:55 | 6,000 | 1.5472 | 45 | completed; 28,655.9 trainer seconds; 2 gradient-health alerts |
 | 48M learned positions | 500 | 07:50:55 | 6,000 | 1.5199 | 36 | completed; 28,224.9 trainer seconds; 5 gradient-health alerts |
 | 48M MHA | 0 | 08:50:42 | 6,000 | 1.4978 | 4 | completed; 31,815.7 trainer seconds; 4 gradient-health alerts |
+| 48M MHA | 1 | 06:48:52 | 6,000 | 1.4982 | 6 | completed; 24,507.9 trainer seconds; 6 gradient-health alerts |
 
 \* For the failed 48M row, the summary held a candidate best validation loss of 1.8588 at the failing step, but its
 update did not persist to `best.pt`. The last logged and persisted evaluation/checkpoint is step 1,000 (validation
@@ -135,10 +136,9 @@ the 73,139-story frequency-500 corpus. Rolling step checkpoints were removed onl
 
 ## Current queue snapshot (2026-10-12)
 
-The 48M matrix is 13/24 complete: all six baseline and all six learned-position cells, plus MHA frequency 0.
-MHA frequency 1 is the single active cell; 11 cells are queued. At the 11:44:47 local check it had reached step
-5,250/6,000 (early ETA ~52m), logged six gradient-health alerts at steps 25 and 50, and had no gradient-norm spikes.
-Full-corpus overlap covers 39 evaluated cells / 12,480 generations, including all canonical 14M cells and two
-true baseline training-seed replications. Approximately 9 GiB was free at the last disk check. No completion is
+The 48M matrix is 14/24 complete: all six baseline and all six learned-position cells, plus MHA frequencies 0 and 1.
+MHA frequency 10 is the single active cell; at the 18:43 IST check it had reached step 50/6,000. Ten cells remain queued.
+Full-corpus overlap covers 40 evaluated cells / 12,800 generations, including all canonical 14M cells and two
+true baseline training-seed replications. Approximately 7.8 GiB was free at the last disk check. No completion is
 claimed for the active or queued cells.
 for the active or queued cells are yet claimed.
