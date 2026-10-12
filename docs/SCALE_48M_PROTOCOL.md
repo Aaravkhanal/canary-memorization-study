@@ -8,7 +8,7 @@ best validation loss 1.4871 (PPL 4.4243). Frequency 1 reached best validation lo
 frequency 10 reached best validation loss 1.4896 (PPL 4.44), and frequency 50 reached 1.5018 (PPL 4.49). Baseline
 frequencies 100 and 500 reached 1.5061 and 1.4802. Learned-position frequencies 0, 1, 10, 50, 100, and 500
 reached 1.5309, 1.5275, 1.5305, 1.5464, 1.5472, and 1.5199. MHA frequency 1 reached 1.4982 (PPL 4.47).
-MHA frequency 10 is the active cell, currently at step 4,300/6,000; the other
+MHA frequency 10 is the active cell, currently at step 5,175/6,000; the other
 10 cells are queued. This is a scale-transfer extension to the exploratory
 14M study, not a replacement for the contamination-free confirmatory study.
 
@@ -79,8 +79,8 @@ zero-insertion condition, the eight target canaries averaged exposure 2.457 (fou
 for four unseen controls; target-canary greedy extraction was 0/8. Mean distinct-1/2 were 0.384/0.790, and mean
 maximum exact word-four-gram overlap across all 320 generations was 0.084 (median 0.070, max 0.706). These are
 diagnostic automated metrics, not treatment effects or creativity judgments. MHA frequency 10 is now training;
-at the 23:43 IST check it had reached step 4,300/6,000 (about 1,716 tokens/s; ETA near 2h15m), with ten cells
-queued behind it. Step-4,000 validation loss was 1.5608 / PPL 4.76. Three gradient-norm spikes (steps 693, 1,119,
+at the 00:47 IST check it had reached step 5,175/6,000 (about 2,047 tokens/s; ETA near 55 minutes), with ten cells
+queued behind it. Step-5,000 validation loss was 1.5054 / PPL 4.51. Three gradient-norm spikes (steps 693, 1,119,
 and 1,208) and two gradient-health alerts (step 25) are recorded so far; two low-system-memory warnings were logged,
 but training continued. MHA frequency 1 completed in
 24,507.9 trainer seconds (6h48m52s wall), best validation
@@ -89,7 +89,7 @@ all three evaluation outputs, and the frequency-1 73,139-story corpus fingerprin
 eight target canaries averaged exposure 2.614 (four rank 1), versus 1.369 (none rank 1) for four unseen controls;
 greedy extraction was 0/8. Mean distinct-1/2 were 0.383/0.786, and full-corpus maximum exact word-four-gram overlap
 across 320 completions averaged 0.095 (median 0.072, maximum 0.750). These are exploratory diagnostics only.
-Latest free disk was about 7.4 GiB; retain
+Latest free disk was about 7.5 GiB; retain
 best/final checkpoints and continue monitoring, with rolling checkpoints removed only
 after successful validation.
 Actual per-cell elapsed times and failures are the record of truth. The config tests check token budget,
