@@ -134,9 +134,9 @@ the 73,139-story frequency-500 corpus. Rolling step checkpoints were removed onl
 ## Current queue snapshot (2026-10-12)
 
 The 48M matrix is 12/24 complete: all six baseline and all six learned-position cells. MHA frequency 0 is the
-single active cell; 11 cells are queued. At the latest log check it had reached step 3,250/6,000, with an
-estimated 4h23m remaining; this is an approximate live estimate. Step-3,000 validation loss was 1.6446 / PPL
-5.18. Four gradient-norm spikes and four gradient-health alerts were logged. No completed-step results are
+single active cell; 11 cells are queued. At the latest log check it had reached step 3,825/6,000, with an
+estimated 3h20m remaining; this is an approximate live estimate. Step-3,500 validation loss was 1.5976 / PPL
+4.94. Four gradient-norm spikes and four gradient-health alerts were logged. No completed-step results are
 claimed for this active cell.
 Full-corpus overlap covers 38 evaluated cells / 12,160 generations, including all canonical 14M cells and two
 true baseline training-seed replications. Approximately 10 GiB was free at the last disk check. No 48M results
