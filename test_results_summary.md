@@ -23,8 +23,8 @@ compute, and work that still requires human judgment.
   trainer seconds; best loss 1.5018; three gradient-norm spikes and three gradient-health alerts), and its
   checkpoints and matching-corpus outputs were verified. Since then baseline frequencies 100 and 500, and
   learned-position frequencies 0, 1, and 10, also completed with their memorization, novelty, and matching-corpus
-  overlap outputs checked. Twelve of 24 48M cells are complete; MHA frequency 0 is currently training
-  and 11 cells remain queued. About 10 GiB was free at the latest check. Rolling checkpoints are removed only
+  overlap outputs checked. Thirteen of 24 48M cells are complete; MHA frequency 1 is currently training
+  and 11 cells remain queued. About 8.0 GiB was free at that earlier status check. Rolling checkpoints are removed only
   after per-cell verification.
 - The existing MY-LLM 48M checkpoint used a different corpus and five times the token budget, so it cannot serve as
   the matched arm.
@@ -147,7 +147,7 @@ in 19.06 seconds with the same 14 upstream matplotlib/pyparsing deprecation warn
 Frequency 100 took 28,655.9 trainer seconds (7h57m55s setup-to-done), best loss 1.5472, with 45 spikes and two
 gradient-health alerts. For each, 12 memorization rows, 32 novelty groups/320 completions, and 32 full-corpus
 groups/320 completions were checked; the overlap SHA matched the frequency-specific 73,139-story corpus. The
-frequency-500 learned-position cell is now complete. The overlap audit covers 38 cells/12,160 generated completions;
+frequency-500 learned-position cell is now complete. The overlap audit covers 39 cells/12,480 generated completions;
 human annotation and the separate contamination-free confirmatory study remain incomplete.
 
 After these interim documentation/result updates, the full suite passed again on 2026-10-11: **67 passed** in
@@ -159,13 +159,30 @@ The learned-position frequency-500 cell completed at step 6,000 with 28,224.9 tr
 setup-to-done wall time), best validation loss 1.5199 / PPL 4.57, 36 gradient-norm spikes, and five
 gradient-health alerts. The runner and an independent check verified its retained best/final checkpoints, 12-row
 memorization JSON, 32-group/320-completion novelty output, and matching-corpus full-overlap JSON (frequency-500
-SHA-256; 73,139 stories). MHA frequency 0 is the sole active training cell; it has started, and 11 cells remain.
+SHA-256; 73,139 stories). MHA frequency 0 has completed; MHA frequency 1 is the sole active cell, and 11 cells remain.
 
 After the 2026-10-12 frequency-500 documentation update, the full research test suite passed **67/67** in
 23.91 seconds, with 14 upstream matplotlib/pyparsing deprecation warnings. An independent artifact audit loaded
 the retained best/final checkpoints and checked result JSON structure and the matching corpus fingerprint/story
 count for all 12 completed 48M cells; all checks passed. At the latest status check MHA frequency 0 had reached
-step 5,300/6,000, with an estimated 54m remaining, four gradient-norm spikes, and four gradient-health alerts
-logged to date. Its step-5,000 validation loss was 1.5058 / PPL 4.51. Both prepared blinded rater CSVs were rechecked: each has
+MHA frequency 0 completed at 6,000 steps (31,815.7 trainer seconds; 8h50m42s wall time), best validation loss
+1.4978 / PPL 4.47, four gradient-norm spikes, and four gradient-health alerts. The independent audit loaded its
+best/final checkpoints and checked all three outputs plus the matching 73,139-story corpus fingerprint. MHA
+frequency 1 reached step 25/6,000 (early ETA ~8h35m) with three gradient-health alerts and no gradient-norm
+spikes at the 11:41 check. Both prepared blinded rater CSVs were rechecked: each has
 1,280 rows, condition-hidden columns, and blank label/confidence/notes fields. Human annotation and the
 contamination-free confirmatory study remain incomplete.
+
+At the 2026-10-12 11:41:28 IST progress check, the active MHA frequency-1 run was at step 25/6,000, about
+1,641 tokens/s, with an early ETA of 8h35m; three gradient-health alerts were logged for blocks 6-8 and no
+gradient-norm spikes had occurred. A fresh independent audit validated all 13 completed 48M cells: each had
+loadable `best.pt` and `final.pt` checkpoints, 12 memorization rows, 32 novelty groups × 10 generations, and
+32 full-corpus groups × 10 generations. Every full-corpus result's SHA-256 matched its frequency-specific
+73,139-story corpus. The full suite passed again: **67 passed** in 13.17s (14 upstream deprecation warnings).
+
+At the 2026-10-12 11:44:47 IST progress check, the active MHA frequency-1 run had reached step 75/6,000 at
+about 2,240 tokens/s (early ETA ~6h02m). Six gradient-health alerts had been logged at steps 25 and 50; no
+gradient-norm spikes were logged. The other eleven 48M cells remain queued.
+
+After the 11:44 IST documentation refresh, the research suite passed once more: **67 passed** in 12.43s, with
+14 upstream matplotlib/pyparsing deprecation warnings and no test failures.

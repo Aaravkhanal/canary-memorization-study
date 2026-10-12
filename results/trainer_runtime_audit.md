@@ -1,13 +1,14 @@
 # Trainer runtime and checkpoint audit
 
-Collected from the retained `models/**/train.log` and each run's `summary.json`, updated 2026-10-11. Durations are wall-clock
+Collected from the retained `models/**/train.log` and each run's `summary.json`, updated 2026-10-12. Durations are wall-clock
 time from the first setup line to the final `[done]` or `[error]` log line (local time); update counts, best validation
 losses, and gradient-norm anomaly counts come from the run summaries. The three zero-byte placeholder logs
 (`baseline/freq_1/exp_001`, `baseline/freq_500/exp_001`, and `variant_b_mha/freq_50/exp_001`) contain no trainer output;
 each corresponding cell completed under its `exp_002` directory and is not counted as a failed run.
 
 All completed 14M cells reached 6,000 updates. The 48M baseline grid and learned-position frequencies 0, 1, 10,
-50, 100, and 500 have completed; MHA frequency 0 is currently training. Frequency 0 required one disk-full
+50, 100, and 500, plus MHA frequency 0, have completed; MHA frequency 1 is currently training at step 75/6,000
+(early ETA ~6h02m). Baseline frequency 0 required one disk-full
 checkpoint-write recovery.
 
 | Architecture / run | Frequency | Runtime | Updates | Best val loss | Grad-norm spikes | Outcome |
@@ -54,6 +55,7 @@ checkpoint-write recovery.
 | 48M learned positions | 50 | 06:51:18 | 6,000 | 1.5464 | 39 | completed; 24,652.2 trainer seconds; 4 gradient-health alerts |
 | 48M learned positions | 100 | 07:57:55 | 6,000 | 1.5472 | 45 | completed; 28,655.9 trainer seconds; 2 gradient-health alerts |
 | 48M learned positions | 500 | 07:50:55 | 6,000 | 1.5199 | 36 | completed; 28,224.9 trainer seconds; 5 gradient-health alerts |
+| 48M MHA | 0 | 08:50:42 | 6,000 | 1.4978 | 4 | completed; 31,815.7 trainer seconds; 4 gradient-health alerts |
 
 \* For the failed 48M row, the summary held a candidate best validation loss of 1.8588 at the failing step, but its
 update did not persist to `best.pt`. The last logged and persisted evaluation/checkpoint is step 1,000 (validation
@@ -133,11 +135,10 @@ the 73,139-story frequency-500 corpus. Rolling step checkpoints were removed onl
 
 ## Current queue snapshot (2026-10-12)
 
-The 48M matrix is 12/24 complete: all six baseline and all six learned-position cells. MHA frequency 0 is the
-single active cell; 11 cells are queued. At the latest log check it had reached step 5,300/6,000, with an
-estimated 54m remaining; this is an approximate live estimate. Step-5,000 validation loss was 1.5058 / PPL
-4.51. Four gradient-norm spikes and four gradient-health alerts were logged. No completed-step results are
-claimed for this active cell.
-Full-corpus overlap covers 38 evaluated cells / 12,160 generations, including all canonical 14M cells and two
-true baseline training-seed replications. Approximately 10 GiB was free at the last disk check. No 48M results
+The 48M matrix is 13/24 complete: all six baseline and all six learned-position cells, plus MHA frequency 0.
+MHA frequency 1 is the single active cell; 11 cells are queued. At the 11:44:47 local check it had reached step
+75/6,000 (early ETA ~6h02m), logged six gradient-health alerts at steps 25 and 50, and had no gradient-norm spikes.
+Full-corpus overlap covers 39 evaluated cells / 12,480 generations, including all canonical 14M cells and two
+true baseline training-seed replications. Approximately 9 GiB was free at the last disk check. No completion is
+claimed for the active or queued cells.
 for the active or queued cells are yet claimed.

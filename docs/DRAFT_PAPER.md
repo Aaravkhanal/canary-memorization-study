@@ -1,12 +1,12 @@
 # Memorization vs. compositional creativity in a small language model: does the trade-off depend on architecture?
 
 **Status: exploratory draft, not submission-ready.** The balanced 14M grid and baseline 100/500 training-seed
-replications are complete, but historical tables below remain an audit trail rather than final results. Twelve of 24
-48M cells are complete: all six baseline frequencies and all six learned-position frequencies. MHA frequency 0 is
-training and 11 cells remain queued.
+replications are complete, but historical tables below remain an audit trail rather than final results. Thirteen of 24
+48M cells are complete: all six baseline frequencies, all six learned-position frequencies, and MHA frequency 0.
+MHA frequency 1 is training at step 75/6,000 (early ETA ~6h02m) and 11 cells remain queued.
 The frequency-0 cell completed after a disk-full checkpoint-write failure and resume from a verified step-1,000
 checkpoint. Exact full-corpus overlap now covers 24/24 canonical 14M cells (7,680 completions), two baseline
-training-seed replication cells (640 completions), and twelve 48M cells (3,840 completions), 38 cells / 12,160
+training-seed replication cells (640 completions), and thirteen 48M cells (4,160 completions), 39 cells / 12,480
 completions total. The human primary novelty endpoint and contamination-free confirmatory study are incomplete.
 The current submission gate is
 `docs/PUBLICATION_READINESS.md`.
@@ -38,7 +38,7 @@ not weakened by this; frequency 10's evidence for two borderline canaries (`char
 walked back to "plausible, not established" accordingly. Baseline frequency-10 seed replication is complete;
 frequencies 100 and 500 second-training-seed replications are now complete. Baseline and learned-position frequency grids have since completed;
 the balanced refreshed trade-off analysis is available, while full-corpus overlap is complete for the canonical
-14M grid and twelve 48M cells only
+14M grid and thirteen 48M cells only
 and the blinded human primary endpoint is still outstanding. These results do not yet
 establish a creativity trade-off.*
 
@@ -136,8 +136,8 @@ The study uses four near-parameter-matched architectures:
 | `variant_c_layernorm` | RMSNorm → LayerNorm | 14,162,304 | exact match |
 
 All four architectures are trained and scored across 0, 1, 10, 50, 100, and 500. The balanced grid is complete;
-the baseline high-frequency second-training-seed replications are complete. Twelve cells of the 48M scale-transfer
-arm are complete (all six baseline and all six learned-position frequencies); MHA frequency 0 is training and 11
+the baseline high-frequency second-training-seed replications are complete. Thirteen cells of the 48M scale-transfer
+arm are complete (all six baseline, all six learned-position frequencies, and MHA frequency 0); MHA frequency 1 is training and 11
 cells are queued. No scale comparison conclusion is available.
 
 ### 3.2 Canary design
@@ -492,7 +492,7 @@ noise.
 
 ### 4.6 Interim 48M scale-transfer observations (single seed; incomplete grid)
 
-The first twelve scale cells have now been evaluated with the same memorization, generation, and full-corpus
+The first thirteen scale cells have now been evaluated with the same memorization, generation, and full-corpus
 pipelines. In the 48M baseline, all eight inserted canaries reach rank 1 at frequency 50; the same eight remain
 at that exposure ceiling at frequencies 100 and 500 (mean exposure 3.926 in all three cells). For the same eight
 canaries, mean distinct-1 is 0.404, 0.400, and 0.374 at frequencies 50, 100, and 500, respectively. Mean
@@ -511,10 +511,18 @@ versus the 14M schedule (8e-4). Learned-position frequencies 0, 1, 10, 50, and 1
 exact word-four-gram overlap against the matching corpus is 0.020 and 0.027, respectively. At learned-position
 frequency 500, seven of eight canaries are rank 1 (mean exposure 3.801); distinct-1 is 0.405, distinct-2 is 0.799,
 and exact overlap mean is 0.048. These remain single-seed automated proxies, not evidence of an architecture effect.
-Learned-position frequency 500 completed; MHA frequency 0 is currently training. The exact-overlap audit now
-covers 38 cells / 12,160 completions, including all evaluated scale cells. The matched
+Learned-position frequency 500 and MHA frequency 0 completed; MHA frequency 1 is currently training at step
+75/6,000 (early ETA ~6h02m). The exact-overlap audit now covers 39 cells / 12,480 completions, including all evaluated scale cells. The matched
 architecture comparison awaits the rest of the scale grid. Do not merge these partial results into the 14M
 trade-off tables as if they were a complete factorial analysis.
+
+The completed MHA zero-insertion cell provides an additional diagnostic baseline, not a treatment effect. The eight
+target canaries (with no deliberate insertions in this corpus) averaged exposure 2.457, with four ranked first;
+the four unseen controls averaged 2.133, with one ranked first. No target canary was a greedy argmax extraction.
+Across its 320 generations, mean distinct-1/2 were 0.384/0.790 and mean exact maximum word-four-gram overlap
+against the complete frequency-0 corpus was 0.084 (median 0.070; maximum 0.706). These automated, single-seed
+descriptives illustrate that exposure ranking and broad corpus overlap are not equivalent to extraction, and do
+not establish any architecture or creativity effect.
 
 ## 5. Limitations (current, to be revisited as the grid completes)
 
@@ -531,7 +539,7 @@ trade-off tables as if they were a complete factorial analysis.
    by itself undermine, but replication remains important.
 2. **Exploratory grid imbalance.** All four architectures are trained at 0, 1, 10, 100, and 500; MHA and LayerNorm
    additionally have frequency 50. Both missing frequency-50 cells and baseline high-frequency seed replications
-   are complete. The exploratory 48M arm is partially complete (12/24 cells; the MHA frequency-0 cell is active and
+   are complete. The exploratory 48M arm is partially complete (13/24 cells; MHA frequency 1 is active and
    11 cells remain queued). Frequency 0 was added after the
    initial preregistration, so it is a necessary matched control but still a documented design change.
 3. **Novelty evaluation not yet run to the brief's standard.** Hand-labelling (Checkpoint 5) has not been done;

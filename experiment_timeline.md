@@ -164,8 +164,11 @@
 - Learned-position frequency 500 completed at 02:21:05 local (7h50m55s setup-to-done; 28,224.9 trainer seconds),
   best validation loss 1.5199, 36 gradient-norm spikes, and five gradient-health alerts. Best/final checkpoints,
   all three evaluation outputs, and matching frequency-500 full-corpus fingerprint (73,139 stories) were verified.
-- MHA frequency 0 is the sole active training cell; 11 cells are queued. The 48M arm is 12/24 complete. Exact
-  full-corpus overlap is verified for 38 cells / 12,160 generated continuations. At the latest check MHA had
-  reached step 5,300/6,000 (live ETA about 54m); its step-5,000 validation loss was 1.5058 / PPL 4.51, with
-  four gradient-norm spikes and four gradient-health alerts logged so far. Human annotation and the
+- MHA frequency 0 completed at 6,000 steps (31,815.7 trainer seconds; 8h50m42s setup-to-done), best validation
+  loss 1.4978 / PPL 4.47, with four gradient-norm spikes and four gradient-health alerts. Its retained checkpoints,
+  memorization/novelty results, and matching-corpus overlap report were independently verified. MHA frequency 1
+  is now the sole active cell; at 11:44:47 it reached step 75/6,000 (early ETA ~6h02m). Six gradient-health
+  alerts have been recorded so far (three at step 25, three at 50); no gradient-norm spikes were logged.
+  The 48M arm is 13/24 complete;
+  full-corpus overlap covers 39 cells / 12,480 generations. Human annotation and the
   contamination-free confirmatory experiment remain outstanding.
