@@ -165,7 +165,7 @@ After the 2026-10-12 frequency-500 documentation update, the full research test 
 23.91 seconds, with 14 upstream matplotlib/pyparsing deprecation warnings. An independent artifact audit loaded
 the retained best/final checkpoints and checked result JSON structure and the matching corpus fingerprint/story
 count for all 12 completed 48M cells; all checks passed. At the latest status check MHA frequency 0 had reached
-step 1,925/6,000, with an estimated 6h07m remaining, three gradient-norm spikes, and four gradient-health alerts
-logged to date. Both prepared blinded rater CSVs were rechecked: each has
+step 2,575/6,000, with an estimated 5h06m remaining, three gradient-norm spikes, and four gradient-health alerts
+logged to date. Its step-2,500 validation loss was 1.7048 / PPL 5.50. Both prepared blinded rater CSVs were rechecked: each has
 1,280 rows, condition-hidden columns, and blank label/confidence/notes fields. Human annotation and the
 contamination-free confirmatory study remain incomplete.

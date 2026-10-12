@@ -777,8 +777,8 @@ fingerprint matched the frequency-500 corpus (73,139 stories). Rolling step chec
 
 MHA frequency 0 is now the sole active training cell; 11 cells are queued, leaving the 48M grid at 12/24.
 The exact-overlap audit covers 38 cells / 12,160 generations. At the latest check MHA frequency 0 had reached
-step 1,925/6,000; the latest trainer estimate was about 6h07m remaining. This is a live estimate, not a
-completion promise. Three gradient-norm spikes and four gradient-health alerts were logged through step 1,925.
-About 9.2 GiB was free. The trained scale cells
+step 2,575/6,000; the latest trainer estimate was about 5h06m remaining. This is a live estimate, not a
+completion promise. The step-2,500 validation loss was 1.7048 (PPL 5.50), and three gradient-norm spikes and
+four gradient-health alerts have been logged. About 9.1 GiB was free. The trained scale cells
 remain single-seed automated measurements; human annotation and the separate contamination-free confirmation
 are not complete.
