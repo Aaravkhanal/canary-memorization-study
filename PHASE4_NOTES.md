@@ -786,9 +786,9 @@ and the separate contamination-free confirmation are not complete.
 
 ### MHA frequency-1 progress check
 
-At 15:38:57 local on 2026-10-12, the active 48M MHA frequency-1 cell reached step 3,600/6,000 (loss 1.4393)
-at about 2,005 tokens/s, with an early ETA of 2h43m. Step-3,500 validation loss was 1.5941 (new best). Six
+At 16:37:16 local on 2026-10-12, the active 48M MHA frequency-1 cell reached step 4,450/6,000 (loss 1.4157)
+at about 1,980 tokens/s, with an early ETA of 1h46m. Step-4,000 validation loss was 1.5647 (new best). Six
 gradient-health alerts have been logged so far: three at step 25 for blocks 6-8 and three at step 50 for blocks
 5-7; no gradient-norm spikes were logged. The MHA frequency-0 cell remains independently verified as
 completed; the matrix is still 13/24 complete, with 11 cells queued, and full-corpus overlap coverage is 39
-cells / 12,480 generations. Disk free was about 9.5 GiB. This is a progress snapshot, not a completion estimate.
+cells / 12,480 generations. Disk free was about 9.0 GiB. This is a progress snapshot, not a completion estimate.

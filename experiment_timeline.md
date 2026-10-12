@@ -167,9 +167,9 @@
 - MHA frequency 0 completed at 6,000 steps (31,815.7 trainer seconds; 8h50m42s setup-to-done), best validation
   loss 1.4978 / PPL 4.47, with four gradient-norm spikes and four gradient-health alerts. Its retained checkpoints,
   memorization/novelty results, and matching-corpus overlap report were independently verified. MHA frequency 1
-  is now the sole active cell; at 15:38:57 it reached step 3,600/6,000 (early ETA ~2h43m), with loss 1.4393.
-  Step-3,500 validation loss was 1.5941 (new best). Six gradient-health alerts had been recorded at steps 25
+  is now the sole active cell; at 16:37:16 it reached step 4,450/6,000 (early ETA ~1h46m), with loss 1.4157.
+  Step-4,000 validation loss was 1.5647 (new best). Six gradient-health alerts had been recorded at steps 25
   and 50; no gradient-norm spikes were logged.
   The 48M arm is 13/24 complete;
   full-corpus overlap covers 39 cells / 12,480 generations. Human annotation and the
-  contamination-free confirmatory experiment remain outstanding. Disk free was 9.5 GiB.
+  contamination-free confirmatory experiment remain outstanding. Disk free was 9.0 GiB.
