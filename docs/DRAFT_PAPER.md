@@ -3,7 +3,7 @@
 **Status: exploratory draft, not submission-ready.** The balanced 14M grid and baseline 100/500 training-seed
 replications are complete, but historical tables below remain an audit trail rather than final results. Fourteen of 24
 48M cells are complete: all six baseline frequencies, all six learned-position frequencies, and MHA frequencies 0 and 1.
-MHA frequency 10 is active at step 50/6,000; ten cells remain queued.
+MHA frequency 10 is active at step 800/6,000; ten cells remain queued.
 The frequency-0 cell completed after a disk-full checkpoint-write failure and resume from a verified step-1,000
 checkpoint. Exact full-corpus overlap now covers 24/24 canonical 14M cells (7,680 completions), two baseline
 training-seed replication cells (640 completions), and fourteen 48M cells (4,480 completions), 40 cells / 12,800
@@ -513,7 +513,7 @@ frequency 500, seven of eight canaries are rank 1 (mean exposure 3.801); distinc
 and exact overlap mean is 0.048. These remain single-seed automated proxies, not evidence of an architecture effect.
 Learned-position frequency 500 and MHA frequencies 0 and 1 completed. The exact-overlap audit now covers 40 cells /
 12,800 completions, including all evaluated scale cells. At the latest recorded check MHA frequency 10 had reached
-step 50/6,000 after its step-0 baseline;
+step 800/6,000 after its step-0 baseline and logged one gradient-norm spike plus two gradient-health alerts;
 ten cells remain queued. The matched
 architecture comparison awaits the rest of the scale grid. Do not merge these partial results into the 14M
 trade-off tables as if they were a complete factorial analysis.

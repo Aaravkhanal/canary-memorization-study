@@ -205,10 +205,15 @@ upstream matplotlib/pyparsing deprecation warnings and no failures.
 After the 17:35 IST MHA progress update, the full suite passed **67/67** in 18.44s, with 14 upstream
 matplotlib/pyparsing deprecation warnings and no failures.
 
-At the 2026-10-12 18:43 IST checkpoint, MHA frequency 1 had completed and its retained checkpoints, three result
+At the 2026-10-12 19:39 IST checkpoint, MHA frequency 1 had completed and its retained checkpoints, three result
 JSONs, and frequency-specific corpus fingerprint were independently verified. MHA frequency 10 was active at
-step 50/6,000. Full-corpus coverage stands at 40 evaluated cells / 12,800 generations. Annotation and the
+step 800/6,000, with one logged gradient-norm spike and two gradient-health alerts. Full-corpus coverage stands at
+40 evaluated cells / 12,800 generations. Annotation and the
 contamination-free confirmatory study remain incomplete.
 
 After the latest documentation update, the full research suite passed **67/67** in 13.35s on 2026-10-12, with
 14 upstream matplotlib/pyparsing deprecation warnings and no failures.
+
+After the 19:39 IST MHA frequency-10 progress update, the full research suite passed again: **67/67** in 33.28s,
+with the same 14 upstream matplotlib/pyparsing deprecation warnings and no failures. The longer runtime occurred
+while the MPS training job continued; no test failures were observed.

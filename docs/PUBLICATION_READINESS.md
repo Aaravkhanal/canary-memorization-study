@@ -19,7 +19,7 @@ artifact.
 
 1. The 14M grid and baseline 100/500 training-seed replications are complete. Fourteen 48M cells are verified:
    all six baseline frequencies, all six learned-position frequencies, and MHA frequencies 0 and 1. MHA frequency 10
-   is active at step 50/6,000, with ten cells queued. The frequency-0 baseline cell required
+   is active at step 800/6,000, with ten cells queued. The frequency-0 baseline cell required
    an in-place resume after a disk-full checkpoint-write failure. Report both arms as exploratory until replicated.
 2. Complete the blinded two-rater V/T/N study in `docs/ANNOTATION_PROTOCOL.md`; the two prepared rater files each
    contain 1,280 condition-hidden items with label, confidence, and notes fields blank. Human scoring is not done;

@@ -806,7 +806,8 @@ controls averaged 1.369 exposure, with none ranking first; greedy extraction was
 are automated single-seed diagnostics only, not human novelty judgments or a creativity effect.
 
 The sequential runner then started MHA frequency 10 at 18:39:49 local. At 18:40:10 it logged the untrained
-step-0 baseline (validation loss 8.4595 / PPL 4,719.9); no training update or ETA was available at that check.
-The scale grid is now 14/24 complete, with ten cells queued; exact full-corpus coverage is 40 cells / 12,800
-generations. Disk free was about 7.8 GiB at the latest filesystem check. The blinded annotation and separate
-contamination-free confirmatory study remain incomplete.
+step-0 baseline (validation loss 8.4595 / PPL 4,719.9). By 19:39:23 it had reached step 800/6,000 (about
+1,800 tokens/s, ETA near 7h37m), with one gradient-norm spike and two gradient-health alerts. The scale grid is
+14/24 complete, with ten cells queued; exact full-corpus coverage is 40 cells / 12,800 generations. Disk free was
+about 8.1 GiB at that check. The blinded annotation and separate contamination-free confirmatory study remain
+incomplete.

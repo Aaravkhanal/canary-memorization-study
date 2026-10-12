@@ -8,7 +8,7 @@ best validation loss 1.4871 (PPL 4.4243). Frequency 1 reached best validation lo
 frequency 10 reached best validation loss 1.4896 (PPL 4.44), and frequency 50 reached 1.5018 (PPL 4.49). Baseline
 frequencies 100 and 500 reached 1.5061 and 1.4802. Learned-position frequencies 0, 1, 10, 50, 100, and 500
 reached 1.5309, 1.5275, 1.5305, 1.5464, 1.5472, and 1.5199. MHA frequency 1 reached 1.4982 (PPL 4.47).
-MHA frequency 10 is the active cell, currently at step 50/6,000; the other
+MHA frequency 10 is the active cell, currently at step 800/6,000; the other
 10 cells are queued. This is a scale-transfer extension to the exploratory
 14M study, not a replacement for the contamination-free confirmatory study.
 
@@ -79,7 +79,9 @@ zero-insertion condition, the eight target canaries averaged exposure 2.457 (fou
 for four unseen controls; target-canary greedy extraction was 0/8. Mean distinct-1/2 were 0.384/0.790, and mean
 maximum exact word-four-gram overlap across all 320 generations was 0.084 (median 0.070, max 0.706). These are
 diagnostic automated metrics, not treatment effects or creativity judgments. MHA frequency 10 is now training;
-its step-50 log shows 1,857 tokens/s and an early ETA of 7h17m, with ten cells queued behind it. MHA frequency 1
+its step-800 log shows about 1,800 tokens/s and a current ETA near 7h37m, with ten cells queued behind it.
+One gradient-norm spike (step 693) and two gradient-health alerts (step 25) are recorded so far; training remains active.
+MHA frequency 1
 completed in 24,507.9 trainer seconds (6h48m52s wall), best validation
 loss 1.4982 / PPL 4.47, with six gradient-norm spikes and six gradient-health alerts. Retained best/final checkpoints,
 all three evaluation outputs, and the frequency-1 73,139-story corpus fingerprint were independently verified. Its
