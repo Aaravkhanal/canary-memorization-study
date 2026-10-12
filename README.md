@@ -11,7 +11,7 @@ and scored at 0, 1, 10, 50, 100, and 500 insertions. The baseline and learned-po
 the baseline 100x/500x second-training-seed replications are complete. Fourteen of 24 48M cells are complete and
 verified: all six baseline and learned-position frequencies, plus MHA frequencies 0, 1, and 10. MHA frequency 10
 completed 6,000 updates with best validation loss 1.4962 (PPL 4.465), three gradient-norm spikes, and two gradient-health
-alerts. MHA frequency 50 is now the active cell at step 25/6,000 (about 1,651 tokens/s; early ETA 8h14m); nine cells remain queued. Full-corpus overlap has
+alerts. MHA frequency 50 is now the active cell at step 1,275/6,000 (about 1,600 tokens/s; ETA about 7h); nine cells remain queued. Full-corpus overlap has
 been verified for 41 cells / 13,120 generations across the 14M grid,
 the two true baseline seed replications, and completed 48M cells. Interim learned-position frequency-500 results remain single-seed automated measurements;
 human novelty labels are still pending. Interim 48M baseline outputs suggest exposure saturation by

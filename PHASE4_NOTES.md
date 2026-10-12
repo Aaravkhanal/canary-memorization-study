@@ -824,8 +824,9 @@ checked the 32-group/320-completion full-corpus report against the matching freq
 (`666684e9a5eaafc01cf41c7a2265896809ff3ce47ced0cc55afb86eb51a6c7d9`; 73,139 stories). No failure occurred.
 
 MHA frequency 50 is the next sequential cell. It initialized at 01:57:39 local on 2026-10-13 and logged its
-step-0 validation baseline at 01:58:02 (loss 8.4626 / PPL 4,734.3). By 02:00 it had reached step 25/6,000
-(about 1,651 tokens/s; early ETA 8h14m), with one gradient-norm spike and two gradient-health alerts. Nine scale
+step-0 validation baseline at 01:58:02 (loss 8.4626 / PPL 4,734.3). By 03:45 it had reached step 1,275/6,000
+(about 1,600 tokens/s; ETA about 7h), with four gradient-norm spikes and two gradient-health alerts; the step-1,000
+validation loss was 2.0505 / PPL 7.77. Nine scale
 cells remain queued after it. The 48M matrix therefore stands at 15/24 verified cells, and exact
 full-corpus coverage at 41 cells / 13,120 completions. Free disk was about 8.3 GiB. This is a progress snapshot,
 not evidence of an outcome for frequency 50. Human annotation and the contamination-free confirmatory study

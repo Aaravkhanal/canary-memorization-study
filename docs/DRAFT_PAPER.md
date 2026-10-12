@@ -3,7 +3,7 @@
 **Status: exploratory draft, not submission-ready.** The balanced 14M grid and baseline 100/500 training-seed
 replications are complete, but historical tables below remain an audit trail rather than final results. Fifteen of 24
 48M cells are complete: all six baseline frequencies, all six learned-position frequencies, and MHA frequencies 0, 1, and 10.
-MHA frequency 50 is at step 25/6,000 (about 1,651 tokens/s; early ETA 8h14m); nine cells remain queued.
+MHA frequency 50 is at step 1,275/6,000 (about 1,600 tokens/s; ETA about 7h); nine cells remain queued.
 The frequency-0 cell completed after a disk-full checkpoint-write failure and resume from a verified step-1,000
 checkpoint. Exact full-corpus overlap now covers 24/24 canonical 14M cells (7,680 completions), two baseline
 training-seed replication cells (640 completions), and fifteen 48M cells (4,800 completions), 41 cells / 13,120
@@ -515,7 +515,7 @@ Learned-position frequency 500 and MHA frequencies 0, 1, and 10 completed. MHA f
 in 25,555 trainer seconds, with best validation loss 1.4962 / PPL 4.4645, three gradient-norm spikes, and two
 gradient-health alerts. Both retained checkpoints and all three evaluation JSONs were verified; the exact-overlap
 fingerprint matches the 73,139-story frequency-10 corpus. The exact-overlap audit now covers 41 cells / 13,120
-completions. MHA frequency 50 reached step 25/6,000 by 02:00 IST, with one gradient-norm spike and two gradient-health alerts; nine cells remain queued. The matched
+completions. MHA frequency 50 reached step 1,275/6,000 by 03:45 IST, with four gradient-norm spikes and two gradient-health alerts; its step-1,000 validation loss was 2.0505 / PPL 7.77. Nine cells remain queued. The matched
 architecture comparison awaits the rest of the scale grid. Do not merge these partial results into the 14M
 trade-off tables as if they were a complete factorial analysis.
 

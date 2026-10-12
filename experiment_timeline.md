@@ -187,7 +187,7 @@
   result JSONs passed structural checks, and the full-corpus report matched the frequency-10 corpus SHA-256 and
   73,139-story count.
 - MHA frequency 50 initialized at 01:57:39; its step-0 evaluation at 01:58:02 reported loss 8.4626 / PPL 4,734.3.
-  At 02:00 it was at step 25/6,000 (about 1,651 tokens/s; early ETA 8h14m), with one gradient-norm spike and two
-  gradient-health alerts logged; nine scale cells remain queued. The 48M scale matrix is 15/24
+  At 03:45 it was at step 1,275/6,000 (about 1,600 tokens/s; ETA about 7h), with four gradient-norm spikes and two
+  gradient-health alerts; the step-1,000 validation loss was 2.0505 / PPL 7.77. Nine scale cells remain queued. The 48M scale matrix is 15/24
   complete and full-corpus overlap covers 41 cells / 13,120 generations. About 8.3 GiB was free. This run remains
   exploratory; human annotation and the contamination-free confirmatory study are not complete.
