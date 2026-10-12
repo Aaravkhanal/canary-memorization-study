@@ -172,8 +172,9 @@
   all three results passed independent checks; the matching-corpus overlap fingerprint has 73,139 stories.
   Descriptive frequency-1 metrics: 4/8 inserted targets rank 1 (mean exposure 2.614), unseen-control mean exposure
   1.369 with 0/4 rank 1, greedy extraction 0/8; distinct-1/2 0.383/0.786; full-corpus 4-gram overlap mean/median/max
-  0.095/0.072/0.750. MHA frequency 10 then started at 18:39:49 and reached step 1,600/6,000 by 20:39:04
-  (about 1,929 tokens/s; ETA near 5h11m); step-1,500 validation loss was 1.8720 / PPL 6.50. One gradient-norm
-  spike and two gradient-health alerts are logged. Ten cells remain queued. The 48M arm is 14/24 complete and exact overlap
+  0.095/0.072/0.750. MHA frequency 10 then started at 18:39:49 and reached step 2,450/6,000 by 21:39:06
+  (about 2,036 tokens/s; ETA near 4h02m); step-2,000 validation loss was 1.7728 / PPL 5.89. Three gradient-norm
+  spikes and two gradient-health alerts are logged; two low-system-memory warnings occurred without stopping training.
+  Ten cells remain queued. The 48M arm is 14/24 complete and exact overlap
   covers 40 cells / 12,800 generations.
   Human annotation and the contamination-free confirmatory experiment remain outstanding. Disk free was 7.8 GiB.
