@@ -3,7 +3,7 @@
 **Status: exploratory draft, not submission-ready.** The balanced 14M grid and baseline 100/500 training-seed
 replications are complete, but historical tables below remain an audit trail rather than final results. Thirteen of 24
 48M cells are complete: all six baseline frequencies, all six learned-position frequencies, and MHA frequency 0.
-MHA frequency 1 is training at step 1,825/6,000 (early ETA ~5h02m) and 11 cells remain queued.
+MHA frequency 1 is training at step 2,625/6,000 (early ETA ~3h47m) and 11 cells remain queued.
 The frequency-0 cell completed after a disk-full checkpoint-write failure and resume from a verified step-1,000
 checkpoint. Exact full-corpus overlap now covers 24/24 canonical 14M cells (7,680 completions), two baseline
 training-seed replication cells (640 completions), and thirteen 48M cells (4,160 completions), 39 cells / 12,480
@@ -512,7 +512,7 @@ exact word-four-gram overlap against the matching corpus is 0.020 and 0.027, res
 frequency 500, seven of eight canaries are rank 1 (mean exposure 3.801); distinct-1 is 0.405, distinct-2 is 0.799,
 and exact overlap mean is 0.048. These remain single-seed automated proxies, not evidence of an architecture effect.
 Learned-position frequency 500 and MHA frequency 0 completed; MHA frequency 1 is currently training at step
-1,825/6,000 (early ETA ~5h02m). The exact-overlap audit now covers 39 cells / 12,480 completions, including all evaluated scale cells. The matched
+2,625/6,000 (early ETA ~3h47m). The exact-overlap audit now covers 39 cells / 12,480 completions, including all evaluated scale cells. The matched
 architecture comparison awaits the rest of the scale grid. Do not merge these partial results into the 14M
 trade-off tables as if they were a complete factorial analysis.
 

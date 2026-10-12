@@ -180,8 +180,8 @@ loadable `best.pt` and `final.pt` checkpoints, 12 memorization rows, 32 novelty 
 32 full-corpus groups × 10 generations. Every full-corpus result's SHA-256 matched its frequency-specific
 73,139-story corpus. The full suite passed again: **67 passed** in 13.17s (14 upstream deprecation warnings).
 
-At the 2026-10-12 13:35:32 IST progress check, the active MHA frequency-1 run had reached step 1,825/6,000 at
-about 1,884 tokens/s (early ETA ~5h02m). Step-1,500 validation loss was 1.8763 (new best). Six gradient-health alerts had been logged at steps 25 and 50; no
+At the 2026-10-12 14:31:38 IST progress check, the active MHA frequency-1 run had reached step 2,625/6,000 at
+about 2,023 tokens/s (early ETA ~3h47m). Step-2,500 validation loss was 1.7090 (new best). Six gradient-health alerts had been logged at steps 25 and 50; no
 gradient-norm spikes were logged. The other eleven 48M cells remain queued.
 
 After the 12:32 IST documentation refresh, the research suite passed once more: **67 passed** in 12.43s, with
@@ -189,6 +189,9 @@ After the 12:32 IST documentation refresh, the research suite passed once more: 
 
 After the 13:35 IST queue-status update, the suite was rerun: **67 passed** in 13.24s with 14 upstream
 matplotlib/pyparsing deprecation warnings; no tests failed.
+
+Following the 14:31 IST status refresh, the full suite again passed: **67 passed** in 14.58s with 14 upstream
+matplotlib/pyparsing deprecation warnings and no failures.
 
 The latest full suite, after the documentation edits in this update, passed **67/67** in 14.95s with 14
 upstream matplotlib/pyparsing deprecation warnings and no failures.
