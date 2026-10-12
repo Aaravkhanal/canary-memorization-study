@@ -17,16 +17,17 @@ artifact.
 
 ## Non-negotiable blockers before submission
 
-1. The 14M grid and baseline 100/500 training-seed replications are complete. Fourteen 48M cells are verified:
-   all six baseline frequencies, all six learned-position frequencies, and MHA frequencies 0 and 1. MHA frequency 10
-   is active at step 5,175/6,000 (step-5,000 validation loss 1.5054), with ten cells queued. The frequency-0 baseline cell required
+1. The 14M grid and baseline 100/500 training-seed replications are complete. Fifteen 48M cells are verified:
+   all six baseline frequencies, all six learned-position frequencies, and MHA frequencies 0, 1, and 10. MHA frequency 10
+   completed with best validation loss 1.4962 / PPL 4.4645; MHA frequency 50 is at step 25/6,000,
+   with nine cells queued. The frequency-0 baseline cell required
    an in-place resume after a disk-full checkpoint-write failure. Report both arms as exploratory until replicated.
 2. Complete the blinded two-rater V/T/N study in `docs/ANNOTATION_PROTOCOL.md`; the two prepared rater files each
    contain 1,280 condition-hidden items with label, confidence, and notes fields blank. Human scoring is not done;
    report Cohen's kappa, Krippendorff's alpha, disagreements/adjudication, and clustered confidence intervals.
 3. Complete the exact full-corpus search for all primary conditions. It now covers 24 canonical 14M novelty cells
-   / 7,680 completions, two baseline training-seed replications / 640 completions, and fourteen 48M cells / 4,480
-   completions, 40 cells / 12,800 total; the other 10 scale outputs remain pending (one is active).
+   / 7,680 completions, two baseline training-seed replications / 640 completions, and fifteen 48M cells / 4,800
+   completions, 41 cells / 13,120 total; the other 9 scale outputs remain pending (one is active).
    The overlap diagnostic alone cannot support a broad
    non-copying claim.
 4. Replace the false “no existing work” positioning. RAVEN (McCoy et al., TACL 2023), Haviv et al. (EACL 2023),

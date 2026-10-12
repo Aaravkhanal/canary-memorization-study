@@ -1,15 +1,15 @@
 # 48M scale-transfer experiment protocol
 
-**Status: the 14M queue is complete. Fourteen of 24 48M cells are complete and verified: all six baseline and all six
-learned-position frequencies, plus MHA frequencies 0 and 1.** Exact full-corpus overlap is also verified for the 14M grid and two
-true baseline training-seed replications, giving 40 evaluated cells / 12,800 generations overall. Frequency 0 required an initial
+**Status: the 14M queue is complete. Fifteen of 24 48M cells are complete and verified: all six baseline and all six
+learned-position frequencies, plus MHA frequencies 0, 1, and 10.** Exact full-corpus overlap is also verified for the 14M grid and two
+true baseline training-seed replications, giving 41 evaluated cells / 13,120 generations overall. Frequency 0 required an initial
 step-1,500 checkpoint-write failure and an in-place resume from its verified step-1,000 checkpoint; it reached
 best validation loss 1.4871 (PPL 4.4243). Frequency 1 reached best validation loss 1.4931 (PPL 4.45). Baseline
 frequency 10 reached best validation loss 1.4896 (PPL 4.44), and frequency 50 reached 1.5018 (PPL 4.49). Baseline
 frequencies 100 and 500 reached 1.5061 and 1.4802. Learned-position frequencies 0, 1, 10, 50, 100, and 500
 reached 1.5309, 1.5275, 1.5305, 1.5464, 1.5472, and 1.5199. MHA frequency 1 reached 1.4982 (PPL 4.47).
-MHA frequency 10 is the active cell, currently at step 5,175/6,000; the other
-10 cells are queued. This is a scale-transfer extension to the exploratory
+MHA frequency 50 is the active cell at step 25/6,000 (about 1,651 tokens/s; early ETA 8h14m); the other
+9 cells are queued. This is a scale-transfer extension to the exploratory
 14M study, not a replacement for the contamination-free confirmatory study.
 
 ## Why the existing 48M checkpoint is not the experiment
@@ -78,11 +78,14 @@ and matching-corpus full-overlap output were verified against the frequency-0 co
 zero-insertion condition, the eight target canaries averaged exposure 2.457 (four rank 1) versus 2.133 (one rank 1)
 for four unseen controls; target-canary greedy extraction was 0/8. Mean distinct-1/2 were 0.384/0.790, and mean
 maximum exact word-four-gram overlap across all 320 generations was 0.084 (median 0.070, max 0.706). These are
-diagnostic automated metrics, not treatment effects or creativity judgments. MHA frequency 10 is now training;
-at the 00:47 IST check it had reached step 5,175/6,000 (about 2,047 tokens/s; ETA near 55 minutes), with ten cells
-queued behind it. Step-5,000 validation loss was 1.5054 / PPL 4.51. Three gradient-norm spikes (steps 693, 1,119,
-and 1,208) and two gradient-health alerts (step 25) are recorded so far; two low-system-memory warnings were logged,
-but training continued. MHA frequency 1 completed in
+diagnostic automated metrics, not treatment effects or creativity judgments. MHA frequency 10 completed 6,000 updates
+in 25,555 trainer seconds (about 7h06m setup-to-done), with best validation loss 1.4962 / PPL 4.4645, three
+gradient-norm spikes, and two gradient-health alerts. Both retained checkpoints loaded with `weights_only=True`;
+memorization (12 rows), novelty (32 groups / 320 completions), and matching-corpus overlap (32 groups / 320
+completions) passed structural checks. The overlap SHA-256 matched the frequency-10 corpus (73,139 stories).
+MHA frequency 50 reached step 25/6,000 by 02:00 IST (about 1,651 tokens/s; early ETA 8h14m), with two gradient-health alerts and one gradient-norm spike logged. Nine cells remain queued. The 48M arm is
+15/24 complete and exact overlap covers 41 cells / 13,120 generations. Human annotation and the
+contamination-free confirmatory study remain incomplete. MHA frequency 1 completed in
 24,507.9 trainer seconds (6h48m52s wall), best validation
 loss 1.4982 / PPL 4.47, with six gradient-norm spikes and six gradient-health alerts. Retained best/final checkpoints,
 all three evaluation outputs, and the frequency-1 73,139-story corpus fingerprint were independently verified. Its

@@ -813,3 +813,20 @@ low-system-memory warnings were logged, but training continued.
 The scale grid is 14/24 complete, with ten cells queued; exact full-corpus coverage is 40 cells / 12,800 generations.
 Disk free was about 7.5 GiB at that check. The blinded annotation and separate contamination-free confirmatory study
 remain incomplete.
+
+## MHA frequency-10 completion and frequency-50 start (2026-10-13)
+
+MHA frequency 10 completed at 01:46:09 local after starting at 18:39:49 on 2026-10-12 (7h06m20s setup-to-done;
+25,555 trainer seconds). It reached 6,000 updates with best validation loss 1.4961678 / PPL 4.46455, three
+gradient-norm spikes, and two gradient-health alerts. Independent verification loaded `best.pt` and `final.pt`
+with `weights_only=True`, parsed the 12-row memorization output and 32-group/320-completion novelty output, and
+checked the 32-group/320-completion full-corpus report against the matching frequency-10 corpus SHA-256
+(`666684e9a5eaafc01cf41c7a2265896809ff3ce47ced0cc55afb86eb51a6c7d9`; 73,139 stories). No failure occurred.
+
+MHA frequency 50 is the next sequential cell. It initialized at 01:57:39 local on 2026-10-13 and logged its
+step-0 validation baseline at 01:58:02 (loss 8.4626 / PPL 4,734.3). By 02:00 it had reached step 25/6,000
+(about 1,651 tokens/s; early ETA 8h14m), with one gradient-norm spike and two gradient-health alerts. Nine scale
+cells remain queued after it. The 48M matrix therefore stands at 15/24 verified cells, and exact
+full-corpus coverage at 41 cells / 13,120 completions. Free disk was about 8.3 GiB. This is a progress snapshot,
+not evidence of an outcome for frequency 50. Human annotation and the contamination-free confirmatory study
+remain incomplete.

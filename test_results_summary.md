@@ -233,3 +233,8 @@ deprecation warnings and no test failures.
 
 After the 2026-10-13 00:47 IST update, the full suite passed **67/67** in 15.05s, with 14 upstream
 matplotlib/pyparsing deprecation warnings and no test failures.
+
+After the 2026-10-13 MHA frequency-10 completion and frequency-50 queue update, the full suite passed **67/67**
+in 13.67 seconds, with 14 upstream matplotlib/pyparsing deprecation warnings and no test failures. The
+frequency-10 48M artifacts were independently checked: both retained checkpoints loaded, the memorization and
+novelty JSON dimensions were correct, and the full-corpus JSON matched its frequency-specific corpus fingerprint.

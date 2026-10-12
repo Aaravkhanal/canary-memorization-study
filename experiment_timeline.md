@@ -178,3 +178,16 @@
   Ten cells remain queued. The 48M arm is 14/24 complete and exact overlap
   covers 40 cells / 12,800 generations.
   Human annotation and the contamination-free confirmatory experiment remain outstanding. Disk free was 7.8 GiB.
+
+## 2026-10-13 MHA frequency-10 completion; MHA frequency-50 queued
+
+- MHA frequency 10 completed at 01:46:09 local (start 18:39:49 on Oct 12; 7h06m20s setup-to-done, 25,555
+  trainer seconds), reaching 6,000 updates. Best validation loss was 1.4961678 / PPL 4.46455; three gradient-norm
+  spikes and two gradient-health alerts were recorded. Both checkpoints loaded with `weights_only=True`; all three
+  result JSONs passed structural checks, and the full-corpus report matched the frequency-10 corpus SHA-256 and
+  73,139-story count.
+- MHA frequency 50 initialized at 01:57:39; its step-0 evaluation at 01:58:02 reported loss 8.4626 / PPL 4,734.3.
+  At 02:00 it was at step 25/6,000 (about 1,651 tokens/s; early ETA 8h14m), with one gradient-norm spike and two
+  gradient-health alerts logged; nine scale cells remain queued. The 48M scale matrix is 15/24
+  complete and full-corpus overlap covers 41 cells / 13,120 generations. About 8.3 GiB was free. This run remains
+  exploratory; human annotation and the contamination-free confirmatory study are not complete.

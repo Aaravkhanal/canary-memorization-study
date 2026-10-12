@@ -1,16 +1,16 @@
 # Trainer runtime and checkpoint audit
 
-Collected from the retained `models/**/train.log` and each run's `summary.json`, updated 2026-10-12. Durations are wall-clock
+Collected from the retained `models/**/train.log` and each run's `summary.json`, updated 2026-10-13. Durations are wall-clock
 time from the first setup line to the final `[done]` or `[error]` log line (local time); update counts, best validation
 losses, and gradient-norm anomaly counts come from the run summaries. The three zero-byte placeholder logs
 (`baseline/freq_1/exp_001`, `baseline/freq_500/exp_001`, and `variant_b_mha/freq_50/exp_001`) contain no trainer output;
 each corresponding cell completed under its `exp_002` directory and is not counted as a failed run.
 
-All completed 14M cells reached 6,000 updates. The 48M baseline grid and learned-position frequencies 0, 1, 10,
-50, 100, and 500, plus MHA frequencies 0 and 1, have completed; MHA frequency 10 is active at step 5,175/6,000
-(about 2,047 tokens/s; ETA near 55m at the 00:47 IST check). Step-5,000 validation loss is 1.5054 / PPL 4.51.
-Three gradient-norm spikes and two gradient-health alerts have been logged; two low-memory warnings occurred while
-training continued. Ten cells remain queued. Baseline frequency 0 required one disk-full
+All completed 14M cells reached 6,000 updates. The 48M baseline and learned-position grids are complete; MHA
+frequencies 0, 1, and 10 are also complete. MHA frequency 50 is active at step 25/6,000 at the 02:00 IST check
+(about 1,651 tokens/s; early ETA 8h14m); nine cells remain queued. It has one gradient-norm spike and two
+gradient-health alerts so far. MHA frequency 10 used 25,555 trainer seconds and had three gradient-norm spikes and two
+gradient-health alerts. Baseline frequency 0 required one disk-full
 checkpoint-write recovery.
 
 | Architecture / run | Frequency | Runtime | Updates | Best val loss | Grad-norm spikes | Outcome |
@@ -59,6 +59,7 @@ checkpoint-write recovery.
 | 48M learned positions | 500 | 07:50:55 | 6,000 | 1.5199 | 36 | completed; 28,224.9 trainer seconds; 5 gradient-health alerts |
 | 48M MHA | 0 | 08:50:42 | 6,000 | 1.4978 | 4 | completed; 31,815.7 trainer seconds; 4 gradient-health alerts |
 | 48M MHA | 1 | 06:48:52 | 6,000 | 1.4982 | 6 | completed; 24,507.9 trainer seconds; 6 gradient-health alerts |
+| 48M MHA | 10 | 07:06:20 | 6,000 | 1.4962 | 3 | completed; 25,555 trainer seconds; 2 gradient-health alerts |
 
 \* For the failed 48M row, the summary held a candidate best validation loss of 1.8588 at the failing step, but its
 update did not persist to `best.pt`. The last logged and persisted evaluation/checkpoint is step 1,000 (validation
@@ -136,12 +137,11 @@ spikes, and five gradient-health alerts. Best/final checkpoints loaded with `wei
 novelty, and full-corpus results passed the 12-row, 32-group/320-completion checks. The overlap SHA-256 matched
 the 73,139-story frequency-500 corpus. Rolling step checkpoints were removed only after validation.
 
-## Current queue snapshot (2026-10-12)
+## Current queue snapshot (2026-10-13)
 
-The 48M matrix is 14/24 complete: all six baseline and all six learned-position cells, plus MHA frequencies 0 and 1.
-MHA frequency 10 is the single active cell; at the 00:47 IST check it had reached step 5,175/6,000 with three spikes
-and two alerts. Ten cells remain queued; about 7.5 GiB was free.
-Full-corpus overlap covers 40 evaluated cells / 12,800 generations, including all canonical 14M cells and two
-true baseline training-seed replications. Approximately 7.8 GiB was free at the last disk check. No completion is
-claimed for the active or queued cells.
+The 48M matrix is 15/24 complete: all baseline and learned-position cells plus MHA frequencies 0, 1, and 10.
+MHA frequency 50 is active at step 25/6,000 (02:00 IST; early ETA 8h14m); nine cells remain queued. Approximately
+8.3 GiB was free at the latest disk check. Full-corpus overlap covers 41 evaluated cells / 13,120 generations,
+including all canonical 14M cells and two true baseline training-seed replications. The active and queued cells
+are not counted as complete.
 for the active or queued cells are yet claimed.
