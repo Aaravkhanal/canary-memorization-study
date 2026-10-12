@@ -8,7 +8,7 @@ best validation loss 1.4871 (PPL 4.4243). Frequency 1 reached best validation lo
 frequency 10 reached best validation loss 1.4896 (PPL 4.44), and frequency 50 reached 1.5018 (PPL 4.49). Baseline
 frequencies 100 and 500 reached 1.5061 and 1.4802. Learned-position frequencies 0, 1, 10, 50, 100, and 500
 reached 1.5309, 1.5275, 1.5305, 1.5464, 1.5472, and 1.5199. MHA frequency 1 is currently training at step
-875/6,000 (early ETA ~4h59m); the other
+1,825/6,000 (early ETA ~5h02m); the other
 11 cells are queued. This is a scale-transfer extension to the exploratory
 14M study, not a replacement for the contamination-free confirmatory study.
 
@@ -79,7 +79,7 @@ zero-insertion condition, the eight target canaries averaged exposure 2.457 (fou
 for four unseen controls; target-canary greedy extraction was 0/8. Mean distinct-1/2 were 0.384/0.790, and mean
 maximum exact word-four-gram overlap across all 320 generations was 0.084 (median 0.070, max 0.706). These are
 diagnostic automated metrics, not treatment effects or creativity judgments. MHA frequency 1 is now training at
-step 875/6,000 (early ETA ~4h59m), with 11 cells queued. Latest free disk was about 8.2 GiB; retain
+step 1,825/6,000 (early ETA ~5h02m), with 11 cells queued. Latest free disk was about 8.7 GiB; retain
 best/final checkpoints and continue monitoring, with rolling checkpoints removed only
 after successful validation.
 Actual per-cell elapsed times and failures are the record of truth. The config tests check token budget,
