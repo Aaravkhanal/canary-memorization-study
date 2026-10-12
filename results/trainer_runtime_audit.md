@@ -7,8 +7,8 @@ losses, and gradient-norm anomaly counts come from the run summaries. The three 
 each corresponding cell completed under its `exp_002` directory and is not counted as a failed run.
 
 All completed 14M cells reached 6,000 updates. The 48M baseline grid and learned-position frequencies 0, 1, 10,
-50, 100, and 500, plus MHA frequency 0, have completed; MHA frequency 1 is currently training at step 2,625/6,000
-(early ETA ~3h47m). Baseline frequency 0 required one disk-full
+50, 100, and 500, plus MHA frequency 0, have completed; MHA frequency 1 is currently training at step 3,600/6,000
+(early ETA ~2h43m). Baseline frequency 0 required one disk-full
 checkpoint-write recovery.
 
 | Architecture / run | Frequency | Runtime | Updates | Best val loss | Grad-norm spikes | Outcome |
@@ -137,7 +137,7 @@ the 73,139-story frequency-500 corpus. Rolling step checkpoints were removed onl
 
 The 48M matrix is 13/24 complete: all six baseline and all six learned-position cells, plus MHA frequency 0.
 MHA frequency 1 is the single active cell; 11 cells are queued. At the 11:44:47 local check it had reached step
-2,625/6,000 (early ETA ~3h47m), logged six gradient-health alerts at steps 25 and 50, and had no gradient-norm spikes.
+3,600/6,000 (early ETA ~2h43m), logged six gradient-health alerts at steps 25 and 50, and had no gradient-norm spikes.
 Full-corpus overlap covers 39 evaluated cells / 12,480 generations, including all canonical 14M cells and two
 true baseline training-seed replications. Approximately 9 GiB was free at the last disk check. No completion is
 claimed for the active or queued cells.
