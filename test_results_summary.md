@@ -263,3 +263,6 @@ training failure logged.
 
 After the 21:05 IST progress refresh, all **67/67** research tests passed in 18.34s, with the same 14 upstream
 matplotlib/pyparsing deprecation warnings and no failures; the MHA frequency-500 run continued during testing.
+
+After the 22:10 IST progress refresh, all **67/67** tests passed in 13.53s with 14 upstream deprecation warnings
+and no failures. The active MHA frequency-500 cell was at step 3,925/6,000, with no training failure logged.

@@ -218,3 +218,9 @@ occurred without stopping training, and no failure has been logged.
 Seven cells remain queued. The 48M matrix is 17/24 complete; exact full-corpus overlap covers 43 evaluated cells /
 13,760 generations, including the complete canonical 14M grid and two true baseline training-seed replications.
 Human annotation and the separate contamination-free confirmatory study are not complete.
+
+### 22:10 IST progress check
+
+The active MHA frequency-500 cell had reached step 3,925/6,000 at 22:10:49 (about 2,154 tokens/s; approximate
+ETA 2h11m). Seven gradient-norm spikes and three gradient-health alerts were recorded; intermittent low-memory
+warnings did not stop the run. Seven other 48M cells remain after this active cell. No duplicate MPS job was launched.

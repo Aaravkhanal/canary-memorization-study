@@ -19,7 +19,7 @@ artifact.
 
 1. The 14M grid and baseline 100/500 training-seed replications are complete. Seventeen 48M cells are verified:
    all six baseline frequencies, all six learned-position frequencies, and MHA frequencies 0, 1, 10, 50, and 100. MHA frequency 100
-   completed with best validation loss 1.5105 / PPL 4.5291; MHA frequency 500 is at step 3,200/6,000,
+   completed with best validation loss 1.5105 / PPL 4.5291; MHA frequency 500 is at step 3,925/6,000,
    with seven cells queued. The frequency-0 baseline cell required
    an in-place resume after a disk-full checkpoint-write failure. Report both arms as exploratory until replicated.
 2. Complete the blinded two-rater V/T/N study in `docs/ANNOTATION_PROTOCOL.md`; the two prepared rater files each
