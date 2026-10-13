@@ -863,7 +863,6 @@ The sequential queue started 48M LayerNorm frequency 0 at 00:54:46. At 03:21:47 
 and 1,522) and six gradient-health alerts (three each at steps 25 and 50) are logged; no training failure has
 occurred. The step-1,000 validation loss was 2.0189 / PPL 7.53. This is one active MPS process; five further cells
 remain queued. The matrix is 18/24 complete. Human annotation and the separate contamination-free confirmatory
-study remain incomplete.
 
 ## MHA frequency-10 completion and frequency-50 start (2026-10-13)
 
@@ -881,4 +880,12 @@ validation loss was 2.0505 / PPL 7.77. Nine scale
 cells remain queued after it. The 48M matrix therefore stands at 15/24 verified cells, and exact
 full-corpus coverage at 41 cells / 13,120 completions. Free disk was about 8.3 GiB. This is a progress snapshot,
 not evidence of an outcome for frequency 50. Human annotation and the contamination-free confirmatory study
+remain incomplete.
+
+### 2026-10-14 LayerNorm frequency-0 progress refresh
+
+At 04:18:10 local, the active LayerNorm frequency-0 trainer had reached step 2,900/6,000 (about 1,877 tokens/s;
+early ETA about 3h45m). Step-2,000 validation loss was 1.7688 / PPL 5.86. Seven gradient-norm spikes and six
+gradient-health alerts are recorded, with no training failure. Five other 48M cells remain queued; full-corpus
+coverage remains 44 cells / 14,080 generations. Human annotation and the contamination-free confirmatory study
 remain incomplete.
