@@ -3,7 +3,7 @@
 **Status: exploratory draft, not submission-ready.** The balanced 14M grid and baseline 100/500 training-seed
 replications are complete, but historical tables below remain an audit trail rather than final results. Seventeen of 24
 48M cells are complete: all six baseline frequencies, all six learned-position frequencies, and MHA frequencies 0, 1, 10, 50, and 100.
-MHA frequency 500 is at step 4,750/6,000 (about 1,851 tokens/s; early ETA about 1h32m); seven cells remain queued.
+MHA frequency 500 is at step 5,600/6,000 (about 1,907 tokens/s; early ETA about 29m); seven cells remain queued.
 The frequency-0 cell completed after a disk-full checkpoint-write failure and resume from a verified step-1,000
 checkpoint. Exact full-corpus overlap now covers 24/24 canonical 14M cells (7,680 completions), two baseline
 training-seed replication cells (640 completions), and seventeen 48M cells (5,440 completions), 43 cells / 13,760
@@ -519,8 +519,8 @@ with best validation loss 1.5050 / PPL 4.5044, five gradient-norm spikes, and tw
 retained checkpoints and all three outputs were verified against the 73,139-story frequency-50 corpus. The exact-overlap
 audit now covers 43 cells / 13,760 completions. MHA frequency 100 completed with best validation loss 1.5105 /
 PPL 4.5291 (four gradient-norm spikes and four gradient-health alerts); checkpoints and evaluation outputs passed
-verification against the matching 73,139-story corpus. MHA frequency 500 is active at step 4,750/6,000 (23:10 IST;
-about 1,851 tokens/s, early ETA about 1h32m), with seven gradient-norm spikes and three gradient-health alerts;
+verification against the matching 73,139-story corpus. MHA frequency 500 is active at step 5,600/6,000 (00:13 IST;
+about 1,907 tokens/s, early ETA about 29m), with seven gradient-norm spikes and three gradient-health alerts;
 seven cells remain queued. The matched
 architecture comparison awaits the rest of the scale grid. Do not merge these partial results into the 14M
 trade-off tables as if they were a complete factorial analysis.

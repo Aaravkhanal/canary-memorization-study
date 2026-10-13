@@ -843,8 +843,8 @@ failure is logged. Seven 48M cells remain queued. The scale matrix is
 cells and two true baseline training-seed replications. This remains a single-seed exploratory scale arm; human
 annotation and the separate contamination-free confirmatory study remain incomplete.
 
-At the 23:10:19 local check, the same MHA frequency-500 process had advanced to step 4,750/6,000 (about 1,851
-tokens/s; log ETA about 1h32m). Seven gradient-norm spikes (including steps 2,676 and 2,249) and the three
+At the 00:13:02 local check, the same MHA frequency-500 process had advanced to step 5,600/6,000 (about 1,907
+tokens/s; log ETA about 29m). Seven gradient-norm spikes (including steps 2,676 and 2,249) and the three
 step-75 gradient-health alerts are recorded. Intermittent system-memory warnings continued but did not stop training;
 the sequential runner remains active, with no duplicate job launched. This is an interim status, not a per-cell
 completion or scientific result.
