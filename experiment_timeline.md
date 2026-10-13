@@ -221,6 +221,6 @@ Human annotation and the separate contamination-free confirmatory study are not 
 
 ### 22:10 IST progress check
 
-The active MHA frequency-500 cell had reached step 3,925/6,000 at 22:10:49 (about 2,154 tokens/s; approximate
-ETA 2h11m). Seven gradient-norm spikes and three gradient-health alerts were recorded; intermittent low-memory
+The active MHA frequency-500 cell had reached step 4,750/6,000 at 23:10:19 (about 1,851 tokens/s; approximate
+ETA 1h32m). Seven gradient-norm spikes and three gradient-health alerts were recorded; intermittent low-memory
 warnings did not stop the run. Seven other 48M cells remain after this active cell. No duplicate MPS job was launched.
