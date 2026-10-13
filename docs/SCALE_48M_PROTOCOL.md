@@ -1,15 +1,15 @@
 # 48M scale-transfer experiment protocol
 
-**Status: the 14M queue is complete. Seventeen of 24 48M cells are complete and verified: all six baseline and all six
-learned-position frequencies, plus MHA frequencies 0, 1, 10, 50, and 100.** Exact full-corpus overlap is also verified for the 14M grid and two
-true baseline training-seed replications, giving 43 evaluated cells / 13,760 generations overall. Frequency 0 required an initial
+**Status: the 14M queue is complete. Eighteen of 24 48M cells are complete and verified: all six baseline, all six
+learned-position, and all six MHA frequencies.** Exact full-corpus overlap is also verified for the 14M grid and two
+true baseline training-seed replications, giving 44 evaluated cells / 14,080 generations overall. Frequency 0 required an initial
 step-1,500 checkpoint-write failure and an in-place resume from its verified step-1,000 checkpoint; it reached
 best validation loss 1.4871 (PPL 4.4243). Frequency 1 reached best validation loss 1.4931 (PPL 4.45). Baseline
 frequency 10 reached best validation loss 1.4896 (PPL 4.44), and frequency 50 reached 1.5018 (PPL 4.49). Baseline
 frequencies 100 and 500 reached 1.5061 and 1.4802. Learned-position frequencies 0, 1, 10, 50, 100, and 500
 reached 1.5309, 1.5275, 1.5305, 1.5464, 1.5472, and 1.5199. MHA frequency 1 reached 1.4982 (PPL 4.47).
-MHA frequency 500 is the active cell at step 5,600/6,000 (about 1,907 tokens/s; early ETA about 29m); the other
-7 cells are queued. This is a scale-transfer extension to the exploratory
+MHA frequency 500 completed with best validation loss 1.4810 / PPL 4.3975. LayerNorm frequency 0 is the active
+cell at step 275/6,000 (about 2,011 tokens/s; early ETA about 6h28m); five cells are queued. This is a scale-transfer extension to the exploratory
 14M study, not a replacement for the contamination-free confirmatory study.
 
 ## Why the existing 48M checkpoint is not the experiment
@@ -91,10 +91,13 @@ MHA frequency 100 completed at 17:19:28 after starting at 10:38:18 (6h41m10s wal
 with best validation loss 1.5105218 / PPL 4.52909, four gradient-norm spikes, and four gradient-health alerts.
 Both retained checkpoints loaded; the memorization result had 12 rows, novelty results had 32 groups × 10
 completions, and the overlap result matched the frequency-100 corpus SHA-256 and 73,139-story count.
-MHA frequency 500 reached step 5,600/6,000 by 00:13 IST (about 1,907 tokens/s; early ETA about 29m), with seven
-gradient-norm spikes and three gradient-health alerts; intermittent low-system-memory warnings have occurred without stopping the run.
-Seven cells remain queued. The 48M arm is 17/24 complete
-and exact overlap covers 43 cells / 13,760 generations. Human annotation and the
+MHA frequency 500 completed at 00:41:05 local (7h11m29s setup-to-done, 25,864.4 trainer seconds), with best
+validation loss 1.4810324 / PPL 4.39748, seven gradient-norm spikes, and three gradient-health alerts. Its best/final
+checkpoints loaded with `weights_only=True`; the 12-row memorization JSON and 32-group/320-completion novelty and
+full-corpus JSONs passed structural checks, and the overlap metadata matched the frequency-500 corpus SHA-256 and
+73,139-story count. LayerNorm frequency 0 began at 00:54:46 and had reached step 275/6,000 at 01:14 (about 2,011
+tokens/s; early ETA about 6h28m), with six gradient-health alerts and one gradient-norm spike. Five more cells remain
+queued. The 48M arm is 18/24 complete and exact overlap covers 44 cells / 14,080 generations. Human annotation and the
 contamination-free confirmatory study remain incomplete. MHA frequency 1 completed in
 24,507.9 trainer seconds (6h48m52s wall), best validation
 loss 1.4982 / PPL 4.47, with six gradient-norm spikes and six gradient-health alerts. Retained best/final checkpoints,

@@ -272,3 +272,7 @@ no failures. The frequency-500 MHA process remained active during testing.
 
 After the 00:13 IST progress refresh, all **67/67** tests passed in 18.28s with 14 upstream deprecation warnings
 and no failures. MHA frequency 500 was at step 5,600/6,000 while the suite ran.
+
+After recording MHA frequency-500 completion, the LayerNorm frequency-0 active status, and the updated run audit,
+the full research test suite passed **67/67** in 13.77s. There were 14 upstream matplotlib/pyparsing deprecation
+warnings and no test failures. The sole active MPS trainer was LayerNorm frequency 0; no duplicate job was started.

@@ -849,6 +849,21 @@ step-75 gradient-health alerts are recorded. Intermittent system-memory warnings
 the sequential runner remains active, with no duplicate job launched. This is an interim status, not a per-cell
 completion or scientific result.
 
+## MHA frequency-500 completion; LayerNorm frequency-0 active (2026-10-14)
+
+MHA frequency 500 completed at 00:41:05 local after starting at 17:29:36 on 2026-10-13 (7h11m29s setup-to-done;
+25,864.4 trainer seconds). It reached 6,000 updates with best validation loss 1.4810324 / PPL 4.39748, seven
+gradient-norm spikes, and three gradient-health alerts. Both retained checkpoints loaded with `weights_only=True`;
+the memorization JSON had 12 rows, both novelty outputs had 32 groups × 10 completions, and the full-corpus output
+had 32 × 10 completions with the matching frequency-500 corpus fingerprint and 73,139-story count. No training or
+evaluation failure occurred. The full-corpus audit now covers 44 cells / 14,080 generations.
+
+The sequential queue started 48M LayerNorm frequency 0 at 00:54:46. At 01:14:27 it had reached step 275/6,000
+(about 2,011 tokens/s; early ETA about 6h28m). One gradient-norm spike (step 118) and six gradient-health alerts
+(three each at steps 25 and 50) are logged; no training failure has occurred. This is one active MPS process;
+five further cells remain queued. The matrix is 18/24 complete. Human annotation and the separate contamination-free
+confirmatory study remain incomplete.
+
 ## MHA frequency-10 completion and frequency-50 start (2026-10-13)
 
 MHA frequency 10 completed at 01:46:09 local after starting at 18:39:49 on 2026-10-12 (7h06m20s setup-to-done;

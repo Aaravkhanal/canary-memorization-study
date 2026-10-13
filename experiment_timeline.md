@@ -224,3 +224,18 @@ Human annotation and the separate contamination-free confirmatory study are not 
 The active MHA frequency-500 cell had reached step 5,600/6,000 at 00:13:02 (about 1,907 tokens/s; approximate
 ETA 29m). Seven gradient-norm spikes and three gradient-health alerts were recorded; intermittent low-memory
 warnings did not stop the run. Seven other 48M cells remain after this active cell. No duplicate MPS job was launched.
+
+## 2026-10-14: MHA frequency 500 complete; LayerNorm frequency 0 running
+
+- MHA frequency 500 completed at 00:41:05 local, after a 17:29:36 start on 2026-10-13 (7h11m29s wall; 25,864.4
+  trainer seconds), with best validation loss 1.4810324 / PPL 4.39748. The run logged seven gradient-norm spikes
+  and three gradient-health alerts, but no failure. Both retained checkpoints loaded; the memorization JSON had
+  12 rows, novelty JSONs had 32 groups × 10 outputs, and full-corpus overlap had matching frequency-500 corpus
+  identity / 73,139 stories. Exact full-corpus coverage advanced to 44 cells / 14,080 generations.
+- LayerNorm frequency 0 started at 00:54:46. At 01:14:27 it had reached step 275/6,000 (about 2,011 tokens/s;
+  early ETA about 6h28m). Six gradient-health alerts and one gradient-norm spike (step 118) are recorded; no run
+  failure is logged. This is the sole active MPS training job; five scale cells remain queued and the matrix is
+  18/24 complete.
+- The full 67-test research suite was rerun after the status/documentation refresh; see `test_results_summary.md`
+  for the latest exact result. Human annotation and the separate contamination-free confirmatory study remain
+  incomplete.
