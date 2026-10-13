@@ -7,8 +7,8 @@ losses, and gradient-norm anomaly counts come from the run summaries. The three 
 each corresponding cell completed under its `exp_002` directory and is not counted as a failed run.
 
 All completed 14M cells reached 6,000 updates. The 48M baseline and learned-position grids are complete; MHA
-frequencies 0, 1, 10, 50, and 100 are also complete. MHA frequency 500 is active at step 1,325/6,000 at the 18:58 IST check
-(about 1,862 tokens/s; early ETA about 5h48m), with five gradient-norm spikes, three gradient-health alerts, and
+frequencies 0, 1, 10, 50, and 100 are also complete. MHA frequency 500 is active at step 2,300/6,000 at the 20:04 IST check
+(about 2,070 tokens/s; early ETA about 4h04m), with six gradient-norm spikes, three gradient-health alerts, and
 low-system-memory warnings; seven cells remain queued. MHA frequency 50 used 30,597.5 trainer
 seconds, with best validation loss 1.5050, five gradient-norm spikes, and two gradient-health alerts. Baseline frequency 0 required one disk-full
 checkpoint-write recovery.
@@ -142,7 +142,7 @@ the 73,139-story frequency-500 corpus. Rolling step checkpoints were removed onl
 ## Current queue snapshot (2026-10-13)
 
 The 48M matrix is 17/24 complete: all baseline and learned-position cells plus MHA frequencies 0, 1, 10, 50, and 100.
-MHA frequency 500 is active at step 1,325/6,000 (18:58 IST; early ETA about 5h48m); seven cells remain queued. Full-corpus
+MHA frequency 500 is active at step 2,300/6,000 (20:04 IST; early ETA about 4h04m); seven cells remain queued. Full-corpus
 overlap covers 43 evaluated cells / 13,760 generations, including all canonical 14M cells and two true baseline
 training-seed replications. The active and queued cells are not counted as complete.
 for the active or queued cells are yet claimed.

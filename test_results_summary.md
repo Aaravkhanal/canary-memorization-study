@@ -256,3 +256,7 @@ step 1,325/6,000, with five gradient-norm spikes, three gradient-health alerts, 
 
 Following the 18:58 IST documentation refresh, the full suite passed again: **67/67** in 25.75s, with the same
 14 upstream deprecation warnings and no failures. The single 48M MHA frequency-500 training process remained active.
+
+After the 20:04 IST progress refresh, the full research suite passed **67/67** in 15.75s, with 14 upstream
+matplotlib/pyparsing deprecation warnings and no failures. MHA frequency 500 had reached step 2,300/6,000 with no
+training failure logged.
