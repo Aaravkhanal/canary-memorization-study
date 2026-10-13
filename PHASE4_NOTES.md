@@ -858,11 +858,12 @@ the memorization JSON had 12 rows, both novelty outputs had 32 groups × 10 comp
 had 32 × 10 completions with the matching frequency-500 corpus fingerprint and 73,139-story count. No training or
 evaluation failure occurred. The full-corpus audit now covers 44 cells / 14,080 generations.
 
-The sequential queue started 48M LayerNorm frequency 0 at 00:54:46. At 02:19:06 it had reached step 1,225/6,000
-(about 1,943 tokens/s; early ETA about 5h35m). Five gradient-norm spikes (steps 118, 384, 522, 1,119, and 1,208)
-and six gradient-health alerts (three each at steps 25 and 50) are logged; no training failure has occurred. The
-step-1,000 validation loss was 2.0189 / PPL 7.53. This is one active MPS process; five further cells remain queued.
-The matrix is 18/24 complete. Human annotation and the separate contamination-free confirmatory study remain incomplete.
+The sequential queue started 48M LayerNorm frequency 0 at 00:54:46. At 03:21:47 it had reached step 2,125/6,000
+(about 2,002 tokens/s; early ETA about 4h24m). Six gradient-norm spikes (steps 118, 384, 522, 1,119, 1,208,
+and 1,522) and six gradient-health alerts (three each at steps 25 and 50) are logged; no training failure has
+occurred. The step-1,000 validation loss was 2.0189 / PPL 7.53. This is one active MPS process; five further cells
+remain queued. The matrix is 18/24 complete. Human annotation and the separate contamination-free confirmatory
+study remain incomplete.
 
 ## MHA frequency-10 completion and frequency-50 start (2026-10-13)
 

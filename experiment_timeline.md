@@ -247,3 +247,11 @@ validation loss was 2.0189 / PPL 7.53. Five gradient-norm spikes (steps 118, 384
 gradient-health alerts (three at step 25, three at step 50) have been recorded; no training failure is logged.
 Five other 48M cells remain queued. The exact-overlap total remains 44 cells / 14,080 generations. The full test
 suite passed 67/67 after the previous documentation refresh; rerun it after this update before the next commit.
+
+### 03:21 IST LayerNorm frequency-0 progress check
+
+The active cell reached step 2,125/6,000 at 03:21:47 (about 2,002 tokens/s, ETA about 4h24m). Step-1,000
+validation loss was 2.0189 / PPL 7.53. Six gradient-norm spikes (steps 118, 384, 522, 1,119, 1,208, 1,522) and
+six gradient-health alerts (three at step 25, three at step 50) have been recorded; no training failure is logged.
+Five other 48M cells remain queued. Exact-overlap coverage is still 44 cells / 14,080 generations. Rerun the full
+test suite after this status refresh; annotation and the contamination-free confirmatory study remain incomplete.
