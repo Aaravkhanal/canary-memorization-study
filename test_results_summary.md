@@ -251,4 +251,8 @@ contamination-free confirmatory study are not complete.
 
 After recording the MHA frequency-100 completion and frequency-500 step-500 snapshot, the full research suite
 passed **67/67** in 42.73s, with 14 upstream matplotlib/pyparsing deprecation warnings and no test failures.
-The MPS training job remained active during the run.
+The MPS training job remained active during the run. At the latest log check (18:58 IST), MHA frequency 500 was at
+step 1,325/6,000, with five gradient-norm spikes, three gradient-health alerts, and intermittent low-memory warnings.
+
+Following the 18:58 IST documentation refresh, the full suite passed again: **67/67** in 25.75s, with the same
+14 upstream deprecation warnings and no failures. The single 48M MHA frequency-500 training process remained active.

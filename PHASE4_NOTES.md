@@ -835,9 +835,10 @@ validated the 12-row memorization output and 32 groups × 10 completions in both
 the full-corpus output against the matching frequency-100 corpus SHA-256
 (`b5eb8b384c4bef02507ff6a7f89f490c3de67ff2affe5440eaed10a433f29c88`; 73,139 stories). No cell failure occurred.
 
-The sequential queue then started MHA frequency 500. At 18:04:04 it had reached step 500/6,000 (about 2,025
-tokens/s; early ETA about 6h11m). Three gradient-norm spikes (steps 385, 394, and 399) and three gradient-health
-alerts (step 75) are recorded; no training failure is logged. Seven 48M cells remain queued. The scale matrix is
+The sequential queue then started MHA frequency 500. At 18:58:42 it had reached step 1,325/6,000 (about 1,862
+tokens/s; early ETA about 5h48m). Five gradient-norm spikes (steps 385, 394, 399, 697, and 1,122) and three
+gradient-health alerts (step 75) are recorded. Low-system-memory warnings occurred during the run; no training
+failure is logged. Seven 48M cells remain queued. The scale matrix is
 17/24 complete and exact full-corpus coverage is 43 cells / 13,760 generations, including the 24 canonical 14M
 cells and two true baseline training-seed replications. This remains a single-seed exploratory scale arm; human
 annotation and the separate contamination-free confirmatory study remain incomplete.

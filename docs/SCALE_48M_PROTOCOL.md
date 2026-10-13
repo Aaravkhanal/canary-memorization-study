@@ -8,7 +8,7 @@ best validation loss 1.4871 (PPL 4.4243). Frequency 1 reached best validation lo
 frequency 10 reached best validation loss 1.4896 (PPL 4.44), and frequency 50 reached 1.5018 (PPL 4.49). Baseline
 frequencies 100 and 500 reached 1.5061 and 1.4802. Learned-position frequencies 0, 1, 10, 50, 100, and 500
 reached 1.5309, 1.5275, 1.5305, 1.5464, 1.5472, and 1.5199. MHA frequency 1 reached 1.4982 (PPL 4.47).
-MHA frequency 500 is the active cell at step 475/6,000 (about 2,047 tokens/s; early ETA about 6h08m); the other
+MHA frequency 500 is the active cell at step 1,325/6,000 (about 1,862 tokens/s; early ETA about 5h48m); the other
 7 cells are queued. This is a scale-transfer extension to the exploratory
 14M study, not a replacement for the contamination-free confirmatory study.
 
@@ -91,8 +91,9 @@ MHA frequency 100 completed at 17:19:28 after starting at 10:38:18 (6h41m10s wal
 with best validation loss 1.5105218 / PPL 4.52909, four gradient-norm spikes, and four gradient-health alerts.
 Both retained checkpoints loaded; the memorization result had 12 rows, novelty results had 32 groups × 10
 completions, and the overlap result matched the frequency-100 corpus SHA-256 and 73,139-story count.
-MHA frequency 500 reached step 475/6,000 by 18:02 IST (about 2,047 tokens/s; early ETA about 6h08m), with three
-gradient-norm spikes and three gradient-health alerts; seven cells remain queued. The 48M arm is 17/24 complete
+MHA frequency 500 reached step 1,325/6,000 by 18:58 IST (about 1,862 tokens/s; early ETA about 5h48m), with five
+gradient-norm spikes and three gradient-health alerts; low-system-memory warnings have occurred without stopping the run.
+Seven cells remain queued. The 48M arm is 17/24 complete
 and exact overlap covers 43 cells / 13,760 generations. Human annotation and the
 contamination-free confirmatory study remain incomplete. MHA frequency 1 completed in
 24,507.9 trainer seconds (6h48m52s wall), best validation

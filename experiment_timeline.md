@@ -212,8 +212,9 @@ The independent audit loaded both retained checkpoints, checked the memorization
 verified the full-corpus report against the matching frequency-100 corpus SHA-256 and 73,139-story count. No
 training/evaluation failure occurred.
 
-MHA frequency 500 is the next sequential cell. At 18:04:04 local it reached step 500/6,000 (about 2,025 tokens/s;
-early ETA about 6h11m); three gradient-norm spikes and three gradient-health alerts are recorded, with no failure.
+MHA frequency 500 is the next sequential cell. At 18:58:42 local it reached step 1,325/6,000 (about 1,862 tokens/s;
+early ETA about 5h48m); five gradient-norm spikes and three gradient-health alerts are recorded. Low-memory warnings
+occurred without stopping training, and no failure has been logged.
 Seven cells remain queued. The 48M matrix is 17/24 complete; exact full-corpus overlap covers 43 evaluated cells /
 13,760 generations, including the complete canonical 14M grid and two true baseline training-seed replications.
 Human annotation and the separate contamination-free confirmatory study are not complete.
