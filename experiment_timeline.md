@@ -203,3 +203,17 @@
   early ETA about six hours), with eight scale cells still queued. The 48M arm is 16/24 complete and full-corpus
   overlap covers 42 cells / 13,440 generations. Human annotation and the contamination-free confirmatory study
   remain incomplete.
+
+## 2026-10-13 MHA frequency-100 completion; frequency-500 active
+
+MHA frequency 100 completed at 17:19:28 local (start 10:38:18; 6h41m10s setup-to-done, 24,046 trainer seconds),
+with best validation loss 1.5105218 / PPL 4.52909, four gradient-norm spikes, and four gradient-health alerts.
+The independent audit loaded both retained checkpoints, checked the memorization and novelty JSON structures, and
+verified the full-corpus report against the matching frequency-100 corpus SHA-256 and 73,139-story count. No
+training/evaluation failure occurred.
+
+MHA frequency 500 is the next sequential cell. At 18:04:04 local it reached step 500/6,000 (about 2,025 tokens/s;
+early ETA about 6h11m); three gradient-norm spikes and three gradient-health alerts are recorded, with no failure.
+Seven cells remain queued. The 48M matrix is 17/24 complete; exact full-corpus overlap covers 43 evaluated cells /
+13,760 generations, including the complete canonical 14M grid and two true baseline training-seed replications.
+Human annotation and the separate contamination-free confirmatory study are not complete.

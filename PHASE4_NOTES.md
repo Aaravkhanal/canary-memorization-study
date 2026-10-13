@@ -826,6 +826,22 @@ full-corpus SHA-256 matches the frequency-50 corpus (`3a20b121cf0c36ebc2316d423d
 with exact full-corpus coverage for 42 cells / 13,440 generations. This remains a single-seed exploratory scale arm;
 human annotation and the contamination-free confirmatory study are still outstanding.
 
+## MHA frequency-100 completion; frequency-500 active (2026-10-13)
+
+MHA frequency 100 completed at 17:19:28 local after starting at 10:38:18 (6h41m10s setup-to-done; 24,046
+trainer seconds). It reached 6,000 updates with best validation loss 1.5105218 / PPL 4.52909, four gradient-norm
+spikes, and four gradient-health alerts. Independent checks loaded `best.pt` and `final.pt` with `weights_only=True`,
+validated the 12-row memorization output and 32 groups × 10 completions in both novelty outputs, and confirmed
+the full-corpus output against the matching frequency-100 corpus SHA-256
+(`b5eb8b384c4bef02507ff6a7f89f490c3de67ff2affe5440eaed10a433f29c88`; 73,139 stories). No cell failure occurred.
+
+The sequential queue then started MHA frequency 500. At 18:04:04 it had reached step 500/6,000 (about 2,025
+tokens/s; early ETA about 6h11m). Three gradient-norm spikes (steps 385, 394, and 399) and three gradient-health
+alerts (step 75) are recorded; no training failure is logged. Seven 48M cells remain queued. The scale matrix is
+17/24 complete and exact full-corpus coverage is 43 cells / 13,760 generations, including the 24 canonical 14M
+cells and two true baseline training-seed replications. This remains a single-seed exploratory scale arm; human
+annotation and the separate contamination-free confirmatory study remain incomplete.
+
 ## MHA frequency-10 completion and frequency-50 start (2026-10-13)
 
 MHA frequency 10 completed at 01:46:09 local after starting at 18:39:49 on 2026-10-12 (7h06m20s setup-to-done;

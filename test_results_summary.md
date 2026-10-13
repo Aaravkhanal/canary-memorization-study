@@ -240,7 +240,15 @@ frequency-10 48M artifacts were independently checked: both retained checkpoints
 novelty JSON dimensions were correct, and the full-corpus JSON matched its frequency-specific corpus fingerprint.
 The active MHA frequency-50 run was at step 1,275/6,000 during this update; no tests failed while it trained.
 
-After the MHA frequency-50 completion and frequency-100 status refresh, the full suite passed **67/67** in 12.47s,
-with 14 upstream matplotlib/pyparsing deprecation warnings and no failures. Frequency-50 checkpoints, the 12-row
-memorization output, both 32-group/320-completion novelty outputs, and the matching corpus hash were independently
-verified. Frequency 100 was the only active training job at step 300/6,000 when this entry was recorded.
+After MHA frequency 100 completed and frequency 500 reached step 500/6,000 (18:04 IST), the full suite passed
+**67/67** in 12.47s, with 14 upstream matplotlib/pyparsing deprecation warnings and no failures. Frequency-100
+best/final checkpoints loaded with `weights_only=True`; its 12-row memorization result, 32-group × 10-completion
+novelty results, and full-corpus result passed structural checks. The overlap report matched the frequency-100
+corpus SHA-256 (`b5eb8b384c4bef02507ff6a7f89f490c3de67ff2affe5440eaed10a433f29c88`) and 73,139-story count.
+Frequency 500 is the only active training job; three gradient-norm spikes, three gradient-health alerts, and no
+training failure were recorded through step 500. Seven scale cells remain queued. Human annotation and the
+contamination-free confirmatory study are not complete.
+
+After recording the MHA frequency-100 completion and frequency-500 step-500 snapshot, the full research suite
+passed **67/67** in 42.73s, with 14 upstream matplotlib/pyparsing deprecation warnings and no test failures.
+The MPS training job remained active during the run.
