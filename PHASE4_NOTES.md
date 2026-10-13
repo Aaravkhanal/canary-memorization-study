@@ -835,8 +835,8 @@ validated the 12-row memorization output and 32 groups × 10 completions in both
 the full-corpus output against the matching frequency-100 corpus SHA-256
 (`b5eb8b384c4bef02507ff6a7f89f490c3de67ff2affe5440eaed10a433f29c88`; 73,139 stories). No cell failure occurred.
 
-The sequential queue then started MHA frequency 500. At 20:04:01 it had reached step 2,300/6,000 (about 2,070
-tokens/s; early ETA about 4h04m). Six gradient-norm spikes (steps 385, 394, 399, 697, 1,122, and 2,249) and three
+The sequential queue then started MHA frequency 500. At 21:05:58 it had reached step 3,200/6,000 (about 1,837
+tokens/s; early ETA about 3h29m). Six gradient-norm spikes (steps 385, 394, 399, 697, 1,122, and 2,249) and three
 gradient-health alerts (step 75) are recorded. Low-system-memory warnings occurred during the run; no training
 failure is logged. Seven 48M cells remain queued. The scale matrix is
 17/24 complete and exact full-corpus coverage is 43 cells / 13,760 generations, including the 24 canonical 14M
