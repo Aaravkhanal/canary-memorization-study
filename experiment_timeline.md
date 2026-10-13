@@ -239,3 +239,11 @@ warnings did not stop the run. Seven other 48M cells remain after this active ce
 - The full 67-test research suite was rerun after the status/documentation refresh; see `test_results_summary.md`
   for the latest exact result. Human annotation and the separate contamination-free confirmatory study remain
   incomplete.
+
+### 02:19 IST LayerNorm frequency-0 progress check
+
+The active cell reached step 1,225/6,000 at 02:19:06 (about 1,943 tokens/s, ETA about 5h35m). Step-1,000
+validation loss was 2.0189 / PPL 7.53. Five gradient-norm spikes (steps 118, 384, 522, 1,119, 1,208) and six
+gradient-health alerts (three at step 25, three at step 50) have been recorded; no training failure is logged.
+Five other 48M cells remain queued. The exact-overlap total remains 44 cells / 14,080 generations. The full test
+suite passed 67/67 after the previous documentation refresh; rerun it after this update before the next commit.
