@@ -814,6 +814,18 @@ The scale grid is 14/24 complete, with ten cells queued; exact full-corpus cover
 Disk free was about 7.5 GiB at that check. The blinded annotation and separate contamination-free confirmatory study
 remain incomplete.
 
+## MHA frequency-50 completion and frequency-100 start (2026-10-13)
+
+MHA frequency 50 started at 01:57:39 and completed at 10:27:57 local (8h30m18s setup-to-done; 30,597.5 trainer
+seconds). It reached 6,000 updates with best validation loss 1.5050441 / PPL 4.50435, five gradient-norm spikes,
+and two gradient-health alerts. Independent checks loaded `best.pt` and `final.pt` with `weights_only=True`, checked
+the 12-row memorization output and 32 groups × 10 completions in both novelty files, and verified that the
+full-corpus SHA-256 matches the frequency-50 corpus (`3a20b121cf0c36ebc2316d423ddc531da1b82e7eb6faf9ee2dbee3a1f94e5e4b`;
+73,139 stories). The sequential queue then moved to MHA frequency 100. At 10:57 it had reached step 300/6,000
+(about 2,108 tokens/s; early ETA about six hours); eight scale cells remain queued. The matrix is 16/24 complete,
+with exact full-corpus coverage for 42 cells / 13,440 generations. This remains a single-seed exploratory scale arm;
+human annotation and the contamination-free confirmatory study are still outstanding.
+
 ## MHA frequency-10 completion and frequency-50 start (2026-10-13)
 
 MHA frequency 10 completed at 01:46:09 local after starting at 18:39:49 on 2026-10-12 (7h06m20s setup-to-done;

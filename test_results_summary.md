@@ -239,3 +239,8 @@ in 16.98 seconds, with 14 upstream matplotlib/pyparsing deprecation warnings and
 frequency-10 48M artifacts were independently checked: both retained checkpoints loaded, the memorization and
 novelty JSON dimensions were correct, and the full-corpus JSON matched its frequency-specific corpus fingerprint.
 The active MHA frequency-50 run was at step 1,275/6,000 during this update; no tests failed while it trained.
+
+After the MHA frequency-50 completion and frequency-100 status refresh, the full suite passed **67/67** in 12.47s,
+with 14 upstream matplotlib/pyparsing deprecation warnings and no failures. Frequency-50 checkpoints, the 12-row
+memorization output, both 32-group/320-completion novelty outputs, and the matching corpus hash were independently
+verified. Frequency 100 was the only active training job at step 300/6,000 when this entry was recorded.

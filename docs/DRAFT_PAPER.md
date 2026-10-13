@@ -1,12 +1,12 @@
 # Memorization vs. compositional creativity in a small language model: does the trade-off depend on architecture?
 
 **Status: exploratory draft, not submission-ready.** The balanced 14M grid and baseline 100/500 training-seed
-replications are complete, but historical tables below remain an audit trail rather than final results. Fifteen of 24
-48M cells are complete: all six baseline frequencies, all six learned-position frequencies, and MHA frequencies 0, 1, and 10.
-MHA frequency 50 is at step 1,275/6,000 (about 1,600 tokens/s; ETA about 7h); nine cells remain queued.
+replications are complete, but historical tables below remain an audit trail rather than final results. Sixteen of 24
+48M cells are complete: all six baseline frequencies, all six learned-position frequencies, and MHA frequencies 0, 1, 10, and 50.
+MHA frequency 100 is at step 300/6,000 (about 2,108 tokens/s; early ETA about 6h); eight cells remain queued.
 The frequency-0 cell completed after a disk-full checkpoint-write failure and resume from a verified step-1,000
 checkpoint. Exact full-corpus overlap now covers 24/24 canonical 14M cells (7,680 completions), two baseline
-training-seed replication cells (640 completions), and fifteen 48M cells (4,800 completions), 41 cells / 13,120
+training-seed replication cells (640 completions), and sixteen 48M cells (5,120 completions), 42 cells / 13,440
 completions total. The human primary novelty endpoint and contamination-free confirmatory study are incomplete.
 The current submission gate is
 `docs/PUBLICATION_READINESS.md`.
@@ -38,7 +38,7 @@ not weakened by this; frequency 10's evidence for two borderline canaries (`char
 walked back to "plausible, not established" accordingly. Baseline frequency-10 seed replication is complete;
 frequencies 100 and 500 second-training-seed replications are now complete. Baseline and learned-position frequency grids have since completed;
 the balanced refreshed trade-off analysis is available, while full-corpus overlap is complete for the canonical
-14M grid and fifteen 48M cells only
+14M grid and sixteen 48M cells only
 and the blinded human primary endpoint is still outstanding. These results do not yet
 establish a creativity trade-off.*
 
@@ -136,8 +136,8 @@ The study uses four near-parameter-matched architectures:
 | `variant_c_layernorm` | RMSNorm → LayerNorm | 14,162,304 | exact match |
 
 All four architectures are trained and scored across 0, 1, 10, 50, 100, and 500. The balanced grid is complete;
-the baseline high-frequency second-training-seed replications are complete. Fifteen cells of the 48M scale-transfer
-arm are complete (all six baseline, all six learned-position frequencies, and MHA frequencies 0, 1, and 10); MHA frequency 50 is active and 9
+the baseline high-frequency second-training-seed replications are complete. Sixteen cells of the 48M scale-transfer
+arm are complete (all six baseline, all six learned-position frequencies, and MHA frequencies 0, 1, 10, and 50); MHA frequency 100 is active and 8
 cells are queued. No scale comparison conclusion is available.
 
 ### 3.2 Canary design
@@ -511,11 +511,14 @@ versus the 14M schedule (8e-4). Learned-position frequencies 0, 1, 10, 50, and 1
 exact word-four-gram overlap against the matching corpus is 0.020 and 0.027, respectively. At learned-position
 frequency 500, seven of eight canaries are rank 1 (mean exposure 3.801); distinct-1 is 0.405, distinct-2 is 0.799,
 and exact overlap mean is 0.048. These remain single-seed automated proxies, not evidence of an architecture effect.
-Learned-position frequency 500 and MHA frequencies 0, 1, and 10 completed. MHA frequency 10 completed 6,000 updates
+Learned-position frequency 500 and MHA frequencies 0, 1, 10, and 50 completed. MHA frequency 10 completed 6,000 updates
 in 25,555 trainer seconds, with best validation loss 1.4962 / PPL 4.4645, three gradient-norm spikes, and two
 gradient-health alerts. Both retained checkpoints and all three evaluation JSONs were verified; the exact-overlap
-fingerprint matches the 73,139-story frequency-10 corpus. The exact-overlap audit now covers 41 cells / 13,120
-completions. MHA frequency 50 reached step 1,275/6,000 by 03:45 IST, with four gradient-norm spikes and two gradient-health alerts; its step-1,000 validation loss was 2.0505 / PPL 7.77. Nine cells remain queued. The matched
+fingerprint matches the 73,139-story frequency-10 corpus. MHA frequency 50 completed in 30,597.5 trainer seconds,
+with best validation loss 1.5050 / PPL 4.5044, five gradient-norm spikes, and two gradient-health alerts. Its
+retained checkpoints and all three outputs were verified against the 73,139-story frequency-50 corpus. The exact-overlap
+audit now covers 42 cells / 13,440 completions. MHA frequency 100 reached step 300/6,000 by 10:57 IST, with eight
+cells queued. The matched
 architecture comparison awaits the rest of the scale grid. Do not merge these partial results into the 14M
 trade-off tables as if they were a complete factorial analysis.
 
@@ -548,8 +551,8 @@ diagnostics and do not establish a creativity effect or support a causal archite
    by itself undermine, but replication remains important.
 2. **Exploratory grid imbalance.** All four architectures are trained at 0, 1, 10, 100, and 500; MHA and LayerNorm
    additionally have frequency 50. Both missing frequency-50 cells and baseline high-frequency seed replications
-   are complete. The exploratory 48M arm is partially complete (15/24 cells; MHA frequency 50 is active and
-   9 cells remain queued). Frequency 0 was added after the
+   are complete. The exploratory 48M arm is partially complete (16/24 cells; MHA frequency 100 is active and
+   8 cells remain queued). Frequency 0 was added after the
    initial preregistration, so it is a necessary matched control but still a documented design change.
 3. **Novelty evaluation not yet run to the brief's standard.** Hand-labelling (Checkpoint 5) has not been done;
    only the automated diversity/overlap metrics have run, and only as smoke tests.

@@ -191,3 +191,15 @@
   gradient-health alerts; the step-1,000 validation loss was 2.0505 / PPL 7.77. Nine scale cells remain queued. The 48M scale matrix is 15/24
   complete and full-corpus overlap covers 41 cells / 13,120 generations. About 8.3 GiB was free. This run remains
   exploratory; human annotation and the contamination-free confirmatory study are not complete.
+
+## 2026-10-13 MHA frequency-50 completion; MHA frequency-100 active
+
+- MHA frequency 50 finished at 10:27:57 local after starting at 01:57:39 (8h30m18s setup-to-done; 30,597.5
+  trainer seconds). It reached 6,000 updates with best validation loss 1.5050441 / PPL 4.50435, five gradient-norm
+  spikes, and two gradient-health alerts. Independent verification loaded both retained checkpoints, validated the
+  12-row memorization result and 32 × 10 generation arrays in both novelty outputs, and confirmed the full-corpus
+  SHA-256 against the frequency-50, 73,139-story training corpus.
+- MHA frequency 100 was the next sequential cell. At 10:57 it had reached step 300/6,000 (about 2,108 tokens/s;
+  early ETA about six hours), with eight scale cells still queued. The 48M arm is 16/24 complete and full-corpus
+  overlap covers 42 cells / 13,440 generations. Human annotation and the contamination-free confirmatory study
+  remain incomplete.
