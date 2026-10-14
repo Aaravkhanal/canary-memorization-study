@@ -9,12 +9,16 @@ narrative-generation setting.
 novelty/recombination endpoint still needs blinded human labelling.** The MHA and LayerNorm variants are trained
 and scored at 0, 1, 10, 50, 100, and 500 insertions. The baseline and learned-position frequency grids are complete;
 the baseline 100x/500x second-training-seed replications are complete. Nineteen of 24 48M cells are complete and
-verified: all six baseline, learned-position, and MHA frequencies, plus LayerNorm frequency 0. MHA frequency 500
+verified: all six baseline, learned-position, and MHA frequencies, plus LayerNorm frequencies 0 and 1. MHA frequency 500
 completed 6,000 updates with best validation loss 1.4810 (PPL 4.3975), seven gradient-norm spikes, and three
 gradient-health alerts; its checkpoints and evaluations passed verification. LayerNorm frequency 0 completed with
 best validation loss 1.4879 (PPL 4.4278), seven gradient-norm spikes, and six gradient-health alerts; checkpoints
-and evaluations passed verification. LayerNorm frequency 1 is active at step 175/6,000 (about 2,144 tokens/s;
-early ETA about 6h18m); four cells remain outstanding. Full-corpus overlap has been verified for 45 cells / 14,400
+and evaluations passed verification. LayerNorm frequency 1 completed at 08:16:15–15:42:47 (7h26m32s wall;
+26,766.8 trainer seconds), with best validation loss 1.4908 (PPL 4.4407), three gradient-norm spikes, and seven
+gradient-health alerts. Its checkpoints and evaluations passed verification. LayerNorm frequency 10 is active at
+step 700/6,000 (about 1,769 tokens/s; early ETA about 6h49m), with eight gradient-health alerts and one gradient-norm
+spike (step 693);
+three cells remain outstanding. Full-corpus overlap has been verified for 46 cells / 14,720
 generations across the 14M grid,
 the two true baseline seed replications, and completed 48M cells. Interim learned-position frequency-500 results remain single-seed automated measurements;
 human novelty labels are still pending. Interim 48M baseline outputs suggest exposure saturation by
@@ -64,14 +68,14 @@ Per-run durations, checkpoint validation, and failure records are summarized in 
   `docs/ANNOTATION_PROTOCOL.md`. No automated labels are treated as evidence.
 - **Full-corpus copying analysis** is implemented in `scripts/eval_full_corpus_overlap.py`. It has been run for
   all 24 canonical 14M novelty cells (7,680 completions), both baseline training-seed replications (640
-  completions), and nineteen 48M cells (6,080 completions), using each matching
+  completions), and twenty 48M cells (6,400 completions), using each matching
   frequency-specific training corpus. Per-completion outputs, corpus hashes,
   and descriptive summaries are in
   `results/full_corpus_overlap/`. This automated overlap diagnostic is not a substitute for blinded human
   novelty labels and cannot by itself support a creativity claim.
-- Baseline 100x/500x training-seed replications are complete. The 48M arm has nineteen verified cells (all baseline,
-  learned-position, and MHA frequencies, plus LayerNorm frequency 0), each with memorization, novelty, and matching-corpus overlap evaluations.
-  LayerNorm frequency 1 is active; four cells are queued. The initial 48M baseline
+- Baseline 100x/500x training-seed replications are complete. The 48M arm has twenty verified cells (all baseline,
+  learned-position, and MHA frequencies, plus LayerNorm frequencies 0 and 1), each with memorization, novelty, and matching-corpus overlap evaluations.
+  LayerNorm frequency 10 is active; three cells are queued. The initial 48M baseline
   frequency-0 attempt had a disk-full checkpoint-write failure and resumed from its verified step-1,000 state.
 - **A confirmatory, contamination-free study** remains necessary for a strong paper. Its frozen recommended design
   is in `docs/CONFIRMATORY_STUDY_PROTOCOL.md`.

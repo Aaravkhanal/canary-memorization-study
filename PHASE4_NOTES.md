@@ -887,7 +887,10 @@ remain incomplete.
 LayerNorm frequency 0 completed at 08:09:59 local after starting at 00:54:46 (7h15m13s wall; 26,087.5 trainer
 seconds), with best validation loss 1.4879 / PPL 4.4278, seven gradient-norm spikes, and six gradient-health alerts.
 Its retained checkpoints and memorization, novelty, and matching frequency-0 full-corpus outputs passed verification.
-LayerNorm frequency 1 started at 08:16:15. At 08:27:42 it had reached step 175/6,000 (about 2,144 tokens/s; early
-ETA about 6h18m), with seven gradient-health alerts and no gradient-norm spike or failure so far. Four cells remain
-queued; the matrix is 19/24 complete and full-corpus coverage is 45 cells / 14,400 generations. Human annotation and
-the contamination-free confirmatory study remain incomplete.
+LayerNorm frequency 1 completed at 15:42:47 local after starting at 08:16:15 (7h26m32s wall; 26,766.8 trainer
+seconds), with best validation loss 1.4908 / PPL 4.4407, three gradient-norm spikes, and seven gradient-health
+alerts. Both retained checkpoints and all frequency-1 outputs passed verification against the matching corpus.
+LayerNorm frequency 10 started at 15:49:13 and reached step 700/6,000 at 16:46:40 (about 1,769 tokens/s; early ETA
+about 6h49m); eight gradient-health alerts and one gradient-norm spike (step 693) are logged, with no failure. Three
+cells remain queued; the matrix is 20/24 complete and full-corpus coverage is 46 cells / 14,720 generations. Human annotation and the
+contamination-free confirmatory study remain incomplete.

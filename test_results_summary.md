@@ -305,3 +305,13 @@ After the 08:25 IST 48M status refresh and LayerNorm frequency-0 completion, the
 in 19.49s with 14 upstream matplotlib/pyparsing deprecation warnings and no failures. The sequential 48M runner
 remained active; LayerNorm frequency 1 was the sole MPS trainer at step 175/6,000 at 08:27 IST, with four scale
 cells queued. No duplicate training job was started.
+
+After the 16:45 IST completion of LayerNorm frequency 1 and the frequency-10 status refresh, the full research suite
+passed **67/67** in 15.04s with 14 upstream matplotlib/pyparsing deprecation warnings and no failures. LayerNorm
+frequency 10 was the sole active MPS trainer at step 700/6,000 (16:46 IST); it had eight gradient-health alerts and
+one gradient-norm spike (step 693), with no training failure. Three 48M cells remained queued.
+
+After recording LayerNorm frequency-1 completion and frequency-10 progress through step 700/6,000, the research
+suite passed **67/67** in 14.31s. It emitted 14 upstream matplotlib/pyparsing deprecation warnings and no failures.
+The sequential 48M runner remained active with three cells still to complete after the current LayerNorm frequency-10
+cell; no duplicate MPS job was started.

@@ -1,8 +1,8 @@
 # 48M scale-transfer experiment protocol
 
-**Status: the 14M queue is complete. Nineteen of 24 48M cells are complete and verified: all six baseline,
-learned-position, and MHA frequencies, plus LayerNorm frequency 0.** Exact full-corpus overlap is also verified for the 14M grid and two
-true baseline training-seed replications, giving 45 evaluated cells / 14,400 generations overall. Frequency 0 required an initial
+**Status: the 14M queue is complete. Twenty of 24 48M cells are complete and verified: all six baseline,
+learned-position, and MHA frequencies, plus LayerNorm frequencies 0 and 1.** Exact full-corpus overlap is also verified for the 14M grid and two
+true baseline training-seed replications, giving 46 evaluated cells / 14,720 generations overall. Frequency 0 required an initial
 step-1,500 checkpoint-write failure and an in-place resume from its verified step-1,000 checkpoint; it reached
 best validation loss 1.4871 (PPL 4.4243). Frequency 1 reached best validation loss 1.4931 (PPL 4.45). Baseline
 frequency 10 reached best validation loss 1.4896 (PPL 4.44), and frequency 50 reached 1.5018 (PPL 4.49). Baseline
@@ -10,7 +10,8 @@ frequencies 100 and 500 reached 1.5061 and 1.4802. Learned-position frequencies 
 reached 1.5309, 1.5275, 1.5305, 1.5464, 1.5472, and 1.5199. MHA frequency 1 reached 1.4982 (PPL 4.47).
 MHA frequency 500 completed with best validation loss 1.4810 / PPL 4.3975. LayerNorm frequency 0 completed with best
 validation loss 1.4879 / PPL 4.4278, seven gradient-norm spikes, and six gradient-health alerts. LayerNorm frequency 1
-is active at step 175/6,000 (about 2,144 tokens/s; early ETA about 6h18m); four cells are queued. This is a scale-transfer extension to the exploratory
+completed with validation loss 1.4908 / PPL 4.4407, three gradient-norm spikes, and seven gradient-health alerts.
+LayerNorm frequency 10 is active at step 700/6,000 (about 1,769 tokens/s; early ETA about 6h49m), with one gradient-norm spike so far; three cells are queued. This is a scale-transfer extension to the exploratory
 14M study, not a replacement for the contamination-free confirmatory study.
 
 ## Why the existing 48M checkpoint is not the experiment
@@ -100,8 +101,12 @@ full-corpus JSONs passed structural checks, and the overlap metadata matched the
 trainer seconds), with best validation loss 1.4879 / PPL 4.4278, six gradient-health alerts, and seven gradient-norm
 spikes. Its checkpoints and all three evaluations passed verification. LayerNorm frequency 1 started at 08:16:15 and
 reached step 175/6,000 at 08:27:42 (about 2,144 tokens/s; early ETA about 6h18m); seven gradient-health alerts and
-no spikes or failure are logged so far. Four cells remain queued. The 48M arm is 19/24 complete and exact overlap
-covers 45 cells / 14,400 generations. Human annotation and the
+no spikes or failure were logged at that checkpoint. LayerNorm frequency 1 then completed at 15:42:47 (7h26m32s
+wall; 26,766.8 trainer seconds), with best validation loss 1.4908 / PPL 4.4407, seven gradient-health alerts, and
+three gradient-norm spikes; checkpoints and all evaluations passed verification. LayerNorm frequency 10 started at
+15:49:13 and reached step 700/6,000 at 16:46:40 (about 1,769 tokens/s; early ETA about 6h49m), with eight
+gradient-health alerts and one gradient-norm spike (step 693), but no failure. Three cells remain queued. The 48M arm is 20/24 complete and
+exact overlap covers 46 cells / 14,720 generations. Human annotation and the
 contamination-free confirmatory study remain incomplete. MHA frequency 1 completed in
 24,507.9 trainer seconds (6h48m52s wall), best validation
 loss 1.4982 / PPL 4.47, with six gradient-norm spikes and six gradient-health alerts. Retained best/final checkpoints,

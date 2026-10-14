@@ -17,18 +17,18 @@ artifact.
 
 ## Non-negotiable blockers before submission
 
-1. The 14M grid and baseline 100/500 training-seed replications are complete. Nineteen 48M cells are verified:
-   all baseline, learned-position, and MHA frequencies plus LayerNorm frequency 0. LayerNorm frequency 0 completed
-   with best validation loss 1.4879 / PPL 4.4278, seven gradient-norm spikes, and six health alerts. LayerNorm
-   frequency 1 is active at step 175/6,000 (about 2,144 tokens/s; early ETA about 6h18m), with seven health alerts
-   and no spike or failure so far; four cells remain queued. The frequency-0 baseline cell required
+1. The 14M grid and baseline 100/500 training-seed replications are complete. Twenty 48M cells are verified:
+   all baseline, learned-position, and MHA frequencies plus LayerNorm frequencies 0 and 1. LayerNorm frequency 1
+   completed with best validation loss 1.4908 / PPL 4.4407, three gradient-norm spikes, and seven health alerts.
+   LayerNorm frequency 10 is active at step 700/6,000 (about 1,769 tokens/s; early ETA about 6h49m), with eight
+   health alerts and one gradient-norm spike (step 693), but no failure; three cells remain queued. The frequency-0 baseline cell required
    an in-place resume after a disk-full checkpoint-write failure. Report both arms as exploratory until replicated.
 2. Complete the blinded two-rater V/T/N study in `docs/ANNOTATION_PROTOCOL.md`; the two prepared rater files each
    contain 1,280 condition-hidden items with label, confidence, and notes fields blank. Human scoring is not done;
    report Cohen's kappa, Krippendorff's alpha, disagreements/adjudication, and clustered confidence intervals.
 3. Complete the exact full-corpus search for all primary conditions. It now covers 24 canonical 14M novelty cells
-   / 7,680 completions, two baseline training-seed replications / 640 completions, and nineteen 48M cells / 6,080
-   completions, 45 cells / 14,400 total; five scale outputs remain pending (one is active and four are queued).
+   / 7,680 completions, two baseline training-seed replications / 640 completions, and twenty 48M cells / 6,400
+   completions, 46 cells / 14,720 total; four scale outputs remain pending (one is active and three are queued).
    The overlap diagnostic alone cannot support a broad
    non-copying claim.
 4. Replace the false “no existing work” positioning. RAVEN (McCoy et al., TACL 2023), Haviv et al. (EACL 2023),

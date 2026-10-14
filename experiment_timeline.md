@@ -272,3 +272,15 @@ frequency 1 started at 08:16:15 and reached step 175/6,000 at 08:27:42 (about 2,
 6h18m); seven gradient-health alerts are recorded, with no gradient-norm spike or failure so far. Four cells remain
 queued. The 48M matrix is 19/24 complete and full-corpus overlap covers 45 cells / 14,400 generations. Human annotation
 and the separate contamination-free confirmatory study remain incomplete.
+
+### 16:45 IST LayerNorm frequency-1 completion and frequency-10 progress
+
+LayerNorm frequency 1 completed at 15:42:47 local after starting at 08:16:15 (7h26m32s wall; 26,766.8 trainer
+seconds), with best validation loss 1.4908223 / PPL 4.44075, seven gradient-health alerts, and three gradient-norm
+spikes. Both retained checkpoints loaded with `weights_only=True`; memorization had 12 rows, novelty had 32 groups ×
+10 completions, and full-corpus overlap had 32 × 10 completions with the matching frequency-1 corpus fingerprint and
+73,139-story count. LayerNorm frequency 10 started at 15:49:13; at 16:46:40 it had reached step 700/6,000 (about
+1,769 tokens/s; early ETA about 6h49m), with eight gradient-health alerts and one gradient-norm spike (step 693), but
+no run failure. Three cells remain queued. The scale grid is 20/24 complete and exact overlap covers 46 cells / 14,720 generations.
+The 67-test suite was rerun after the status update; see `test_results_summary.md`. Human scoring and the separate
+contamination-free confirmatory study remain incomplete.
