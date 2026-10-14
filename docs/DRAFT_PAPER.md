@@ -1,12 +1,12 @@
 # Memorization vs. compositional creativity in a small language model: does the trade-off depend on architecture?
 
 **Status: exploratory draft, not submission-ready.** The balanced 14M grid and baseline 100/500 training-seed
-replications are complete, but historical tables below remain an audit trail rather than final results. Eighteen of 24
-48M cells are complete: all six baseline and learned-position frequencies and all six MHA frequencies. LayerNorm
-frequency 0 is at step 5,375/6,000 (about 1,869 tokens/s; early ETA about 46m); five cells remain queued.
+replications are complete, but historical tables below remain an audit trail rather than final results. Nineteen of 24
+48M cells are complete: all baseline, learned-position, and MHA frequencies plus LayerNorm frequency 0. LayerNorm
+frequency 1 is at step 175/6,000 (about 2,144 tokens/s; early ETA about 6h18m); four cells remain queued.
 The frequency-0 cell completed after a disk-full checkpoint-write failure and resume from a verified step-1,000
 checkpoint. Exact full-corpus overlap now covers 24/24 canonical 14M cells (7,680 completions), two baseline
-training-seed replication cells (640 completions), and eighteen 48M cells (5,760 completions), 44 cells / 14,080
+training-seed replication cells (640 completions), and nineteen 48M cells (6,080 completions), 45 cells / 14,400
 completions total. The human primary novelty endpoint and contamination-free confirmatory study are incomplete.
 The current submission gate is
 `docs/PUBLICATION_READINESS.md`.
@@ -136,9 +136,9 @@ The study uses four near-parameter-matched architectures:
 | `variant_c_layernorm` | RMSNorm → LayerNorm | 14,162,304 | exact match |
 
 All four architectures are trained and scored across 0, 1, 10, 50, 100, and 500. The balanced grid is complete;
-the baseline high-frequency second-training-seed replications are complete. Eighteen cells of the 48M scale-transfer
-arm are complete (all six baseline, all six learned-position frequencies, and all six MHA frequencies); LayerNorm
-frequency 0 is active with five cells queued (six outstanding including the active cell). No scale comparison conclusion is available.
+the baseline high-frequency second-training-seed replications are complete. Nineteen cells of the 48M scale-transfer
+arm are complete (all six baseline, learned-position and MHA frequencies, plus LayerNorm frequency 0); LayerNorm
+frequency 1 is active with four cells queued. No scale comparison conclusion is available.
 
 ### 3.2 Canary design
 
@@ -517,14 +517,18 @@ gradient-health alerts. Both retained checkpoints and all three evaluation JSONs
 fingerprint matches the 73,139-story frequency-10 corpus. MHA frequency 50 completed in 30,597.5 trainer seconds,
 with best validation loss 1.5050 / PPL 4.5044, five gradient-norm spikes, and two gradient-health alerts. Its
 retained checkpoints and all three outputs were verified against the 73,139-story frequency-50 corpus. The exact-overlap
-audit now covers 44 cells / 14,080 completions. MHA frequency 100 completed with best validation loss 1.5105 /
+audit then covered 44 cells / 14,080 completions before LayerNorm frequency 0 completed, bringing the current total
+to 45 cells / 14,400 completions. MHA frequency 100 completed with best validation loss 1.5105 /
 PPL 4.5291 (four gradient-norm spikes and four gradient-health alerts); checkpoints and evaluation outputs passed
 verification against the matching 73,139-story corpus. MHA frequency 500 completed at 00:41:05 after 25,864.4
 trainer seconds, with best validation loss 1.4810 / PPL 4.3975, seven gradient-norm spikes, and three
 gradient-health alerts; checkpoints, 12 memorization rows, 32 groups × 10 novelty completions, and matching-corpus
-overlap output passed verification. LayerNorm frequency 0 is now active at step 5,375/6,000 (07:23 IST; early ETA
-about 46m), with six gradient-health alerts and seven gradient-norm spikes; five cells remain queued. The step-5,000
-validation loss was 1.4966 / PPL 4.47 (new best). The matched
+overlap output passed verification. LayerNorm frequency 0 completed at 08:09:59 local after starting at 00:54:46
+(7h15m13s wall; 26,087.5 trainer seconds), with best validation loss 1.4879 / PPL 4.4278, six gradient-health
+alerts, and seven gradient-norm spikes; its retained checkpoints and evaluations passed verification against the
+matching frequency-0 corpus. LayerNorm frequency 1 started at 08:16:15 and reached step 175/6,000 at 08:27:42
+(about 2,144 tokens/s; early ETA about 6h18m); seven gradient-health alerts are logged, with no spike or failure so
+far. Four cells remain queued. The matched
 architecture comparison awaits the rest of the scale grid. Do not merge these partial results into the 14M
 trade-off tables as if they were a complete factorial analysis.
 
@@ -557,8 +561,8 @@ diagnostics and do not establish a creativity effect or support a causal archite
    by itself undermine, but replication remains important.
 2. **Exploratory grid imbalance.** All four architectures are trained at 0, 1, 10, 100, and 500; MHA and LayerNorm
    additionally have frequency 50. Both missing frequency-50 cells and baseline high-frequency seed replications
-   are complete. The exploratory 48M arm is partially complete (18/24 cells; LayerNorm frequency 0 is active with
-   five queued cells). Frequency 0 was added after the
+   are complete. The exploratory 48M arm is partially complete (19/24 cells; LayerNorm frequency 1 is active with
+   four queued cells). Frequency 0 was added after the
    initial preregistration, so it is a necessary matched control but still a documented design change.
 3. **Novelty evaluation not yet run to the brief's standard.** Hand-labelling (Checkpoint 5) has not been done;
    only the automated diversity/overlap metrics have run, and only as smoke tests.

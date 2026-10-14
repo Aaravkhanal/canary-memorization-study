@@ -262,3 +262,13 @@ validation loss was 2.0189 / PPL 7.53. Six gradient-norm spikes (steps 118, 384,
 six gradient-health alerts (three at step 25, three at step 50) have been recorded; no training failure is logged.
 Five other 48M cells remain queued. Exact-overlap coverage is still 44 cells / 14,080 generations. Rerun the full
 test suite after this status refresh; annotation and the contamination-free confirmatory study remain incomplete.
+
+### 08:25 IST LayerNorm frequency-0 completion and frequency-1 progress
+
+LayerNorm frequency 0 completed at 08:09:59 local after starting at 00:54:46 (7h15m13s wall; 26,087.5 trainer
+seconds), with best validation loss 1.4878988 / PPL 4.42778, seven gradient-norm spikes, and six gradient-health
+alerts. Retained checkpoints and all evaluation outputs passed verification against the matching corpus. LayerNorm
+frequency 1 started at 08:16:15 and reached step 175/6,000 at 08:27:42 (about 2,144 tokens/s; early ETA about
+6h18m); seven gradient-health alerts are recorded, with no gradient-norm spike or failure so far. Four cells remain
+queued. The 48M matrix is 19/24 complete and full-corpus overlap covers 45 cells / 14,400 generations. Human annotation
+and the separate contamination-free confirmatory study remain incomplete.

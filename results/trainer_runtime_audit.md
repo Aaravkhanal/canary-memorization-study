@@ -7,9 +7,9 @@ losses, and gradient-norm anomaly counts come from the run summaries. The three 
 each corresponding cell completed under its `exp_002` directory and is not counted as a failed run.
 
 All completed 14M cells reached 6,000 updates. The 48M baseline and learned-position grids are complete; all six MHA
-frequencies are also complete. LayerNorm frequency 0 is active at step 5,375/6,000 at the 07:23 IST check
-(about 1,869 tokens/s; early ETA about 46m), with seven gradient-norm spikes and six gradient-health alerts; five
-cells remain queued. MHA frequency 50 used 30,597.5 trainer
+frequencies are also complete, as is LayerNorm frequency 0. LayerNorm frequency 1 is active at step 175/6,000 at the
+08:27 IST check (about 2,144 tokens/s; early ETA about 6h18m), with seven gradient-health alerts and no spike or
+failure so far; four cells remain queued. MHA frequency 50 used 30,597.5 trainer
 seconds, with best validation loss 1.5050, five gradient-norm spikes, and two gradient-health alerts. Baseline frequency 0 required one disk-full
 checkpoint-write recovery.
 
@@ -63,6 +63,7 @@ checkpoint-write recovery.
 | 48M MHA | 50 | 08:30:18 | 6,000 | 1.5050 | 5 | completed; 30,597.5 trainer seconds; 2 gradient-health alerts |
 | 48M MHA | 100 | 06:41:10 | 6,000 | 1.5105 | 4 | completed; 24,046 trainer seconds; 4 gradient-health alerts |
 | 48M MHA | 500 | 07:11:29 | 6,000 | 1.4810 | 7 | completed; 25,864.4 trainer seconds; 3 gradient-health alerts |
+| 48M LayerNorm | 0 | 07:15:13 | 6,000 | 1.4879 | 7 | completed; 26,087.5 trainer seconds; 6 gradient-health alerts |
 
 \* For the failed 48M row, the summary held a candidate best validation loss of 1.8588 at the failing step, but its
 update did not persist to `best.pt`. The last logged and persisted evaluation/checkpoint is step 1,000 (validation
@@ -142,8 +143,8 @@ the 73,139-story frequency-500 corpus. Rolling step checkpoints were removed onl
 
 ## Current queue snapshot (2026-10-13)
 
-The 48M matrix is 18/24 complete: all baseline and learned-position cells plus all six MHA frequencies.
-LayerNorm frequency 0 is active at step 5,375/6,000 (07:23 IST; early ETA about 46m); five cells remain queued. Full-corpus
-overlap covers 44 evaluated cells / 14,080 generations, including all canonical 14M cells and two true baseline
+The 48M matrix is 19/24 complete: all baseline and learned-position cells, all six MHA frequencies, and LayerNorm
+frequency 0. LayerNorm frequency 1 is active at step 175/6,000 (08:27 IST; early ETA about 6h18m); four cells remain queued. Full-corpus
+overlap covers 45 evaluated cells / 14,400 generations, including all canonical 14M cells and two true baseline
 training-seed replications. The active and queued cells are not counted as complete.
 for the active or queued cells are yet claimed.

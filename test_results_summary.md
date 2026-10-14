@@ -300,3 +300,8 @@ trainer; five scale cells remain queued.
 After the 07:23 IST LayerNorm frequency-0 progress refresh, all **67/67** tests passed in 15.59s. The suite emitted
 14 upstream matplotlib/pyparsing deprecation warnings and no failures. The LayerNorm frequency-0 process was the
 only active MPS trainer; five 48M cells remain queued.
+
+After the 08:25 IST 48M status refresh and LayerNorm frequency-0 completion, the full research suite passed **67/67**
+in 19.49s with 14 upstream matplotlib/pyparsing deprecation warnings and no failures. The sequential 48M runner
+remained active; LayerNorm frequency 1 was the sole MPS trainer at step 175/6,000 at 08:27 IST, with four scale
+cells queued. No duplicate training job was started.
