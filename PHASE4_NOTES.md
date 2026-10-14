@@ -884,8 +884,8 @@ remain incomplete.
 
 ### 2026-10-14 LayerNorm frequency-0 progress refresh
 
-At 05:16:25 local, the active LayerNorm frequency-0 trainer had reached step 3,675/6,000 (about 1,831 tokens/s;
-early ETA about 2h53m). Step-3,500 validation loss was 1.5831 / PPL 4.87 and was a new best. Seven gradient-norm
+At 06:23:57 local, the active LayerNorm frequency-0 trainer had reached step 4,575/6,000 (about 1,862 tokens/s;
+early ETA about 1h44m). Step-4,500 validation loss was 1.5204 / PPL 4.57 and was a new best. Seven gradient-norm
 spikes and six gradient-health alerts are recorded, with no training failure. Five other 48M cells remain queued;
 full-corpus coverage remains 44 cells / 14,080 generations. Human annotation and the contamination-free confirmatory
 study remain incomplete.

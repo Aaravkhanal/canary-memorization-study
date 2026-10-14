@@ -250,8 +250,8 @@ suite passed 67/67 after the previous documentation refresh; rerun it after this
 
 ### 04:18 IST LayerNorm frequency-0 progress check
 
-The active cell reached step 3,675/6,000 at 05:16:25 (about 1,831 tokens/s, ETA about 2h53m). Step-3,500
-validation loss was 1.5831 / PPL 4.87 and set a new best. Seven gradient-norm spikes (latest at step 2,700) and six
+The active cell reached step 4,575/6,000 at 06:23:57 (about 1,862 tokens/s, ETA about 1h44m). Step-4,500
+validation loss was 1.5204 / PPL 4.57 and set a new best. Seven gradient-norm spikes (latest at step 2,700) and six
 gradient-health alerts (three at step 25, three at step 50) have been recorded; no failure is logged. Five other
 48M cells remain queued. Exact-overlap coverage is 44 cells / 14,080 generations.
 

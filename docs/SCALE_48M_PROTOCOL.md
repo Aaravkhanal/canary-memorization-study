@@ -9,7 +9,7 @@ frequency 10 reached best validation loss 1.4896 (PPL 4.44), and frequency 50 re
 frequencies 100 and 500 reached 1.5061 and 1.4802. Learned-position frequencies 0, 1, 10, 50, 100, and 500
 reached 1.5309, 1.5275, 1.5305, 1.5464, 1.5472, and 1.5199. MHA frequency 1 reached 1.4982 (PPL 4.47).
 MHA frequency 500 completed with best validation loss 1.4810 / PPL 4.3975. LayerNorm frequency 0 is the active
-cell at step 3,675/6,000 (about 1,831 tokens/s; early ETA about 2h53m); five cells are queued. This is a scale-transfer extension to the exploratory
+cell at step 4,575/6,000 (about 1,862 tokens/s; early ETA about 1h44m); five cells are queued. This is a scale-transfer extension to the exploratory
 14M study, not a replacement for the contamination-free confirmatory study.
 
 ## Why the existing 48M checkpoint is not the experiment
@@ -95,9 +95,9 @@ MHA frequency 500 completed at 00:41:05 local (7h11m29s setup-to-done, 25,864.4 
 validation loss 1.4810324 / PPL 4.39748, seven gradient-norm spikes, and three gradient-health alerts. Its best/final
 checkpoints loaded with `weights_only=True`; the 12-row memorization JSON and 32-group/320-completion novelty and
 full-corpus JSONs passed structural checks, and the overlap metadata matched the frequency-500 corpus SHA-256 and
-73,139-story count. LayerNorm frequency 0 began at 00:54:46 and had reached step 3,675/6,000 at 05:16 (about 1,831
-tokens/s; early ETA about 2h53m), with six gradient-health alerts and seven gradient-norm spikes. Step-3,500 validation
-loss was 1.5831 / PPL 4.87 (new best). Five more cells remain
+73,139-story count. LayerNorm frequency 0 began at 00:54:46 and had reached step 4,575/6,000 at 06:23 (about 1,862
+tokens/s; early ETA about 1h44m), with six gradient-health alerts and seven gradient-norm spikes. Step-4,500 validation
+loss was 1.5204 / PPL 4.57 (new best). Five more cells remain
 queued. The 48M arm is 18/24 complete and exact overlap covers 44 cells / 14,080 generations. Human annotation and the
 contamination-free confirmatory study remain incomplete. MHA frequency 1 completed in
 24,507.9 trainer seconds (6h48m52s wall), best validation
