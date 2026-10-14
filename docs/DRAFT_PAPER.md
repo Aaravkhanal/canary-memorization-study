@@ -3,7 +3,7 @@
 **Status: exploratory draft, not submission-ready.** The balanced 14M grid and baseline 100/500 training-seed
 replications are complete, but historical tables below remain an audit trail rather than final results. Eighteen of 24
 48M cells are complete: all six baseline and learned-position frequencies and all six MHA frequencies. LayerNorm
-frequency 0 is at step 4,575/6,000 (about 1,862 tokens/s; early ETA about 1h44m); five cells remain queued.
+frequency 0 is at step 5,375/6,000 (about 1,869 tokens/s; early ETA about 46m); five cells remain queued.
 The frequency-0 cell completed after a disk-full checkpoint-write failure and resume from a verified step-1,000
 checkpoint. Exact full-corpus overlap now covers 24/24 canonical 14M cells (7,680 completions), two baseline
 training-seed replication cells (640 completions), and eighteen 48M cells (5,760 completions), 44 cells / 14,080
@@ -522,9 +522,9 @@ PPL 4.5291 (four gradient-norm spikes and four gradient-health alerts); checkpoi
 verification against the matching 73,139-story corpus. MHA frequency 500 completed at 00:41:05 after 25,864.4
 trainer seconds, with best validation loss 1.4810 / PPL 4.3975, seven gradient-norm spikes, and three
 gradient-health alerts; checkpoints, 12 memorization rows, 32 groups × 10 novelty completions, and matching-corpus
-overlap output passed verification. LayerNorm frequency 0 is now active at step 4,575/6,000 (06:23 IST; early ETA
-about 1h44m), with six gradient-health alerts and seven gradient-norm spikes; five cells remain queued. The step-4,500
-validation loss was 1.5204 / PPL 4.57 (new best). The matched
+overlap output passed verification. LayerNorm frequency 0 is now active at step 5,375/6,000 (07:23 IST; early ETA
+about 46m), with six gradient-health alerts and seven gradient-norm spikes; five cells remain queued. The step-5,000
+validation loss was 1.4966 / PPL 4.47 (new best). The matched
 architecture comparison awaits the rest of the scale grid. Do not merge these partial results into the 14M
 trade-off tables as if they were a complete factorial analysis.
 
