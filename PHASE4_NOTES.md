@@ -894,3 +894,23 @@ LayerNorm frequency 10 started at 15:49:13 and reached step 700/6,000 at 16:46:4
 about 6h49m); eight gradient-health alerts and one gradient-norm spike (step 693) are logged, with no failure. Three
 cells remain queued; the matrix is 20/24 complete and full-corpus coverage is 46 cells / 14,720 generations. Human annotation and the
 contamination-free confirmatory study remain incomplete.
+
+## 2026-10-15 completion of the 48M scale-transfer queue
+
+The sequential runner completed the remaining LayerNorm cells and exited after all 24/24 matched-token scale
+conditions finished. LayerNorm frequency 10 used 26,253.3 trainer seconds (best validation loss 1.4903 / PPL
+4.4382; three gradient-norm spikes; eight gradient-health alerts); frequency 50 used 27,077.4 seconds (1.5032 /
+4.4960; three spikes; three health alerts); frequency 100 used 23,916.4 seconds (1.5062 / 4.5098; one spike;
+seven health alerts); and frequency 500 used 24,087.0 seconds (1.4781 / 4.3847; four spikes; nine health alerts).
+All completed 6,000 steps with no training error in these final four cells.
+
+An independent integrity pass loaded all 106 retained best/final checkpoints from 53 completed model summaries,
+parsed all 175 result JSON files, checked all 53 memorization and 70 novelty outputs, and verified all 50
+frequency-matched full-corpus overlap reports (32 groups × 10 generations each; 73,139-story corpus and matching
+SHA-256). The 50 overlap result sets comprise 24 canonical 14M cells, two true baseline training-seed replications,
+and 24 48M cells, totaling 16,000 completions. The one retained trainer error is the original baseline frequency-0
+48M checkpoint serialization failure at step 1,500; resuming from the verified step-1,000 checkpoint produced a
+successful 6,000-step run. Both 48M tradeoff CSVs and plots were regenerated against matched zero-exposure
+baselines. The two condition-hidden annotation CSVs were verified at 1,280 rows each with label, confidence, and
+notes blank. Human annotation and the separate contamination-free confirmatory study remain incomplete; therefore
+these results are still exploratory and do not establish a creativity trade-off.

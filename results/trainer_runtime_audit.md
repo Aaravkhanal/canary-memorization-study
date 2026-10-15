@@ -1,15 +1,18 @@
 # Trainer runtime and checkpoint audit
 
-Collected from the retained `models/**/train.log` and each run's `summary.json`, updated 2026-10-13. Durations are wall-clock
+Collected from the retained `models/**/train.log` and each run's `summary.json`, updated 2026-10-15. Durations are wall-clock
 time from the first setup line to the final `[done]` or `[error]` log line (local time); update counts, best validation
 losses, and gradient-norm anomaly counts come from the run summaries. The three zero-byte placeholder logs
 (`baseline/freq_1/exp_001`, `baseline/freq_500/exp_001`, and `variant_b_mha/freq_50/exp_001`) contain no trainer output;
 each corresponding cell completed under its `exp_002` directory and is not counted as a failed run.
 
-All completed 14M cells reached 6,000 updates. The 48M baseline, learned-position, and MHA grids are complete, as are
-LayerNorm frequencies 0 and 1. LayerNorm frequency 10 is active at step 700/6,000 at the 16:46 IST check (about
-1,769 tokens/s; early ETA about 6h49m), with eight gradient-health alerts and one gradient-norm spike (step 693), but no failure; three
-cells remain queued. MHA frequency 50 used 30,597.5 trainer
+Historical progress entries below preserve what was known at each dated checkpoint and are not the current queue
+state. The authoritative final status and integrity counts are in the completion audit at the end of this file.
+
+All 24 cells in the 48M grid and all completed 14M cells reached 6,000 updates. The four final 48M LayerNorm
+frequencies used 26,253.3, 27,077.4, 23,916.4, and 24,087.0 trainer seconds at frequencies 10, 50, 100, and
+500 respectively; all four finished without a training error. The 48M grid has completed; exact-corpus and output
+integrity checks passed across all 24 cells. MHA frequency 50 used 30,597.5 trainer
 seconds, with best validation loss 1.5050, five gradient-norm spikes, and two gradient-health alerts. Baseline frequency 0 required one disk-full
 checkpoint-write recovery.
 
@@ -65,6 +68,10 @@ checkpoint-write recovery.
 | 48M MHA | 500 | 07:11:29 | 6,000 | 1.4810 | 7 | completed; 25,864.4 trainer seconds; 3 gradient-health alerts |
 | 48M LayerNorm | 0 | 07:15:13 | 6,000 | 1.4879 | 7 | completed; 26,087.5 trainer seconds; 6 gradient-health alerts |
 | 48M LayerNorm | 1 | 07:26:32 | 6,000 | 1.4908 | 3 | completed; 26,766.8 trainer seconds; 7 gradient-health alerts |
+| 48M LayerNorm | 10 | 07:17:33 trainer time | 6,000 | 1.4903 | 3 | completed; 26,253.3 trainer seconds; 8 gradient-health alerts |
+| 48M LayerNorm | 50 | 07:31:17 trainer time | 6,000 | 1.5032 | 3 | completed; 27,077.4 trainer seconds; 3 gradient-health alerts |
+| 48M LayerNorm | 100 | 06:38:36 trainer time | 6,000 | 1.5062 | 1 | completed; 23,916.4 trainer seconds; 7 gradient-health alerts |
+| 48M LayerNorm | 500 | 06:41:27 trainer time | 6,000 | 1.4781 | 4 | completed; 24,087.0 trainer seconds; 9 gradient-health alerts |
 
 \* For the failed 48M row, the summary held a candidate best validation loss of 1.8588 at the failing step, but its
 update did not persist to `best.pt`. The last logged and persisted evaluation/checkpoint is step 1,000 (validation
@@ -142,10 +149,29 @@ spikes, and five gradient-health alerts. Best/final checkpoints loaded with `wei
 novelty, and full-corpus results passed the 12-row, 32-group/320-completion checks. The overlap SHA-256 matched
 the 73,139-story frequency-500 corpus. Rolling step checkpoints were removed only after validation.
 
-## Current queue snapshot (2026-10-14)
+## Historical queue snapshot (2026-10-14; superseded by completion below)
 
 The 48M matrix is 20/24 complete: all baseline and learned-position cells, all six MHA frequencies, and LayerNorm
 frequencies 0 and 1. LayerNorm frequency 10 is active at step 700/6,000 (16:46 IST; early ETA about 6h49m), with one spike; three cells remain queued. Full-corpus
 overlap covers 46 evaluated cells / 14,720 generations, including all canonical 14M cells and two true baseline
 training-seed replications. The active and queued cells are not counted as complete.
 for the active or queued cells are yet claimed.
+
+## Final 48M completion and independent artifact audit (2026-10-15)
+
+LayerNorm frequency 10 completed at step 6,000 with best validation loss 1.4902516 / PPL 4.4382, three gradient-norm
+spikes, and eight gradient-health alerts. Frequency 50 completed with best loss 1.5031983 / PPL 4.4960, three
+spikes, and three health alerts. Frequency 100 completed with best loss 1.5062483 / PPL 4.5098, one spike, and
+seven health alerts. Frequency 500 completed at 21:34:48 local with best loss 1.4781152 / PPL 4.3847, four
+spikes, and nine health alerts. Their trainer-reported durations were 26,253.3, 27,077.4, 23,916.4, and 24,087.0
+seconds. No final-cell training failures were logged.
+
+The sequential runner exited after completing all 24/24 48M cells. Independent verification loaded all 106 retained
+best/final checkpoints from 53 completed experiment summaries (`weights_only=True`), parsed all 175 result JSON
+files, checked all 53 memorization JSONs (12 rows each) and 70 novelty JSONs (32 groups × 10 completions), and
+validated all 50 full-corpus overlap JSONs (32 groups × 10 completions). Each overlap report's corpus SHA-256 and
+73,139-story count matched its frequency-specific corpus. The total comprises 24 canonical 14M cells, two true
+baseline training-seed replications, and 24 48M cells: 50 evaluated cells / 16,000 generations. The only trainer
+error in the retained logs is the previously documented initial 48M baseline frequency-0 disk-full serialization
+failure; that cell resumed from its verified step-1,000 checkpoint and completed. No human annotation or separate
+contamination-free confirmatory study is complete.

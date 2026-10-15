@@ -284,3 +284,17 @@ spikes. Both retained checkpoints loaded with `weights_only=True`; memorization 
 no run failure. Three cells remain queued. The scale grid is 20/24 complete and exact overlap covers 46 cells / 14,720 generations.
 The 67-test suite was rerun after the status update; see `test_results_summary.md`. Human scoring and the separate
 contamination-free confirmatory study remain incomplete.
+
+### 2026-10-15: final 48M cell, integrity audit, and refreshed analyses
+
+LayerNorm frequency 10 (26,253.3 trainer seconds), frequency 50 (27,077.4), frequency 100 (23,916.4), and
+frequency 500 (24,087.0) all completed 6,000 updates. The frequency-500 cell finished at 21:34:48 local with
+best validation loss 1.4781152 / PPL 4.3847. The sequential runner exited after completing the full 24/24 48M grid.
+Independent validation parsed all 175 results JSONs, loaded all 106 retained best/final checkpoints from 53
+completed summaries, and checked 50 full-corpus reports (32 groups × 10 outputs each) against the matching
+frequency-specific corpus fingerprint and 73,139-story count. Coverage is 50 cells / 16,000 generations across the
+canonical 14M grid, two true baseline training-seed controls, and the 48M grid. The initial baseline frequency-0
+checkpoint serialization failure and successful resume from step 1,000 remain recorded; no final-cell failures
+occurred. Matched-baseline tradeoff and clean-canary tables/plots were regenerated. The two blinded annotation
+files remain condition-hidden with 1,280 rows each and blank label/confidence/notes. Human annotation and the
+separate contamination-free confirmatory study remain outstanding.

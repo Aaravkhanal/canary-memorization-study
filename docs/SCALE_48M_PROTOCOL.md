@@ -1,9 +1,9 @@
 # 48M scale-transfer experiment protocol
 
-**Status: the 14M queue is complete. Twenty of 24 48M cells are complete and verified: all six baseline,
-learned-position, and MHA frequencies, plus LayerNorm frequencies 0 and 1.** Exact full-corpus overlap is also verified for the 14M grid and two
-true baseline training-seed replications, giving 46 evaluated cells / 14,720 generations overall. Frequency 0 required an initial
-step-1,500 checkpoint-write failure and an in-place resume from its verified step-1,000 checkpoint; it reached
+**Status: the 14M queue and all 24/24 cells in the 48M scale-transfer grid are complete and verified.** Exact
+full-corpus overlap is verified for the 14M grid and two true baseline training-seed replications as well as all 24
+48M cells, giving 50 evaluated cells / 16,000 generations overall. Frequency 0 required an initial step-1,500
+checkpoint-write failure and an in-place resume from its verified step-1,000 checkpoint; it reached
 best validation loss 1.4871 (PPL 4.4243). Frequency 1 reached best validation loss 1.4931 (PPL 4.45). Baseline
 frequency 10 reached best validation loss 1.4896 (PPL 4.44), and frequency 50 reached 1.5018 (PPL 4.49). Baseline
 frequencies 100 and 500 reached 1.5061 and 1.4802. Learned-position frequencies 0, 1, 10, 50, 100, and 500
@@ -11,8 +11,11 @@ reached 1.5309, 1.5275, 1.5305, 1.5464, 1.5472, and 1.5199. MHA frequency 1 reac
 MHA frequency 500 completed with best validation loss 1.4810 / PPL 4.3975. LayerNorm frequency 0 completed with best
 validation loss 1.4879 / PPL 4.4278, seven gradient-norm spikes, and six gradient-health alerts. LayerNorm frequency 1
 completed with validation loss 1.4908 / PPL 4.4407, three gradient-norm spikes, and seven gradient-health alerts.
-LayerNorm frequency 10 is active at step 700/6,000 (about 1,769 tokens/s; early ETA about 6h49m), with one gradient-norm spike so far; three cells are queued. This is a scale-transfer extension to the exploratory
-14M study, not a replacement for the contamination-free confirmatory study.
+LayerNorm frequency 10 reached best validation loss 1.4903 (PPL 4.4382), frequency 50 reached 1.5032 (PPL 4.4960),
+frequency 100 reached 1.5062 (PPL 4.5098), and frequency 500 reached 1.4781 (PPL 4.3847). All four completed
+6,000 updates, and their best/final checkpoints and three result families passed validation. The 48M scale arm is
+still an exploratory, single-seed extension with a learning-rate difference from 14M; it does not replace the
+contamination-free confirmatory study.
 
 ## Why the existing 48M checkpoint is not the experiment
 
@@ -103,10 +106,12 @@ spikes. Its checkpoints and all three evaluations passed verification. LayerNorm
 reached step 175/6,000 at 08:27:42 (about 2,144 tokens/s; early ETA about 6h18m); seven gradient-health alerts and
 no spikes or failure were logged at that checkpoint. LayerNorm frequency 1 then completed at 15:42:47 (7h26m32s
 wall; 26,766.8 trainer seconds), with best validation loss 1.4908 / PPL 4.4407, seven gradient-health alerts, and
-three gradient-norm spikes; checkpoints and all evaluations passed verification. LayerNorm frequency 10 started at
+three gradient-norm spikes; checkpoints and all evaluations passed verification. In that historical update,
+LayerNorm frequency 10 started at
 15:49:13 and reached step 700/6,000 at 16:46:40 (about 1,769 tokens/s; early ETA about 6h49m), with eight
-gradient-health alerts and one gradient-norm spike (step 693), but no failure. Three cells remain queued. The 48M arm is 20/24 complete and
-exact overlap covers 46 cells / 14,720 generations. Human annotation and the
+gradient-health alerts and one gradient-norm spike (step 693), but no failure. At that dated interim checkpoint,
+three cells remained queued and the 48M arm was 20/24 complete; exact overlap then covered 46 cells / 14,720
+generations. Human annotation and the
 contamination-free confirmatory study remain incomplete. MHA frequency 1 completed in
 24,507.9 trainer seconds (6h48m52s wall), best validation
 loss 1.4982 / PPL 4.47, with six gradient-norm spikes and six gradient-health alerts. Retained best/final checkpoints,
@@ -114,14 +119,28 @@ all three evaluation outputs, and the frequency-1 73,139-story corpus fingerprin
 eight target canaries averaged exposure 2.614 (four rank 1), versus 1.369 (none rank 1) for four unseen controls;
 greedy extraction was 0/8. Mean distinct-1/2 were 0.383/0.786, and full-corpus maximum exact word-four-gram overlap
 across 320 completions averaged 0.095 (median 0.072, maximum 0.750). These are exploratory diagnostics only.
-Latest free disk was about 7.5 GiB; retain
-best/final checkpoints and continue monitoring, with rolling checkpoints removed only
-after successful validation.
+Latest free disk at that historical checkpoint was about 7.5 GiB; best/final checkpoints were retained, with
+rolling checkpoints removed only after successful validation.
 Actual per-cell elapsed times and failures are the record of truth. The config tests check token budget,
 seed/data separation, and exact parameter counts. The full research suite checks surrounding analysis and
 evaluation code.
 
 Do not call the 48M extension confirmatory: it reuses the exploratory canary bank, includes known contaminated
-items (excluded from clean aggregates), and starts with one seed. Before a paper claim about scale dependence,
-complete blinded human labels, the full-corpus copying analysis, and seed replication. The confirmatory protocol
-remains in `docs/CONFIRMATORY_STUDY_PROTOCOL.md`.
+items (excluded from clean aggregates), and has one seed per cell. Before a paper claim about scale dependence,
+complete blinded human labels, add seed replication with a matched learning-rate analysis, and conduct the
+contamination-free confirmatory study. The confirmatory protocol remains in
+`docs/CONFIRMATORY_STUDY_PROTOCOL.md`.
+
+## Final completion and audit (2026-10-15)
+
+The sequential runner finished all 24/24 48M training cells. The final LayerNorm frequency-500 cell completed at
+21:34:48 local on 2026-10-15 after 24,087 trainer seconds. A final independent audit verified 53 completed model
+summaries, loaded all 106 retained best/final checkpoints, and parsed all 175 results JSON files. It checked 53
+memorization results (12 rows), 70 novelty results (32 canary groups × 10 completions), and 50 exact-overlap reports
+(32 groups × 10 completions each); each overlap report matched the SHA-256 and 73,139-story count of its
+frequency-specific corpus. These 50 overlap evaluations cover the canonical 14M grid, two true baseline
+training-seed replications, and all 24 48M cells (16,000 generations total). Matched-baseline tradeoff tables and
+plots were regenerated, including the pre-specified clean-canary aggregate. The sole retained trainer error is the
+documented initial baseline frequency-0 checkpoint-write failure, recovered by resuming from step 1,000. The
+annotation CSVs are prepared but blank; human scoring and the contamination-free confirmatory study remain
+incomplete. This is a completed exploratory compute arm, not a submission-ready or confirmatory result.

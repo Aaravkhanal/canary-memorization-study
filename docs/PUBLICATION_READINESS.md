@@ -1,6 +1,6 @@
 # Publication-readiness dossier
 
-Updated 2026-10-11. This document separates what is already defensible from what must be completed before an IEEE
+Updated 2026-10-15. This document separates what is already defensible from what must be completed before an IEEE
 or comparable peer-reviewed submission. It is intentionally stricter than a project README.
 
 ## Candid status
@@ -17,20 +17,19 @@ artifact.
 
 ## Non-negotiable blockers before submission
 
-1. The 14M grid and baseline 100/500 training-seed replications are complete. Twenty 48M cells are verified:
-   all baseline, learned-position, and MHA frequencies plus LayerNorm frequencies 0 and 1. LayerNorm frequency 1
-   completed with best validation loss 1.4908 / PPL 4.4407, three gradient-norm spikes, and seven health alerts.
-   LayerNorm frequency 10 is active at step 700/6,000 (about 1,769 tokens/s; early ETA about 6h49m), with eight
-   health alerts and one gradient-norm spike (step 693), but no failure; three cells remain queued. The frequency-0 baseline cell required
-   an in-place resume after a disk-full checkpoint-write failure. Report both arms as exploratory until replicated.
+1. The 14M grid, baseline 100/500 training-seed replications, and all 24 48M cells are complete. The 48M arm's final
+   LayerNorm frequency-500 run completed 6,000 updates (24,087 trainer seconds; best validation loss 1.4781 / PPL
+   4.3847; four gradient-norm spikes and nine gradient-health alerts). The initial 48M baseline frequency-0 cell
+   required an in-place resume after a disk-full checkpoint-write failure; it completed from its verified step-1,000
+   checkpoint. Both arms remain exploratory, and every 48M cell is single-seed with a learning-rate difference from
+   14M; do not make a causal scale claim.
 2. Complete the blinded two-rater V/T/N study in `docs/ANNOTATION_PROTOCOL.md`; the two prepared rater files each
    contain 1,280 condition-hidden items with label, confidence, and notes fields blank. Human scoring is not done;
    report Cohen's kappa, Krippendorff's alpha, disagreements/adjudication, and clustered confidence intervals.
-3. Complete the exact full-corpus search for all primary conditions. It now covers 24 canonical 14M novelty cells
-   / 7,680 completions, two baseline training-seed replications / 640 completions, and twenty 48M cells / 6,400
-   completions, 46 cells / 14,720 total; four scale outputs remain pending (one is active and three are queued).
-   The overlap diagnostic alone cannot support a broad
-   non-copying claim.
+3. The exact full-corpus search is complete for the current automated grid: 24 canonical 14M cells / 7,680
+   completions, two baseline training-seed replications / 640 completions, and 24 48M cells / 7,680 completions,
+   totaling 50 cells / 16,000 generations. Frequency-specific corpus fingerprints and 73,139-story counts were
+   verified. The overlap diagnostic alone cannot support a broad non-copying claim.
 4. Replace the false “no existing work” positioning. RAVEN (McCoy et al., TACL 2023), Haviv et al. (EACL 2023),
    Jiang and Ferraro (EACL 2026), and Zhou et al. (ICLR 2026) now directly overlap parts of the framing.
 5. Freeze a statistical analysis plan before unblinding condition labels. Clearly mark every unregistered analysis

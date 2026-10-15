@@ -1,20 +1,21 @@
 # Memorization vs. compositional creativity in a small language model: does the trade-off depend on architecture?
 
-**Status: exploratory draft, not submission-ready.** The balanced 14M grid and baseline 100/500 training-seed
-replications are complete, but historical tables below remain an audit trail rather than final results. Twenty of 24
-48M cells are complete: all baseline, learned-position, and MHA frequencies plus LayerNorm frequencies 0 and 1.
-LayerNorm frequency 10 is at step 700/6,000 (about 1,769 tokens/s; early ETA about 6h49m), with one gradient-norm
-spike so far; three cells remain queued.
-The frequency-0 cell completed after a disk-full checkpoint-write failure and resume from a verified step-1,000
-checkpoint. Exact full-corpus overlap now covers 24/24 canonical 14M cells (7,680 completions), two baseline
-training-seed replication cells (640 completions), and twenty 48M cells (6,400 completions), 46 cells / 14,720
-completions total. The human primary novelty endpoint and contamination-free confirmatory study are incomplete.
+**Status: exploratory draft, not submission-ready.** The balanced 14M grid, baseline 100/500 training-seed
+replications, and all 24 48M scale-transfer cells are complete. Exact full-corpus overlap covers 24 canonical 14M
+cells (7,680 completions), two baseline training-seed replications (640 completions), and 24 48M cells (7,680
+completions): 50 cells / 16,000 generations total. Independent integrity checks loaded all 106 retained best/final
+checkpoints, parsed 175 result JSONs, and verified all 50 overlap reports against their matching frequency-specific
+corpus hashes and 73,139-story counts. Matched-baseline tradeoff tables and clean-canary tables/plots have been
+regenerated. The initial 48M baseline frequency-0 cell required recovery from a disk-full checkpoint-write failure;
+it resumed from a valid step-1,000 checkpoint and completed. The human primary novelty endpoint and the separate
+contamination-free confirmatory study remain incomplete; the scale arm is single-seed and exploratory.
 The current submission gate is
 `docs/PUBLICATION_READINESS.md`.
 
 ## Abstract (placeholder)
 
-*To be rewritten after the queued runs and primary novelty analysis complete. Provisional claim: a small
+*Do not finalize this abstract until the blinded human primary novelty analysis and confirmatory study are complete.
+Provisional claim: a small
 (14M-parameter)
 decoder-only LM shows a measurable, dose-dependent memorization signal for at least some planted narrative elements
 after as few as 10 insertions in a 14.58M-token training split, with 49.15M tokens consumed over 6,000 updates,
@@ -38,9 +39,9 @@ on different, stronger evidence (exact-value convergence, which ordinary trainin
 not weakened by this; frequency 10's evidence for two borderline canaries (`char_nira`, `char_suri`) is, and is
 walked back to "plausible, not established" accordingly. Baseline frequency-10 seed replication is complete;
 frequencies 100 and 500 second-training-seed replications are now complete. Baseline and learned-position frequency grids have since completed;
-the balanced refreshed trade-off analysis is available, while full-corpus overlap is complete for the canonical
-14M grid and seventeen 48M cells only
-and the blinded human primary endpoint is still outstanding. These results do not yet
+the refreshed matched-baseline trade-off analysis is available, and full-corpus overlap is complete for the
+canonical 14M grid, both seed replications, and the full 24-cell 48M grid. The blinded human primary endpoint is
+still outstanding. These results do not yet
 establish a creativity trade-off.*
 
 ## 1. Research question
@@ -83,12 +84,14 @@ the full 0/1/10/100/500 grid: the novelty proxy stays within a narrow band while
 (and plateaus/dips slightly at 500, itself now understood as within noise, §4.3) in both the full-canary and
 contamination-excluded tables. That is a fact about these two numbers on this grid, not a test of H1 — the novelty
 metric is a diversity proxy standing in for the brief's actual hand-labelled recombination score (Checkpoint 5, not
-done), and every cell is still single-seed except freq_0/1. H1 remains open pending the real novelty test. H2 has
+done), and most architecture/frequency cells remain single-seed. Baseline second-seed runs at frequencies 0 and 1
+inform the displayed noise band; separate baseline 100/500 second-seed outputs are also complete, but do not
+replicate the factorial architecture grid. H1 remains open pending the real novelty test. H2 has
 one data point in the *memorization* dimension (the frequency-100/500 ceiling-convergence pattern replicates
 closely across RoPE and learned-position architectures, §4.3) — suggestive of a null result on the memorization
-side specifically at high frequency, and the same pattern (flat novelty proxy) also holds in the two-architecture
-historical tables in §4.5. MHA and LayerNorm are now trained, but their complete matched analysis has not yet been
-merged into this manuscript. No H2 conclusion should be drawn from the stale table.
+side specifically at high frequency. The refreshed descriptive trade-off tables now include all four architectures
+and all six frequencies, including MHA and LayerNorm. These automated outcomes remain mostly single-seed proxy
+summaries; no causal H2 conclusion should be drawn from them.
 
 ## 2. Related work
 
@@ -136,10 +139,10 @@ The study uses four near-parameter-matched architectures:
 | `variant_b_mha` | grouped-query attention → multi-head attention; 7 layers to compensate | 13,964,928 | -1.4% |
 | `variant_c_layernorm` | RMSNorm → LayerNorm | 14,162,304 | exact match |
 
-All four architectures are trained and scored across 0, 1, 10, 50, 100, and 500. The balanced grid is complete;
-the baseline high-frequency second-training-seed replications are complete. Twenty cells of the 48M scale-transfer
-arm are complete (all six baseline, learned-position and MHA frequencies, plus LayerNorm frequencies 0 and 1); LayerNorm
-frequency 10 is active with three cells queued. No scale comparison conclusion is available.
+All four architectures are trained and scored across 0, 1, 10, 50, 100, and 500. The balanced 14M grid and baseline
+high-frequency second-training-seed replications are complete. All 24 48M scale-transfer cells are complete and
+have matching evaluation and full-corpus outputs. The scale comparison remains descriptive: it is single-seed and
+uses a different learning rate than the 14M runs, so it does not support a causal scale conclusion.
 
 ### 3.2 Canary design
 
@@ -491,9 +494,9 @@ evidence alone it should be treated as a preliminary, proxy-based, single-seed d
 apparent plateau/decline at 500 is exactly the kind of small difference this design cannot yet distinguish from
 noise.
 
-### 4.6 Interim 48M scale-transfer observations (single seed; incomplete grid)
+### 4.6 Exploratory 48M scale-transfer observations (single seed)
 
-The first fourteen scale cells have now been evaluated with the same memorization, generation, and full-corpus
+All 24 scale cells have now been evaluated with the same memorization, generation, and full-corpus
 pipelines. In the 48M baseline, all eight inserted canaries reach rank 1 at frequency 50; the same eight remain
 at that exposure ceiling at frequencies 100 and 500 (mean exposure 3.926 in all three cells). For the same eight
 canaries, mean distinct-1 is 0.404, 0.400, and 0.374 at frequencies 50, 100, and 500, respectively. Mean
@@ -512,7 +515,7 @@ versus the 14M schedule (8e-4). Learned-position frequencies 0, 1, 10, 50, and 1
 exact word-four-gram overlap against the matching corpus is 0.020 and 0.027, respectively. At learned-position
 frequency 500, seven of eight canaries are rank 1 (mean exposure 3.801); distinct-1 is 0.405, distinct-2 is 0.799,
 and exact overlap mean is 0.048. These remain single-seed automated proxies, not evidence of an architecture effect.
-Learned-position frequency 500 and MHA frequencies 0, 1, 10, 50, and 100 completed. MHA frequency 10 completed 6,000 updates
+Learned-position frequencies 0, 1, 10, 50, 100, and 500 and MHA frequencies 0, 1, 10, 50, 100, and 500 completed. MHA frequency 10 completed 6,000 updates
 in 25,555 trainer seconds, with best validation loss 1.4962 / PPL 4.4645, three gradient-norm spikes, and two
 gradient-health alerts. Both retained checkpoints and all three evaluation JSONs were verified; the exact-overlap
 fingerprint matches the 73,139-story frequency-10 corpus. MHA frequency 50 completed in 30,597.5 trainer seconds,
@@ -530,11 +533,15 @@ alerts, and seven gradient-norm spikes; its retained checkpoints and evaluations
 matching frequency-0 corpus. LayerNorm frequency 1 completed at 15:42:47 local after starting at 08:16:15
 (7h26m32s wall; 26,766.8 trainer seconds), with best validation loss 1.4908 / PPL 4.4407, seven gradient-health
 alerts, and three gradient-norm spikes. Its checkpoints and outputs passed verification against the matching
-frequency-1 corpus. LayerNorm frequency 10 started at 15:49:13 and reached step 700/6,000 at 16:46:40
-(about 1,769 tokens/s; early ETA about 6h49m); eight gradient-health alerts and one gradient-norm spike (step 693)
-are logged, with no failure. Three cells remain queued. The matched
-architecture comparison awaits the rest of the scale grid. Do not merge these partial results into the 14M
-trade-off tables as if they were a complete factorial analysis.
+frequency-1 corpus. In the historical progress snapshot, LayerNorm frequency 10 was at step 700/6,000 and three
+cells remained queued. The queue subsequently completed: LayerNorm frequency 10 finished with best validation loss
+1.4903 / PPL 4.4382, frequency 50 with 1.5032 / PPL 4.4960, frequency 100 with 1.5062 / PPL 4.5098, and
+frequency 500 with 1.4781 / PPL 4.3847. The corresponding trainer times were 26,253.3, 27,077.4, 23,916.4, and
+24,087.0 seconds. The final independent audit parsed all 175 result JSONs, loaded all 106 retained best/final
+checkpoints, and matched all 50 exact-overlap reports to their frequency-specific corpus fingerprints (73,139
+stories each). The full factorial scale grid is complete, but its cells remain single-seed and the scale arm uses
+a different learning rate from the 14M experiments. The completed automated trade-off tables are descriptive
+proxies, not human novelty judgments or evidence of a creativity effect.
 
 The completed MHA zero-insertion cell provides an additional diagnostic baseline, not a treatment effect. The eight
 target canaries (with no deliberate insertions in this corpus) averaged exposure 2.457, with four ranked first;
@@ -563,11 +570,10 @@ diagnostics and do not establish a creativity effect or support a causal archite
    to "plausible, not established." The separate 48M scale arm is single-seed throughout. The ceiling-saturation evidence (§4.3) rests on a
    different argument (exact-value convergence across canaries and architectures) that a wider noise band does not
    by itself undermine, but replication remains important.
-2. **Exploratory grid imbalance.** All four architectures are trained at 0, 1, 10, 100, and 500; MHA and LayerNorm
-   additionally have frequency 50. Both missing frequency-50 cells and baseline high-frequency seed replications
-   are complete. The exploratory 48M arm is partially complete (20/24 cells; LayerNorm frequency 10 is active with
-   three queued cells). Frequency 0 was added after the
-   initial preregistration, so it is a necessary matched control but still a documented design change.
+2. **Exploratory grid imbalance.** All four architectures are trained at 0, 1, 10, 50, 100, and 500; the full
+   48M scale grid and baseline high-frequency seed replications are complete. Frequency 0 was added after the
+   initial preregistration, so it is a necessary matched control but still a documented design change. The 48M
+   results remain single-seed, and its learning rate differs from 14M.
 3. **Novelty evaluation not yet run to the brief's standard.** Hand-labelling (Checkpoint 5) has not been done;
    only the automated diversity/overlap metrics have run, and only as smoke tests.
 4. **No test of the mixed-frequency (single-corpus) Secret Sharer design**, which would be far cheaper (one

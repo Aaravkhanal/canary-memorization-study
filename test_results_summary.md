@@ -1,7 +1,7 @@
 # Test and experiment results ledger – Canary Memorization Study
 
-Updated 2026-10-11. This is the separate audit file for completed tests, completed experiment cells, outstanding
-compute, and work that still requires human judgment.
+Updated 2026-10-15. This audit covers the completed tests and experiment cells, plus the work that still requires
+human judgment; no experiment compute remains queued.
 
 ## Expanded scale arm
 
@@ -23,9 +23,15 @@ compute, and work that still requires human judgment.
   trainer seconds; best loss 1.5018; three gradient-norm spikes and three gradient-health alerts), and its
   checkpoints and matching-corpus outputs were verified. Since then baseline frequencies 100 and 500, and
   learned-position frequencies 0, 1, and 10, also completed with their memorization, novelty, and matching-corpus
-  overlap outputs checked. Thirteen of 24 48M cells are complete; MHA frequency 1 is currently training
-  and 11 cells remain queued. About 8.0 GiB was free at that earlier status check. Rolling checkpoints are removed only
-  after per-cell verification.
+  overlap outputs checked. All 24/24 48M cells are now complete. Final LayerNorm frequency 500 reached 6,000 steps
+  with best validation loss 1.4781 / PPL 4.3847 in 24,087 trainer seconds; per-cell values and anomaly counts are
+  tabulated in `results/trainer_runtime_audit.md`. An independent pass verified 53 completed summaries, 106
+  retained best/final checkpoints, 175 result JSON files, and all 50 exact-overlap reports against their
+  frequency-specific 73,139-story corpora. Coverage totals 50 cells / 16,000 generations across the canonical 14M
+  grid, two baseline training-seed controls, and the 48M grid. Matched-baseline all-canary and clean-canary
+  trade-off tables and figures were regenerated. The initial baseline frequency-0 serialization failure and
+  recovery remain documented; no failure occurred in the final four cells. Human labels and the separate
+  contamination-free confirmatory study remain outstanding.
 - The existing MY-LLM 48M checkpoint used a different corpus and five times the token budget, so it cannot serve as
   the matched arm.
 - The 48M scale comparison is exploratory and single-seed initially; it also uses learning rate 5e-4 versus 8e-4
@@ -33,9 +39,8 @@ compute, and work that still requires human judgment.
 
 ## Automated tests
 
-- **67/67 tests passed** on 2026-10-08 after the final result regeneration. The latest run completed in 5.46s with 14
-  upstream matplotlib/pyparsing deprecation warnings and no failures. Re-run after final documentation-only edits
-  to confirm the repository state.
+- **Final run: 67/67 tests passed** on 2026-10-15 after the final documentation and analysis updates. The suite
+  completed in 4.13s with 14 upstream Matplotlib/Pyparsing deprecation warnings and no failures.
 - Coverage includes corpus construction and nesting/disjointness, canary novelty checks, exposure and extraction,
   deterministic novelty sampling, label-batch generation, and trade-off aggregation/plotting.
 - Four model architectures are parameter-matched within ±1.4%: baseline 14,162,304; learned-position 14,358,912;
@@ -118,7 +123,7 @@ two raters (two samples per canary/setting group across 20 treatment cells). The
 fields were verified blank. The private manifest is kept separate from the rater files; no human judgments are
 claimed.
 
-## Queue status and storage incident (2026-10-08)
+## Historical queue snapshot and storage incident (2026-10-08; superseded by final completion check below)
 
 The 14M queue is complete, including both frequency-50 balancing cells and baseline 100x/500x true training-seed
 replications. Its runner regenerated the trade-off CSVs/plots using matched zero-frequency baselines. The first
@@ -315,3 +320,13 @@ After recording LayerNorm frequency-1 completion and frequency-10 progress throu
 suite passed **67/67** in 14.31s. It emitted 14 upstream matplotlib/pyparsing deprecation warnings and no failures.
 The sequential 48M runner remained active with three cells still to complete after the current LayerNorm frequency-10
 cell; no duplicate MPS job was started.
+
+## Final completion check (2026-10-15)
+
+After the 48M runner completed and the final integrity, overlap, and matched-baseline analysis pass, the complete
+research suite passed **67/67** in 4.13 seconds. Pytest reported 14 upstream Matplotlib/Pyparsing deprecation
+warnings and no test failures. All 24 48M cells, 50 exact-corpus overlap outputs (16,000 completions), both
+baseline seed-control novelty outputs, and the two blank 1,280-row blinded annotation sheets are present and
+validated. The final LayerNorm frequency-500 cell completed 6,000 updates; its runtime, validation result, and
+anomaly counts are in `results/trainer_runtime_audit.md`. Human annotation and the separate contamination-free
+confirmatory study remain incomplete, so the manuscript is still an exploratory draft rather than submission-ready.
