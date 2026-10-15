@@ -1,7 +1,9 @@
 # Confirmatory study protocol: contamination-free mixed-frequency replication
 
-**Status: proposed and not yet run.** Freeze this protocol in a commit before generating the new canary bank or
-examining confirmatory outcomes. Changes after that point must be logged as amendments.
+**Protocol v1 is frozen by this commit; no confirmatory corpus or model has been generated or trained.** The design
+is not approved to start until the power/sensitivity gate, compute budget, data rights, and (if applicable)
+ethics/consent review below are resolved. Log changes as dated amendments before looking at outcomes; never
+silently revise after seeing results.
 
 ## Motivation
 
@@ -34,14 +36,26 @@ composition. All three are scientifically meaningful outcomes.
 - Allocate insertion stories disjointly across canaries. Total insertion demand is 5,288 stories per corpus,
   comfortably below the current corpus size.
 - Use at least three independent training seeds for all four architectures: 12 matched training runs. If compute
-  permits, use five seeds and rotate identity-to-frequency assignments across seeds.
-- Keep tokenizer, token budget, context, optimizer, schedule, batch size, and evaluation prompts fixed. Record
-  hashes for corpus, assignment, config, tokenizer, and checkpoint.
+  permits, use five seeds and rotate identity-to-frequency assignments across seeds. Three seeds are a floor, not
+  evidence of adequate power. Before training, simulate power/interval width for the registered primary effects
+  over plausible canary- and setting-level variance, choose a smallest effect of scientific interest, and either
+  increase seeds or label the study underpowered if the pre-set precision/power target is not met.
+- Every architecture for a given seed must use byte-identical mixed-frequency train/validation/test splits and
+  the same insertion assignment. Rotate frequency-to-identity assignment across seeds using a committed schedule
+  so identity difficulty is not confounded with frequency. Keep tokenizer, token budget, context, optimizer,
+  schedule, batch size, checkpoint-selection rule, and evaluation prompts fixed across architectures; any
+  architecture-specific adjustment must be justified and recorded before runs.
+- Generate train/validation/test from a frozen base corpus and prove inserted story IDs are disjoint across splits.
+  Record pre-insertion and post-insertion corpus hashes, story counts, tokenizer hash, canary-bank hash, assignment
+  seed, full config, code revision, and checkpoint hash. A matching run is not “same data” unless these artifacts
+  verify.
 
 ## Higher-resolution exposure
 
-- Pre-register at least 256 verified-absent alternatives per identity slot (maximum exposure ≥8 bits), preferably
-  1,024 (≥10 bits), so the high-frequency result does not collapse to the current 3.46/4.39-bit ceiling.
+- Pre-register a fixed reference-set size of 1,024 alternatives per identity slot (maximum exposure ≥10 bits),
+  selected from a documented generation process and screened against all splits. If that computationally or
+  linguistically fails, amend the protocol before training and lock one replacement size of at least 256
+  alternatives (maximum exposure ≥8 bits); do not mix reference-set sizes across conditions.
 - Report rank, exposure, true log probability, margin to the strongest alternative, first-token rank, full identity
   token ranks, top-k recall, and greedy/beam extraction separately.
 - Never use an alternative found in the base corpus without recording and matching its corpus frequency.
@@ -50,23 +64,38 @@ composition. All three are scientifically meaningful outcomes.
 
 - Generate unseen-setting completions with committed prompts and seeds.
 - Use the blinded two-rater protocol in `docs/ANNOTATION_PROTOCOL.md` as the primary endpoint.
+- Freeze the generation temperature, number of completions, decoding limits, prompt template, and random seeds
+  before generation. Sample the same number of items per canary-setting group and condition; retain failed,
+  empty, truncated, and noncompliant outputs with pre-registered status codes rather than silently dropping them.
 - Search every generation against the entire training corpus with an indexed n-gram retrieval stage followed by
   exact overlap/edit scoring of candidates. Report both local sequential novelty and semantic/prompt compliance;
   do not equate distinct-n with creativity.
 - Pre-register handling for empty, truncated, incoherent, or prompt-noncompliant generations. They must not be
   silently counted as novel.
 
-## Statistical plan
+## Statistical plan and preregistration gate
 
-- Primary memorization model: exposure as a function of log10 frequency, architecture, and their interaction,
-  with seed and canary identity treated as repeated/random effects.
-- Primary novelty model: binary genuine-recombination outcome (`N` vs. `V/T`) with the same fixed effects and
-  clustering by canary-setting group; report effect sizes and 95% intervals, not only p-values.
-- Correct the three architecture-interaction tests as one family (Holm correction).
+- **Primary exposure endpoint:** canary exposure as a function of log10 insertion frequency, architecture, and
+  their interaction, with repeated observations grouped by seed and canary identity. Specify the exact model/link,
+  contrasts, convergence fallback, and treatment of ceiling values in a versioned analysis script before data
+  lock. Report effect estimates and 95% intervals, not only p-values.
+- **Primary novelty endpoint:** human `N` versus `V/T`, with the same planned fixed effects and grouping by
+  seed/canary/setting. The precise mixed-effects model must be power-checked and locked before annotation labels
+  are unblinded. The existing exploratory annotation scorer reports agreement and descriptive cluster-bootstrap
+  intervals; it is not this confirmatory inferential model.
+- Name one primary exposure contrast and one primary novelty contrast in the preregistration. Define the family of
+  architecture interactions and control it (Holm across the three planned architecture-interaction tests, if all
+  remain in scope). Specify missing/ambiguous labels, adjudication, model failures, and exclusions in advance.
+- The power/sensitivity simulation must use the planned number of seeds, canary-setting clusters, and expected
+  label prevalence; publish its code, assumptions, target effect, and resulting minimum sample size. If the design
+  cannot achieve the target within the budget, narrow the confirmatory questions or run more seeds before data
+  collection. No outcomes may be inspected to decide whether to add seeds.
 - Report the full outcome table even if H1/H2 are null. Do not select canaries, seeds, or frequency ranges after
   observing results.
 - Sensitivity analyses: all canaries vs. character/plot subsets; high-confidence labels only; V/T/N ordinal
   treatment; full-corpus overlap thresholds; and leave-one-canary-out analysis.
+- Report both the all-canary primary model and clean-canary sensitivity subset; the contamination exclusion rule
+  is based solely on a pre-outcome corpus scan. Include all null and adverse results and a complete deviation log.
 
 ## Stopping and exclusions
 
@@ -81,3 +110,18 @@ composition. All three are scientifically meaningful outcomes.
 Label the existing study “exploratory” and this extension “confirmatory.” Report every protocol amendment, all
 failed runs, compute cost, and all null results. Archive code, locked configs, corpus-assignment manifests, raw
 metrics, labels, and analysis outputs under a permanent release/DOI.
+
+## Start gate (must be checked before any run)
+
+- [ ] This protocol, canary bank, assignment schedule, configs, prompts, analysis script, and power simulation are
+  committed and content-hashed; no confirmatory outcomes have been inspected.
+- [ ] Every canary and alternative is absent from train, validation, and test splits; exact and normalization-aware
+  checks are recorded with corpus hashes.
+- [ ] Power/precision target and seed count are justified; compute time/storage and recovery plan are feasible.
+- [ ] Ethics/data-rights/consent determination is documented before external human annotation, if applicable.
+- [ ] The independent exploratory labeling workflow is complete or its limitations are explicitly separated from
+  confirmation; annotators remain blinded to conditions.
+- [ ] Code, software environment, deterministic settings, and artifact-retention plan are frozen.
+
+Until all boxes are checked, do not start training and do not call results confirmatory. The current five-frequency,
+four-architecture 48M sweep is an exploratory scale-transfer arm and is not this study.

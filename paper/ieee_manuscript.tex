@@ -1,5 +1,6 @@
 \documentclass[conference]{IEEEtran}
 \usepackage{booktabs}
+\usepackage{graphicx}
 \usepackage{hyperref}
 \usepackage{xcolor}
 
@@ -15,9 +16,10 @@ A Controlled Canary Study Across Transformer Architectures}
 This working manuscript is not yet ready for submission. The exploratory study trains approximately
 14-million-parameter decoder-only language models from scratch while manipulating the frequency of planted
 narrative canaries. It compares near-parameter-matched positional-encoding, attention, and normalization variants
-and separates reference-set exposure from global argmax extraction. Final claims about compositional creativity
-are withheld pending blinded human annotation, exact full-corpus copying analysis, and a preregistered
-contamination-free confirmatory study.
+and separates reference-set exposure from global argmax extraction. The full automated grid and matching-corpus
+exact four-gram audit are complete (50 cells and 16,000 generations). Human V/T/N labels have not been collected,
+and the separate contamination-free confirmatory study has not been run. The evidence is exploratory and does not
+establish a memorization-versus-creativity trade-off.
 \end{abstract}
 
 \begin{IEEEkeywords}
@@ -31,10 +33,11 @@ relationship, remains an empirical question. We study that question through cont
 rather than by inferring exposure from an opaque web corpus. We make no assumption that memorization must harm
 composition; recent work also motivates neutral and beneficial relationships.
 
-The intended contributions are: (1) a controlled narrative-canary dose intervention; (2) comparisons across
-near-parameter-matched Transformer architectures; (3) explicit separation of reference-set exposure, global
-argmax extraction, corpus-level copying, diversity, and human judgments; and (4) a consumer-hardware reproducibility
-artifact with configurations, checksums, tests, raw outputs, and documented negative results.
+The intended contributions are: (1) a controlled narrative-canary exposure manipulation; (2) comparisons across
+near-parameter-matched Transformer architectures; (3) separate reporting of reference-set exposure, global
+argmax extraction, corpus-level n-gram overlap, diversity, and human judgments; and (4) an auditable exploratory
+record with configurations, result files, tests, and runtime/failure notes. The current Git artifact does not
+include the source corpus, tokenizer assets, or model checkpoints, so clean-room retraining is not yet possible.
 
 \section{Related Work}
 The exposure method follows Carlini et al.~\cite{carlini2019secret}. RAVEN demonstrates that novelty requires
@@ -54,26 +57,28 @@ with seven layers (13,964,928), and LayerNorm (14,162,304). Each checkpoint is t
 for 6,000 steps, or 49.152 million training tokens per checkpoint, on the shared TinyStories-derived corpus.
 
 Narrative canaries are inserted at 1, 10, 50, 100, or 500 stories; a zero-insertion condition is used as a matched
-control. Insertion pools are nested across frequencies and disjoint across canaries. Three originally selected
+control, giving six conditions per architecture. Insertion pools are nested across frequencies and disjoint across canaries. Three originally selected
 canaries were later found to overlap the base corpus. They are retained for auditability but excluded from the
-clean primary aggregation; the confirmatory study uses a new bank verified absent before locking.
+clean-canary sensitivity aggregation; a separate confirmatory study has not yet generated its proposed new bank.
 
 \subsection{Scale Transfer}
 A separate extension trains the corresponding large-preset models (48.100M baseline, 48.428M learned-position,
 47.239M MHA with nine layers, and 48.100M LayerNorm) on the same frequency-specific research corpora. Every
 condition uses 6,000 updates with 8,192 tokens per update, or 49.152M tokens, to match the 14M arm's token budget.
-The large arm uses a fixed learning rate of 5e-4, following the existing large-model recipe; the 14M exploratory
-arm used 8e-4, so the scale comparison remains partly confounded by schedule choice. It starts with one seed and
-is explicitly exploratory. The existing 48M MY-LLM checkpoint trained on different data and 245.76M tokens and
-therefore is not treated as a matched canary experiment.
+The complete 24-cell large arm uses a fixed learning rate of 5e-4, following the existing large-model recipe; the
+14M exploratory arm used 8e-4, so the scale comparison remains partly confounded by schedule choice. Every 48M
+cell is single-seed and reuses the exploratory canary bank. The existing 48M MY-LLM checkpoint trained on
+different data and 245.76M tokens and therefore is not treated as a matched canary experiment. The initial
+48M baseline/frequency-0 attempt failed during checkpoint serialization and recovered from its verified step-1,000
+checkpoint; the failure and recovery are retained in the runtime audit.
 
 \subsection{Outcomes}
 Memorization is measured by rank-based exposure relative to a fixed alternative set, with lift from the matched
 zero-insertion model as the primary quantity. Teacher-forced per-token argmax matching tests a stricter extraction
 threshold. Novelty evaluation includes distinct-$n$, a self-BLEU proxy, exact maximum word-four-gram overlap
-against every training story, and a condition-blinded V/T/N judgment: verbatim reproduction, template copy, or
-genuine novel recombination. Two raters label a balanced sample; agreement and adjudication are reported before
-condition-level estimates are unblinded.
+against every matching training corpus, and a condition-blinded V/T/N judgment: verbatim reproduction, template
+copy, or genuine novel recombination. Two blank 1,280-item rater sheets are prepared; no human labels, agreement,
+or adjudication results exist yet. The exact word-four-gram audit is a copying diagnostic, not a semantic originality test.
 
 \subsection{Analysis}
 The exploratory grid is reported as exploratory. The confirmatory protocol uses mixed frequencies within one
@@ -82,22 +87,60 @@ intervals, hierarchical repeated-measures models, multiplicity correction, and p
 details are versioned with the artifact.
 
 \section{Results}
-\textcolor{red}{Final tables and claims will be inserted only after the queued cells, full-corpus search, blinded
-annotation, and confirmatory analysis are complete.} Current exploratory evidence shows a high-frequency exposure
-signal and a gap between reference-set exposure and argmax extraction. It does not yet establish that memorization
-reduces or improves compositional creativity.
+All 24 canonical 14M cells, two additional baseline training-seed controls, and all 24 48M scale-transfer cells
+completed 6,000 updates. Exact maximum word-four-gram overlap was evaluated against the matching frequency-specific
+training corpus for 50 cells and 16,000 generations; corpus fingerprints and story counts were checked. The
+baseline true-training-seed sensitivity analysis at frequencies 1, 10, 100, and 500 found clean-canary mean-lift
+changes of $-0.588$, $+0.564$, $-0.636$, and $-0.436$ exposure units, respectively. The largest observed
+per-canary changes ranged from 1.862 to 3.044. With two seeds and one architecture, these are descriptive
+sensitivity results, not a variance estimate.
+
+Table~\ref{tab:clean14} reports clean-canary matched 14M summaries. Exposure lift varies across frequency and
+architecture, including plateaus and reversals. Distinct-2 does not provide a consistent monotonic novelty-cost
+pattern, but this does not establish that a cost is absent: distinct-2 is not the human recombination endpoint,
+and most cells have one seed. In the audited baseline and learned-position subset at five nonzero frequencies,
+teacher-forced argmax extraction was 0/120 canary-checkpoint pairs. This bounded negative result does not
+generalize beyond that subset or decoding criterion.
+
+\begin{table*}[t]
+\centering
+\caption{Clean-canary descriptive summaries for the canonical 14M grid. Each cell is exposure lift over the
+architecture-matched zero-insertion model / distinct-2 proxy. Most architecture-frequency conditions are one
+training seed. These are descriptive summaries, not inferential estimates of a creativity effect.}
+\label{tab:clean14}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{lcccccc}
+\toprule
+Architecture & 0x & 1x & 10x & 50x & 100x & 500x \\
+\midrule
+Baseline & 0.000/0.793 & 0.278/0.803 & 1.379/0.827 & 1.979/0.790 & 2.579/0.808 & 2.262/0.797 \\
+Learned positions & 0.000/0.785 & 0.061/0.777 & 1.887/0.784 & 2.151/0.791 & 2.351/0.799 & 2.351/0.805 \\
+MHA & 0.000/0.772 & 0.370/0.792 & 1.365/0.808 & 1.965/0.825 & 1.765/0.805 & 2.229/0.804 \\
+LayerNorm & 0.000/0.817 & -0.094/0.792 & 2.015/0.808 & 2.132/0.788 & 1.932/0.782 & 1.932/0.799 \\
+\bottomrule
+\end{tabular}}
+\end{table*}
+
+The corresponding 48M grid is also complete, but single-seed, uses a different learning rate, and is exploratory.
+Its matched descriptive table and figure are in \texttt{results/tradeoff\_clean.csv} and
+\texttt{results/tradeoff\_clean.png}; they do not identify a causal scale effect. Per-cell runtimes and the
+recovered checkpoint-write failure are reported in \texttt{results/trainer\_runtime\_audit.md}. No human novelty
+score is available, and the confirmatory protocol in \texttt{docs/CONFIRMATORY\_STUDY\_PROTOCOL.md} has not been run.
 
 \section{Limitations and Ethics}
-The study is small in model and corpus scale. The original grid contains single-seed cells and post-registration
-design changes, and several initial canaries were contaminated by the base corpus. Diversity statistics are not
-substitutes for semantic novelty. External human annotation will begin only after any required institutional
-oversight determination and consent process. The final paper will report funding, conflicts of interest, data and
-code availability, and every exploratory deviation.
+The study is small in model and corpus scale. Most factorial cells and every 48M cell are single-seed; two
+additional baseline seeds do not replicate the grid. The 48M learning rate differs from 14M, the design contains
+post-registration changes, and three canary identities occurred in the base corpus. Diversity and n-gram
+statistics are not substitutes for semantic novelty. Human annotation has not started; external annotation must
+wait for any required institutional determination and consent. The confirmatory design requires power analysis
+and other start-gate checks before any training. The final paper must report funding, conflicts, data/code
+availability, and every exploratory deviation. The current Git artifact omits ignored source data and checkpoints;
+a clean-environment reproduction and permanent archival are still needed.
 
 \section{Conclusion}
-This project is designed to determine, rather than presume, how controlled memorization relates to narrative
-recombination in small Transformers. Its publishable value depends on completing the registered validation gates
-and reporting null or contradictory results with the same prominence as positive findings.
+The completed runs provide an exploratory audit of controlled canary exposure, not a settled answer about narrative
+recombination. Human labels, an adequately powered contamination-free confirmation, and a reproducible public
+artifact are still required before making a stronger claim.
 
 \section*{Acknowledgment and AI-use disclosure}
 AI-assisted tools were used for repository auditing, code and test drafting, literature discovery, and manuscript

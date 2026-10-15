@@ -25,41 +25,35 @@ notebook, and `docs/DRAFT_PAPER.md` for the write-up structured for eventual pub
 come in.
 Per-run durations, checkpoint validation, and failure records are summarized in `results/trainer_runtime_audit.md`.
 
-## What's actually been found, in order of how solid the evidence is
+## What the completed exploratory runs support
 
-1. **A real dose-response memorization signal exists and saturates by frequency 100, replicated across two
-   independent architectures.** Multiple canaries converge on the *exact same* maximum exposure value in both
-   `baseline` and `variant_a_learned_pos` — a form of evidence ordinary training noise does not produce (confirmed
-   directly, see point 3). This is the project's strongest, most defensible result.
-2. **Three of the eight canaries were never actually novel to the base pretraining corpus** — `char_pip` ("Pip"),
-   `plot_key` ("a shiny key"), and `plot_voice` ("a soft voice") already occur 41-150 times in the base corpus,
-   independent of this project's insertions, which permanently saturates their exposure reading regardless of
-   training. Root-caused via direct corpus grep (`scripts/check_canary_novelty.py`), not assumed — a canary-design
-   flaw, not a metric flaw, and now a required pre-registration check for any future canary study.
-3. **A true same-condition second-seed measurement (identical corpus and canary insertion, only the training run
-   itself differing) found training noise alone can swing exposure by up to ±2.459 units** — wider than two
-   earlier, weaker estimates (~0.85, then ~1.6, both inferred from cross-frequency comparisons that also changed
-   the training data). This directly resolved an open question rather than just widening a number: the project's
-   previously-strongest single-frequency signal (`plot_lantern` at frequency 1) is exactly canceled by pure noise
-   under the second seed — walked back, transparently, in both the lab notebook and the paper draft.
-4. **A corrected, teacher-forced extraction test finds zero successful extractions across the entire grid**
-   (120 canary-checkpoint pairs, both architectures, all five frequencies) — including canaries sitting at their
-   exposure metric's exact maximum. A real, well-powered gap between "the model ranks the true continuation
-   highly" (exposure) and "the model's own greedy decoding ever produces it" (extraction) — a finding in its own
-   right, not just a caveat.
-5. **The full 48M scale-transfer grid is available, but remains exploratory.** All four matched architecture
-   variants at six frequencies completed, with matching-corpus overlap checks. The regenerated trade-off tables
-   show frequency- and architecture-dependent automated exposure/diversity summaries; these proxy outcomes are
-   descriptive only. The scale arm is single-seed, uses a different learning rate from the 14M arm, and reuses the
-   exploratory canary bank. It therefore cannot establish a scale effect or creativity trade-off. Blinded human
-   scoring and the contamination-free confirmatory study remain necessary.
+1. **Exposure is canary- and frequency-dependent.** Several clean canaries show larger exposure lifts at higher
+   insertion frequencies, but there are also controls, ceiling effects, plateaus, reversals, and substantial
+   canary-level differences between the two baseline training seeds. This is descriptive evidence, not a
+   population dose-response estimate. See [`docs/RESULTS_CLAIM_AUDIT.md`](docs/RESULTS_CLAIM_AUDIT.md).
+2. **Three canary identities were already present in the base corpus:** `char_pip` ("Pip"), `plot_key` ("a shiny
+   key"), and `plot_voice` ("a soft voice") occur 41–150 times before the study insertions. Their exposure is
+   confounded by pre-existing corpus familiarity; future canaries should be screened before protocol lock.
+3. **Two matched baseline training seeds show sensitivity, not a noise band.** At frequencies 1, 10, 100, and 500,
+   the clean-canary mean-lift changes are −0.588, +0.564, −0.636, and −0.436, respectively; largest individual
+   canary changes range from 1.862 to 3.044 exposure units. Two seeds cannot calibrate population uncertainty.
+4. **Teacher-forced argmax extraction was 0/120 in the audited scope** (baseline and learned-position architectures
+   at five nonzero frequencies). This bounded negative result does not generalize to every model or decoder.
+5. **All 24 48M scale-transfer cells have completed**, but the arm is single-seed, uses a different learning rate,
+   and reuses the exploratory canary bank. Its automated outcomes are descriptive; they do not establish a causal
+   size effect or creativity trade-off.
+
+Across the canonical 14M grid, two baseline seed controls, and the 48M grid, matching-corpus exact four-gram
+overlap was evaluated for 50 cells / 16,000 generations. It is a copying diagnostic, not a semantic originality
+measure. The blinded annotation sheets are prepared but still contain zero human labels. The separate
+contamination-free confirmatory study has not been run. Accordingly, no memorization-versus-creativity trade-off
+has been established.
 
 ## What's not done, and why
 
-- **Phase 5 blinded human annotation** is the single largest remaining gap. The balanced two-rater workflow,
-  locked private manifest, agreement statistics, adjudication gate, and clustered confidence intervals are now
-  implemented in `scripts/prepare_blinded_annotations.py`, `scripts/score_blinded_annotations.py`, and
-  `docs/ANNOTATION_PROTOCOL.md`. No automated labels are treated as evidence.
+- **Phase 5 blinded human annotation** is the single largest remaining gap. Two condition-hidden CSVs, 1,280 rows
+  each, are prepared, but all label/confidence/notes fields are blank. The scoring code reports agreement and
+  condition summaries only after complete labels and adjudication; no automated labels are treated as evidence.
 - **Full-corpus copying analysis** is implemented in `scripts/eval_full_corpus_overlap.py`. It has been run for
   all 24 canonical 14M novelty cells (7,680 completions), both baseline training-seed replications (640
   completions), and all 24 48M cells (7,680 completions), using each matching
@@ -146,7 +140,7 @@ these are plots and tables only — no prose conclusion is drawn in the outputs 
 
 ## Tests
 
-67 tests (`pytest tests/`) cover corpus construction, exposure/extraction, novelty metrics, full-corpus overlap,
+69 tests (`pytest tests/`) cover corpus construction, exposure/extraction, novelty metrics, full-corpus overlap,
 blinded annotation/scoring, trade-off analysis, and 48M config/parameter validation.
 
 ## Publication documents
@@ -154,6 +148,9 @@ blinded annotation/scoring, trade-off analysis, and 48M config/parameter validat
 - `docs/PUBLICATION_READINESS.md`: candid submission gate, venue strategy, IEEE policy requirements, and safe
   résumé wording.
 - `docs/CONFIRMATORY_STUDY_PROTOCOL.md`: contamination-free, mixed-frequency, multi-seed confirmatory design.
+- `docs/RESULTS_CLAIM_AUDIT.md`: evidence map and allowed/prohibited result wording.
+- `docs/ARTIFACT_REPRODUCIBILITY.md`: exact reproduction commands and data/weights availability limits.
+- `scripts/create_artifact_manifest.py`: machine-readable SHA-256 inventory for versioned artifacts.
 - `docs/SCALE_48M_PROTOCOL.md`: matched-token 48M scale-transfer experiment and limitations.
 - `docs/ANNOTATION_PROTOCOL.md`: blinded two-rater labelling and adjudication procedure.
 - `docs/REFERENCES.bib`: verified core references from USENIX, ACL Anthology, and OpenReview; expand before submission.

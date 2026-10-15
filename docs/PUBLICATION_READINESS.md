@@ -5,11 +5,13 @@ or comparable peer-reviewed submission. It is intentionally stricter than a proj
 
 ## Candid status
 
-The study has a worthwhile core result and an unusually transparent audit trail, but it is **not submission-ready
-yet**. Its strongest contribution is currently methodological: controlled exposure produces a high-frequency
-memorization signal across architectures; contaminated canaries can create false ceiling readings; and high
-exposure does not imply greedy extraction. The headline memorization-versus-creativity claim remains unresolved
-until blinded human annotation replaces distinct-2 as the primary novelty endpoint.
+The study has a documented exploratory result set and a detailed audit trail, but it is **not submission-ready
+yet**. The strongest defensible contribution is currently methodological: canary identity contamination can
+confound exposure, the observed exposure/seed patterns vary across items, and exposure ranking is distinct from a
+strict argmax-extraction test in a bounded audited subset. The headline memorization-versus-creativity claim
+remains unresolved until blinded human annotation replaces distinct-2 as the primary novelty endpoint and an
+independent, contamination-free confirmation addresses the exploratory design limitations. See
+`docs/RESULTS_CLAIM_AUDIT.md` for permitted wording.
 
 No acceptance can be guaranteed. The best path to a strong paper is to narrow claims to the evidence, complete the
 annotation study, add a confirmatory design that removes the original confounds, and release a reproducible
@@ -45,14 +47,14 @@ artifact.
 10. Add complete references, author affiliation, ORCID, data/code availability, limitations, ethics statement,
    conflicts, funding, and an AI-use disclosure appropriate to the target venue.
 
-## What makes the eventual paper distinctive
+## Potential contribution (subject to confirmation)
 
-- **Controlled causal axis:** repeated exposure is manipulated during from-scratch training rather than inferred
-  from opaque web corpora.
+- **Transparent exposure manipulation:** repeated exposure is varied across from-scratch training conditions,
+  while limited seed replication and separate-corpus conditions constrain causal/inferential interpretation.
 - **Architecture comparison at almost fixed parameter count:** RoPE/learned positions, GQA/MHA, and
   RMSNorm/LayerNorm are separated while total size stays within ±1.4%.
-- **Negative result with mechanism:** exposure can saturate while teacher-forced argmax extraction remains zero,
-  demonstrating that ranking within a reference set and global decoding are different thresholds.
+- **Bounded metric contrast:** in the audited baseline/learned-position subset, reference-set exposure and strict
+  teacher-forced argmax extraction produce different outcomes. This does not establish a general mechanism.
 - **Research self-correction as evidence:** corpus contamination, seed variance, nondeterministic generation, and
   invalid automated labels were found, documented, and repaired rather than hidden.
 - **Resource-constrained reproducibility:** the whole grid is trained on an 8 GB consumer laptop with recorded
@@ -124,8 +126,12 @@ Do not submit until every item below is true:
 - [ ] Full-corpus copying search complete.
 - [ ] Confirmatory contamination-free experiment complete or the manuscript is explicitly reframed as a pilot.
 - [ ] Every numerical claim generated from versioned data by one command.
-- [ ] Figures are publication-resolution, color-blind safe, and readable in grayscale.
+- [ ] Claim audit (`docs/RESULTS_CLAIM_AUDIT.md`) reconciled against the final text, tables, and figure data.
+- [ ] Figures are publication-resolution, color-blind safe, and readable in grayscale. Current plots are regenerated
+      at 300 dpi, but color-blind/grayscale visual review is still outstanding.
 - [ ] References verified against primary sources and DOIs.
 - [ ] Artifact archived with DOI and tested from a clean environment.
+- [ ] Exact training dependencies, source corpus, tokenizer, checkpoints, and checksums are available under
+      appropriate licenses; current Git checkout alone cannot reproduce training (`docs/ARTIFACT_REPRODUCIBILITY.md`).
 - [ ] Ethics, consent, data/code, conflicts, funding, limitations, and AI-use statements complete.
 - [ ] Final manuscript reviewed and approved by every listed human author.

@@ -5,7 +5,8 @@ human judgment; no experiment compute remains queued.
 
 ## Expanded scale arm
 
-- 67/67 research tests passed after adding full-corpus overlap, blinded annotation, and 48M configuration checks.
+- Earlier 67/67 research tests passed after adding full-corpus overlap, blinded annotation, and 48M configuration checks;
+  the latest paper-support suite result is recorded at the end of this ledger.
 - Four 48M architecture conditions × six frequencies are configured (24 runs), each targeting 49,152,000 training
   tokens. Counts are 48,100,480 baseline; 48,428,160 learned positions; 47,239,040 MHA; and 48,100,480 LayerNorm.
 - The baseline 48M frequency-0 cell initially failed at step 1,500 during a checkpoint write when the
@@ -39,8 +40,8 @@ human judgment; no experiment compute remains queued.
 
 ## Automated tests
 
-- **Final run: 67/67 tests passed** on 2026-10-15 after the final documentation and analysis updates. The suite
-  completed in 4.13s with 14 upstream Matplotlib/Pyparsing deprecation warnings and no failures.
+- **Previous completion run: 67/67 tests passed** on 2026-10-15 after the experiment and full-corpus analysis
+  updates. The later paper-support run, including two new unit tests, is recorded below.
 - Coverage includes corpus construction and nesting/disjointness, canary novelty checks, exposure and extraction,
   deterministic novelty sampling, label-batch generation, and trade-off aggregation/plotting.
 - Four model architectures are parameter-matched within ±1.4%: baseline 14,162,304; learned-position 14,358,912;
@@ -330,3 +331,29 @@ baseline seed-control novelty outputs, and the two blank 1,280-row blinded annot
 validated. The final LayerNorm frequency-500 cell completed 6,000 updates; its runtime, validation result, and
 anomaly counts are in `results/trainer_runtime_audit.md`. Human annotation and the separate contamination-free
 confirmatory study remain incomplete, so the manuscript is still an exploratory draft rather than submission-ready.
+
+## Paper-support completion pass (2026-10-15)
+
+All five requested paper-support items were completed without starting new training or collecting human labels:
+
+1. Reconciled the Markdown draft and open IEEE LaTeX source with the audited scope; removed claims that two seeds
+   define a general noise band, scoped the 0/120 extraction result, and retained the 48M learning-rate/single-seed
+   caveats. The LaTeX source now has a clean-canary 14M summary table and a provisional results section.
+2. Added `docs/RESULTS_CLAIM_AUDIT.md`, mapping claims to data and spelling out permitted and prohibited wording.
+3. Refined the rater rubric, masking limits, locking, agreement/adjudication, ethics, and statistical plan. Both
+   rater sheets were checked at 1,280 rows each with matching IDs and blank label/confidence/notes; SHA-256 values
+   are recorded in `docs/ANNOTATION_PROTOCOL.md`. The private manifest was not opened or staged.
+4. Froze version 1 of the contamination-free confirmatory protocol with a power/precision and ethics/data-rights
+   start gate. No confirmatory corpus or model run was started.
+5. Added `docs/ARTIFACT_REPRODUCIBILITY.md`, a versioned-file SHA-256 manifest generator and test, plus 300-dpi
+   descriptive trade-off figures. Clean-clone retraining remains unverified because ignored corpora/tokenizer/
+   checkpoints and the sibling `aarav-lm` dependency are not in this repository.
+
+The paired-seed descriptive audit is reproducible with `scripts/analyze_seed_sensitivity.py` and outputs
+`results/seed_sensitivity_clean.csv`. The regenerated plots use automated proxies only; publication-resolution
+does not imply color-blind/grayscale review has passed.
+
+**Latest verification:** `/Users/aaravkhanal/miniforge3/bin/python -m pytest tests/` passed **69/69** in 5.01s
+on 2026-10-15, with 14 upstream Matplotlib/Pyparsing deprecation warnings and no failures. Both regenerated
+trade-off CSVs contain 48 matched architecture/frequency rows. The manuscript is still exploratory: human labels
+and the separate contamination-free confirmatory study remain outstanding.

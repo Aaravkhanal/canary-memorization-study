@@ -156,7 +156,7 @@ def plot_tradeoff(rows: List[dict], out_path: Path) -> None:
             continue
         by_variant.setdefault(r["variant"], []).append(r)
 
-    fig, ax = plt.subplots(figsize=(7, 5.5))
+    fig, ax = plt.subplots(figsize=(9, 6.5))
     fig.patch.set_facecolor("#fcfcfb")
     ax.set_facecolor("#fcfcfb")
     markers = ["o", "D", "s", "^", "v", "P"]
@@ -174,12 +174,12 @@ def plot_tradeoff(rows: List[dict], out_path: Path) -> None:
                         textcoords="offset points", xytext=(6, 4), fontsize=8, color="#66645c")
     ax.set_xlabel("Memorization (exposure lift over zero-exposure baseline)")
     ax.set_ylabel("Novelty (distinct-2 across completions, or hand-labelled fraction \"genuine novel\")")
-    ax.set_title("Memorization vs. compositional novelty, by canary frequency and architecture")
+    ax.set_title("Exposure lift vs. automated novelty proxy\n(descriptive summaries; most cells are single-seed)")
     ax.spines[["top", "right"]].set_visible(False)
-    ax.legend(frameon=False)
+    ax.legend(frameon=False, ncol=2, fontsize=8)
     fig.tight_layout()
     out_path.parent.mkdir(parents=True, exist_ok=True)
-    fig.savefig(out_path, dpi=150)
+    fig.savefig(out_path, dpi=300)
     print(f"[wrote] {out_path}")
 
 
