@@ -1,6 +1,6 @@
 # Publication-readiness dossier
 
-Updated 2026-10-15. This document separates what is already defensible from what must be completed before an IEEE
+Updated 2026-10-16. This document separates what is already defensible from what must be completed before an IEEE
 or comparable peer-reviewed submission. It is intentionally stricter than a project README.
 
 ## Candid status

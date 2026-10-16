@@ -1,6 +1,6 @@
 # Test and experiment results ledger – Canary Memorization Study
 
-Updated 2026-10-15. This audit covers the completed tests and experiment cells, plus the work that still requires
+Updated 2026-10-16. This audit covers the completed tests and experiment cells, plus the work that still requires
 human judgment; no experiment compute remains queued.
 
 ## Expanded scale arm
@@ -54,9 +54,9 @@ human judgment; no experiment compute remains queued.
   `_gen1338` so they cannot be mistaken for the separate baseline training-seed replications.
 - All 20 renamed JSON files parse successfully and contain generation groups; total size is 3.4 MB. The 18 legacy
   text label files remain condition-revealing and are excluded from the blinded annotation workflow.
-- The sequential runner will now generate fresh novelty outputs under `_seed1338` using the actual
-  `train.seed=1338` checkpoints at baseline frequencies 100 and 500. Memorization outputs are separately generated
-  from those same checkpoints.
+- Fresh novelty outputs under `_seed1338` were generated from the actual `train.seed=1338` checkpoints at baseline
+  frequencies 100 and 500. Their memorization outputs were generated from those same checkpoints; `_gen1338`
+  remains reserved for generation-seed variants.
 - `run_seed_experiments.sh` now uses the `_gen1338` suffix. Legacy text label files are not inputs to the blinded
   annotation analysis.
 
@@ -353,7 +353,7 @@ The paired-seed descriptive audit is reproducible with `scripts/analyze_seed_sen
 `results/seed_sensitivity_clean.csv`. The regenerated plots use automated proxies only; publication-resolution
 does not imply color-blind/grayscale review has passed.
 
-**Latest verification:** `/Users/aaravkhanal/miniforge3/bin/python -m pytest tests/` passed **69/69** in 5.01s
-on 2026-10-15, with 14 upstream Matplotlib/Pyparsing deprecation warnings and no failures. Both regenerated
+**Latest verification:** `/Users/aaravkhanal/miniforge3/bin/python -m pytest tests/` passed **69/69** on
+2026-10-16, with 14 upstream Matplotlib/Pyparsing deprecation warnings and no failures. Both regenerated
 trade-off CSVs contain 48 matched architecture/frequency rows. The manuscript is still exploratory: human labels
 and the separate contamination-free confirmatory study remain outstanding.

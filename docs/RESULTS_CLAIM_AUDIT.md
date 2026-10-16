@@ -1,7 +1,7 @@
 # Results claim audit
 
 **Purpose.** A compact source-of-truth for the manuscript, abstract, figures, talks, and project summary. This
-records the evidence available in the repository as of 2026-10-15. “Allowed wording” is deliberately narrower than
+records the evidence available in the repository as of 2026-10-16. “Allowed wording” is deliberately narrower than
 the historical exploratory narrative. It is not a substitute for re-running the cited analysis or reviewing the
 underlying data before submission.
 

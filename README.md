@@ -5,7 +5,8 @@ stories, and does the trade-off shift with architecture? This project measures i
 controlled insertion frequencies, following Carlini et al. 2019's exposure methodology, adapted to a
 narrative-generation setting.
 
-**Status: the balanced four-architecture 14M grid and the matched 24-cell 48M scale-transfer grid are complete.**
+**Status (verified 2026-10-16): the balanced four-architecture 14M grid and the matched 24-cell 48M
+scale-transfer grid are complete.**
 The baseline 100x/500x second-training-seed replications are also complete. All 53 retained experiment summaries
 report 6,000 updates. The final 48M cell (LayerNorm, frequency 500) completed at 21:34:48 local on 2026-10-15
 (24,087 trainer seconds; best validation loss 1.4781 / PPL 4.3847). Its best/final checkpoints and all evaluations
@@ -17,9 +18,7 @@ frequency corpus hash and 73,139-story count, and regenerated matched-baseline t
 checkpoint and completed; the failure remains in the runtime audit. The manuscript remains exploratory, not
 submission-ready: the primary human V/T/N novelty endpoint and separate contamination-free confirmatory study are
 still incomplete. All 48M cells are single-seed and use a different learning rate from the 14M arm, so these results
-do not establish a creativity trade-off.
-The first 48M cell's initial attempt failed during a checkpoint write, then resumed from its verified step-1,000
-checkpoint and completed. See
+do not establish a creativity trade-off. See
 `PLAN.md` for the phase-by-phase brief this project follows, `PHASE4_NOTES.md` for the detailed running lab
 notebook, and `docs/DRAFT_PAPER.md` for the write-up structured for eventual publication, kept in sync as results
 come in.
@@ -81,8 +80,9 @@ This design needs a **fresh pretraining run from scratch per (architecture, freq
 to be attributed to a controlled number of training-time exposures, not to fine-tuning an already-trained model.
 On this machine (a MacBook Air M3, 8 GB, no external GPU), a 14M run uses 49.152M training tokens and currently
 takes roughly 2.5-3 hours at observed throughput. The source training split itself is 14.58M tokens.
-Canary training and the sibling `aarav-lm` project's own training never run concurrently on this single machine —
-whichever needs the machine next is queued behind whichever is currently running.
+Canary training and the sibling `aarav-lm` project's own training were never run concurrently on this single
+machine. No canary experiment compute is currently queued; the remaining publication gates require human
+annotation, confirmatory-study approval/resources, and clean-room artifact work.
 
 ## Reproduce Phase 1 (canary corpus construction)
 
@@ -141,7 +141,9 @@ these are plots and tables only — no prose conclusion is drawn in the outputs 
 ## Tests
 
 69 tests (`pytest tests/`) cover corpus construction, exposure/extraction, novelty metrics, full-corpus overlap,
-blinded annotation/scoring, trade-off analysis, and 48M config/parameter validation.
+blinded annotation/scoring, trade-off analysis, artifact-manifest integrity, seed sensitivity, and 48M
+config/parameter validation. The complete suite passed again on 2026-10-16; the IEEE LaTeX manuscript also
+compiled successfully in the desktop editor.
 
 ## Publication documents
 
