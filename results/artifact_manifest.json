@@ -4,8 +4,8 @@
   "files": [
     {
       "path": ".gitignore",
-      "size_bytes": 239,
-      "sha256": "930c94f51e12028cad75e46f7098b2b02b0b5cc44aeac039659b685d1052f7c2"
+      "size_bytes": 301,
+      "sha256": "f02ad6b2bd7b93c6a169e3fe476fa71d99dd07df5ce2c06d31da6359265cd2e4"
     },
     {
       "path": "PHASE4_NOTES.md",
@@ -19,8 +19,8 @@
     },
     {
       "path": "README.md",
-      "size_bytes": 12234,
-      "sha256": "879adf4917603397ba85024668ab6d3fcd57d44c28447bf6d5946dbf6643d9de"
+      "size_bytes": 12606,
+      "sha256": "291611668561558ab2d3b14aed9bd7bc28d6595664e6c230e7bca516522a1e7b"
     },
     {
       "path": "configs/canaries.yaml",
@@ -36,6 +36,126 @@
       "path": "configs/confirmatory/canary_bank.json",
       "size_bytes": 88389,
       "sha256": "c851525489bc770fce4a4eb512d3f1dafac84c393c81dcbb26fd08b41d666954"
+    },
+    {
+      "path": "configs/confirmatory/training/14m/baseline/seed_20261016.yaml",
+      "size_bytes": 964,
+      "sha256": "69b9a22fe375135f8edaa160a51d47e108db0c96c136547a711c82a3ad3ba6e9"
+    },
+    {
+      "path": "configs/confirmatory/training/14m/baseline/seed_20261017.yaml",
+      "size_bytes": 964,
+      "sha256": "11b7032c36e6bce4e6302b2c18ce813bdc6a328b25f76ef71a6a084d136c84ee"
+    },
+    {
+      "path": "configs/confirmatory/training/14m/baseline/seed_20261018.yaml",
+      "size_bytes": 964,
+      "sha256": "b20021b3791984d54af3961a6765cde2fde8e0efb76b46efdccb1297736d5d4d"
+    },
+    {
+      "path": "configs/confirmatory/training/14m/layernorm/seed_20261016.yaml",
+      "size_bytes": 988,
+      "sha256": "731a02a8ba1b537df68f5b4b59ec5c75d40ce0777524bfdb44b8112b071ab653"
+    },
+    {
+      "path": "configs/confirmatory/training/14m/layernorm/seed_20261017.yaml",
+      "size_bytes": 988,
+      "sha256": "db742becbac31a8ec24eaf0ef44eec782871f3e851718d2a69bb146b36ea821c"
+    },
+    {
+      "path": "configs/confirmatory/training/14m/layernorm/seed_20261018.yaml",
+      "size_bytes": 988,
+      "sha256": "640ca1a3ad216b1e6c5acaf0b1ab734c83af427b6a3994973d3833a9e29ecfb0"
+    },
+    {
+      "path": "configs/confirmatory/training/14m/learned_pos/seed_20261016.yaml",
+      "size_bytes": 982,
+      "sha256": "400fe996036074fd5b9684e756c502c9bc4bda508c6aa1c4b38e6e72f50fb194"
+    },
+    {
+      "path": "configs/confirmatory/training/14m/learned_pos/seed_20261017.yaml",
+      "size_bytes": 982,
+      "sha256": "0ae255145d9fa80a6b0a6f10e675d49f0bd717c0de2a1bea814e2b83c8626ebb"
+    },
+    {
+      "path": "configs/confirmatory/training/14m/learned_pos/seed_20261018.yaml",
+      "size_bytes": 982,
+      "sha256": "78ec6440dfed8a2a9715e3c9ac72b2fb552d48c0a9b5dd0d2b9e2fed89545ce9"
+    },
+    {
+      "path": "configs/confirmatory/training/14m/mha/seed_20261016.yaml",
+      "size_bytes": 979,
+      "sha256": "84200d1d8f81d382e3d03028ab985bde181aa2d97394f3702082c5b469c6f077"
+    },
+    {
+      "path": "configs/confirmatory/training/14m/mha/seed_20261017.yaml",
+      "size_bytes": 979,
+      "sha256": "169c99b8e9edef1542c2e9292a547aae04d1682187296de12c0df97e16c960b8"
+    },
+    {
+      "path": "configs/confirmatory/training/14m/mha/seed_20261018.yaml",
+      "size_bytes": 979,
+      "sha256": "66e1a4e52b129d619de4265d7eb6b2088e84200f5efb1179de5f0d83105b9518"
+    },
+    {
+      "path": "configs/confirmatory/training/48m/baseline/seed_20261016.yaml",
+      "size_bytes": 964,
+      "sha256": "9a693e4bd4273ee15199afe771cf27187b294a9f300c1cf26681c66a7a00c793"
+    },
+    {
+      "path": "configs/confirmatory/training/48m/baseline/seed_20261017.yaml",
+      "size_bytes": 964,
+      "sha256": "010b84e56b52c932a3ef420c0b9977af3f37ea5e07a07251cf788076072e586c"
+    },
+    {
+      "path": "configs/confirmatory/training/48m/baseline/seed_20261018.yaml",
+      "size_bytes": 964,
+      "sha256": "c7e519e6d58b16c6211481788d3c08965aa34fd8b54c70280b5ad751f512b417"
+    },
+    {
+      "path": "configs/confirmatory/training/48m/layernorm/seed_20261016.yaml",
+      "size_bytes": 988,
+      "sha256": "7334f7d0a712b3f67c9346e91fd208607afae3dfbe277f22b4a01bcccd902f3c"
+    },
+    {
+      "path": "configs/confirmatory/training/48m/layernorm/seed_20261017.yaml",
+      "size_bytes": 988,
+      "sha256": "d2bf38b1231bd090bbd81c6fe5d6917f4d2d8ec4f75af9a900e576de6ba1585c"
+    },
+    {
+      "path": "configs/confirmatory/training/48m/layernorm/seed_20261018.yaml",
+      "size_bytes": 988,
+      "sha256": "b0b495d01b96b89c4ccb9ac17b6a47354fe98fae61aa4c287c87c95243848533"
+    },
+    {
+      "path": "configs/confirmatory/training/48m/learned_pos/seed_20261016.yaml",
+      "size_bytes": 982,
+      "sha256": "59e816821e8e77f53033d81db045f5aacd4382af3af2c194df05c96d50c7e512"
+    },
+    {
+      "path": "configs/confirmatory/training/48m/learned_pos/seed_20261017.yaml",
+      "size_bytes": 982,
+      "sha256": "94568542b1fdbc0f8560d436e3fb7662438a5cbe1052ffcff42c46a86ca57732"
+    },
+    {
+      "path": "configs/confirmatory/training/48m/learned_pos/seed_20261018.yaml",
+      "size_bytes": 982,
+      "sha256": "77e20d0cd79173bf066f8e4289b7c6ab04758b44f9010183e9960d077cc13c10"
+    },
+    {
+      "path": "configs/confirmatory/training/48m/mha/seed_20261016.yaml",
+      "size_bytes": 980,
+      "sha256": "8ccf61dc283bc56394b98b99017e62b293434e34f3202276bf448e9c6a826ab2"
+    },
+    {
+      "path": "configs/confirmatory/training/48m/mha/seed_20261017.yaml",
+      "size_bytes": 980,
+      "sha256": "2420c1bd2b2330602a1ab0518edc4331c0c2a34a93c0b9d6e3ef2063c9f53369"
+    },
+    {
+      "path": "configs/confirmatory/training/48m/mha/seed_20261018.yaml",
+      "size_bytes": 980,
+      "sha256": "02e69b1a436478afb3b8df3ab697a43abf2215b7da18179aad299b6dbccae661"
     },
     {
       "path": "configs/training/baseline/freq_0.yaml",
@@ -303,6 +423,21 @@
       "sha256": "d1724bacdfc0d5b67ff5faa4a68cfde1062b8773d62758055a06c31b79b31fdc"
     },
     {
+      "path": "data/confirmatory/seed_20261016/manifest.json",
+      "size_bytes": 71060,
+      "sha256": "797f80b4c94a9daa1db346d5dc6314f54f76fa00628366b39ba87c832888edcf"
+    },
+    {
+      "path": "data/confirmatory/seed_20261017/manifest.json",
+      "size_bytes": 71042,
+      "sha256": "c1b52e3a2bd28830161d5072cd9e7044418b007d86ab2aa3be52f51b90a84973"
+    },
+    {
+      "path": "data/confirmatory/seed_20261018/manifest.json",
+      "size_bytes": 71128,
+      "sha256": "376b9c3a665d4a8226e655c3b4458ff89e3f4f80792bbad44f794f6318eb2c8a"
+    },
+    {
       "path": "data/processed/freq_0/manifest.json",
       "size_bytes": 616,
       "sha256": "9beac3ff0e27bdf9289333491cc2d8393903491b5e103170216b02d2160ee3ee"
@@ -344,18 +479,23 @@
     },
     {
       "path": "docs/ARTIFACT_REPRODUCIBILITY.md",
-      "size_bytes": 7381,
-      "sha256": "766e50afa12789dc0884cdb76f5d92bcbda8f56648ef72d8ebdd5a234576c780"
+      "size_bytes": 8385,
+      "sha256": "a2e62194fd7e74f1cd2888cd965f30ee923bc09f06c682fd1f304c655bf3dd3e"
     },
     {
       "path": "docs/CONFIRMATORY_EXECUTION_PLAN.md",
-      "size_bytes": 6337,
-      "sha256": "ebe6ecdae13957f565ea3c2a36db11a0d2b22c477194b13cd68903eab24ade0b"
+      "size_bytes": 6418,
+      "sha256": "f2752a76a1db08267520d6f77e8e89f19fed3ceebc31513bf280abfaca74c52b"
     },
     {
       "path": "docs/CONFIRMATORY_STUDY_PROTOCOL.md",
       "size_bytes": 10813,
       "sha256": "e513696afe2c344b0aa55ba66d11a2f778e76decd4244926ee1d06f2b5258764"
+    },
+    {
+      "path": "docs/DATA_RIGHTS_AND_RELEASE.md",
+      "size_bytes": 3022,
+      "sha256": "87e499cd5e906ad8135409b242990415f079ce2d5a338be59537dc500d12f2cc"
     },
     {
       "path": "docs/DRAFT_PAPER.md",
@@ -1448,6 +1588,11 @@
       "sha256": "5c9b2ba54f9af0ba02d4b097cab1669e4481c82267f2abd060b012138dd1e41f"
     },
     {
+      "path": "scripts/acquire_tinystories_subset.py",
+      "size_bytes": 3153,
+      "sha256": "44f35496e0f896130bc61244e3f24941b3606d139a4f15a96608259cfe29fcfa"
+    },
+    {
       "path": "scripts/analyze_seed_sensitivity.py",
       "size_bytes": 4731,
       "sha256": "850ffaa91ced70bba82e318c685d757a132b1e6ebcd8c8228b9dc452fc949aec"
@@ -1503,6 +1648,11 @@
       "sha256": "57f2c6cd8eac1094b5ba9cbbba812065ef9b72f8a6ca13673c287048eb009512"
     },
     {
+      "path": "scripts/make_confirmatory_configs.py",
+      "size_bytes": 3520,
+      "sha256": "b241956691c4f62bc177a68a9ff677e88851227c37675676b490f93341aba8f2"
+    },
+    {
       "path": "scripts/make_variant_configs.py",
       "size_bytes": 7663,
       "sha256": "180e09437a889eb7d20313f2e9ae606b7985f3227ca590165e0da530f65f780d"
@@ -1526,6 +1676,11 @@
       "path": "scripts/prepare_canary_corpus.py",
       "size_bytes": 7199,
       "sha256": "a15906841db74a534e736fa2491deefa9a6e987fbbf79e1def3110b95b6cfb7a"
+    },
+    {
+      "path": "scripts/prepare_confirmatory_corpus.py",
+      "size_bytes": 7874,
+      "sha256": "1f345ed013ed9d0f73295125b049596924cc26175c797a1dba51046bca2cf5a4"
     },
     {
       "path": "scripts/run_48m_scale_experiments.sh",
@@ -1559,8 +1714,8 @@
     },
     {
       "path": "test_results_summary.md",
-      "size_bytes": 29564,
-      "sha256": "7c45215c1ab1e4ffa5465c49a7d4f5552563bcf1cd3ad58c20925129fa02c514"
+      "size_bytes": 30345,
+      "sha256": "b0dd54d36e2fe9443a7e4dbf887af0fa2242187584c9e0c7685f5bb21c608452"
     },
     {
       "path": "tests/test_analyze_tradeoff.py",
@@ -1583,9 +1738,24 @@
       "sha256": "5e66b29d899fe5a00eca1a7c29207be4ad397fe934af7c2e41b44f2af9737cc7"
     },
     {
+      "path": "tests/test_confirmatory_configs.py",
+      "size_bytes": 1864,
+      "sha256": "c0e5720729dcd8fe31a1dc5d4dc20d344e7bcc761cf3c28d024cc815b0334998"
+    },
+    {
+      "path": "tests/test_confirmatory_corpus.py",
+      "size_bytes": 1954,
+      "sha256": "fd3419577b157a387a7f6af751ddafde9125f1b7eed8ac866054aa302c0ff80b"
+    },
+    {
       "path": "tests/test_confirmatory_power.py",
       "size_bytes": 735,
       "sha256": "df458439daa4a5e8366fa9d5c072296c2bb859bf57f4ec6fa1ad8c354c86ee6f"
+    },
+    {
+      "path": "tests/test_data_acquisition.py",
+      "size_bytes": 644,
+      "sha256": "e06345744214d7d152efa2f01bb326a2027d9a89b62a6c6baaa88e94d6e84275"
     },
     {
       "path": "tests/test_eval_memorization.py",

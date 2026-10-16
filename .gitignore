@@ -2,6 +2,8 @@ data/raw/*
 !data/raw/.gitkeep
 data/processed/*/corpus.txt
 data/processed/*/tokenized/
+data/confirmatory/*/corpus.txt
+data/confirmatory/*/tokenized/
 models/
 __pycache__/
 *.pyc

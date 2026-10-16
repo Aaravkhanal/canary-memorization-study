@@ -1,0 +1,42 @@
+name: confirmatory_48m_mha_seed20261016
+description: Pre-registered contamination-free confirmatory study; 48m mha; mixed-frequency
+  assignment/training seed 20261016; common 49.152M-token budget and optimizer recipe.
+model_preset: large
+model_overrides:
+  n_layer: 9
+  n_kv_head: 10
+tokenizer:
+  kind: bpe
+  vocab_size: 4096
+  artifact_dir: artifacts/tokenizer_tinystories_v2
+  train_files: []
+data:
+  sources:
+  - data/confirmatory/seed_20261016/corpus.txt
+  format: txt
+  doc_separator: <|endoftext|>
+  out_dir: data/confirmatory/seed_20261016/tokenized
+  val_fraction: 0.01
+  test_fraction: 0.01
+  min_chars: 20
+  max_chars: 20000
+  dedup: false
+  seed: 20261016
+train:
+  seed: 20261016
+  device: auto
+  precision: fp32
+  max_steps: 6000
+  batch_size: 1
+  grad_accum: 16
+  eval_batch_size: 4
+  lr: 0.0005
+  min_lr_ratio: 0.1
+  warmup_steps: 150
+  weight_decay: 0.1
+  grad_clip: 1.0
+  eval_interval: 500
+  eval_iters: 50
+  log_interval: 25
+  ckpt_interval: 500
+  keep_last: 2

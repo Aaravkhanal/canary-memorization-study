@@ -374,3 +374,11 @@ counterbalanced assignment seeds are frozen, with three planned and two held as 
 assumptions, producing a 24-cell two-scale plan and 7,680 ratings per rater. These are design calculations, not
 confirmatory outcomes. The full suite now passes **76/76** with the same 14 upstream warnings; no MPS job was
 started, and storage/corpus-config/rights/ethics/clean-room gates remain open.
+
+The three planned mixed-frequency corpora were then built deterministically for assignment/training seeds
+20261016–20261018. Each contains exactly 5,288 insertions; every inserted document hashes to the training split,
+and the committed manifests record output hashes, source story indices, per-canary frequencies, and split counts.
+All 24 planned 14M/48M architecture configs use portable relative paths, the same 0.0005 learning rate, and the
+same 49.152M-token budget. The exact 59,999,181-byte base subset was independently matched to byte range
+0–59,999,180 of revision `f54c09fd...`'s `TinyStoriesV2-GPT4-train.txt`; the acquisition script reproduces its
+SHA-256. The expanded suite passes **83/83**. These are pre-outcome input locks, not trained confirmatory results.

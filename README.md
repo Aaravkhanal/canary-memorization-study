@@ -63,8 +63,10 @@ has been established.
 - Baseline 100x/500x training-seed replications are complete. The 48M arm has all 24 cells verified, each with
   memorization, novelty, and matching-corpus overlap evaluations. The initial 48M baseline frequency-0 attempt had
   a disk-full checkpoint-write failure and resumed from its verified step-1,000 state.
-- **A confirmatory, contamination-free study** remains necessary for a strong paper. Its frozen recommended design
-  is in `docs/CONFIRMATORY_STUDY_PROTOCOL.md`.
+- **A confirmatory, contamination-free study** remains necessary for a strong paper. Its screened bank, three
+  deterministic mixed-frequency corpora, 24 portable two-scale configs, and power decision are now locked; model
+  training has not started because storage, ethics, licensing, and clean-room gates remain open. See
+  `docs/CONFIRMATORY_STUDY_PROTOCOL.md`.
 - **48M scale-transfer arm:** all 24 matched-token configs (four near-matched architectures × six corpus conditions)
   are complete and verified. The baseline/frequency-0 cell initially failed at step 1,500 during a checkpoint write,
   then resumed from the intact step-1,000 state and completed 6,000 steps (best validation loss 1.4871). All cells
@@ -140,7 +142,8 @@ these are plots and tables only — no prose conclusion is drawn in the outputs 
 
 ## Tests
 
-76 tests (`pytest tests/`) cover corpus construction, exposure/extraction, novelty metrics, full-corpus overlap,
+83 tests (`pytest tests/`) cover corpus construction, confirmatory split hygiene/configs/data acquisition,
+exposure/extraction, novelty metrics, full-corpus overlap,
 blinded annotation/scoring, trade-off analysis, artifact-manifest integrity, seed sensitivity, and 48M
 config/parameter validation. The complete suite passed again on 2026-10-16; the IEEE LaTeX manuscript also
 compiled successfully in the desktop editor.
@@ -154,6 +157,7 @@ compiled successfully in the desktop editor.
   current blockers.
 - `docs/RESULTS_CLAIM_AUDIT.md`: evidence map and allowed/prohibited result wording.
 - `docs/ARTIFACT_REPRODUCIBILITY.md`: exact reproduction commands and data/weights availability limits.
+- `docs/DATA_RIGHTS_AND_RELEASE.md`: revision-pinned TinyStories provenance, license record, and release decisions.
 - `scripts/create_artifact_manifest.py`: machine-readable SHA-256 inventory for versioned artifacts.
 - `docs/SCALE_48M_PROTOCOL.md`: matched-token 48M scale-transfer experiment and limitations.
 - `docs/ANNOTATION_PROTOCOL.md`: blinded two-rater labelling and adjudication procedure.
