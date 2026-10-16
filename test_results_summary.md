@@ -383,3 +383,10 @@ same 49.152M-token budget. The exact 59,999,181-byte base subset was independent
 0–59,999,180 of revision `f54c09fd...`'s `TinyStoriesV2-GPT4-train.txt`; the acquisition script reproduces its
 SHA-256. The exact 4,096-token BPE artifact is now versioned with its provenance note and verified against the
 input lock. The expanded suite passes **84/84**. These are pre-outcome input locks, not trained confirmatory results.
+
+A fresh-clone engineering smoke test then passed from GitHub checkouts of both repositories: exact corpus
+acquisition, bank screening, deterministic seed-20261016 corpus reproduction, dependency/input verification,
+base-only tokenization and dataset validation, and one CPU-only 14M training step. The first prepare-data call was
+made outside the cloned study root and exposed a relative-path validation failure; the documented rerun from the
+study root passed, and the reusable script now uses absolute temporary output paths. No MPS memory or
+confirmatory-inserted training data was used, so this is not a scientific result. The suite now passes **85/85**.

@@ -1,0 +1,38 @@
+{
+  "schema_version": 1,
+  "status": "passed",
+  "date": "2026-10-16",
+  "study_commit": "ca169c8686af765dcb207e17bd6dc2a3e9fbbdc6",
+  "aarav_lm_commit": "0506801c3894c9b0598b02e0ec8c51881576b518",
+  "environment": "fresh GitHub clones in a temporary directory; existing pinned Python environment",
+  "checks": {
+    "analysis_packages": "passed",
+    "revision_pinned_base_acquisition": "passed",
+    "confirmatory_bank_determinism_and_screening": "passed",
+    "seed_20261016_corpus_rebuild_and_hash": "passed",
+    "training_input_hashes_and_dependency_revision": "passed",
+    "base_only_tokenization_and_dataset_validation": "passed",
+    "one_step_cpu_training": "passed"
+  },
+  "base_only_tokenized_counts": {
+    "train": 14556124,
+    "validation": 159227,
+    "test": 152980
+  },
+  "training_smoke": {
+    "device": "cpu",
+    "mps_memory_mb": 0,
+    "model_parameters": 14162304,
+    "steps": 1,
+    "source": "unmodified locked base subset, not the confirmatory inserted corpus",
+    "scientific_outcome": false
+  },
+  "deviations_and_failures": [
+    "The first prepare-data invocation was launched outside the cloned study root. The pinned dependency wrote the absolute resolved output but validated the relative path against the caller working directory, so validation reported the manifest missing. Rerunning from the documented study-root working directory passed. The reusable smoke script uses absolute temporary output paths to prevent recurrence."
+  ],
+  "limitations": [
+    "The Python environment was already installed rather than created in a new virtual environment from the lock file.",
+    "This is a reduced engineering smoke test, not an independent reproduction of the 24 confirmatory training cells.",
+    "External checkpoint release, project license selection, and DOI archival remain owner-controlled tasks."
+  ]
+}

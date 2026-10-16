@@ -1,7 +1,7 @@
 # Artifact reproducibility and release boundaries
 
-**Status: content-addressed data acquisition and portable confirmatory configs are implemented; clean-room
-reproduction and permanent archival remain outstanding.** The
+**Status: a fresh-clone analysis/data/tokenization/one-step CPU smoke test passed; full-cell reproduction and
+permanent archival remain outstanding.** The
 repository records analysis code, configurations, result JSON/CSV files, figures, runtime notes, tests, and
 protocols. A Git checkout alone is not sufficient to retrain the models or regenerate every result: the base
 corpus, processed frequency-specific corpus text, and model checkpoints are local/ignored artifacts, and the
@@ -43,8 +43,7 @@ python scripts/check_reproducibility.py --mode training
 
 Analysis mode checks the package versions in `requirements-research.lock`. Training mode additionally checks the
 pinned `aarav-lm` Git revision and the byte hashes of the base-corpus subset and tokenizer files recorded in
-`reproducibility/inputs.lock.json`. A local pass proves that this machine has the expected inputs; a fresh-clone
-pass is still required before claiming clean-room reproduction.
+`reproducibility/inputs.lock.json`. The fresh-clone smoke record is in `results/clean_room_smoke.json`.
 
 These commands reproduce automated descriptive tables/figures from the committed result JSONs; they do not train
 models and do not create human novelty scores. Do not pass a labelled CSV until human annotations have been
@@ -91,8 +90,14 @@ The three committed corpus manifests record 5,288 insertions each, exact output 
 train/validation/test counts. Every inserted story is proven to hash to the training split under the pinned
 aarav-lm split algorithm. The 24 configs use relative paths, one common 49.152M-token budget and learning rate,
 and identical mixed-frequency corpora across architectures within each seed. The exact tokenizer is now packaged.
-A clean-checkout analysis smoke test and reduced training smoke test are still required before calling this
-clean-room verified.
+On 2026-10-16, fresh GitHub clones reacquired the exact base subset, rebuilt and hash-matched the seed-20261016
+confirmatory corpus, validated all pinned inputs, tokenized the unmodified base, and completed one CPU-only 14M
+training step with zero MPS memory. This verifies the engineering path but is not an independent full-cell
+reproduction and produced no confirmatory scientific outcome. Re-run it with:
+
+```bash
+AARAV_LM_DIR=/path/to/pinned/MY-LLM bash scripts/run_clean_room_smoke.sh
+```
 
 1. Obtain the exact base corpus, tokenizer, and compatible `aarav-lm` revision. Record their versions and hashes;
    confirm data-use permission before redistribution.
