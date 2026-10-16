@@ -9,12 +9,16 @@
         "docs/STORAGE_AND_RECOVERY_PLAN.md": true,
         "configs/confirmatory/canary_bank.json": true,
         "configs/confirmatory/analysis_plan.json": true,
+        "configs/confirmatory/evaluation_plan.json": true,
         "configs/confirmatory/ethics_record.json": true,
         "configs/confirmatory/start_gate.json": true,
         "configs/confirmatory/storage_plan.json": true,
         "results/confirmatory_power.json": true,
         "reproducibility/inputs.lock.json": true,
         "scripts/check_confirmatory_start_gate.py": true,
+        "scripts/eval_confirmatory.py": true,
+        "scripts/eval_full_corpus_overlap.py": true,
+        "scripts/prepare_confirmatory_annotation.py": true,
         "scripts/run_confirmatory_queue.py": true
       },
       "ok": true
@@ -54,7 +58,7 @@
         "data_rights_provenance_recorded": true,
         "ethics_and_consent_determination_recorded": false,
         "project_release_license_selected": false,
-        "execution_and_evaluation_workflow_frozen": false
+        "execution_and_evaluation_workflow_frozen": true
       },
       "required_for_training": [
         "no_confirmatory_outcomes_inspected",
@@ -72,7 +76,7 @@
     "storage": {
       "path": "/Users/aaravkhanal/Desktop/myllm/canary-memorization-study/models/confirmatory",
       "write_read_fsync_rename_ok": true,
-      "free_bytes": 8914083840,
+      "free_bytes": 8924405760,
       "minimum_free_bytes": 26843545600,
       "capacity_ok": false,
       "error": null,

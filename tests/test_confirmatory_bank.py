@@ -52,3 +52,7 @@ def test_committed_bank_shape_and_screening():
     assert len(payload["reference_pools"]["character"]) == 1024
     assert len(payload["reference_pools"]["plot"]) == 1024
     assert payload["screening"]["nonzero_occurrences"] == 0
+    targets = {row["identity"] for row in payload["canaries"] + payload["controls"]}
+    references = set(payload["reference_pools"]["character"] + payload["reference_pools"]["plot"])
+    assert targets.isdisjoint(references)
+    assert payload["screening"]["reference_target_overlap"] == 0

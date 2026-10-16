@@ -407,3 +407,19 @@ It preserves best/final artifacts and does not delete rolling checkpoints until 
 preflight currently fails as designed: about 8.3 GiB is free, ethics/consent mode is unresolved, and the post-cell
 confirmatory evaluator is not yet frozen. No MPS or confirmatory training was started. Five gate tests brought the
 full suite to **94/94** in 11.78 seconds, with 14 upstream Matplotlib/Pyparsing deprecation warnings and no failures.
+
+The first executable 1,025-candidate evaluator audit then caught a pre-outcome bank defect: three character target
+identities were also present in the synthetic alternative pool. They were absent from the base corpus, but could
+not validly serve as their own alternatives. The deterministic generator now excludes every inserted/control
+identity and appends screened replacements, preserving 1,024 alternatives and all corpus bytes/schedules. The
+corrected bank hash is `f9afb1e6c0c6db87483c5e0c39578f20abe06583fd767fd49994e61ca62072d2`;
+all three corpus manifests were regenerated to record it before any training or outcome inspection.
+
+The confirmatory outcome workflow was then frozen before training. Each cell will produce 48 exposure rows and
+320 status-retaining generations under hashed decoding settings, followed by exact four-gram overlap against only
+the content-hash-selected training split. The runner validates checkpoint/corpus/result hashes and fixed row counts
+before deleting rolling checkpoints. A separate builder refuses fewer than 24 evaluated cells and will create two
+differently shuffled 7,680-row rater sheets with blank annotation fields plus a git-ignored private condition key.
+It does not create automated labels. Eleven new evaluation, overlap, annotation, and cleanup tests brought the
+full suite to **105/105** in 11.16 seconds, with 14 upstream Matplotlib/Pyparsing deprecation warnings and no
+failures. No MPS job or confirmatory scientific evaluation was run.

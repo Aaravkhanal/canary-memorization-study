@@ -124,12 +124,16 @@ def build_report(root: Path, artifact_root: Path) -> dict:
         root / "docs" / "STORAGE_AND_RECOVERY_PLAN.md",
         root / "configs" / "confirmatory" / "canary_bank.json",
         root / "configs" / "confirmatory" / "analysis_plan.json",
+        root / "configs" / "confirmatory" / "evaluation_plan.json",
         root / "configs" / "confirmatory" / "ethics_record.json",
         root / "configs" / "confirmatory" / "start_gate.json",
         root / "configs" / "confirmatory" / "storage_plan.json",
         root / "results" / "confirmatory_power.json",
         root / "reproducibility" / "inputs.lock.json",
         root / "scripts" / "check_confirmatory_start_gate.py",
+        root / "scripts" / "eval_confirmatory.py",
+        root / "scripts" / "eval_full_corpus_overlap.py",
+        root / "scripts" / "prepare_confirmatory_annotation.py",
         root / "scripts" / "run_confirmatory_queue.py",
     ]
     existence = {str(path.relative_to(root)): path.is_file() for path in locked_paths}

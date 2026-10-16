@@ -133,7 +133,15 @@ seeds were generated and frozen; seeds 20261016–20261018 are the planned floor
 pre-outcome contingency only. The deterministic bank contains 20 character and 20 plot canaries, eight controls,
 and shared 1,024-item character and plot reference pools. All 2,096 identities/alternatives have zero normalized
 occurrences in the complete 59,999,181-byte base-corpus subset. Bank content hash:
-`83288fcdbe2dd05c0b685d0f51aa89dc8b64adf4a7d0d13176727e183739a39e`.
+`f9afb1e6c0c6db87483c5e0c39578f20abe06583fd767fd49994e61ca62072d2`.
+
+During pre-outcome implementation of the 1,025-candidate evaluator, a disjointness audit found that three inserted
+character identities also appeared in the original synthetically generated character reference pool. None had
+appeared in the base corpus, but treating a true identity as its own alternative would invalidate the registered
+rank denominator for those canaries. Before any model training or outcome inspection, the deterministic generator
+was repaired to exclude all inserted/control identities and append screened replacements while retaining exactly
+1,024 alternatives. Corpus bytes and schedules were unchanged; their manifests were regenerated solely to record
+the corrected bank hash. This correction is part of the pre-outcome lock, not an outcome-driven amendment.
 
 The registered smallest effects of scientific interest for the planning simulation are 0.5 exposure bits per
 log10 frequency decade and a 1.5 novelty odds ratio per decade. The simulation uses four settings and two
@@ -166,5 +174,23 @@ machine-readable plan and full retention rules are in `configs/confirmatory/stor
 interrupted cell may resume only from a successfully deserialized rolling checkpoint in the same run. Best/final
 checkpoints, logs, summaries, configs, metrics, hashes, and failure records are retained. Rolling checkpoints may
 be removed only after training and all required evaluations verify. This amendment does not open the gate: local
-space is below threshold, the ethics mode remains unresolved, and the confirmatory outcome evaluator is not yet
-frozen.
+space is below threshold and the ethics mode remains unresolved. The evaluator was subsequently frozen in
+Amendment 4 below.
+
+## Amendment 4 — outcome evaluation workflow lock (2026-10-17, before outcomes)
+
+`configs/confirmatory/evaluation_plan.json` freezes the evaluation settings. Every cell scores 40 inserted
+canaries plus eight controls against 1,024 target-disjoint alternatives (1,025 candidates including truth), with
+exposure defined as $\log_2(1025)-\log_2(\mathrm{rank})$. The evaluator records true log probability, best-
+alternative margin, first-token and full-identity token ranks, top-1/5/10 recall, teacher-forced argmax, greedy
+extraction, and width-5 beam extraction. The four registered novel settings and two completions per setting yield
+320 retained generations per cell and 7,680 across 24 cells; decoding uses temperature 0.8, top-k 50, top-p 0.95,
+150-token limits, and deterministic cell-specific seeds. Empty, length-truncated, and timed-out generations remain
+in the output with status codes.
+
+Every generation is enriched using an exact word-four-gram inverted index restricted to the content-hash-selected
+training split, not validation/test documents. Cell JSON is accepted only if its checkpoint/corpus hashes, 48
+exposure rows, 160 groups, 320 completions, and overlap provenance verify. The two-rater batch builder refuses a
+partial grid, writes 7,680 condition-hidden rows per rater in independently shuffled order, and leaves label,
+confidence, and notes blank. Its condition key is private and ignored by Git. No automated V/T/N label is created.
+Rolling checkpoints may be deleted only after this automated evaluation verifies; best/final checkpoints remain.

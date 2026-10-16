@@ -142,8 +142,8 @@ these are plots and tables only — no prose conclusion is drawn in the outputs 
 
 ## Tests
 
-94 tests (`pytest tests/`) cover corpus construction, confirmatory split hygiene/configs/data acquisition,
-frozen inferential models, and storage/start-gate safety,
+105 tests (`pytest tests/`) cover corpus construction, confirmatory split hygiene/configs/data acquisition,
+frozen inferential and outcome-evaluation models, blinded-batch construction, and storage/start-gate safety,
 exposure/extraction, novelty metrics, full-corpus overlap,
 blinded annotation/scoring, trade-off analysis, artifact-manifest integrity, seed sensitivity, and 48M
 config/parameter validation. The complete suite passed again on 2026-10-16; the IEEE LaTeX manuscript also
@@ -164,10 +164,14 @@ compiled successfully in the desktop editor.
 - `artifacts/tokenizer_tinystories_v2/`: exact 4,096-token BPE artifact and provenance note for clean clones.
 - `results/clean_room_smoke.json`: passed fresh-clone engineering smoke record (CPU-only, not a study outcome).
 - `configs/confirmatory/analysis_plan.json`: frozen exposure/novelty formulas, contrasts, correction, and fallback.
+- `configs/confirmatory/evaluation_plan.json`: frozen 1,025-candidate exposure, 4 × 2 generation, extraction, and
+  exact training-split overlap settings.
 - `scripts/check_confirmatory_start_gate.py`: non-outcome preflight; it currently fails safely on storage, ethics,
   and unfinished evaluator gates.
 - `scripts/run_confirmatory_queue.py`: portable, globally locked sequential 14M-then-48M runner; it cannot train
   until the preflight passes.
+- `scripts/prepare_confirmatory_annotation.py`: refuses partial grids and produces two differently shuffled,
+  condition-hidden 7,680-row rater sheets with every annotation field blank and a git-ignored private key.
 - `scripts/create_artifact_manifest.py`: machine-readable SHA-256 inventory for versioned artifacts.
 - `docs/SCALE_48M_PROTOCOL.md`: matched-token 48M scale-transfer experiment and limitations.
 - `docs/ANNOTATION_PROTOCOL.md`: blinded two-rater labelling and adjudication procedure.

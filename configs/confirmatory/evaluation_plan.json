@@ -1,0 +1,54 @@
+{
+  "schema_version": 1,
+  "status": "pre-outcome frozen evaluation settings",
+  "recorded_date": "2026-10-17",
+  "exposure": {
+    "neutral_prefixes": {
+      "character": "Once upon a time, ",
+      "plot": "One day, something interesting happened. "
+    },
+    "reference_alternatives_per_canary": 1024,
+    "candidate_count_including_true": 1025,
+    "exposure_formula": "log2(candidate_count) - log2(rank)",
+    "score": "sum of teacher-forced natural-log token probabilities after the first token",
+    "score_batch_size": 32,
+    "top_k": [1, 5, 10],
+    "greedy_max_extra_tokens": 2,
+    "beam_width": 5,
+    "beam_max_extra_tokens": 2
+  },
+  "novelty": {
+    "settings": [
+      "a pirate ship sailing a stormy sea",
+      "the surface of the moon",
+      "a candy castle made of gumdrops",
+      "a hidden cave full of glowing crystals"
+    ],
+    "completions_per_canary_setting": 2,
+    "temperature": 0.8,
+    "top_k": 50,
+    "top_p": 0.95,
+    "max_new_tokens": 150,
+    "base_generation_seed": 20261017,
+    "status_codes": [
+      "ok",
+      "empty",
+      "truncated",
+      "timeout",
+      "pending_human_compliance_review"
+    ]
+  },
+  "full_corpus_overlap": {
+    "ngram_n": 4,
+    "scope": "exact content-hash-selected training split only",
+    "candidate_retrieval": "SQLite inverted index followed by exact text scoring",
+    "required": true
+  },
+  "human_endpoint": {
+    "labels": ["V", "T", "N"],
+    "raters": 2,
+    "labels_initially_blank": true,
+    "condition_key_private": true,
+    "automated_labels_prohibited": true
+  }
+}

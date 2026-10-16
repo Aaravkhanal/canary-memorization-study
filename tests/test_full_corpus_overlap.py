@@ -13,7 +13,9 @@ from eval_full_corpus_overlap import (  # noqa: E402
     candidate_story_ids,
     enrich_results,
     exact_full_corpus_match,
+    selected_stories,
 )
+from prepare_confirmatory_corpus import split_of  # noqa: E402
 
 
 def write_corpus(path: Path, stories: list[str]) -> None:
@@ -88,3 +90,27 @@ def test_enrichment_preserves_existing_fields_and_records_provenance(tmp_path):
     assert completion["max_ngram_overlap"] == 0.0
     assert completion["full_corpus_max_4gram_overlap"] == 1.0
     assert payload["full_corpus_overlap"]["n_stories"] == 1
+
+
+def test_confirmatory_enrichment_indexes_training_split_only(tmp_path):
+    corpus = tmp_path / "corpus.txt"
+    db = tmp_path / "index.sqlite"
+    source = tmp_path / "raw.json"
+    output = tmp_path / "enriched.json"
+    seed = 20261016
+    stories = [f"story number {i} has enough ordinary words for this deterministic split check" for i in range(500)]
+    write_corpus(corpus, stories)
+    training = selected_stories(corpus, seed)
+    held_out = next(story for story in stories if split_of(story, seed) != "train")
+    assert 0 < len(training) < len(stories)
+    build_index(corpus, db, training_split_seed=seed)
+    source.write_text(json.dumps({
+        "novelty_groups": [{"completions": [{"text": held_out}]}],
+        "full_training_corpus_overlap_complete": False,
+    }))
+    enrich_results(source, output, corpus, db, training_split_seed=seed)
+    payload = json.loads(output.read_text())
+    assert payload["full_corpus_overlap"]["scope"] == "training_split"
+    assert payload["full_corpus_overlap"]["n_stories"] == len(training)
+    assert payload["full_training_corpus_overlap_complete"] is True
+    assert payload["novelty_groups"][0]["completions"][0]["full_corpus_max_4gram_overlap"] < 1.0

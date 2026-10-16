@@ -92,11 +92,20 @@ def screen_phrases(normalized_corpus: str, phrases: list[str], plot_reference_ph
 
 
 def character_alternatives() -> list[str]:
-    first = ["qa", "qe", "qi", "qo", "qu", "za", "ze", "zi", "zo", "zu", "xa", "xe", "xi", "xo", "xu", "va"]
+    # Generate excess candidates, remove every inserted/control identity, then take 1,024. The original generator
+    # screened the pool against the base corpus but failed to make it disjoint from the synthetic target bank;
+    # three targets consequently appeared among their own alternatives. This pre-outcome repair makes the
+    # reference-set contract explicit and deterministic.
+    first = [
+        "qa", "qe", "qi", "qo", "qu", "za", "ze", "zi", "zo", "zu", "xa", "xe", "xi", "xo", "xu", "va",
+        "ve", "vi", "vo", "vu", "pa", "pe", "pi", "po", "pu", "ka", "ke", "ki", "ko", "ku", "da", "do",
+    ]
     middle = ["l", "m", "n", "r", "s", "t", "v", "z"]
     last = ["avi", "eno", "ira", "oku", "uma", "evi", "aro", "uni"]
+    reserved = set(CHARACTER_NAMES + CONTROL_NAMES)
     values = [f"{a}{b}{c}".capitalize() for a in first for b in middle for c in last]
-    assert len(values) == 1024 and len(set(values)) == 1024
+    values = [value for value in values if value not in reserved][:1024]
+    assert len(values) == 1024 and len(set(values)) == 1024 and not reserved.intersection(values)
     return values
 
 
@@ -151,6 +160,9 @@ def generate(base_path: Path) -> dict:
     ]
     char_alts = character_alternatives()
     plot_alts = plot_alternatives()
+    target_identities = {row["identity"] for row in canaries + controls}
+    if target_identities.intersection(char_alts) or target_identities.intersection(plot_alts):
+        raise ValueError("reference alternatives overlap inserted/control identities")
     checked = [row["identity"] for row in canaries + controls] + char_alts + plot_alts
     contaminated = screen_phrases(corpus, checked, set(plot_alts))
     if contaminated:
@@ -168,7 +180,10 @@ def generate(base_path: Path) -> dict:
         "controls": controls,
         "reference_pools": {"character": char_alts, "plot": plot_alts},
         "frequency_schedule": build_schedule(canaries),
-        "screening": {"checked_phrases": len(checked), "nonzero_occurrences": 0},
+        "screening": {
+            "checked_phrases": len(checked), "nonzero_occurrences": 0,
+            "reference_target_overlap": 0,
+        },
     }
     payload["content_sha256"] = canonical_hash(payload)
     return payload

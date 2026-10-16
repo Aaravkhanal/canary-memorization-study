@@ -825,7 +825,6 @@
       "Zimoku",
       "Zimuma",
       "Zimevi",
-      "Zimaro",
       "Zimuni",
       "Zinavi",
       "Zineno",
@@ -899,7 +898,6 @@
       "Zonevi",
       "Zonaro",
       "Zonuni",
-      "Zoravi",
       "Zoreno",
       "Zorira",
       "Zoroku",
@@ -1067,7 +1065,6 @@
       "Xazevi",
       "Xazaro",
       "Xazuni",
-      "Xelavi",
       "Xeleno",
       "Xelira",
       "Xeloku",
@@ -1386,7 +1383,10 @@
       "Vazuma",
       "Vazevi",
       "Vazaro",
-      "Vazuni"
+      "Vazuni",
+      "Velavi",
+      "Veleno",
+      "Velira"
     ],
     "plot": [
       "the qellic token rested beside the qelmar",
@@ -2629,7 +2629,8 @@
   },
   "screening": {
     "checked_phrases": 2096,
-    "nonzero_occurrences": 0
+    "nonzero_occurrences": 0,
+    "reference_target_overlap": 0
   },
-  "content_sha256": "83288fcdbe2dd05c0b685d0f51aa89dc8b64adf4a7d0d13176727e183739a39e"
+  "content_sha256": "f9afb1e6c0c6db87483c5e0c39578f20abe06583fd767fd49994e61ca62072d2"
 }

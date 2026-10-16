@@ -28,6 +28,7 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "scripts"))
 from eval_novelty import edit_distance, ngram_overlap, word_ngrams  # noqa: E402
 from prepare_canary_corpus import load_stories  # noqa: E402
+from prepare_confirmatory_corpus import split_of as confirmatory_split_of  # noqa: E402
 
 
 def gram_hash(gram: tuple[str, ...]) -> int:
@@ -44,9 +45,24 @@ def corpus_fingerprint(path: Path) -> str:
     return digest.hexdigest()
 
 
-def build_index(corpus_path: Path, db_path: Path, force: bool = False) -> int:
+def selected_stories(corpus_path: Path, training_split_seed: int | None = None) -> list[str]:
+    stories = load_stories(corpus_path)
+    if training_split_seed is None:
+        return stories
+    return [story for story in stories if confirmatory_split_of(story, training_split_seed) == "train"]
+
+
+def selection_fingerprint(corpus_path: Path, training_split_seed: int | None) -> str:
+    if training_split_seed is None:
+        return corpus_fingerprint(corpus_path)
+    raw = f"{corpus_fingerprint(corpus_path)}|split={training_split_seed}".encode("utf-8")
+    return hashlib.sha256(raw).hexdigest()
+
+
+def build_index(corpus_path: Path, db_path: Path, force: bool = False,
+                training_split_seed: int | None = None) -> int:
     """Build or reuse an index, returning its number of stories."""
-    fingerprint = corpus_fingerprint(corpus_path)
+    fingerprint = selection_fingerprint(corpus_path, training_split_seed)
     if db_path.exists() and not force:
         with sqlite3.connect(db_path) as con:
             meta = dict(con.execute("SELECT key, value FROM metadata"))
@@ -57,7 +73,7 @@ def build_index(corpus_path: Path, db_path: Path, force: bool = False) -> int:
     if db_path.exists():
         db_path.unlink()
     db_path.parent.mkdir(parents=True, exist_ok=True)
-    stories = load_stories(corpus_path)
+    stories = selected_stories(corpus_path, training_split_seed)
     with sqlite3.connect(db_path) as con:
         con.executescript(
             "PRAGMA journal_mode=WAL; PRAGMA synchronous=OFF;"
@@ -75,7 +91,9 @@ def build_index(corpus_path: Path, db_path: Path, force: bool = False) -> int:
             con.executemany("INSERT OR IGNORE INTO story_grams VALUES (?, ?)", batch)
         con.executemany(
             "INSERT INTO metadata VALUES (?, ?)",
-            [("schema_version", "1"), ("corpus_sha256", fingerprint),
+            [("schema_version", "2"), ("corpus_sha256", fingerprint),
+             ("raw_corpus_sha256", corpus_fingerprint(corpus_path)),
+             ("training_split_seed", "" if training_split_seed is None else str(training_split_seed)),
              ("n_stories", str(len(stories))), ("ngram_n", "4")],
         )
         con.commit()
@@ -116,12 +134,16 @@ def exact_full_corpus_match(text: str, stories: list[str], con: sqlite3.Connecti
     }
 
 
-def enrich_results(input_path: Path, output_path: Path, corpus_path: Path, db_path: Path) -> int:
+def enrich_results(input_path: Path, output_path: Path, corpus_path: Path, db_path: Path,
+                   training_split_seed: int | None = None) -> int:
     payload = json.loads(input_path.read_text(encoding="utf-8"))
-    stories = load_stories(corpus_path)
+    stories = selected_stories(corpus_path, training_split_seed)
     count = 0
     with sqlite3.connect(db_path) as con:
-        for group in payload["groups"]:
+        groups = payload.get("groups", payload.get("novelty_groups"))
+        if groups is None:
+            raise ValueError("input has neither groups nor novelty_groups")
+        for group in groups:
             for completion in group["completions"]:
                 completion.update(exact_full_corpus_match(completion["text"], stories, con))
                 count += 1
@@ -129,9 +151,14 @@ def enrich_results(input_path: Path, output_path: Path, corpus_path: Path, db_pa
         "metric": "exact maximum fraction of generated word four-grams found in any training story",
         "corpus": str(corpus_path),
         "corpus_sha256": corpus_fingerprint(corpus_path),
+        "selection_sha256": selection_fingerprint(corpus_path, training_split_seed),
+        "scope": "training_split" if training_split_seed is not None else "all_documents",
+        "training_split_seed": training_split_seed,
         "index": str(db_path),
         "n_stories": len(stories),
     }
+    if "full_training_corpus_overlap_complete" in payload:
+        payload["full_training_corpus_overlap_complete"] = training_split_seed is not None
     output_path.parent.mkdir(parents=True, exist_ok=True)
     output_path.write_text(json.dumps(payload, indent=2), encoding="utf-8")
     return count
@@ -144,10 +171,16 @@ def main() -> None:
     parser.add_argument("--output", required=True, type=Path)
     parser.add_argument("--index", required=True, type=Path, help="reusable SQLite index for this corpus")
     parser.add_argument("--force-index", action="store_true")
+    parser.add_argument("--training-split-seed", type=int,
+                        help="restrict the index to documents content-hashed into the exact training split")
     args = parser.parse_args()
 
-    n_stories = build_index(args.corpus, args.index, force=args.force_index)
-    count = enrich_results(args.input, args.output, args.corpus, args.index)
+    n_stories = build_index(
+        args.corpus, args.index, force=args.force_index, training_split_seed=args.training_split_seed
+    )
+    count = enrich_results(
+        args.input, args.output, args.corpus, args.index, training_split_seed=args.training_split_seed
+    )
     print(f"[done] checked {count} completions against {n_stories} stories -> {args.output}")
 
 

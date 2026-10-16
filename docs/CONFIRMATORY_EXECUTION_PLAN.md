@@ -24,7 +24,8 @@ and learning-rate rule across scales, or freeze a justified scale-specific rule 
 
 ### Phase A — protocol and feasibility lock (estimated 4–8 hours)
 
-- Generate a new 40-canary bank plus at least 8 controls and a deterministic 1,024-alternative reference bank.
+- Generate a new 40-canary bank plus at least 8 controls and deterministic, target-disjoint 1,024-alternative
+  reference pools.
 - Screen every identity and reference alternative against normalized train/validation/test text before lock.
 - Generate a counterbalanced identity-to-frequency schedule for seeds 20261016, 20261017, and 20261018.
 - Implement and run the power/precision simulation; freeze the smallest effects of scientific interest, primary
@@ -85,7 +86,7 @@ machine and would still retain the old contamination problem. It is not the plan
 | Canary/schedule lock | 40 canaries, 8 controls, 2 × 1,024 alternatives, and five-seed schedule generated; zero matches in the full base corpus | Preserve content hash and verify the derived train/validation/test artifacts after corpus construction. |
 | Data rights | Exact revision/file/byte range verified; upstream card declares CDLA-Sharing-1.0 | Owner must select project licenses and confirm redistribution terms before an external artifact release. |
 | Ethics/consent | No external-rater determination recorded | Record whether annotation is self-only or externally recruited and obtain any required determination/consent. |
-| Execution safety | Global sequential runner, resumability checks, 25-GiB capacity probe, and best/final verification implemented; post-cell confirmatory evaluator is not yet frozen | Finish and test the outcome evaluator, then record the dated pre-outcome workflow lock. |
+| Execution/evaluation safety | Frozen raw evaluator, exact training-split overlap, blank blinded-batch builder, global sequential runner, resumability checks, 25-GiB capacity probe, and checkpoint/result verification are implemented | Preserve the committed workflow and hashes; do not substitute automated labels for the human endpoint. |
 | Software/artifacts | Fresh-clone acquisition, deterministic build, tokenization, validation, and one-step CPU smoke pass | Full-cell reproduction, checkpoint release, owner-selected license, and DOI archive remain after training. |
 
 No confirmatory training may start while any pre-outcome gate above is open. `scripts/check_confirmatory_start_gate.py`

@@ -11,4 +11,6 @@ __pycache__/
 .runtime/
 .DS_Store
 results/annotations/private_manifest.json
+results/annotations/confirmatory_private_manifest.json
 results/full_corpus_overlap/index_freq_*.sqlite*
+results/confirmatory/indexes/*.sqlite*
