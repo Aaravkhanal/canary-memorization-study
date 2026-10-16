@@ -19,8 +19,23 @@
     },
     {
       "path": "README.md",
-      "size_bytes": 12606,
-      "sha256": "291611668561558ab2d3b14aed9bd7bc28d6595664e6c230e7bca516522a1e7b"
+      "size_bytes": 12716,
+      "sha256": "7bd37ecd6c1f6cd1d7bdaf5565b34c5e0f452ad3581810ce1635fd346153f6ce"
+    },
+    {
+      "path": "artifacts/tokenizer_tinystories_v2/README.md",
+      "size_bytes": 1046,
+      "sha256": "1474723e5fe6bef02b3d3c1ce09dd9fb34a1805113ddd803fdeb23f11f1987d3"
+    },
+    {
+      "path": "artifacts/tokenizer_tinystories_v2/meta.json",
+      "size_bytes": 439,
+      "sha256": "9c32e209181a28625d91606066cffeff178bad91c9e4ac442cce61d95c92424f"
+    },
+    {
+      "path": "artifacts/tokenizer_tinystories_v2/tokenizer.json",
+      "size_bytes": 109800,
+      "sha256": "a5b02e834f0a7d9e4cd5984933ecedf305903be712968afa79cf82118c66d74b"
     },
     {
       "path": "configs/canaries.yaml",
@@ -479,13 +494,13 @@
     },
     {
       "path": "docs/ARTIFACT_REPRODUCIBILITY.md",
-      "size_bytes": 8385,
-      "sha256": "a2e62194fd7e74f1cd2888cd965f30ee923bc09f06c682fd1f304c655bf3dd3e"
+      "size_bytes": 8578,
+      "sha256": "84d91586f328a2a252d0953b39a68944ba6337030605a81b533cd42c4e8123cc"
     },
     {
       "path": "docs/CONFIRMATORY_EXECUTION_PLAN.md",
-      "size_bytes": 6418,
-      "sha256": "f2752a76a1db08267520d6f77e8e89f19fed3ceebc31513bf280abfaca74c52b"
+      "size_bytes": 6416,
+      "sha256": "85a5324c09b5add93fca0dda87972b6de5952a4383b4b2e0d6da7f59722dd875"
     },
     {
       "path": "docs/CONFIRMATORY_STUDY_PROTOCOL.md",
@@ -544,8 +559,8 @@
     },
     {
       "path": "reproducibility/inputs.lock.json",
-      "size_bytes": 595,
-      "sha256": "a447047c337174cd70567cdb4c1def4e7215b0a9f6d6685bea53243213659768"
+      "size_bytes": 783,
+      "sha256": "227443f6fe16e0121f331c2e667b43ced067859878593d12729f5143fc679084"
     },
     {
       "path": "requirements-research.lock",
@@ -1614,8 +1629,8 @@
     },
     {
       "path": "scripts/check_reproducibility.py",
-      "size_bytes": 4808,
-      "sha256": "d032a3ebf6a3b7ab495b6356bd9ae3a2bcc1ccb8dd43282d646538f2158473ad"
+      "size_bytes": 4788,
+      "sha256": "03e810b62bff82a0c229607870dbcc1c644a4a8cef75ccc74386ffa8403e935e"
     },
     {
       "path": "scripts/create_artifact_manifest.py",
@@ -1714,8 +1729,8 @@
     },
     {
       "path": "test_results_summary.md",
-      "size_bytes": 30345,
-      "sha256": "b0dd54d36e2fe9443a7e4dbf887af0fa2242187584c9e0c7685f5bb21c608452"
+      "size_bytes": 30459,
+      "sha256": "f5529afbf436ee6c70a52e14f18197f825a9bfc7a3c9779b6639eb68064bb8e2"
     },
     {
       "path": "tests/test_analyze_tradeoff.py",
@@ -1784,8 +1799,8 @@
     },
     {
       "path": "tests/test_reproducibility.py",
-      "size_bytes": 709,
-      "sha256": "64e32a107fa30ef306d7d6529de404ee9237a1289da67ce1801ad010eb0a8c8f"
+      "size_bytes": 1069,
+      "sha256": "f7cd93a1e58bccae492544cb31c4edb80e724f669052a9fec93fbdc682c84861"
     },
     {
       "path": "tests/test_seed_sensitivity.py",

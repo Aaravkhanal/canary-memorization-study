@@ -381,4 +381,5 @@ and the committed manifests record output hashes, source story indices, per-cana
 All 24 planned 14M/48M architecture configs use portable relative paths, the same 0.0005 learning rate, and the
 same 49.152M-token budget. The exact 59,999,181-byte base subset was independently matched to byte range
 0–59,999,180 of revision `f54c09fd...`'s `TinyStoriesV2-GPT4-train.txt`; the acquisition script reproduces its
-SHA-256. The expanded suite passes **83/83**. These are pre-outcome input locks, not trained confirmatory results.
+SHA-256. The exact 4,096-token BPE artifact is now versioned with its provenance note and verified against the
+input lock. The expanded suite passes **84/84**. These are pre-outcome input locks, not trained confirmatory results.

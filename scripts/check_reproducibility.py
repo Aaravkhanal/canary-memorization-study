@@ -117,7 +117,7 @@ def main() -> int:
     )
     parser.add_argument(
         "--tokenizer-dir", type=Path,
-        default=Path(os.environ.get("CANARY_TOKENIZER_DIR", ROOT.parent / "aarav-lm" / "artifacts" / "tokenizer_tinystories_v2")),
+        default=Path(os.environ.get("CANARY_TOKENIZER_DIR", ROOT / "artifacts" / "tokenizer_tinystories_v2")),
     )
     parser.add_argument("--json-out", type=Path)
     args = parser.parse_args()

@@ -5,7 +5,10 @@
     "commit": "0506801c3894c9b0598b02e0ec8c51881576b518"
   },
   "base_corpus": {
-    "description": "Local 73,139-story TinyStories v2 subset used by the exploratory study",
+    "description": "First 59,999,181 bytes of revision f54c09fd23315a6f9c86f9dc80f725de7d8f9c64/TinyStoriesV2-GPT4-train.txt",
+    "upstream_url": "https://huggingface.co/datasets/roneneldan/TinyStories",
+    "upstream_license": "CDLA-Sharing-1.0",
+    "byte_range": "0-59999180",
     "sha256": "a0240e31a0d572d0d727e7a0c2b49a766ee6cf8c059a57ccdaadf2cce3c66cca",
     "size_bytes": 59999181
   },

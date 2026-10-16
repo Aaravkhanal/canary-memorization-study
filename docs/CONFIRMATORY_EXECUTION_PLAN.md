@@ -84,6 +84,6 @@ machine and would still retain the old contamination problem. It is not the plan
 | Canary/schedule lock | 40 canaries, 8 controls, 2 × 1,024 alternatives, and five-seed schedule generated; zero matches in the full base corpus | Preserve content hash and verify the derived train/validation/test artifacts after corpus construction. |
 | Data rights | Exact revision/file/byte range verified; upstream card declares CDLA-Sharing-1.0 | Owner must select project licenses and confirm redistribution terms before an external artifact release. |
 | Ethics/consent | No external-rater determination recorded | Record whether annotation is self-only or externally recruited and obtain any required determination/consent. |
-| Software/artifacts | Portable 24-cell configs and content-addressed corpus acquisition/build exist; fresh-clone reproduction is not yet tested | Package the tokenizer, run an analysis smoke test and reduced training smoke test from a temporary clean checkout. |
+| Software/artifacts | Portable 24-cell configs, packaged tokenizer, and content-addressed corpus acquisition/build exist; fresh-clone reproduction is not yet tested | Run an analysis smoke test and reduced training smoke test from a temporary clean checkout. |
 
 No confirmatory training may start while any pre-outcome gate above is open.

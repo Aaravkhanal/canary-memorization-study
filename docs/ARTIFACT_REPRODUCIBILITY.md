@@ -4,8 +4,8 @@
 reproduction and permanent archival remain outstanding.** The
 repository records analysis code, configurations, result JSON/CSV files, figures, runtime notes, tests, and
 protocols. A Git checkout alone is not sufficient to retrain the models or regenerate every result: the base
-corpus, processed frequency-specific corpus text, tokenizer artifact, and model checkpoints are local/ignored
-artifacts, and the training/evaluation code imports the sibling `aarav-lm` project. Do not describe this as a
+corpus, processed frequency-specific corpus text, and model checkpoints are local/ignored artifacts, and the
+training/evaluation code imports the sibling `aarav-lm` project. The exact tokenizer is now versioned. Do not describe this as a
 one-command, clean-environment reproduction until those dependencies are versioned or deposited with permitted
 checksums and setup instructions.
 
@@ -16,7 +16,8 @@ checksums and setup instructions.
 | Python/shell analysis and evaluation scripts; YAML configs; tests; manuscript/protocol docs | Versioned | Code and intended settings can be reviewed from a clone. The new confirmatory configs are portable; legacy exploratory configs/runners retain machine-specific absolute paths. |
 | Memorization/novelty/full-corpus result JSONs, trade-off CSVs/PNGs, runtime audit | Versioned in this project | The reported descriptive summaries can be inspected. Check JSON provenance fields and matching corpus fingerprint before reuse. |
 | Raw base corpus and confirmatory `corpus.txt`/tokenized data | Git-ignored/local | The exact base subset can be reacquired and the three confirmatory corpora rebuilt deterministically; users must comply with the upstream license. Legacy exploratory processed data remains local. |
-| Tokenizer artifact and all 106 validated best/final checkpoints | Local under sibling/project paths; `models/` is Git-ignored | The experiments are not independently retrainable from this repository alone. The checkpoint audit is evidence of local validation, not public weight availability. |
+| Tokenizer artifact | Versioned under `artifacts/tokenizer_tinystories_v2/` with SHA-256 | A clone has the exact 4,096-token BPE files; external redistribution still awaits the owner's license review. |
+| All 106 exploratory best/final checkpoints | Local under `models/`; Git-ignored | The checkpoint audit is evidence of local validation, not public weight availability. A model/Zenodo release is still needed. |
 | `results/annotations/private_manifest.json` | Git-ignored/private | Do not publish or send to raters. It maps blinded sample IDs back to study conditions. |
 | Legacy condition-revealing `results/labelling/*.txt` | Untracked local files | These are excluded from blinded analysis and should not be staged in the paper-support commit. |
 
@@ -89,8 +90,9 @@ python scripts/make_confirmatory_configs.py
 The three committed corpus manifests record 5,288 insertions each, exact output hashes, source story indices, and
 train/validation/test counts. Every inserted story is proven to hash to the training split under the pinned
 aarav-lm split algorithm. The 24 configs use relative paths, one common 49.152M-token budget and learning rate,
-and identical mixed-frequency corpora across architectures within each seed. Tokenizer packaging and a clean
-checkout smoke run are still required before calling this clean-room verified.
+and identical mixed-frequency corpora across architectures within each seed. The exact tokenizer is now packaged.
+A clean-checkout analysis smoke test and reduced training smoke test are still required before calling this
+clean-room verified.
 
 1. Obtain the exact base corpus, tokenizer, and compatible `aarav-lm` revision. Record their versions and hashes;
    confirm data-use permission before redistribution.
