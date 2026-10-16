@@ -353,7 +353,16 @@ The paired-seed descriptive audit is reproducible with `scripts/analyze_seed_sen
 `results/seed_sensitivity_clean.csv`. The regenerated plots use automated proxies only; publication-resolution
 does not imply color-blind/grayscale review has passed.
 
-**Latest verification:** `/Users/aaravkhanal/miniforge3/bin/python -m pytest tests/` passed **69/69** on
+**Paper-support verification:** `/Users/aaravkhanal/miniforge3/bin/python -m pytest tests/` passed **69/69** on
 2026-10-16, with 14 upstream Matplotlib/Pyparsing deprecation warnings and no failures. Both regenerated
 trade-off CSVs contain 48 matched architecture/frequency rows. The manuscript is still exploratory: human labels
 and the separate contamination-free confirmatory study remain outstanding.
+
+## Confirmatory/reproducibility implementation start (2026-10-16)
+
+The gated two-scale execution plan, exact package lock, content-addressed training-input lock, and separate
+analysis/training reproducibility checker were added. Both checker modes pass on the current machine: Python and
+the eight pinned packages match; the training mode also matches the exact `aarav-lm` commit, base-corpus hash and
+size, and both tokenizer-file hashes. This is a local prerequisite check, not yet a clean-clone reproduction.
+The expanded suite passes **70/70** with 14 upstream Matplotlib/Pyparsing deprecation warnings. No confirmatory
+model was trained because the pre-outcome power, canary/schedule, storage, rights, and ethics gates remain open.

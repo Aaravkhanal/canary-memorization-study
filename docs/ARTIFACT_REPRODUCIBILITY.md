@@ -32,6 +32,18 @@ python scripts/analyze_tradeoff.py --results-dir results --baseline-dir results 
   --out-csv results/tradeoff_clean.csv --out-plot results/tradeoff_clean.png
 ```
 
+The pinned local environment and exact training inputs can be checked separately:
+
+```bash
+python scripts/check_reproducibility.py --mode analysis
+python scripts/check_reproducibility.py --mode training
+```
+
+Analysis mode checks the package versions in `requirements-research.lock`. Training mode additionally checks the
+pinned `aarav-lm` Git revision and the byte hashes of the base-corpus subset and tokenizer files recorded in
+`reproducibility/inputs.lock.json`. A local pass proves that this machine has the expected inputs; a fresh-clone
+pass is still required before claiming clean-room reproduction.
+
 These commands reproduce automated descriptive tables/figures from the committed result JSONs; they do not train
 models and do not create human novelty scores. Do not pass a labelled CSV until human annotations have been
 returned, validated, locked, and adjudicated as described in `ANNOTATION_PROTOCOL.md`.

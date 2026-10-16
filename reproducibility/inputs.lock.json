@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "aarav_lm": {
+    "repository": "https://github.com/Aaravkhanal/MY-LLM.git",
+    "commit": "0506801c3894c9b0598b02e0ec8c51881576b518"
+  },
+  "base_corpus": {
+    "description": "Local 73,139-story TinyStories v2 subset used by the exploratory study",
+    "sha256": "a0240e31a0d572d0d727e7a0c2b49a766ee6cf8c059a57ccdaadf2cce3c66cca",
+    "size_bytes": 59999181
+  },
+  "tokenizer_files": {
+    "meta.json": "9c32e209181a28625d91606066cffeff178bad91c9e4ac442cce61d95c92424f",
+    "tokenizer.json": "a5b02e834f0a7d9e4cd5984933ecedf305903be712968afa79cf82118c66d74b"
+  }
+}

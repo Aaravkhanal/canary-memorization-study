@@ -140,7 +140,7 @@ these are plots and tables only — no prose conclusion is drawn in the outputs 
 
 ## Tests
 
-69 tests (`pytest tests/`) cover corpus construction, exposure/extraction, novelty metrics, full-corpus overlap,
+70 tests (`pytest tests/`) cover corpus construction, exposure/extraction, novelty metrics, full-corpus overlap,
 blinded annotation/scoring, trade-off analysis, artifact-manifest integrity, seed sensitivity, and 48M
 config/parameter validation. The complete suite passed again on 2026-10-16; the IEEE LaTeX manuscript also
 compiled successfully in the desktop editor.
@@ -150,6 +150,8 @@ compiled successfully in the desktop editor.
 - `docs/PUBLICATION_READINESS.md`: candid submission gate, venue strategy, IEEE policy requirements, and safe
   résumé wording.
 - `docs/CONFIRMATORY_STUDY_PROTOCOL.md`: contamination-free, mixed-frequency, multi-seed confirmatory design.
+- `docs/CONFIRMATORY_EXECUTION_PLAN.md`: gated two-scale execution plan, measured duration, storage needs, and
+  current blockers.
 - `docs/RESULTS_CLAIM_AUDIT.md`: evidence map and allowed/prohibited result wording.
 - `docs/ARTIFACT_REPRODUCIBILITY.md`: exact reproduction commands and data/weights availability limits.
 - `scripts/create_artifact_manifest.py`: machine-readable SHA-256 inventory for versioned artifacts.
