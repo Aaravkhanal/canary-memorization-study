@@ -142,7 +142,8 @@ these are plots and tables only — no prose conclusion is drawn in the outputs 
 
 ## Tests
 
-85 tests (`pytest tests/`) cover corpus construction, confirmatory split hygiene/configs/data acquisition,
+89 tests (`pytest tests/`) cover corpus construction, confirmatory split hygiene/configs/data acquisition and
+frozen inferential models,
 exposure/extraction, novelty metrics, full-corpus overlap,
 blinded annotation/scoring, trade-off analysis, artifact-manifest integrity, seed sensitivity, and 48M
 config/parameter validation. The complete suite passed again on 2026-10-16; the IEEE LaTeX manuscript also
@@ -160,6 +161,7 @@ compiled successfully in the desktop editor.
 - `docs/DATA_RIGHTS_AND_RELEASE.md`: revision-pinned TinyStories provenance, license record, and release decisions.
 - `artifacts/tokenizer_tinystories_v2/`: exact 4,096-token BPE artifact and provenance note for clean clones.
 - `results/clean_room_smoke.json`: passed fresh-clone engineering smoke record (CPU-only, not a study outcome).
+- `configs/confirmatory/analysis_plan.json`: frozen exposure/novelty formulas, contrasts, correction, and fallback.
 - `scripts/create_artifact_manifest.py`: machine-readable SHA-256 inventory for versioned artifacts.
 - `docs/SCALE_48M_PROTOCOL.md`: matched-token 48M scale-transfer experiment and limitations.
 - `docs/ANNOTATION_PROTOCOL.md`: blinded two-rater labelling and adjudication procedure.

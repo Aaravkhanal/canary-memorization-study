@@ -19,8 +19,8 @@
     },
     {
       "path": "README.md",
-      "size_bytes": 12828,
-      "sha256": "8116b82e7ee0ea937032ee44818eb9f34c43ba2eb6e96bbb56f226f70dd66eb7"
+      "size_bytes": 12974,
+      "sha256": "42c3ff86ec673dcc87ac00287a408ef34deacedb7145a7cc80ce5490c4fa1c9b"
     },
     {
       "path": "artifacts/tokenizer_tinystories_v2/README.md",
@@ -46,6 +46,11 @@
       "path": "configs/canary_assignment.json",
       "size_bytes": 43563,
       "sha256": "a9c4ef2f67f604e97a9f2c700970389f222c14df3ad67dd276e976cbf053e136"
+    },
+    {
+      "path": "configs/confirmatory/analysis_plan.json",
+      "size_bytes": 1916,
+      "sha256": "ba17b6c9a99c2016d4290fefe4718cffa1a3d3b6a89967753732cdd2b517c43d"
     },
     {
       "path": "configs/confirmatory/canary_bank.json",
@@ -499,13 +504,13 @@
     },
     {
       "path": "docs/CONFIRMATORY_EXECUTION_PLAN.md",
-      "size_bytes": 6388,
-      "sha256": "d0bd3b98b642d39249b244f0fdffc2afe0c2dae3dad5bd26004c1e22dfe87e76"
+      "size_bytes": 6483,
+      "sha256": "bbfaf8675a4c5088143fc65d509c6bcaa1dd14cad05abf9e29d133a6c53b1fda"
     },
     {
       "path": "docs/CONFIRMATORY_STUDY_PROTOCOL.md",
-      "size_bytes": 10813,
-      "sha256": "e513696afe2c344b0aa55ba66d11a2f778e76decd4244926ee1d06f2b5258764"
+      "size_bytes": 11991,
+      "sha256": "3b3442dacc36af4467df717cdc8f9bf99fd1b8785e4e99bdadcc2b526ff141b6"
     },
     {
       "path": "docs/DATA_RIGHTS_AND_RELEASE.md",
@@ -1613,6 +1618,11 @@
       "sha256": "44f35496e0f896130bc61244e3f24941b3606d139a4f15a96608259cfe29fcfa"
     },
     {
+      "path": "scripts/analyze_confirmatory.py",
+      "size_bytes": 7118,
+      "sha256": "8d79829287ee1b74bbce7e4ba73045d1969f13e38d790fd71aa0421740a4b2ba"
+    },
+    {
       "path": "scripts/analyze_seed_sensitivity.py",
       "size_bytes": 4731,
       "sha256": "850ffaa91ced70bba82e318c685d757a132b1e6ebcd8c8228b9dc452fc949aec"
@@ -1739,8 +1749,8 @@
     },
     {
       "path": "test_results_summary.md",
-      "size_bytes": 31119,
-      "sha256": "5a7931d467a9382bf436e4e2a7763dd34f274129a18acc76313ee3c5f67ec48d"
+      "size_bytes": 31668,
+      "sha256": "6dd7611234970193bb56588e162d163e4e21722e1ca149476dbd0b19dd18fe3d"
     },
     {
       "path": "tests/test_analyze_tradeoff.py",
@@ -1761,6 +1771,11 @@
       "path": "tests/test_clean_room_report.py",
       "size_bytes": 639,
       "sha256": "d3c02f48f93bbb2f5af659a3e90da1dd32d0cfc6f500d022f902fdf5d92e3db6"
+    },
+    {
+      "path": "tests/test_confirmatory_analysis.py",
+      "size_bytes": 2314,
+      "sha256": "ceba3c9cd226bb6fe61c40a3ad684b24a232d97abdb2dd9ede070b95c0ab82d9"
     },
     {
       "path": "tests/test_confirmatory_bank.py",

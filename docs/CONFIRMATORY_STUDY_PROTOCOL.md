@@ -143,3 +143,16 @@ pass both gates; therefore the planned design is 3 seeds × 4 architectures × 2
 and all assumptions are recorded in `results/confirmatory_power.json`; deviations require a dated pre-training
 amendment. Passing a simulation under assumed variance is not an empirical result and does not remove the remaining
 storage, corpus/config, rights, ethics, or clean-room gates.
+
+## Amendment 2 — inferential model lock (2026-10-17, before outcomes)
+
+The executable model specification is frozen in `configs/confirmatory/analysis_plan.json` and
+`scripts/analyze_confirmatory.py`. The primary exposure model is OLS with canary-clustered sandwich covariance,
+canary and seed fixed effects, sum-coded architecture/scale effects, and log10 frequency interactions. The primary
+coefficient is therefore the balanced grand-mean frequency slope. The primary human novelty model is a binomial
+GEE for adjudicated N versus V/T with canary clusters, exchangeable working correlation, seed/setting fixed
+effects, and the same sum-coded interactions; its predeclared fallback is independence-working-correlation GEE.
+Blank, automated, or non-V/T/N labels are fatal. Holm correction is applied to the three architecture-by-frequency
+interaction coefficients within each endpoint. Exposure ceiling values remain in the primary model, with a
+non-ceiling sensitivity analysis when the indicator is available. All estimates, intervals, raw/adjusted p-values,
+cluster counts, failures, and fallbacks must be reported; outcome-driven exclusions or seed additions are barred.

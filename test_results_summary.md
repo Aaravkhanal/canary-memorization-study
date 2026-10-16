@@ -390,3 +390,9 @@ base-only tokenization and dataset validation, and one CPU-only 14M training ste
 made outside the cloned study root and exposed a relative-path validation failure; the documented rerun from the
 study root passed, and the reusable script now uses absolute temporary output paths. No MPS memory or
 confirmatory-inserted training data was used, so this is not a scientific result. The suite now passes **85/85**.
+
+The confirmatory statistical models were then frozen before outcomes in a machine-readable plan and executable
+analysis script. Exposure uses a balanced grand-mean log10-frequency slope with canary-clustered covariance and
+seed/canary fixed effects; human novelty uses binomial GEE on complete adjudicated N versus V/T labels. Sum-coded
+architecture/scale interactions, Holm correction, ceiling sensitivity, and the sole GEE fallback are explicit.
+Automated, blank, or invalid labels are rejected. Four new tests bring the full suite to **89/89**.

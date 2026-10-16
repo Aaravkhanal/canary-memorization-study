@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "status": "frozen before confirmatory outcomes",
+  "date_frozen": "2026-10-17",
+  "primary_exposure": {
+    "outcome": "exposure_bits",
+    "formula": "exposure_bits ~ log10_frequency * C(architecture, Sum) + log10_frequency * C(scale, Sum) + C(seed) + C(canary_id)",
+    "estimator": "ordinary least squares with canary-clustered sandwich covariance",
+    "primary_contrast": "grand-mean log10_frequency coefficient under sum coding",
+    "architecture_family": "three log10_frequency-by-architecture interaction coefficients",
+    "scale_contrast": "log10_frequency-by-scale interaction",
+    "ceiling_handling": "all finite values in primary model; at_ceiling=false sensitivity when column is available"
+  },
+  "primary_novelty": {
+    "outcome": "human adjudicated N versus V/T",
+    "formula": "is_novel ~ log10_frequency * C(architecture, Sum) + log10_frequency * C(scale, Sum) + C(seed) + C(setting)",
+    "estimator": "binomial GEE, canary clusters, exchangeable working correlation",
+    "primary_contrast": "grand-mean log10_frequency coefficient under sum coding",
+    "fallback": "binomial GEE with independence working correlation; if that also fails, analysis stops for a dated amendment",
+    "labels": "only complete adjudicated human V/T/N labels; blanks or any other value are fatal"
+  },
+  "multiplicity": {
+    "method": "Holm",
+    "families": "the three architecture-by-frequency interactions are adjusted within each primary endpoint",
+    "alpha": 0.05
+  },
+  "reporting": {
+    "interval": 0.95,
+    "required": [
+      "estimate",
+      "standard_error",
+      "confidence_interval",
+      "raw_p_value",
+      "Holm_adjusted_p_value_for_architecture_interactions",
+      "row_and_cluster_counts",
+      "all_fallbacks_and_failures"
+    ],
+    "interpretation": "effect estimates and uncertainty are primary; no outcome-driven exclusions or seed additions"
+  }
+}
