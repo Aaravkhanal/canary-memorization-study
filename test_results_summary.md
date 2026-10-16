@@ -396,3 +396,14 @@ analysis script. Exposure uses a balanced grand-mean log10-frequency slope with 
 seed/canary fixed effects; human novelty uses binomial GEE on complete adjudicated N versus V/T labels. Sum-coded
 architecture/scale interactions, Holm correction, ceiling sensitivity, and the sole GEE fallback are explicit.
 Automated, blank, or invalid labels are rejected. Four new tests bring the full suite to **89/89**.
+
+## Confirmatory storage and recovery gate (2026-10-17)
+
+A frozen storage/recovery plan now requires 25 GiB free on a write/read/fsync-tested artifact filesystem. A
+machine-readable preflight validates the three corpus hashes, 24 config paths, committed protocol inputs, manual
+gate records, ethics state, and capacity. A portable sequential runner owns one global lock across both scales,
+refuses another Python trainer, rechecks space per cell, and permits resume only after checkpoint deserialization.
+It preserves best/final artifacts and does not delete rolling checkpoints until required evaluations verify. The
+preflight currently fails as designed: about 8.3 GiB is free, ethics/consent mode is unresolved, and the post-cell
+confirmatory evaluator is not yet frozen. No MPS or confirmatory training was started. Five gate tests brought the
+full suite to **94/94** in 11.78 seconds, with 14 upstream Matplotlib/Pyparsing deprecation warnings and no failures.

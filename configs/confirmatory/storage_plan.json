@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "recorded_date": "2026-10-17",
+  "minimum_free_bytes_at_queue_start": 26843545600,
+  "minimum_free_gib_at_queue_start": 25,
+  "artifact_root_environment_variable": "CONFIRMATORY_ARTIFACT_ROOT",
+  "default_artifact_root": "models/confirmatory",
+  "estimated_retained_bytes": {
+    "14m_best_and_final_12_cells": 1358954496,
+    "48m_best_and_final_12_cells": 4647288832,
+    "logs_results_and_margin": 2147483648,
+    "total": 8153726976
+  },
+  "retention": {
+    "always_keep": [
+      "config.yaml",
+      "env.json",
+      "train.log",
+      "metrics.jsonl",
+      "summary.json",
+      "checkpoints/best.pt",
+      "checkpoints/final.pt",
+      "cell_verification.json"
+    ],
+    "rolling_checkpoint_policy": "Delete step_*.pt only after summary validation, best/final deserialization, SHA-256 capture, and completed cell verification are all successful.",
+    "historical_artifact_policy": "Never delete or overwrite exploratory checkpoints to make room for this study without explicit owner approval."
+  },
+  "recovery": {
+    "resume_policy": "Resume only the newest step_*.pt belonging to the same experiment after successful checkpoint deserialization.",
+    "failure_policy": "Retain the original log, failure record, and invalid checkpoint path; never silently replace a failed attempt.",
+    "external_storage_validation": "The selected artifact root must exist on a writable filesystem, pass an atomic write-read-fsync-rename probe, and have at least the configured free-space threshold."
+  }
+}

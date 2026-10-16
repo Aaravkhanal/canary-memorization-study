@@ -1,0 +1,89 @@
+{
+  "schema_version": 1,
+  "artifact_root": "/Users/aaravkhanal/Desktop/myllm/canary-memorization-study/models/confirmatory",
+  "checks": {
+    "locked_inputs_exist": {
+      "items": {
+        "docs/CONFIRMATORY_STUDY_PROTOCOL.md": true,
+        "docs/CONFIRMATORY_EXECUTION_PLAN.md": true,
+        "docs/STORAGE_AND_RECOVERY_PLAN.md": true,
+        "configs/confirmatory/canary_bank.json": true,
+        "configs/confirmatory/analysis_plan.json": true,
+        "configs/confirmatory/ethics_record.json": true,
+        "configs/confirmatory/start_gate.json": true,
+        "configs/confirmatory/storage_plan.json": true,
+        "results/confirmatory_power.json": true,
+        "reproducibility/inputs.lock.json": true,
+        "scripts/check_confirmatory_start_gate.py": true,
+        "scripts/run_confirmatory_queue.py": true
+      },
+      "ok": true
+    },
+    "corpora": {
+      "items": [
+        {
+          "seed": 20261016,
+          "expected_sha256": "6722a5a3f6a8ec901f7ec82a8c60b8a2a1eb80cf25007ab93369394261553e58",
+          "actual_sha256": "6722a5a3f6a8ec901f7ec82a8c60b8a2a1eb80cf25007ab93369394261553e58",
+          "ok": true
+        },
+        {
+          "seed": 20261017,
+          "expected_sha256": "cffe54d0e488f8da416d01161dfff363674a23e06f8a343de24d4023c58b45ac",
+          "actual_sha256": "cffe54d0e488f8da416d01161dfff363674a23e06f8a343de24d4023c58b45ac",
+          "ok": true
+        },
+        {
+          "seed": 20261018,
+          "expected_sha256": "1e5a94fe44e103912d144f1e8f1e3839000c995c7c43d91a911921dda5cc8bad",
+          "actual_sha256": "1e5a94fe44e103912d144f1e8f1e3839000c995c7c43d91a911921dda5cc8bad",
+          "ok": true
+        }
+      ],
+      "ok": true
+    },
+    "training_configs": {
+      "expected_count": 24,
+      "actual_count": 24,
+      "missing": [],
+      "ok": true
+    },
+    "manual_gates": {
+      "items": {
+        "no_confirmatory_outcomes_inspected": true,
+        "data_rights_provenance_recorded": true,
+        "ethics_and_consent_determination_recorded": false,
+        "project_release_license_selected": false,
+        "execution_and_evaluation_workflow_frozen": false
+      },
+      "required_for_training": [
+        "no_confirmatory_outcomes_inspected",
+        "data_rights_provenance_recorded",
+        "ethics_and_consent_determination_recorded",
+        "execution_and_evaluation_workflow_frozen"
+      ],
+      "ok": false
+    },
+    "ethics_record": {
+      "annotation_mode": "unresolved",
+      "training_start_clearance": false,
+      "ok": false
+    },
+    "storage": {
+      "path": "/Users/aaravkhanal/Desktop/myllm/canary-memorization-study/models/confirmatory",
+      "write_read_fsync_rename_ok": true,
+      "free_bytes": 8914083840,
+      "minimum_free_bytes": 26843545600,
+      "capacity_ok": false,
+      "error": null,
+      "ok": false
+    },
+    "preoutcome_lock_committed": {
+      "tracked": true,
+      "changed_since_head": false,
+      "ok": true
+    }
+  },
+  "start_allowed": false,
+  "release_allowed": false
+}

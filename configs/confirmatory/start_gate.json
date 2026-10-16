@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "recorded_date": "2026-10-17",
+  "minimum_free_gib": 25,
+  "manual_gates": {
+    "no_confirmatory_outcomes_inspected": true,
+    "data_rights_provenance_recorded": true,
+    "ethics_and_consent_determination_recorded": false,
+    "project_release_license_selected": false,
+    "execution_and_evaluation_workflow_frozen": false
+  },
+  "training_required_manual_gates": [
+    "no_confirmatory_outcomes_inspected",
+    "data_rights_provenance_recorded",
+    "ethics_and_consent_determination_recorded",
+    "execution_and_evaluation_workflow_frozen"
+  ],
+  "release_only_manual_gates": [
+    "project_release_license_selected"
+  ],
+  "notes": "False values are deliberate blockers. Update them only through a dated, committed pre-outcome amendment supported by the corresponding record; never flip a gate merely to make the checker pass."
+}

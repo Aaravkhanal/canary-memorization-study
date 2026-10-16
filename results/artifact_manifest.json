@@ -19,8 +19,8 @@
     },
     {
       "path": "README.md",
-      "size_bytes": 12974,
-      "sha256": "42c3ff86ec673dcc87ac00287a408ef34deacedb7145a7cc80ce5490c4fa1c9b"
+      "size_bytes": 13435,
+      "sha256": "e25f8c6ce1ddb4642372a976311b879ff160e29831c1c4b40df41120cbe3613d"
     },
     {
       "path": "artifacts/tokenizer_tinystories_v2/README.md",
@@ -56,6 +56,21 @@
       "path": "configs/confirmatory/canary_bank.json",
       "size_bytes": 88389,
       "sha256": "c851525489bc770fce4a4eb512d3f1dafac84c393c81dcbb26fd08b41d666954"
+    },
+    {
+      "path": "configs/confirmatory/ethics_record.json",
+      "size_bytes": 634,
+      "sha256": "78f7ea33b692799aec5c725387e1238583d4d349770fb18ab11988b6b78d75cb"
+    },
+    {
+      "path": "configs/confirmatory/start_gate.json",
+      "size_bytes": 865,
+      "sha256": "1b94b3f2c8794d32619c5649aa2d8cb270911fa2a7ff3ac6f4b12f61020e1cd6"
+    },
+    {
+      "path": "configs/confirmatory/storage_plan.json",
+      "size_bytes": 1535,
+      "sha256": "89ed91d3f3c894452670d0eb1431bbfa0f838c1879a94d07d508abb688d25f42"
     },
     {
       "path": "configs/confirmatory/training/14m/baseline/seed_20261016.yaml",
@@ -499,18 +514,18 @@
     },
     {
       "path": "docs/ARTIFACT_REPRODUCIBILITY.md",
-      "size_bytes": 8857,
-      "sha256": "c4e58323bf26eb84acd6fd2dfdd97cbae8497cf865cb27703b0e801c804ab841"
+      "size_bytes": 9626,
+      "sha256": "e62ee65a193f67fbbfeb3680714db1c02c3090897e0eeacc4777004761f04dfc"
     },
     {
       "path": "docs/CONFIRMATORY_EXECUTION_PLAN.md",
-      "size_bytes": 6483,
-      "sha256": "bbfaf8675a4c5088143fc65d509c6bcaa1dd14cad05abf9e29d133a6c53b1fda"
+      "size_bytes": 7177,
+      "sha256": "914d778448ce2817c6d0755330a3d27138072610e38593953989671430529632"
     },
     {
       "path": "docs/CONFIRMATORY_STUDY_PROTOCOL.md",
-      "size_bytes": 11991,
-      "sha256": "3b3442dacc36af4467df717cdc8f9bf99fd1b8785e4e99bdadcc2b526ff141b6"
+      "size_bytes": 12959,
+      "sha256": "518fc1db2cb5df18250429199d307e1881e565f073717bcda2b142e5ddd600cf"
     },
     {
       "path": "docs/DATA_RIGHTS_AND_RELEASE.md",
@@ -546,6 +561,11 @@
       "path": "docs/SCALE_48M_PROTOCOL.md",
       "size_bytes": 13714,
       "sha256": "862044f70515d1e9696071c51a94b8bf16f205d074cf02561ba451391af93fe5"
+    },
+    {
+      "path": "docs/STORAGE_AND_RECOVERY_PLAN.md",
+      "size_bytes": 2988,
+      "sha256": "28aa408fd906eb1f4db3a9f5b2efdea3c87cf08ad7a7dee6361ca34ce8b47ee1"
     },
     {
       "path": "experiment_timeline.md",
@@ -596,6 +616,11 @@
       "path": "results/confirmatory_power.json",
       "size_bytes": 1769,
       "sha256": "12513bdd0f4f7d05ba08627a7db36e21b79569ce098d84a2c154f467d257da77"
+    },
+    {
+      "path": "results/confirmatory_start_gate.json",
+      "size_bytes": 3023,
+      "sha256": "95aedfcc062cb0a08bb03cc7ba3fd0c025472fc6e1e538370d1094523a602c57"
     },
     {
       "path": "results/exposure_novelty_stats.md",
@@ -1643,6 +1668,11 @@
       "sha256": "b72af0111db705f512d275f1987e9eddf8aa690ce5c1b46c8810505e9570d2f5"
     },
     {
+      "path": "scripts/check_confirmatory_start_gate.py",
+      "size_bytes": 7211,
+      "sha256": "ea0b655431f66109f3bca7776657af131421dcc6973b3f3cabed34882ac8e124"
+    },
+    {
       "path": "scripts/check_reproducibility.py",
       "size_bytes": 4788,
       "sha256": "03e810b62bff82a0c229607870dbcc1c644a4a8cef75ccc74386ffa8403e935e"
@@ -1723,6 +1753,11 @@
       "sha256": "3f71f6c44afa3df102095cad77db0cc09b6a793ad3d8c9a1148f13839ea6516c"
     },
     {
+      "path": "scripts/run_confirmatory_queue.py",
+      "size_bytes": 7065,
+      "sha256": "73d27f90a2e81ec42cd62c543106a62283e90db28f4a9abf2e742fb503308f4f"
+    },
+    {
       "path": "scripts/run_grid.sh",
       "size_bytes": 3190,
       "sha256": "6ee315524e378030380d4d47beaa68d19d7b3595ce15cad3d9173b9e0d4f9dc5"
@@ -1749,8 +1784,8 @@
     },
     {
       "path": "test_results_summary.md",
-      "size_bytes": 31668,
-      "sha256": "6dd7611234970193bb56588e162d163e4e21722e1ca149476dbd0b19dd18fe3d"
+      "size_bytes": 32634,
+      "sha256": "ef2019ae84075f66cb85c51202650b8b2cccd0e153d49429d8cc728cdcc0d8b2"
     },
     {
       "path": "tests/test_analyze_tradeoff.py",
@@ -1796,6 +1831,11 @@
       "path": "tests/test_confirmatory_power.py",
       "size_bytes": 735,
       "sha256": "df458439daa4a5e8366fa9d5c072296c2bb859bf57f4ec6fa1ad8c354c86ee6f"
+    },
+    {
+      "path": "tests/test_confirmatory_start_gate.py",
+      "size_bytes": 1472,
+      "sha256": "b1bac94acc7bcfa965df8679d552200fbbd7548a1abfc2c3a5194d401fcc4292"
     },
     {
       "path": "tests/test_data_acquisition.py",

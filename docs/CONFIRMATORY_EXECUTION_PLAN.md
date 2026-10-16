@@ -1,6 +1,7 @@
 # Confirmatory replication and clean-room execution plan
 
-**Status (2026-10-17): bank, power, corpus, config, and inferential-model locks implemented; training remains gated and has not started.** This plan turns
+**Status (2026-10-17): bank, power, corpus, config, inferential-model, storage, and recovery locks implemented;
+training remains gated and has not started.** This plan turns
 `CONFIRMATORY_STUDY_PROTOCOL.md` into an executable two-scale study without treating the existing exploratory
 outcomes as confirmatory evidence.
 
@@ -84,6 +85,11 @@ machine and would still retain the old contamination problem. It is not the plan
 | Canary/schedule lock | 40 canaries, 8 controls, 2 × 1,024 alternatives, and five-seed schedule generated; zero matches in the full base corpus | Preserve content hash and verify the derived train/validation/test artifacts after corpus construction. |
 | Data rights | Exact revision/file/byte range verified; upstream card declares CDLA-Sharing-1.0 | Owner must select project licenses and confirm redistribution terms before an external artifact release. |
 | Ethics/consent | No external-rater determination recorded | Record whether annotation is self-only or externally recruited and obtain any required determination/consent. |
+| Execution safety | Global sequential runner, resumability checks, 25-GiB capacity probe, and best/final verification implemented; post-cell confirmatory evaluator is not yet frozen | Finish and test the outcome evaluator, then record the dated pre-outcome workflow lock. |
 | Software/artifacts | Fresh-clone acquisition, deterministic build, tokenization, validation, and one-step CPU smoke pass | Full-cell reproduction, checkpoint release, owner-selected license, and DOI archive remain after training. |
 
-No confirmatory training may start while any pre-outcome gate above is open.
+No confirmatory training may start while any pre-outcome gate above is open. `scripts/check_confirmatory_start_gate.py`
+evaluates the machine-readable gate, corpus hashes, config count, committed lock, writable artifact filesystem, and
+free space without inspecting outcomes. `scripts/run_confirmatory_queue.py` calls that checker and exits before
+training unless every training gate passes. The current deliberately failing snapshot is
+`results/confirmatory_start_gate.json`.

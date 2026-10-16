@@ -45,6 +45,19 @@ Analysis mode checks the package versions in `requirements-research.lock`. Train
 pinned `aarav-lm` Git revision and the byte hashes of the base-corpus subset and tokenizer files recorded in
 `reproducibility/inputs.lock.json`. The fresh-clone smoke record is in `results/clean_room_smoke.json`.
 
+Before any confirmatory training, run the stricter non-outcome gate:
+
+```bash
+python scripts/check_confirmatory_start_gate.py --json-out results/confirmatory_start_gate.json
+python scripts/run_confirmatory_queue.py --check-only
+```
+
+Both commands intentionally return nonzero while a required gate is open. The checker validates the 24 configs,
+all three corpus hashes, committed pre-outcome locks, ethics record, and the selected artifact filesystem. The
+queue uses `AARAV_LM_DIR` and optional `CONFIRMATORY_ARTIFACT_ROOT`, acquires one global lock across scales, refuses
+an existing Python training process, and checks the frozen 25-GiB threshold before every cell. It currently cannot
+start because storage, ethics-mode, and outcome-evaluator gates are unresolved.
+
 These commands reproduce automated descriptive tables/figures from the committed result JSONs; they do not train
 models and do not create human novelty scores. Do not pass a labelled CSV until human annotations have been
 returned, validated, locked, and adjudicated as described in `ANNOTATION_PROTOCOL.md`.

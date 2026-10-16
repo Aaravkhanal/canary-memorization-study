@@ -156,3 +156,15 @@ Blank, automated, or non-V/T/N labels are fatal. Holm correction is applied to t
 interaction coefficients within each endpoint. Exposure ceiling values remain in the primary model, with a
 non-ceiling sensitivity analysis when the indicator is available. All estimates, intervals, raw/adjusted p-values,
 cluster counts, failures, and fallbacks must be reported; outcome-driven exclusions or seed additions are barred.
+
+## Amendment 3 — storage and recovery lock (2026-10-17, before outcomes)
+
+The queue requires 25 GiB free on its selected artifact filesystem at launch and before every cell. The default
+path is `models/confirmatory`; `CONFIRMATORY_ARTIFACT_ROOT` may point to a validated external filesystem. The
+machine-readable plan and full retention rules are in `configs/confirmatory/storage_plan.json` and
+`docs/STORAGE_AND_RECOVERY_PLAN.md`. One global queue lock prevents overlapping 14M/48M or duplicate jobs. An
+interrupted cell may resume only from a successfully deserialized rolling checkpoint in the same run. Best/final
+checkpoints, logs, summaries, configs, metrics, hashes, and failure records are retained. Rolling checkpoints may
+be removed only after training and all required evaluations verify. This amendment does not open the gate: local
+space is below threshold, the ethics mode remains unresolved, and the confirmatory outcome evaluator is not yet
+frozen.
