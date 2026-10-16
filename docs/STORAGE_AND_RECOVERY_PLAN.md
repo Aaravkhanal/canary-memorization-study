@@ -17,7 +17,9 @@ metrics, evaluation outputs, filesystem overhead, and interruption recovery. It 
 promise that a nearly full disk is safe indefinitely; the runner checks free space before every cell as well.
 
 At the time this plan was written, the internal volume had only about 8.3 GiB free. That fails the gate. Existing
-checkpoints will not be deleted without explicit owner approval.
+checkpoints will not be deleted without explicit owner approval. `docs/DISK_CAPACITY_AUDIT.md` and
+`results/storage_capacity_audit.json` provide a read-only size inventory and possible owner-directed paths; they
+do not authorize cleanup.
 
 ## Retention and verification
 

@@ -1,0 +1,57 @@
+{
+  "schema_version": 1,
+  "recorded_utc": "2026-10-16T23:23:04.994844+00:00",
+  "read_only_audit": true,
+  "artifact_root": "/Users/aaravkhanal/Desktop/myllm/canary-memorization-study/models/confirmatory",
+  "filesystem": {
+    "total_bytes": 245107195904,
+    "used_bytes": 236185546752,
+    "free_bytes": 8921649152
+  },
+  "minimum_free_bytes": 26843545600,
+  "capacity_ok": false,
+  "paths": [
+    {
+      "path": "/Users/aaravkhanal/Desktop/myllm/canary-memorization-study/models",
+      "exists": true,
+      "allocated_bytes": 12521525248
+    },
+    {
+      "path": "/Users/aaravkhanal/Desktop/myllm/canary-memorization-study/results",
+      "exists": true,
+      "allocated_bytes": 1297682432
+    },
+    {
+      "path": "/Users/aaravkhanal/Desktop/myllm/canary-memorization-study/data",
+      "exists": true,
+      "allocated_bytes": 719675392
+    },
+    {
+      "path": "/Users/aaravkhanal/Desktop/myllm/aarav-lm/experiments",
+      "exists": true,
+      "allocated_bytes": 13208203264
+    },
+    {
+      "path": "/Users/aaravkhanal/Desktop/myllm/aarav-lm/data",
+      "exists": true,
+      "allocated_bytes": 6634090496
+    },
+    {
+      "path": "/Users/aaravkhanal/.cache",
+      "exists": true,
+      "allocated_bytes": 4008321024
+    },
+    {
+      "path": "/Users/aaravkhanal/Library/Caches",
+      "exists": true,
+      "allocated_bytes": 10850721792
+    },
+    {
+      "path": "/Users/aaravkhanal/Downloads",
+      "exists": true,
+      "allocated_bytes": 1781895168
+    }
+  ],
+  "action_taken": "none",
+  "warning": "This audit never deletes or moves files. Cache cleanup or artifact relocation requires owner action; preserve exploratory checkpoints."
+}

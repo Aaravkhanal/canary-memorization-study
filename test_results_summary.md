@@ -423,3 +423,8 @@ differently shuffled 7,680-row rater sheets with blank annotation fields plus a 
 It does not create automated labels. Eleven new evaluation, overlap, annotation, and cleanup tests brought the
 full suite to **105/105** in 11.16 seconds, with 14 upstream Matplotlib/Pyparsing deprecation warnings and no
 failures. No MPS job or confirmatory scientific evaluation was run.
+
+A read-only disk audit then recorded the exact free-space failure and allocated sizes of the largest relevant
+project, sibling-project, cache, and download paths without deleting or moving anything. Two tests verify that the
+auditor ignores symlinks, records no action, and fails oversized capacity thresholds. The suite now contains
+**107/107 tests**, which passed in 13.29 seconds with 14 upstream Matplotlib/Pyparsing warnings and no failures.

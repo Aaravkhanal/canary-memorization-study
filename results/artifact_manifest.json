@@ -19,8 +19,8 @@
     },
     {
       "path": "README.md",
-      "size_bytes": 13859,
-      "sha256": "1a4ed56fd20effba26063a2e58e1b935a354221ca7471556f428b9b58bcd70ea"
+      "size_bytes": 14012,
+      "sha256": "f88e800752657587b9f700058975ab83f74774126bd1d53c06ce2b8df00bd6f9"
     },
     {
       "path": "artifacts/tokenizer_tinystories_v2/README.md",
@@ -538,6 +538,11 @@
       "sha256": "87e499cd5e906ad8135409b242990415f079ce2d5a338be59537dc500d12f2cc"
     },
     {
+      "path": "docs/DISK_CAPACITY_AUDIT.md",
+      "size_bytes": 1576,
+      "sha256": "32d2d6c7611151828be27c07d6e07279321b0c7e7c51aa85cfcdf0c9d3d9d80a"
+    },
+    {
       "path": "docs/DRAFT_PAPER.md",
       "size_bytes": 45691,
       "sha256": "eeb723be3e8e284d8cea5c552d554b889d1d19a1fb7f94d7422d5414103143f3"
@@ -569,8 +574,8 @@
     },
     {
       "path": "docs/STORAGE_AND_RECOVERY_PLAN.md",
-      "size_bytes": 2988,
-      "sha256": "28aa408fd906eb1f4db3a9f5b2efdea3c87cf08ad7a7dee6361ca34ce8b47ee1"
+      "size_bytes": 3161,
+      "sha256": "1d62bbf57c9b082e588ab99653d09459e9bf13d605dbdab44e904c8515935175"
     },
     {
       "path": "experiment_timeline.md",
@@ -624,8 +629,8 @@
     },
     {
       "path": "results/confirmatory_start_gate.json",
-      "size_bytes": 3240,
-      "sha256": "0c1f13ffcbc9b5effff7f6d05cf7b8740b3feaa19e4aba6504e8f38751333ae7"
+      "size_bytes": 3336,
+      "sha256": "ceedd745c65f9fc5ce1770fc416c0da38b11416efa7078a7c21792276b5d0e65"
     },
     {
       "path": "results/exposure_novelty_stats.md",
@@ -1613,6 +1618,11 @@
       "sha256": "590c4064e4f0fc2eb9bb126bc0521128598989cf57b4425300e7caba5ae4560c"
     },
     {
+      "path": "results/storage_capacity_audit.json",
+      "size_bytes": 1673,
+      "sha256": "1eff8521291881ead24f192f0e69d42a8ba42de4ec9c7e898d06c6065ccab38a"
+    },
+    {
       "path": "results/tradeoff.csv",
       "size_bytes": 5411,
       "sha256": "4b4f8d0bbaa48ba3df69da1232f21da3f2eff1b2863ff852372232e8df5e15a9"
@@ -1663,6 +1673,11 @@
       "sha256": "d632dc6906b92cfbc65aea1a08c200093191b74faf1259b2f5f759f986615ddd"
     },
     {
+      "path": "scripts/audit_storage_capacity.py",
+      "size_bytes": 2787,
+      "sha256": "07fe769ab7878e6a91ae6d42ccd75a294d557528f4896a53fc0c2f379e75e7cb"
+    },
+    {
       "path": "scripts/auto_label.py",
       "size_bytes": 1411,
       "sha256": "9d2d366af42b60c62573312d85b57ee4e15745bc10826e3bf3162ff9e62f0a22"
@@ -1674,8 +1689,8 @@
     },
     {
       "path": "scripts/check_confirmatory_start_gate.py",
-      "size_bytes": 7453,
-      "sha256": "f01d263a12398317c9765dc7991ea9655fc403b9d33a4c536545a517b43d255e"
+      "size_bytes": 7559,
+      "sha256": "615e05e0297b84ad89c88509f22189c0302539361f86327664692ad566185aa4"
     },
     {
       "path": "scripts/check_reproducibility.py",
@@ -1799,8 +1814,8 @@
     },
     {
       "path": "test_results_summary.md",
-      "size_bytes": 34133,
-      "sha256": "0d1cdb3271aa7d9d39bedcdbf54eb00f062b1df6c8963b4786b15be0836bc581"
+      "size_bytes": 34581,
+      "sha256": "f7caad35d2a2e1ef3f3df17c3d6120b8068b11da2d3fb61626e31e9b12e4e410"
     },
     {
       "path": "tests/test_analyze_tradeoff.py",
@@ -1901,6 +1916,11 @@
       "path": "tests/test_seed_sensitivity.py",
       "size_bytes": 570,
       "sha256": "c6b101d067e8e16dd6ee130b673485d63cca8d803dc62731392f9894c58124bb"
+    },
+    {
+      "path": "tests/test_storage_capacity_audit.py",
+      "size_bytes": 977,
+      "sha256": "0dbebbca08affcc9adf27ef51f0f169bb2f1dc905cb963831bc8259a8153726d"
     }
   ]
 }

@@ -142,7 +142,7 @@ these are plots and tables only — no prose conclusion is drawn in the outputs 
 
 ## Tests
 
-105 tests (`pytest tests/`) cover corpus construction, confirmatory split hygiene/configs/data acquisition,
+107 tests (`pytest tests/`) cover corpus construction, confirmatory split hygiene/configs/data acquisition,
 frozen inferential and outcome-evaluation models, blinded-batch construction, and storage/start-gate safety,
 exposure/extraction, novelty metrics, full-corpus overlap,
 blinded annotation/scoring, trade-off analysis, artifact-manifest integrity, seed sensitivity, and 48M
@@ -158,6 +158,8 @@ compiled successfully in the desktop editor.
   current blockers.
 - `docs/STORAGE_AND_RECOVERY_PLAN.md`: 25-GiB capacity gate, artifact retention, interruption recovery, and
   checkpoint verification rules.
+- `docs/DISK_CAPACITY_AUDIT.md`: read-only inventory of large local paths and safe owner-directed storage options;
+  no historical artifact was removed.
 - `docs/RESULTS_CLAIM_AUDIT.md`: evidence map and allowed/prohibited result wording.
 - `docs/ARTIFACT_REPRODUCIBILITY.md`: exact reproduction commands and data/weights availability limits.
 - `docs/DATA_RIGHTS_AND_RELEASE.md`: revision-pinned TinyStories provenance, license record, and release decisions.
