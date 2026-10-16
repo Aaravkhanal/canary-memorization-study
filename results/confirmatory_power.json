@@ -1,0 +1,66 @@
+{
+  "schema_version": 1,
+  "status": "pre-outcome power simulation",
+  "replicates": 250,
+  "simulation_seed": 20261016,
+  "assumptions": {
+    "power_target": 0.8,
+    "exposure_intercept": 2.0,
+    "exposure_sesoi_bits_per_decade": 0.5,
+    "exposure_seed_sd": 0.25,
+    "exposure_canary_sd": 0.75,
+    "exposure_residual_sd": 0.6,
+    "exposure_ci_width_target": 0.75,
+    "novelty_intercept_logit": -0.4054651081081643,
+    "novelty_sesoi_odds_ratio_per_decade": 1.5,
+    "novelty_seed_logit_sd": 0.2,
+    "novelty_canary_logit_sd": 0.6,
+    "novelty_log_odds_ci_width_target": 0.7,
+    "settings_per_canary_model": 4,
+    "completions_per_setting": 2
+  },
+  "candidates": [
+    {
+      "seed_count": 3,
+      "model_cells": 24,
+      "canary_model_rows": 960,
+      "human_ratings_per_rater": 7680,
+      "exposure": {
+        "power": 1.0,
+        "monte_carlo_se": 0.0,
+        "median_95ci_width": 0.09113458557720307,
+        "width_target": 0.75,
+        "passes": true
+      },
+      "novelty": {
+        "power": 1.0,
+        "monte_carlo_se": 0.0,
+        "median_95ci_width": 0.1179479377961632,
+        "width_target": 0.7,
+        "passes": true
+      }
+    },
+    {
+      "seed_count": 5,
+      "model_cells": 40,
+      "canary_model_rows": 1600,
+      "human_ratings_per_rater": 12800,
+      "exposure": {
+        "power": 1.0,
+        "monte_carlo_se": 0.0,
+        "median_95ci_width": 0.06355125207868852,
+        "width_target": 0.75,
+        "passes": true
+      },
+      "novelty": {
+        "power": 1.0,
+        "monte_carlo_se": 0.0,
+        "median_95ci_width": 0.08359150316987007,
+        "width_target": 0.7,
+        "passes": true
+      }
+    }
+  ],
+  "selected_seed_count": 3,
+  "decision": "minimum candidate passing both endpoints"
+}

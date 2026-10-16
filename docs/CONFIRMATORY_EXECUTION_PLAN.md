@@ -1,6 +1,6 @@
 # Confirmatory replication and clean-room execution plan
 
-**Status (2026-10-16): implementation started; training is gated and has not started.** This plan turns
+**Status (2026-10-16): bank and power gates implemented; training remains gated and has not started.** This plan turns
 `CONFIRMATORY_STUDY_PROTOCOL.md` into an executable two-scale study without treating the existing exploratory
 outcomes as confirmatory evidence.
 
@@ -80,8 +80,8 @@ machine and would still retain the old contamination problem. It is not the plan
 | Gate | Current state | Required resolution |
 |---|---|---|
 | Free storage | About 8.5 GiB free; existing local models use about 12 GiB | Provide at least 20–25 GiB free working space or an external artifact path before training. Do not delete existing checkpoints without explicit approval. |
-| Power/precision | Not yet simulated for the new design | Implement, review, and commit the simulation and seed-count decision. |
-| Canary/schedule lock | Not yet generated | Generate, screen, hash, test, and commit before outcomes. |
+| Power/precision | 250-replicate simulation selects the three-seed floor under the frozen assumptions | Preserve the result and assumptions; amend before training if the scientific SESOI changes. |
+| Canary/schedule lock | 40 canaries, 8 controls, 2 × 1,024 alternatives, and five-seed schedule generated; zero matches in the full base corpus | Preserve content hash and verify the derived train/validation/test artifacts after corpus construction. |
 | Data rights | TinyStories source identified; exact subset provenance and redistribution record incomplete | Record source revision/file hash and applicable dataset terms before packaging data. |
 | Ethics/consent | No external-rater determination recorded | Record whether annotation is self-only or externally recruited and obtain any required determination/consent. |
 | Software/artifacts | Local analysis and training-input checks pass; fresh-clone reproduction is not yet tested | Run an analysis smoke test and reduced training smoke test from a temporary clean checkout. |

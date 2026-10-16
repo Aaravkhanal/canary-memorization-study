@@ -366,3 +366,11 @@ the eight pinned packages match; the training mode also matches the exact `aarav
 size, and both tokenizer-file hashes. This is a local prerequisite check, not yet a clean-clone reproduction.
 The expanded suite passes **70/70** with 14 upstream Matplotlib/Pyparsing deprecation warnings. No confirmatory
 model was trained because the pre-outcome power, canary/schedule, storage, rights, and ethics gates remain open.
+
+The deterministic confirmatory bank and schedule were then generated and checked: 40 inserted identities, eight
+controls, and 2,048 reference alternatives have zero normalized matches in the complete base corpus. Five
+counterbalanced assignment seeds are frozen, with three planned and two held as pre-outcome contingencies. A
+250-replicate power/precision simulation selected the three-seed design under its declared SESOIs and variance
+assumptions, producing a 24-cell two-scale plan and 7,680 ratings per rater. These are design calculations, not
+confirmatory outcomes. The full suite now passes **76/76** with the same 14 upstream warnings; no MPS job was
+started, and storage/corpus-config/rights/ethics/clean-room gates remain open.

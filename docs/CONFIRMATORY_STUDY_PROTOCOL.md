@@ -125,3 +125,21 @@ metrics, labels, and analysis outputs under a permanent release/DOI.
 
 Until all boxes are checked, do not start training and do not call results confirmatory. The current five-frequency,
 four-architecture 48M sweep is an exploratory scale-transfer arm and is not this study.
+
+## Amendment 1 — two-scale implementation lock (2026-10-16, before outcomes)
+
+The implementation covers both 14M and 48M scales with the same mixed-frequency assignments. Five assignment
+seeds were generated and frozen; seeds 20261016–20261018 are the planned floor and 20261019–20261020 are a
+pre-outcome contingency only. The deterministic bank contains 20 character and 20 plot canaries, eight controls,
+and shared 1,024-item character and plot reference pools. All 2,096 identities/alternatives have zero normalized
+occurrences in the complete 59,999,181-byte base-corpus subset. Bank content hash:
+`83288fcdbe2dd05c0b685d0f51aa89dc8b64adf4a7d0d13176727e183739a39e`.
+
+The registered smallest effects of scientific interest for the planning simulation are 0.5 exposure bits per
+log10 frequency decade and a 1.5 novelty odds ratio per decade. The simulation uses four settings and two
+completions per canary/model, canary-clustered uncertainty, 80% power, maximum median 95% interval widths of 0.75
+exposure bits and 0.70 log-odds, and 250 Monte Carlo replicates. Under the stated variance assumptions, three seeds
+pass both gates; therefore the planned design is 3 seeds × 4 architectures × 2 scales = 24 cells. The simulation
+and all assumptions are recorded in `results/confirmatory_power.json`; deviations require a dated pre-training
+amendment. Passing a simulation under assumed variance is not an empirical result and does not remove the remaining
+storage, corpus/config, rights, ethics, or clean-room gates.

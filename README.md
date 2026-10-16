@@ -140,7 +140,7 @@ these are plots and tables only — no prose conclusion is drawn in the outputs 
 
 ## Tests
 
-70 tests (`pytest tests/`) cover corpus construction, exposure/extraction, novelty metrics, full-corpus overlap,
+76 tests (`pytest tests/`) cover corpus construction, exposure/extraction, novelty metrics, full-corpus overlap,
 blinded annotation/scoring, trade-off analysis, artifact-manifest integrity, seed sensitivity, and 48M
 config/parameter validation. The complete suite passed again on 2026-10-16; the IEEE LaTeX manuscript also
 compiled successfully in the desktop editor.
