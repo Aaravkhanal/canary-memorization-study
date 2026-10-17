@@ -56,7 +56,7 @@ Both commands intentionally return nonzero while a required gate is open. The ch
 all three corpus hashes, committed pre-outcome locks, ethics record, and the selected artifact filesystem. The
 queue uses `AARAV_LM_DIR` and optional `CONFIRMATORY_ARTIFACT_ROOT`, acquires one global lock across scales, refuses
 an existing Python training process, and checks the frozen 25-GiB threshold before every cell. It currently cannot
-start because storage and ethics-mode gates are unresolved. The outcome workflow is frozen: it runs the
+start because storage and the external-rater determination/consent clearances remain unresolved. The outcome workflow is frozen: it runs the
 1,025-candidate evaluator, enriches all 320 generations per cell against the exact content-hash-selected training
 split, verifies JSON/checkpoint/corpus provenance, and only then removes rolling checkpoints while retaining
 best/final. The blinded-batch builder runs only after all 24 evaluated cells exist and leaves human labels blank.

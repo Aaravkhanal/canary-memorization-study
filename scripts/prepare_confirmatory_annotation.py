@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Create two condition-hidden confirmatory rater sheets with labels left blank.
+"""Create external-rater and self-sensitivity confirmatory sheets with labels left blank.
 
 Run only after all 24 evaluated cell JSONs exist. The private condition key is git-ignored and must not be sent to
 raters. This script prepares annotation; it never supplies, predicts, or imputes a human label.
@@ -18,6 +18,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 PUBLIC_FIELDS = ("sample_id", "prompt", "generation", "label", "confidence", "notes")
+ANNOTATION_SHEETS = ("external_rater_A.csv", "external_rater_B.csv", "self_sensitivity.csv")
 
 
 def sha256_file(path: Path) -> str:
@@ -110,7 +111,7 @@ def main() -> int:
         "schema_version": 1, "secret_hex": secret.hex(), "items": private,
         "warning": "PRIVATE CONDITION KEY: do not publish or send to raters"
     }, indent=2) + "\n", encoding="utf-8")
-    for rater_index, name in enumerate(("rater_A.csv", "rater_B.csv")):
+    for rater_index, name in enumerate(ANNOTATION_SHEETS):
         rows = list(public)
         random.Random(int.from_bytes(hashlib.blake2b(secret + bytes([rater_index]), digest_size=8).digest(), "little")).shuffle(rows)
         path = args.out_dir / name

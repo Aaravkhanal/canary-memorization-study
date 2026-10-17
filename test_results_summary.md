@@ -447,3 +447,13 @@ was corrected to distinguish the successful one-step fresh-clone engineering smo
 full-cell clean-room reproduction, and to describe the actual frozen confirmatory OLS/GEE models. The desktop
 LaTeX compiler succeeded. The full suite passed **110/110 tests** in 9.85 seconds with 14 upstream
 Matplotlib/Pyparsing warnings and no failures. No confirmatory outcome was generated or inspected.
+
+## Confirmatory annotation-role decision (2026-10-17)
+
+The owner selected two independent external raters for the primary human endpoint plus a separately shuffled
+investigator self-annotation sensitivity sheet. The sheets will never be pooled, and self-ratings do not count
+toward external agreement or replace adjudication. The batch builder and frozen evaluation plan now encode all
+three blank sheets. External recruitment, annotation, and training remain blocked until the applicable
+institutional determination, finalized consent, compensation, withdrawal process, and explicit clearances are
+recorded. One added design test brings the suite to **111/111 tests**, passing in 10.72 seconds with 14 upstream
+warnings and no failures. The IEEE source compiled successfully, and no confirmatory outcome was generated.

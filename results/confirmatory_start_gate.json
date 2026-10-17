@@ -74,11 +74,16 @@
       "ok": false
     },
     "ethics_record": {
-      "annotation_mode": "unresolved",
+      "annotation_mode": "external_raters",
       "training_start_clearance": false,
       "problems": [
-        "annotation_mode must be owner-selected as self_only or external_raters",
-        "owner decision is not recorded",
+        "external-rater institutional determination is unresolved",
+        "external-rater record lacks determination_authority",
+        "external-rater record lacks determination_reference",
+        "external-rater record lacks determination_date",
+        "external-rater information/consent materials are not finalized",
+        "external-rater compensation plan is unresolved",
+        "external-rater withdrawal process is unresolved",
         "training_start_clearance is false",
         "annotation_start_clearance is false"
       ],
@@ -87,7 +92,7 @@
     "storage": {
       "path": "/Users/aaravkhanal/Desktop/myllm/canary-memorization-study/models/confirmatory",
       "write_read_fsync_rename_ok": true,
-      "free_bytes": 8815890432,
+      "free_bytes": 8671600640,
       "minimum_free_bytes": 26843545600,
       "capacity_ok": false,
       "error": null,

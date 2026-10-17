@@ -1,18 +1,20 @@
 {
   "schema_version": 1,
   "recorded_date": "2026-10-17",
-  "annotation_mode": "unresolved",
-  "owner_decision_recorded": false,
-  "external_raters_planned": null,
+  "annotation_mode": "external_raters",
+  "owner_decision_recorded": true,
+  "external_raters_planned": true,
+  "primary_annotation_design": "two independent external raters with condition-hidden adjudication",
+  "self_annotation_design": "separate condition-hidden investigator sensitivity sheet; never pooled with the primary external-rater endpoint or counted as an independent external rater",
   "institutional_determination": "not_recorded",
   "determination_authority": "",
   "determination_reference": "",
   "determination_date": "",
-  "consent_materials_status": "not_applicable_until_mode_selected",
+  "consent_materials_status": "draft_not_finalized",
   "compensation_plan": "unresolved",
   "data_retention_plan": "Conditions remain private until adjudication; final de-identified labels and agreement statistics may be released under the selected project terms.",
   "withdrawal_process": "unresolved",
   "training_start_clearance": false,
   "annotation_start_clearance": false,
-  "notes": "No human confirmatory annotation may begin until the repository owner selects self-only or external-rater annotation and records any required institutional determination and consent procedure. This unresolved record is intentionally machine-readable and must not be interpreted as ethics approval."
+  "notes": "The owner selected two independent external raters for the primary endpoint plus a separately reported self-annotation sensitivity analysis. No recruitment, external annotation, or confirmatory training may begin until the required institutional determination, finalized consent procedure, compensation, withdrawal process, and explicit clearances are recorded. This record must not be interpreted as ethics approval."
 }

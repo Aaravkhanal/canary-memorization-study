@@ -56,8 +56,9 @@ and learning-rate rule across scales, or freeze a justified scale-specific rule 
 ### Phase E — blinded human endpoint and confirmatory statistics (elapsed time depends on raters)
 
 - Generate condition-hidden batches and keep the private key outside the public artifact.
-- Collect two independent V/T/N labels, resolve disagreements under the frozen procedure, and then run the locked
-  mixed-effects analyses and sensitivity analyses. Automated labels are not substitutes.
+- Collect two independent external V/T/N labels, resolve disagreements under the frozen procedure, and then run
+  the locked inferential analyses. Collect the investigator's separately shuffled self-annotation sheet as a
+  sensitivity analysis and never pool it with the primary endpoint. Automated labels are not substitutes.
 
 ### Phase F — clean-room reproduction and release (estimated 1–2 working days, partly parallel)
 
@@ -85,7 +86,7 @@ machine and would still retain the old contamination problem. It is not the plan
 | Power/precision/statistics | 250-replicate simulation selects three seeds; executable formulas, contrasts, Holm family, ceiling sensitivity, label rule, and GEE fallback are frozen | Preserve the result and assumptions; any change requires a dated pre-outcome amendment. |
 | Canary/schedule lock | 40 canaries, 8 controls, 2 × 1,024 alternatives, and five-seed schedule generated; zero matches in the full base corpus | Preserve content hash and verify the derived train/validation/test artifacts after corpus construction. |
 | Data rights | Exact revision/file/byte range verified; upstream card declares CDLA-Sharing-1.0 | Owner must select project licenses and confirm redistribution terms before an external artifact release. |
-| Ethics/consent | Decision package and machine validator are frozen; annotation mode remains unresolved | Select the documented self-only or external-rater route, record the required determination/consent fields, and pass `scripts/check_ethics_record.py`. The validator does not issue approval. |
+| Ethics/consent | Two external raters are selected for the primary endpoint, with a separate self-annotation sensitivity sheet; no determination or finalized consent is recorded | Obtain and record the applicable institutional determination, finalize consent, compensation, withdrawal, and clearances, then pass `scripts/check_ethics_record.py`. The validator does not issue approval. |
 | Execution/evaluation safety | Frozen raw evaluator, exact training-split overlap, blank blinded-batch builder, global sequential runner, resumability checks, 25-GiB capacity probe, and checkpoint/result verification are implemented | Preserve the committed workflow and hashes; do not substitute automated labels for the human endpoint. |
 | Software/artifacts | Fresh-clone acquisition, deterministic build, tokenization, validation, and one-step CPU smoke pass | Full-cell reproduction, checkpoint release, owner-selected license, and DOI archive remain after training. |
 

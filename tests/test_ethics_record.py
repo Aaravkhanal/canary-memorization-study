@@ -9,11 +9,15 @@ from check_ethics_record import validate_record  # noqa: E402
 ROOT = Path(__file__).resolve().parents[1]
 
 
-def test_committed_unresolved_record_fails_without_claiming_approval():
+def test_committed_external_plus_self_design_fails_until_external_requirements_exist():
     record = json.loads((ROOT / "configs/confirmatory/ethics_record.json").read_text())
     report = validate_record(record)
     assert report["ok"] is False
+    assert record["annotation_mode"] == "external_raters"
+    assert record["owner_decision_recorded"] is True
+    assert record["external_raters_planned"] is True
     assert record["institutional_determination"] == "not_recorded"
+    assert record["self_annotation_design"].startswith("separate condition-hidden")
     assert record["training_start_clearance"] is False
 
 

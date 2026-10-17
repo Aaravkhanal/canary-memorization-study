@@ -28,10 +28,12 @@ def test_all_24_training_configs_exist():
     assert report == {"expected_count": 24, "actual_count": 24, "missing": [], "ok": True}
 
 
-def test_unresolved_ethics_record_is_an_explicit_blocker():
+def test_selected_external_design_remains_blocked_without_clearance():
     root = Path(__file__).resolve().parents[1]
     record = json.loads((root / "configs/confirmatory/ethics_record.json").read_text())
-    assert record["annotation_mode"] == "unresolved"
+    assert record["annotation_mode"] == "external_raters"
+    assert record["owner_decision_recorded"] is True
+    assert record["institutional_determination"] == "not_recorded"
     assert record["training_start_clearance"] is False
 
 

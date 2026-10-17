@@ -174,8 +174,8 @@ machine-readable plan and full retention rules are in `configs/confirmatory/stor
 interrupted cell may resume only from a successfully deserialized rolling checkpoint in the same run. Best/final
 checkpoints, logs, summaries, configs, metrics, hashes, and failure records are retained. Rolling checkpoints may
 be removed only after training and all required evaluations verify. This amendment does not open the gate: local
-space is below threshold and the ethics mode remains unresolved. The evaluator was subsequently frozen in
-Amendment 4 below.
+space is below threshold and the ethics mode was unresolved at that point. The evaluator was subsequently frozen
+in Amendment 4, and annotation roles were selected in Amendment 5 below without claiming ethics approval.
 
 ## Amendment 4 — outcome evaluation workflow lock (2026-10-17, before outcomes)
 
@@ -190,7 +190,19 @@ in the output with status codes.
 
 Every generation is enriched using an exact word-four-gram inverted index restricted to the content-hash-selected
 training split, not validation/test documents. Cell JSON is accepted only if its checkpoint/corpus hashes, 48
-exposure rows, 160 groups, 320 completions, and overlap provenance verify. The two-rater batch builder refuses a
-partial grid, writes 7,680 condition-hidden rows per rater in independently shuffled order, and leaves label,
-confidence, and notes blank. Its condition key is private and ignored by Git. No automated V/T/N label is created.
+exposure rows, 160 groups, 320 completions, and overlap provenance verify. The annotation batch builder refuses a
+partial grid, writes 7,680 condition-hidden rows into two independently shuffled external-rater sheets and one
+separately shuffled self-sensitivity sheet, and leaves label, confidence, and notes blank. Its condition key is
+private and ignored by Git. No automated V/T/N label is created.
 Rolling checkpoints may be deleted only after this automated evaluation verifies; best/final checkpoints remain.
+
+## Amendment 5 — annotation-role decision (2026-10-17, before outcomes)
+
+The primary human endpoint will use two independent external raters. The repository owner will also complete a
+third, independently shuffled condition-hidden sheet as a self-annotation sensitivity analysis. Self-ratings are
+never pooled with the primary external-rater endpoint, do not count toward external inter-rater agreement, and do
+not replace condition-hidden adjudication. The batch builder therefore prepares two external sheets and one self-
+sensitivity sheet, all with identical sample IDs and blank annotation fields. No recruitment or annotation may
+begin until the applicable institutional determination, finalized consent process, compensation, withdrawal,
+retention, and explicit clearances are recorded. This pre-outcome role decision is not ethics approval and does
+not open the training gate.

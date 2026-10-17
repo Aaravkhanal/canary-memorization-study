@@ -46,7 +46,9 @@
   },
   "human_endpoint": {
     "labels": ["V", "T", "N"],
-    "raters": 2,
+    "primary_external_raters": 2,
+    "self_annotation_sensitivity_raters": 1,
+    "self_annotation_pooled_with_primary": false,
     "labels_initially_blank": true,
     "condition_key_private": true,
     "automated_labels_prohibited": true

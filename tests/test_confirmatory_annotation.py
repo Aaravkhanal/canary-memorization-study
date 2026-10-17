@@ -4,7 +4,9 @@ import sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "scripts"))
-from prepare_confirmatory_annotation import build_rows, validate_blank_sheet, write_csv  # noqa: E402
+from prepare_confirmatory_annotation import (  # noqa: E402
+    ANNOTATION_SHEETS, build_rows, validate_blank_sheet, write_csv,
+)
 
 
 def fake_cell(path: Path, architecture: str, seed: int):
@@ -50,3 +52,9 @@ def test_written_sheet_validation_rejects_filled_labels(tmp_path):
     import pytest
     with pytest.raises(ValueError, match="nonblank"):
         validate_blank_sheet(path, 1)
+
+
+def test_annotation_design_has_two_external_sheets_and_separate_self_sensitivity():
+    assert ANNOTATION_SHEETS == (
+        "external_rater_A.csv", "external_rater_B.csv", "self_sensitivity.csv",
+    )
