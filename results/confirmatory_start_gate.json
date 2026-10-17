@@ -61,6 +61,7 @@
       "items": {
         "no_confirmatory_outcomes_inspected": true,
         "data_rights_provenance_recorded": true,
+        "computational_training_owner_authorized": true,
         "ethics_and_consent_determination_recorded": false,
         "project_release_license_selected": false,
         "execution_and_evaluation_workflow_frozen": true
@@ -68,15 +69,17 @@
       "required_for_training": [
         "no_confirmatory_outcomes_inspected",
         "data_rights_provenance_recorded",
-        "ethics_and_consent_determination_recorded",
+        "computational_training_owner_authorized",
         "execution_and_evaluation_workflow_frozen"
       ],
-      "ok": false
+      "ok": true
     },
     "ethics_record": {
       "annotation_mode": "external_raters",
-      "training_start_clearance": false,
-      "problems": [
+      "training_start_clearance": true,
+      "annotation_start_clearance": false,
+      "training_problems": [],
+      "annotation_problems": [
         "external-rater institutional determination is unresolved",
         "external-rater record lacks determination_authority",
         "external-rater record lacks determination_reference",
@@ -84,15 +87,15 @@
         "external-rater information/consent materials are not finalized",
         "external-rater compensation plan is unresolved",
         "external-rater withdrawal process is unresolved",
-        "training_start_clearance is false",
         "annotation_start_clearance is false"
       ],
-      "ok": false
+      "annotation_ok": false,
+      "ok": true
     },
     "storage": {
       "path": "/Users/aaravkhanal/Desktop/myllm/canary-memorization-study/models/confirmatory",
       "write_read_fsync_rename_ok": true,
-      "free_bytes": 28379578368,
+      "free_bytes": 28021035008,
       "minimum_free_bytes": 26843545600,
       "capacity_ok": true,
       "error": null,
@@ -104,6 +107,6 @@
       "ok": true
     }
   },
-  "start_allowed": false,
+  "start_allowed": true,
   "release_allowed": false
 }

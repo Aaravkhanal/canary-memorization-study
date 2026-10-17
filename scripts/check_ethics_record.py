@@ -15,37 +15,47 @@ EXTERNAL_DETERMINATIONS = {"approved", "exempt", "not_human_subjects_research"}
 
 def validate_record(record: dict) -> dict:
     mode = record.get("annotation_mode")
-    problems: list[str] = []
+    training_problems: list[str] = []
+    annotation_problems: list[str] = []
     if mode not in {"self_only", "external_raters"}:
-        problems.append("annotation_mode must be owner-selected as self_only or external_raters")
+        training_problems.append("annotation_mode must be owner-selected as self_only or external_raters")
     if record.get("owner_decision_recorded") is not True:
-        problems.append("owner decision is not recorded")
+        training_problems.append("owner decision is not recorded")
     if mode == "self_only":
         if record.get("external_raters_planned") is not False:
-            problems.append("self_only mode must set external_raters_planned=false")
+            annotation_problems.append("self_only mode must set external_raters_planned=false")
         if record.get("institutional_determination") != "not_applicable_no_external_participants":
-            problems.append("self_only mode must record why external-rater determination is not applicable")
+            annotation_problems.append("self_only mode must record why external-rater determination is not applicable")
         if record.get("consent_materials_status") != "not_applicable_self_only":
-            problems.append("self_only mode must mark external consent materials not applicable")
+            annotation_problems.append("self_only mode must mark external consent materials not applicable")
     elif mode == "external_raters":
         if record.get("external_raters_planned") is not True:
-            problems.append("external_raters mode must set external_raters_planned=true")
+            annotation_problems.append("external_raters mode must set external_raters_planned=true")
         if record.get("institutional_determination") not in EXTERNAL_DETERMINATIONS:
-            problems.append("external-rater institutional determination is unresolved")
+            annotation_problems.append("external-rater institutional determination is unresolved")
         for field in ("determination_authority", "determination_reference", "determination_date"):
             if not str(record.get(field, "")).strip():
-                problems.append(f"external-rater record lacks {field}")
+                annotation_problems.append(f"external-rater record lacks {field}")
         if record.get("consent_materials_status") != "finalized":
-            problems.append("external-rater information/consent materials are not finalized")
+            annotation_problems.append("external-rater information/consent materials are not finalized")
         if str(record.get("compensation_plan", "")).strip() in {"", "unresolved"}:
-            problems.append("external-rater compensation plan is unresolved")
+            annotation_problems.append("external-rater compensation plan is unresolved")
         if str(record.get("withdrawal_process", "")).strip() in {"", "unresolved"}:
-            problems.append("external-rater withdrawal process is unresolved")
+            annotation_problems.append("external-rater withdrawal process is unresolved")
     if record.get("training_start_clearance") is not True:
-        problems.append("training_start_clearance is false")
+        training_problems.append("training_start_clearance is false")
     if record.get("annotation_start_clearance") is not True:
-        problems.append("annotation_start_clearance is false")
-    return {"mode": mode, "problems": problems, "ok": not problems}
+        annotation_problems.append("annotation_start_clearance is false")
+    problems = training_problems + annotation_problems
+    return {
+        "mode": mode,
+        "training_problems": training_problems,
+        "annotation_problems": annotation_problems,
+        "problems": problems,
+        "training_ok": not training_problems,
+        "annotation_ok": not problems,
+        "ok": not problems,
+    }
 
 
 def main() -> int:

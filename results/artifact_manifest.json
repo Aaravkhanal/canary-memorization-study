@@ -24,8 +24,8 @@
     },
     {
       "path": "README.md",
-      "size_bytes": 14950,
-      "sha256": "a46a464bac8c4e86a98e1b4ba8a82c7ae759966c5c015d4e5a6771f45d97cb34"
+      "size_bytes": 15033,
+      "sha256": "7233d68c136bd8087f39696d93a2f6d95e1f92790a05a9c49449989888e217ed"
     },
     {
       "path": "artifacts/tokenizer_tinystories_v2/README.md",
@@ -64,8 +64,8 @@
     },
     {
       "path": "configs/confirmatory/ethics_record.json",
-      "size_bytes": 1412,
-      "sha256": "c5e96b38d71a7284653b38481822234b9a66f181d1c2958027045182d85db12b"
+      "size_bytes": 1517,
+      "sha256": "2b58bdb130b769adc750fdc9a501415982fde5252a562cf62c1eda9ab42ef688"
     },
     {
       "path": "configs/confirmatory/evaluation_plan.json",
@@ -74,8 +74,8 @@
     },
     {
       "path": "configs/confirmatory/start_gate.json",
-      "size_bytes": 864,
-      "sha256": "f5ee827f82928a61963926177b749d4dcfb1d68d615b6ef5633bc5b4197cfb4c"
+      "size_bytes": 915,
+      "sha256": "acb87bc2d7ea115d25676e2aa601b2511e0bbf8f8f75f94960f55a9cc2b72754"
     },
     {
       "path": "configs/confirmatory/storage_plan.json",
@@ -534,13 +534,13 @@
     },
     {
       "path": "docs/CONFIRMATORY_EXECUTION_PLAN.md",
-      "size_bytes": 7656,
-      "sha256": "67238abbff4d6b297832196909a5ae63385815f674d28d5f44df5554dbebedd6"
+      "size_bytes": 7771,
+      "sha256": "cddbc7ea0d32f8a26084ba9ce08977e8450dae81f53213498302690b395294b8"
     },
     {
       "path": "docs/CONFIRMATORY_STUDY_PROTOCOL.md",
-      "size_bytes": 16372,
-      "sha256": "2dd5b4c9e87ae7f786e405b02e77eddf6b240b940e19f8c58ce997ae3c62dc62"
+      "size_bytes": 17278,
+      "sha256": "d49f5eb8b910eb9f6b0ffc428b98040b93c49b28c21bb4451021a7330f97d9f4"
     },
     {
       "path": "docs/DATA_RIGHTS_AND_RELEASE.md",
@@ -559,8 +559,8 @@
     },
     {
       "path": "docs/ETHICS_AND_CONSENT_PLAN.md",
-      "size_bytes": 3173,
-      "sha256": "12d6e8aa32eff5fb6d9bb9af4a0c67a57fce741e7f1e1f85d13daf92b42a6acd"
+      "size_bytes": 3339,
+      "sha256": "e54b8b4b07ee7624d5f769e5520317c40cfae8b2fa6a140154bc66272cc13c87"
     },
     {
       "path": "docs/EXTERNAL_RATER_INFORMATION_AND_CONSENT_TEMPLATE.md",
@@ -649,8 +649,8 @@
     },
     {
       "path": "results/confirmatory_start_gate.json",
-      "size_bytes": 4073,
-      "sha256": "a53829d019e5b2c8a2cc000422a71a0cdbef36d888640b9b12a39ae5417cb79c"
+      "size_bytes": 4194,
+      "sha256": "102d6bddca485d4a5bae53d76e2a1199a96b553860cfeb66ec1287e7c292e2de"
     },
     {
       "path": "results/exposure_novelty_stats.md",
@@ -1714,13 +1714,13 @@
     },
     {
       "path": "scripts/check_confirmatory_start_gate.py",
-      "size_bytes": 7887,
-      "sha256": "68dc76dc85db64d0bcd5805c7d68dcb0ad68ee25fed5fb1ff4f7e3574e10b823"
+      "size_bytes": 8182,
+      "sha256": "74e71a633020fe42e2167213ea6e136906181619559078d157f00e6eed6965e9"
     },
     {
       "path": "scripts/check_ethics_record.py",
-      "size_bytes": 3136,
-      "sha256": "4db3e57e8bd27638b5b27e7b139b9c613bec075130c4cf82fcf5a6587614cd7a"
+      "size_bytes": 3593,
+      "sha256": "8e0b6238076662f0a24339190f7917779a0f68c706243c3cdd8fd0ef5d225148"
     },
     {
       "path": "scripts/check_release_gate.py",
@@ -1849,8 +1849,8 @@
     },
     {
       "path": "test_results_summary.md",
-      "size_bytes": 39024,
-      "sha256": "b2a5fc948d01b4a59c9e18fa9ae1678021b37ee104d33632378201a1a1e28960"
+      "size_bytes": 39738,
+      "sha256": "eb5332c73230c999a3faba50e24f94281b9eb6385a3e6e5572045ffb7f6153a2"
     },
     {
       "path": "tests/test_analyze_tradeoff.py",
@@ -1914,8 +1914,8 @@
     },
     {
       "path": "tests/test_confirmatory_start_gate.py",
-      "size_bytes": 3375,
-      "sha256": "bf833ca98d7ea3549ba2fb1a7fac6d4d512b5191a9e57898f749df5567c22afd"
+      "size_bytes": 3431,
+      "sha256": "37c5ec74467b1e4bf49a0b8255b737f56cdd169e236c557ab4833209de115105"
     },
     {
       "path": "tests/test_data_acquisition.py",
@@ -1924,8 +1924,8 @@
     },
     {
       "path": "tests/test_ethics_record.py",
-      "size_bytes": 2087,
-      "sha256": "0bc65dbef75004cc76ed298209c124a5cebb959dfea5ff0701943a328e25f5f6"
+      "size_bytes": 2169,
+      "sha256": "8938c4a18475e02e087933dc56f91a50f943d635da83cd9857b5424062b7712b"
     },
     {
       "path": "tests/test_eval_memorization.py",

@@ -206,3 +206,14 @@ sensitivity sheet, all with identical sample IDs and blank annotation fields. No
 begin until the applicable institutional determination, finalized consent process, compensation, withdrawal,
 retention, and explicit clearances are recorded. This pre-outcome role decision is not ethics approval and does
 not open the training gate.
+
+## Amendment 6 — separate computational training from human-participant clearance (2026-10-17, before outcomes)
+
+After the storage threshold passed, the repository owner explicitly authorized computational model training.
+Training uses only the locked corpus, code, and machine resources and does not recruit, contact, or collect data
+from human participants. The training start gate therefore records owner authorization separately from the still-
+false external-rater ethics/consent determination. This does not waive or imply institutional approval: external
+recruitment, rater-sheet distribution, annotation, adjudication, and human-endpoint analysis remain prohibited
+until the applicable determination, finalized consent, compensation, withdrawal process, retention plan, and
+annotation clearance are recorded. No confirmatory outcome had been generated or inspected when this amendment
+was made.

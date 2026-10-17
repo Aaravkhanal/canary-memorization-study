@@ -120,7 +120,7 @@ def build_report(root: Path, artifact_root: Path) -> dict:
     required_manual = gate["training_required_manual_gates"]
     manual_ok = all(manual.get(name) is True for name in required_manual)
     ethics_validation = validate_record(ethics)
-    ethics_ok = ethics_validation["ok"]
+    ethics_ok = ethics_validation["training_ok"]
     locked_paths = [
         root / "docs" / "CONFIRMATORY_STUDY_PROTOCOL.md",
         root / "docs" / "CONFIRMATORY_EXECUTION_PLAN.md",
@@ -152,7 +152,10 @@ def build_report(root: Path, artifact_root: Path) -> dict:
         "manual_gates": {"items": manual, "required_for_training": required_manual, "ok": manual_ok},
         "ethics_record": {"annotation_mode": ethics.get("annotation_mode"),
                           "training_start_clearance": ethics.get("training_start_clearance"),
-                          "problems": ethics_validation["problems"], "ok": ethics_ok},
+                          "annotation_start_clearance": ethics.get("annotation_start_clearance"),
+                          "training_problems": ethics_validation["training_problems"],
+                          "annotation_problems": ethics_validation["annotation_problems"],
+                          "annotation_ok": ethics_validation["annotation_ok"], "ok": ethics_ok},
         "storage": probe_storage(artifact_root, storage["minimum_free_bytes_at_queue_start"]),
         "preoutcome_lock_committed": check_committed(root, locked_paths),
     }

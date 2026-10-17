@@ -5,6 +5,7 @@
   "manual_gates": {
     "no_confirmatory_outcomes_inspected": true,
     "data_rights_provenance_recorded": true,
+    "computational_training_owner_authorized": true,
     "ethics_and_consent_determination_recorded": false,
     "project_release_license_selected": false,
     "execution_and_evaluation_workflow_frozen": true
@@ -12,7 +13,7 @@
   "training_required_manual_gates": [
     "no_confirmatory_outcomes_inspected",
     "data_rights_provenance_recorded",
-    "ethics_and_consent_determination_recorded",
+    "computational_training_owner_authorized",
     "execution_and_evaluation_workflow_frozen"
   ],
   "release_only_manual_gates": [

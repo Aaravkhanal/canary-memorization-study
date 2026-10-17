@@ -2,7 +2,7 @@
 
 Status: **external-rater primary endpoint plus separate self-annotation sensitivity selected; no ethics approval or determination is claimed**.
 
-The repository owner selected two independent external raters for the primary endpoint and a third, separate self-annotation sheet for investigator sensitivity. Self-ratings are never pooled with the primary endpoint and do not count as an independent external rater. Confirmatory training, recruitment, and annotation remain blocked until the external-rater requirements below are completed in `configs/confirmatory/ethics_record.json`. The machine check in `scripts/check_ethics_record.py` verifies internal completeness; it cannot issue an institutional determination.
+The repository owner selected two independent external raters for the primary endpoint and a third, separate self-annotation sheet for investigator sensitivity. Self-ratings are never pooled with the primary endpoint and do not count as an independent external rater. On 2026-10-17 the owner separately authorized computational model training, which does not recruit or collect data from humans. Recruitment, annotation, adjudication, and human-endpoint analysis remain blocked until the external-rater requirements below are completed in `configs/confirmatory/ethics_record.json`. The machine check in `scripts/check_ethics_record.py` reports training and annotation readiness separately; it cannot issue an institutional determination.
 
 ## Rejected primary alternative: self-only annotation
 

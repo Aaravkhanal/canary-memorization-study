@@ -14,7 +14,7 @@
   "compensation_plan": "unresolved",
   "data_retention_plan": "Conditions remain private until adjudication; final de-identified labels and agreement statistics may be released under the selected project terms.",
   "withdrawal_process": "unresolved",
-  "training_start_clearance": false,
+  "training_start_clearance": true,
   "annotation_start_clearance": false,
-  "notes": "The owner selected two independent external raters for the primary endpoint plus a separately reported self-annotation sensitivity analysis. No recruitment, external annotation, or confirmatory training may begin until the required institutional determination, finalized consent procedure, compensation, withdrawal process, and explicit clearances are recorded. This record must not be interpreted as ethics approval."
+  "notes": "The owner selected two independent external raters for the primary endpoint plus a separately reported self-annotation sensitivity analysis and explicitly authorized computational model training on 2026-10-17. Training does not recruit or interact with human participants. Recruitment and annotation remain prohibited until the required institutional determination, finalized consent procedure, compensation, withdrawal process, and annotation clearance are recorded. This record must not be interpreted as ethics approval."
 }

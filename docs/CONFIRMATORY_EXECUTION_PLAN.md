@@ -86,12 +86,12 @@ machine and would still retain the old contamination problem. It is not the plan
 | Power/precision/statistics | 250-replicate simulation selects three seeds; executable formulas, contrasts, Holm family, ceiling sensitivity, label rule, and GEE fallback are frozen | Preserve the result and assumptions; any change requires a dated pre-outcome amendment. |
 | Canary/schedule lock | 40 canaries, 8 controls, 2 × 1,024 alternatives, and five-seed schedule generated; zero matches in the full base corpus | Preserve content hash and verify the derived train/validation/test artifacts after corpus construction. |
 | Data rights | Exact revision/file/byte range verified; upstream card declares CDLA-Sharing-1.0 | Owner must select project licenses and confirm redistribution terms before an external artifact release. |
-| Ethics/consent | Two external raters are selected for the primary endpoint, with a separate self-annotation sensitivity sheet; no determination or finalized consent is recorded | Obtain and record the applicable institutional determination, finalize consent, compensation, withdrawal, and clearances, then pass `scripts/check_ethics_record.py`. The validator does not issue approval. |
+| Ethics/consent | Owner-authorized computation is separated from human-participant work; two external primary raters plus a separate self-sensitivity sheet are selected, but no external determination or finalized consent is recorded | Computational training may proceed after all non-human gates pass. Recruitment and annotation remain prohibited until the applicable determination, consent, compensation, withdrawal, retention, and annotation clearance are recorded. |
 | Execution/evaluation safety | Frozen raw evaluator, exact training-split overlap, blank blinded-batch builder, global sequential runner, resumability checks, 25-GiB capacity probe, and checkpoint/result verification are implemented | Preserve the committed workflow and hashes; do not substitute automated labels for the human endpoint. |
 | Software/artifacts | Fresh-clone acquisition, deterministic build, tokenization, validation, and one-step CPU smoke pass | Full-cell reproduction, checkpoint release, owner-selected license, and DOI archive remain after training. |
 
-No confirmatory training may start while any pre-outcome gate above is open. `scripts/check_confirmatory_start_gate.py`
-evaluates the machine-readable gate, corpus hashes, config count, committed lock, writable artifact filesystem, and
-free space without inspecting outcomes. `scripts/run_confirmatory_queue.py` calls that checker and exits before
-training unless every training gate passes. The current deliberately failing snapshot is
-`results/confirmatory_start_gate.json`.
+No confirmatory training may start while any computational pre-outcome gate is open. Human annotation readiness
+is reported separately and does not authorize recruitment. `scripts/check_confirmatory_start_gate.py` evaluates
+the machine-readable training gate, corpus hashes, config count, committed lock, writable artifact filesystem,
+and free space without inspecting outcomes. `scripts/run_confirmatory_queue.py` calls that checker and exits before
+training unless every computational training gate passes.

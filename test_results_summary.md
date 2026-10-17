@@ -485,3 +485,12 @@ margin is modest. The overall start gate remains closed solely on its manual/eth
 institutional determination, finalized consent, compensation, withdrawal process, and explicit clearances are
 still absent. The post-cleanup suite passed **114/114 tests** in 12.14 seconds with 14 upstream warnings and no
 failures. No confirmatory training or outcome inspection occurred.
+
+## Computational-training authorization amendment (2026-10-17)
+
+After the exact storage probe passed, the owner explicitly authorized model training. A dated pre-outcome
+amendment now separates computational training, which has no human participants, from external-rater recruitment
+and annotation. The ethics validator and start gate report these scopes separately. Human recruitment, sheet
+distribution, annotation, adjudication, and human-endpoint analysis remain blocked; no institutional approval is
+claimed or inferred. This amendment was recorded before any confirmatory outcome was generated or inspected.
+The full suite passed **114/114 tests** in 9.99 seconds with 14 upstream warnings and no failures.

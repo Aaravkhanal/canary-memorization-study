@@ -34,7 +34,8 @@ def test_selected_external_design_remains_blocked_without_clearance():
     assert record["annotation_mode"] == "external_raters"
     assert record["owner_decision_recorded"] is True
     assert record["institutional_determination"] == "not_recorded"
-    assert record["training_start_clearance"] is False
+    assert record["training_start_clearance"] is True
+    assert record["annotation_start_clearance"] is False
 
 
 def test_process_detection_returns_strings():
