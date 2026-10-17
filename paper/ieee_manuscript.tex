@@ -36,8 +36,10 @@ composition; recent work also motivates neutral and beneficial relationships.
 The intended contributions are: (1) a controlled narrative-canary exposure manipulation; (2) comparisons across
 near-parameter-matched Transformer architectures; (3) separate reporting of reference-set exposure, global
 argmax extraction, corpus-level n-gram overlap, diversity, and human judgments; and (4) an auditable exploratory
-record with configurations, result files, tests, and runtime/failure notes. The current Git artifact does not
-include the source corpus, tokenizer assets, or model checkpoints, so clean-room retraining is not yet possible.
+record with configurations, result files, tests, and runtime/failure notes. The current Git artifact includes the
+exact tokenizer, revision-pinned corpus acquisition, portable confirmatory configurations, and a passed one-step
+fresh-clone smoke test, but it does not include the source corpus or model checkpoints. Full-cell clean-room
+retraining and permanent archival are therefore not yet demonstrated.
 
 \section{Related Work}
 The exposure method follows Carlini et al.~\cite{carlini2019secret}. RAVEN demonstrates that novelty requires
@@ -59,7 +61,9 @@ for 6,000 steps, or 49.152 million training tokens per checkpoint, on the shared
 Narrative canaries are inserted at 1, 10, 50, 100, or 500 stories; a zero-insertion condition is used as a matched
 control, giving six conditions per architecture. Insertion pools are nested across frequencies and disjoint across canaries. Three originally selected
 canaries were later found to overlap the base corpus. They are retained for auditability but excluded from the
-clean-canary sensitivity aggregation; a separate confirmatory study has not yet generated its proposed new bank.
+clean-canary sensitivity aggregation. A separate confirmatory study now has a locked, normalized-screened bank of
+40 new canaries and eight controls, three deterministic mixed-frequency corpora, and portable 14M/48M
+configurations, but no confirmatory model has been trained and no confirmatory outcome has been inspected.
 
 \subsection{Scale Transfer}
 A separate extension trains the corresponding large-preset models (48.100M baseline, 48.428M learned-position,
@@ -81,10 +85,11 @@ copy, or genuine novel recombination. Two blank 1,280-item rater sheets are prep
 or adjudication results exist yet. The exact word-four-gram audit is a copying diagnostic, not a semantic originality test.
 
 \subsection{Analysis}
-The exploratory grid is reported as exploratory. The confirmatory protocol uses mixed frequencies within one
-corpus per architecture and seed, at least three seeds, a larger exposure reference set, clustered bootstrap
-intervals, hierarchical repeated-measures models, multiplicity correction, and preregistered exclusions. Full
-details are versioned with the artifact.
+The exploratory grid is reported as exploratory. The locked confirmatory protocol uses mixed frequencies within
+one corpus per seed, three seeds, a 1,024-alternative exposure reference set, a canary-clustered exposure model,
+a canary-clustered binomial GEE for adjudicated human novelty, Holm correction, ceiling and leave-one-canary-out
+sensitivities, and preregistered technical exclusions. Full details and executable formulas are versioned with
+the artifact; training remains blocked by the storage and ethics/consent start gates.
 
 \section{Results}
 All 24 canonical 14M cells, two additional baseline training-seed controls, and all 24 48M scale-transfer cells
@@ -128,14 +133,15 @@ recovered checkpoint-write failure are reported in \texttt{results/trainer\_runt
 score is available, and the confirmatory protocol in \texttt{docs/CONFIRMATORY\_STUDY\_PROTOCOL.md} has not been run.
 
 \section{Limitations and Ethics}
-The study is small in model and corpus scale. Most factorial cells and every 48M cell are single-seed; two
+The study is small in model and corpus scale. Most exploratory factorial cells and every exploratory 48M cell are single-seed; two
 additional baseline seeds do not replicate the grid. The 48M learning rate differs from 14M, the design contains
 post-registration changes, and three canary identities occurred in the base corpus. Diversity and n-gram
 statistics are not substitutes for semantic novelty. Human annotation has not started; external annotation must
-wait for any required institutional determination and consent. The confirmatory design requires power analysis
-and other start-gate checks before any training. The final paper must report funding, conflicts, data/code
-availability, and every exploratory deviation. The current Git artifact omits ignored source data and checkpoints;
-a clean-environment reproduction and permanent archival are still needed.
+wait for any required institutional determination and consent. The confirmatory design, screened inputs, power
+simulation, inferential models, evaluator, and sequential runner are frozen, but training cannot start until the
+25-GiB storage threshold and ethics/consent route are satisfied. The final paper must report funding, conflicts,
+data/code availability, and every exploratory deviation. The current Git artifact omits ignored source data and
+checkpoints; a full-cell clean-environment reproduction and permanent archival are still needed.
 
 \section{Conclusion}
 The completed runs provide an exploratory audit of controlled canary exposure, not a settled answer about narrative

@@ -5,7 +5,7 @@ stories, and does the trade-off shift with architecture? This project measures i
 controlled insertion frequencies, following Carlini et al. 2019's exposure methodology, adapted to a
 narrative-generation setting.
 
-**Status (verified 2026-10-16): the balanced four-architecture 14M grid and the matched 24-cell 48M
+**Status (verified 2026-10-17): the balanced four-architecture 14M grid and the matched 24-cell 48M
 scale-transfer grid are complete.**
 The baseline 100x/500x second-training-seed replications are also complete. All 53 retained experiment summaries
 report 6,000 updates. The final 48M cell (LayerNorm, frequency 500) completed at 21:34:48 local on 2026-10-15
@@ -65,7 +65,8 @@ has been established.
   a disk-full checkpoint-write failure and resumed from its verified step-1,000 state.
 - **A confirmatory, contamination-free study** remains necessary for a strong paper. Its screened bank, three
   deterministic mixed-frequency corpora, 24 portable two-scale configs, and power decision are now locked; model
-  training has not started because storage, ethics, licensing, and clean-room gates remain open. See
+  training has not started because the training-required storage and ethics gates remain open. Licensing and a
+  permanent archive remain release-only gates; the fresh-clone engineering smoke test has passed. See
   `docs/CONFIRMATORY_STUDY_PROTOCOL.md`.
 - **48M scale-transfer arm:** all 24 matched-token configs (four near-matched architectures × six corpus conditions)
   are complete and verified. The baseline/frequency-0 cell initially failed at step 1,500 during a checkpoint write,
@@ -146,7 +147,7 @@ these are plots and tables only — no prose conclusion is drawn in the outputs 
 frozen inferential and outcome-evaluation models, blinded-batch construction, and storage/start-gate safety,
 exposure/extraction, novelty metrics, full-corpus overlap,
 blinded annotation/scoring, trade-off analysis, artifact-manifest integrity, seed sensitivity, and 48M
-config/parameter validation. The complete suite passed again on 2026-10-16; the IEEE LaTeX manuscript also
+config/parameter validation. The complete suite passed again on 2026-10-17; the IEEE LaTeX manuscript also
 compiled successfully in the desktop editor.
 
 ## Publication documents

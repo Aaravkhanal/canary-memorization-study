@@ -438,3 +438,12 @@ accepts only a complete selected route and cannot grant institutional approval. 
 external-rater, and self-only records. The full suite now contains **110/110 tests**, which passed in 11.37
 seconds with 14 upstream Matplotlib/Pyparsing warnings and no failures. The committed unresolved record fails
 safely and makes no approval claim.
+
+## Paper and reproducibility status refresh (2026-10-17)
+
+Both analysis-mode and training-input reproducibility checks pass: the pinned package versions match, the base
+corpus and tokenizer hashes match, and the sibling `aarav-lm` checkout is at the locked revision. The IEEE source
+was corrected to distinguish the successful one-step fresh-clone engineering smoke test from the still-unrun
+full-cell clean-room reproduction, and to describe the actual frozen confirmatory OLS/GEE models. The desktop
+LaTeX compiler succeeded. The full suite passed **110/110 tests** in 9.85 seconds with 14 upstream
+Matplotlib/Pyparsing warnings and no failures. No confirmatory outcome was generated or inspected.

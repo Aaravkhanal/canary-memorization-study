@@ -564,10 +564,12 @@ because those identities can distort exposure summaries. Both figures are explor
   the training/evaluation code depends on the sibling `aarav-lm` project and path-specific local artifacts. The
   committed outputs are auditable, but a clean-clone training reproduction has not been validated. See
   `docs/ARTIFACT_REPRODUCIBILITY.md` for commands and artifact boundaries.
-- Test suite (69 tests in the current repository) covers corpus construction, exposure/extraction, novelty metrics,
-  full-corpus overlap, blinded annotation/scoring, and trade-off analysis; run via `pytest tests/`.
+- Test suite (110 tests in the current repository) covers exploratory and confirmatory corpus construction,
+  exposure/extraction, novelty and exact-overlap metrics, frozen confirmatory analysis, blinded annotation/scoring,
+  storage/start-gate safety, clean-room inputs, and trade-off analysis; run via `pytest tests/`.
 - Claim-by-claim source mapping and wording limits: `docs/RESULTS_CLAIM_AUDIT.md`.
-- The contamination-free protocol is specified but not run; the prepared blinded sheets are blank and no human
-  outcome is reported.
+- The contamination-free protocol, screened bank, mixed-frequency corpora, portable two-scale configs, inferential
+  models, evaluator, and sequential runner are frozen but not run; its storage and ethics/consent gates remain
+  closed, the prepared exploratory blinded sheets are blank, and no human outcome is reported.
 - Repository commit attribution and scholarly authorship are distinct. The final manuscript must follow the target
   venue's human-authorship criteria and disclose AI-assisted code or prose to the extent required by its policy.

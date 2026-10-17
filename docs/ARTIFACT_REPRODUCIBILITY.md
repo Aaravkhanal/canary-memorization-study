@@ -117,8 +117,9 @@ AARAV_LM_DIR=/path/to/pinned/MY-LLM bash scripts/run_clean_room_smoke.sh
 
 1. Obtain the exact base corpus, tokenizer, and compatible `aarav-lm` revision. Record their versions and hashes;
    confirm data-use permission before redistribution.
-2. Restore the ignored processed data and checkpoint paths, then edit machine-specific absolute paths in YAML
-   configs and the runner scripts for the target machine. Keep the recorded `data.seed`, `train.seed`, token budget,
+2. For the portable confirmatory path, rebuild the ignored corpus/tokenized data and set `AARAV_LM_DIR` plus,
+   optionally, `CONFIRMATORY_ARTIFACT_ROOT`; no committed confirmatory YAML needs a machine-specific absolute-path
+   edit. Legacy exploratory configs and runners still contain local paths. Keep every recorded seed, token budget,
    architecture, and schedule unchanged for an exact replicate.
 3. Run cells sequentially on the intended device. `scripts/run_48m_scale_experiments.sh` supports
    `WAIT_FOR_PID=<pid>` to wait before using MPS; never run the 14M and 48M queues concurrently on the same
