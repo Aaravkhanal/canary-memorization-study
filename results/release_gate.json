@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "release_allowed": false,
+  "blockers": [
+    "release_authorized",
+    "project_license_selected",
+    "derived_data_and_weights_terms_confirmed",
+    "permanent_archive_created",
+    "full_cell_clean_room_reproduction_complete",
+    "human_annotation_complete",
+    "confirmatory_training_complete",
+    "archive_doi"
+  ],
+  "required_files": {
+    "CITATION.cff": true,
+    "requirements-research.lock": true,
+    "reproducibility/inputs.lock.json": true,
+    "results/artifact_manifest.json": true,
+    "docs/DATA_RIGHTS_AND_RELEASE.md": true,
+    "docs/ARTIFACT_REPRODUCIBILITY.md": true
+  },
+  "gate": {
+    "schema_version": 1,
+    "recorded_date": "2026-10-17",
+    "release_authorized": false,
+    "project_license_selected": false,
+    "derived_data_and_weights_terms_confirmed": false,
+    "permanent_archive_created": false,
+    "archive_doi": "",
+    "full_cell_clean_room_reproduction_complete": false,
+    "human_annotation_complete": false,
+    "confirmatory_training_complete": false,
+    "notes": "False values are deliberate release blockers. This gate is separate from the training start gate and must never be changed merely to make a check pass."
+  }
+}

@@ -24,8 +24,8 @@
     },
     {
       "path": "README.md",
-      "size_bytes": 14617,
-      "sha256": "517f00eb6bb70961ca63438233600bbfcab3b3b92ccc5b861a6c095487fa150b"
+      "size_bytes": 14839,
+      "sha256": "09ece75a4fb52e6788059e3ac25dc91cb8d89edcfe21c4fa266615de48383493"
     },
     {
       "path": "artifacts/tokenizer_tinystories_v2/README.md",
@@ -201,6 +201,11 @@
       "path": "configs/confirmatory/training/48m/mha/seed_20261018.yaml",
       "size_bytes": 980,
       "sha256": "02e69b1a436478afb3b8df3ab697a43abf2215b7da18179aad299b6dbccae661"
+    },
+    {
+      "path": "configs/release_gate.json",
+      "size_bytes": 541,
+      "sha256": "c726d57936b3ec7336e1e801c5c1a47d6d86eb318bbb6b0d719550771aa9c0e6"
     },
     {
       "path": "configs/training/baseline/freq_0.yaml",
@@ -524,8 +529,8 @@
     },
     {
       "path": "docs/ARTIFACT_REPRODUCIBILITY.md",
-      "size_bytes": 10412,
-      "sha256": "7317965291147d0912c26e5e470cb72d737af4cea98ea33aa67f59ff4f89e8e6"
+      "size_bytes": 10863,
+      "sha256": "ce6d38264524a5f6c3b6b2e9eac5c965b07b6e37da516993742cd49db92afadd"
     },
     {
       "path": "docs/CONFIRMATORY_EXECUTION_PLAN.md",
@@ -550,7 +555,7 @@
     {
       "path": "docs/DRAFT_PAPER.md",
       "size_bytes": 45983,
-      "sha256": "4a9f41580da597e85a2e212da1554e1af95dedb31cd11b1ad9098ba922a9758b"
+      "sha256": "64e5c4fb6652956a48308f3c9d5d2f1e3f68ca83ac772a5f6a813f6956692849"
     },
     {
       "path": "docs/ETHICS_AND_CONSENT_PLAN.md",
@@ -564,8 +569,8 @@
     },
     {
       "path": "docs/PUBLICATION_READINESS.md",
-      "size_bytes": 10008,
-      "sha256": "16c0bdf5935364238a062f0ede678e9718353fa45e95abc533a5b2356716e2a7"
+      "size_bytes": 10301,
+      "sha256": "03012a5d52d6abd794fbdaa61e7136f2edceda4bba324c94d1851cdfed020deb"
     },
     {
       "path": "docs/REFERENCES.bib",
@@ -1623,6 +1628,11 @@
       "sha256": "ebc863fa840d09ba422298ed2dfd474a2175fdf4444da20fad16ba56d3e59fec"
     },
     {
+      "path": "results/release_gate.json",
+      "size_bytes": 1202,
+      "sha256": "67f9e24a1309d39641bc79308580889725df37dbec5345617f3401e7064aec77"
+    },
+    {
       "path": "results/sanity_exp004.json",
       "size_bytes": 8546,
       "sha256": "e2c65f68d176646095789484fb821e810c4a35a186a83d1c21513f7fdd583e88"
@@ -1711,6 +1721,11 @@
       "path": "scripts/check_ethics_record.py",
       "size_bytes": 3136,
       "sha256": "4db3e57e8bd27638b5b27e7b139b9c613bec075130c4cf82fcf5a6587614cd7a"
+    },
+    {
+      "path": "scripts/check_release_gate.py",
+      "size_bytes": 2441,
+      "sha256": "b34982680ef690a3b675f4f121e83d5b1be13b88aa980f0d2585dd5096ce7e7b"
     },
     {
       "path": "scripts/check_reproducibility.py",
@@ -1834,8 +1849,8 @@
     },
     {
       "path": "test_results_summary.md",
-      "size_bytes": 37415,
-      "sha256": "62315a1bcb03e3031aaf61cf3383d5ff3a3e14c983132ee5efd35ed802352701"
+      "size_bytes": 38123,
+      "sha256": "8ca2b531f30b87ed8e0e461384034d37b6761041170e8229dd814a220fc33e1c"
     },
     {
       "path": "tests/test_analyze_tradeoff.py",
@@ -1936,6 +1951,11 @@
       "path": "tests/test_prepare_canary_corpus.py",
       "size_bytes": 6553,
       "sha256": "857155105d1c92711b314ed53815d7332872c122d403d07b27f9a658e5f6c525"
+    },
+    {
+      "path": "tests/test_release_gate.py",
+      "size_bytes": 1655,
+      "sha256": "2ba3a389234cd78e6458f858511b278b23675fb6e11501ab3e647d3f137d4f7a"
     },
     {
       "path": "tests/test_reproducibility.py",

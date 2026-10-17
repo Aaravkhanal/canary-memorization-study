@@ -143,7 +143,7 @@ these are plots and tables only — no prose conclusion is drawn in the outputs 
 
 ## Tests
 
-112 tests (`pytest tests/`) cover corpus construction, confirmatory split hygiene/configs/data acquisition,
+114 tests (`pytest tests/`) cover corpus construction, confirmatory split hygiene/configs/data acquisition,
 frozen inferential and outcome-evaluation models, blinded-batch construction, and storage/start-gate safety,
 exposure/extraction, novelty metrics, full-corpus overlap,
 blinded annotation/scoring, trade-off analysis, artifact-manifest integrity, seed sensitivity, and 48M
@@ -181,6 +181,8 @@ compiled successfully in the desktop editor.
   external-rater sheets plus one separate self-sensitivity sheet, each condition-hidden with 7,680 rows and blank
   annotation fields, along with a git-ignored private key.
 - `scripts/create_artifact_manifest.py`: machine-readable SHA-256 inventory for versioned artifacts.
+- `scripts/check_release_gate.py`: separate machine-readable release audit; it fails safely until licensing,
+  confirmation, annotation, full-cell clean-room reproduction, permanent archival, and DOI evidence truly exist.
 - `docs/SCALE_48M_PROTOCOL.md`: matched-token 48M scale-transfer experiment and limitations.
 - `docs/ANNOTATION_PROTOCOL.md`: blinded two-rater labelling and adjudication procedure.
 - `docs/REFERENCES.bib`: verified core references from USENIX, ACL Anthology, and OpenReview; expand before submission.

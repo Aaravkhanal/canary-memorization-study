@@ -465,3 +465,12 @@ an unissued DOI, release date, owner-unconfirmed license, affiliation, and ORCID
 boundaries so later automation cannot silently invent release metadata. The full suite passed **112/112 tests**
 in 9.41 seconds with 14 upstream warnings and no failures. This is release preparation only; no archive or DOI is
 claimed and no confirmatory outcome was generated.
+
+## Machine-readable external-release gate (2026-10-17)
+
+A release checker now separates publication/deposit readiness from the training start gate. It requires explicit
+release authorization, selected project and redistribution terms, completed confirmatory training and human
+annotation, full-cell clean-room reproduction, a real permanent archive, and a DOI matching `CITATION.cff`.
+The committed snapshot fails candidly on eight outstanding items and does not block pre-outcome engineering.
+Two tests cover the current blocked state and a fully evidenced synthetic release. The full suite passed
+**114/114 tests** in 11.68 seconds with 14 upstream warnings and no failures; no release or DOI is claimed.

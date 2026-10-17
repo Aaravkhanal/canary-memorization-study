@@ -564,7 +564,7 @@ because those identities can distort exposure summaries. Both figures are explor
   the training/evaluation code depends on the sibling `aarav-lm` project and path-specific local artifacts. The
   committed outputs are auditable, but a clean-clone training reproduction has not been validated. See
   `docs/ARTIFACT_REPRODUCIBILITY.md` for commands and artifact boundaries.
-- Test suite (112 tests in the current repository) covers exploratory and confirmatory corpus construction,
+- Test suite (114 tests in the current repository) covers exploratory and confirmatory corpus construction,
   exposure/extraction, novelty and exact-overlap metrics, frozen confirmatory analysis, blinded annotation/scoring,
   storage/start-gate safety, clean-room inputs, and trade-off analysis; run via `pytest tests/`.
 - Claim-by-claim source mapping and wording limits: `docs/RESULTS_CLAIM_AUDIT.md`.

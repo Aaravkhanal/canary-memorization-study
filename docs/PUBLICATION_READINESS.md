@@ -136,3 +136,7 @@ Do not submit until every item below is true:
       appropriate licenses; current Git checkout alone cannot reproduce training (`docs/ARTIFACT_REPRODUCIBILITY.md`).
 - [ ] Ethics, consent, data/code, conflicts, funding, limitations, and AI-use statements complete.
 - [ ] Final manuscript reviewed and approved by every listed human author.
+
+The checklist above is also represented conservatively in `configs/release_gate.json`. Run
+`scripts/check_release_gate.py`; a nonzero result is expected until every required artifact, authorization,
+full-cell reproduction, human endpoint, permanent archive, and matching DOI genuinely exist.

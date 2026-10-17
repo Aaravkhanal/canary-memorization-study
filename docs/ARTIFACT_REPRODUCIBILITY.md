@@ -61,6 +61,16 @@ start because storage and the external-rater determination/consent clearances re
 split, verifies JSON/checkpoint/corpus provenance, and only then removes rolling checkpoints while retaining
 best/final. The blinded-batch builder runs only after all 24 evaluated cells exist and leaves human labels blank.
 
+Release readiness is a separate, deliberately failing gate:
+
+```bash
+python scripts/check_release_gate.py --json-out results/release_gate.json
+```
+
+It requires an owner-authorized license and redistribution decision, completed confirmatory training and human
+annotation, full-cell clean-room reproduction, a real permanent archive, and a DOI matching `CITATION.cff`. The
+checker reports missing evidence but cannot authorize a release or mint a DOI.
+
 These commands reproduce automated descriptive tables/figures from the committed result JSONs; they do not train
 models and do not create human novelty scores. Do not pass a labelled CSV until human annotations have been
 returned, validated, locked, and adjudicated as described in `ANNOTATION_PROTOCOL.md`.
