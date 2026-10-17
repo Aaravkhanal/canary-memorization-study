@@ -428,3 +428,13 @@ A read-only disk audit then recorded the exact free-space failure and allocated 
 project, sibling-project, cache, and download paths without deleting or moving anything. Two tests verify that the
 auditor ignores symlinks, records no action, and fails oversized capacity thresholds. The suite now contains
 **107/107 tests**, which passed in 13.29 seconds with 14 upstream Matplotlib/Pyparsing warnings and no failures.
+
+## Confirmatory ethics and consent decision gate (2026-10-17)
+
+The unresolved ethics record is now explicit and machine-readable. A decision document separates self-only
+annotation from external recruitment, states the evidentiary loss of abandoning the frozen two-rater endpoint,
+and provides a draft external-rater information and consent template that is not approved for use. The validator
+accepts only a complete selected route and cannot grant institutional approval. Three tests cover the unresolved,
+external-rater, and self-only records. The full suite now contains **110/110 tests**, which passed in 11.37
+seconds with 14 upstream Matplotlib/Pyparsing warnings and no failures. The committed unresolved record fails
+safely and makes no approval claim.

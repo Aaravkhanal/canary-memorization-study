@@ -8,6 +8,8 @@
         "docs/CONFIRMATORY_EXECUTION_PLAN.md": true,
         "docs/STORAGE_AND_RECOVERY_PLAN.md": true,
         "docs/DISK_CAPACITY_AUDIT.md": true,
+        "docs/ETHICS_AND_CONSENT_PLAN.md": true,
+        "docs/EXTERNAL_RATER_INFORMATION_AND_CONSENT_TEMPLATE.md": true,
         "configs/confirmatory/canary_bank.json": true,
         "configs/confirmatory/analysis_plan.json": true,
         "configs/confirmatory/evaluation_plan.json": true,
@@ -17,6 +19,7 @@
         "results/confirmatory_power.json": true,
         "reproducibility/inputs.lock.json": true,
         "scripts/check_confirmatory_start_gate.py": true,
+        "scripts/check_ethics_record.py": true,
         "scripts/audit_storage_capacity.py": true,
         "scripts/eval_confirmatory.py": true,
         "scripts/eval_full_corpus_overlap.py": true,
@@ -73,12 +76,18 @@
     "ethics_record": {
       "annotation_mode": "unresolved",
       "training_start_clearance": false,
+      "problems": [
+        "annotation_mode must be owner-selected as self_only or external_raters",
+        "owner decision is not recorded",
+        "training_start_clearance is false",
+        "annotation_start_clearance is false"
+      ],
       "ok": false
     },
     "storage": {
       "path": "/Users/aaravkhanal/Desktop/myllm/canary-memorization-study/models/confirmatory",
       "write_read_fsync_rename_ok": true,
-      "free_bytes": 8925171712,
+      "free_bytes": 8815890432,
       "minimum_free_bytes": 26843545600,
       "capacity_ok": false,
       "error": null,

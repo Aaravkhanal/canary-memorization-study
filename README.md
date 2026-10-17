@@ -142,7 +142,7 @@ these are plots and tables only — no prose conclusion is drawn in the outputs 
 
 ## Tests
 
-107 tests (`pytest tests/`) cover corpus construction, confirmatory split hygiene/configs/data acquisition,
+110 tests (`pytest tests/`) cover corpus construction, confirmatory split hygiene/configs/data acquisition,
 frozen inferential and outcome-evaluation models, blinded-batch construction, and storage/start-gate safety,
 exposure/extraction, novelty metrics, full-corpus overlap,
 blinded annotation/scoring, trade-off analysis, artifact-manifest integrity, seed sensitivity, and 48M
@@ -160,6 +160,8 @@ compiled successfully in the desktop editor.
   checkpoint verification rules.
 - `docs/DISK_CAPACITY_AUDIT.md`: read-only inventory of large local paths and safe owner-directed storage options;
   no historical artifact was removed.
+- `docs/ETHICS_AND_CONSENT_PLAN.md`: two explicit annotation routes, their evidentiary tradeoffs, and the owner or
+  institutional decisions still required; the companion external-rater consent document is a draft only.
 - `docs/RESULTS_CLAIM_AUDIT.md`: evidence map and allowed/prohibited result wording.
 - `docs/ARTIFACT_REPRODUCIBILITY.md`: exact reproduction commands and data/weights availability limits.
 - `docs/DATA_RIGHTS_AND_RELEASE.md`: revision-pinned TinyStories provenance, license record, and release decisions.
@@ -168,8 +170,8 @@ compiled successfully in the desktop editor.
 - `configs/confirmatory/analysis_plan.json`: frozen exposure/novelty formulas, contrasts, correction, and fallback.
 - `configs/confirmatory/evaluation_plan.json`: frozen 1,025-candidate exposure, 4 × 2 generation, extraction, and
   exact training-split overlap settings.
-- `scripts/check_confirmatory_start_gate.py`: non-outcome preflight; it currently fails safely on storage, ethics,
-  and unfinished evaluator gates.
+- `scripts/check_confirmatory_start_gate.py`: non-outcome preflight; it currently fails safely on storage and the
+  unresolved ethics/consent route.
 - `scripts/run_confirmatory_queue.py`: portable, globally locked sequential 14M-then-48M runner; it cannot train
   until the preflight passes.
 - `scripts/prepare_confirmatory_annotation.py`: refuses partial grids and produces two differently shuffled,

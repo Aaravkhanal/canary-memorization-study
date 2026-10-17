@@ -12,6 +12,8 @@ import subprocess
 import tempfile
 from pathlib import Path
 
+from check_ethics_record import validate_record
+
 
 ROOT = Path(__file__).resolve().parents[1]
 GATE_CONFIG = ROOT / "configs" / "confirmatory" / "start_gate.json"
@@ -117,12 +119,15 @@ def build_report(root: Path, artifact_root: Path) -> dict:
     manual = gate["manual_gates"]
     required_manual = gate["training_required_manual_gates"]
     manual_ok = all(manual.get(name) is True for name in required_manual)
-    ethics_ok = ethics.get("training_start_clearance") is True
+    ethics_validation = validate_record(ethics)
+    ethics_ok = ethics_validation["ok"]
     locked_paths = [
         root / "docs" / "CONFIRMATORY_STUDY_PROTOCOL.md",
         root / "docs" / "CONFIRMATORY_EXECUTION_PLAN.md",
         root / "docs" / "STORAGE_AND_RECOVERY_PLAN.md",
         root / "docs" / "DISK_CAPACITY_AUDIT.md",
+        root / "docs" / "ETHICS_AND_CONSENT_PLAN.md",
+        root / "docs" / "EXTERNAL_RATER_INFORMATION_AND_CONSENT_TEMPLATE.md",
         root / "configs" / "confirmatory" / "canary_bank.json",
         root / "configs" / "confirmatory" / "analysis_plan.json",
         root / "configs" / "confirmatory" / "evaluation_plan.json",
@@ -132,6 +137,7 @@ def build_report(root: Path, artifact_root: Path) -> dict:
         root / "results" / "confirmatory_power.json",
         root / "reproducibility" / "inputs.lock.json",
         root / "scripts" / "check_confirmatory_start_gate.py",
+        root / "scripts" / "check_ethics_record.py",
         root / "scripts" / "audit_storage_capacity.py",
         root / "scripts" / "eval_confirmatory.py",
         root / "scripts" / "eval_full_corpus_overlap.py",
@@ -145,7 +151,8 @@ def build_report(root: Path, artifact_root: Path) -> dict:
         "training_configs": check_configs(root),
         "manual_gates": {"items": manual, "required_for_training": required_manual, "ok": manual_ok},
         "ethics_record": {"annotation_mode": ethics.get("annotation_mode"),
-                          "training_start_clearance": ethics.get("training_start_clearance"), "ok": ethics_ok},
+                          "training_start_clearance": ethics.get("training_start_clearance"),
+                          "problems": ethics_validation["problems"], "ok": ethics_ok},
         "storage": probe_storage(artifact_root, storage["minimum_free_bytes_at_queue_start"]),
         "preoutcome_lock_committed": check_committed(root, locked_paths),
     }

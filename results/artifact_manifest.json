@@ -19,8 +19,8 @@
     },
     {
       "path": "README.md",
-      "size_bytes": 14012,
-      "sha256": "f88e800752657587b9f700058975ab83f74774126bd1d53c06ce2b8df00bd6f9"
+      "size_bytes": 14232,
+      "sha256": "86b4248f447364cd48969d62f8ca67f6fc469e5eb5373d51ffadb432d3680061"
     },
     {
       "path": "artifacts/tokenizer_tinystories_v2/README.md",
@@ -59,8 +59,8 @@
     },
     {
       "path": "configs/confirmatory/ethics_record.json",
-      "size_bytes": 634,
-      "sha256": "78f7ea33b692799aec5c725387e1238583d4d349770fb18ab11988b6b78d75cb"
+      "size_bytes": 1015,
+      "sha256": "993fd8d38265e541f42856c911b466c746be9e3f6528a8dd2b7484e26a09e4dc"
     },
     {
       "path": "configs/confirmatory/evaluation_plan.json",
@@ -524,8 +524,8 @@
     },
     {
       "path": "docs/CONFIRMATORY_EXECUTION_PLAN.md",
-      "size_bytes": 7261,
-      "sha256": "db73350932063cf172c1116471ff4b1278914621158b4c344afcefc02fc9e412"
+      "size_bytes": 7385,
+      "sha256": "93d37b4c13c2263f1db045726dee02b97b504f343b6360d65ab898e064849171"
     },
     {
       "path": "docs/CONFIRMATORY_STUDY_PROTOCOL.md",
@@ -548,9 +548,19 @@
       "sha256": "eeb723be3e8e284d8cea5c552d554b889d1d19a1fb7f94d7422d5414103143f3"
     },
     {
+      "path": "docs/ETHICS_AND_CONSENT_PLAN.md",
+      "size_bytes": 2420,
+      "sha256": "0719e64a315b7b50c3f660ce46d3a102bb06417142847f5948b031b3410c7b9e"
+    },
+    {
+      "path": "docs/EXTERNAL_RATER_INFORMATION_AND_CONSENT_TEMPLATE.md",
+      "size_bytes": 2461,
+      "sha256": "f3587fb56a8748348c2a21d39c559bf711d20ef47f8e0c84b1da55b42bb38c70"
+    },
+    {
       "path": "docs/PUBLICATION_READINESS.md",
-      "size_bytes": 9880,
-      "sha256": "8e4e5f82179782758c8c597b64c808357f4e161b1b8af0a9923247f29424a581"
+      "size_bytes": 10008,
+      "sha256": "16c0bdf5935364238a062f0ede678e9718353fa45e95abc533a5b2356716e2a7"
     },
     {
       "path": "docs/REFERENCES.bib",
@@ -629,8 +639,8 @@
     },
     {
       "path": "results/confirmatory_start_gate.json",
-      "size_bytes": 3336,
-      "sha256": "ceedd745c65f9fc5ce1770fc416c0da38b11416efa7078a7c21792276b5d0e65"
+      "size_bytes": 3750,
+      "sha256": "3d3333065426f077c2ef15bae51c483ae027d12b03ca36d018bbd194c3db9c6f"
     },
     {
       "path": "results/exposure_novelty_stats.md",
@@ -1689,8 +1699,13 @@
     },
     {
       "path": "scripts/check_confirmatory_start_gate.py",
-      "size_bytes": 7559,
-      "sha256": "615e05e0297b84ad89c88509f22189c0302539361f86327664692ad566185aa4"
+      "size_bytes": 7887,
+      "sha256": "68dc76dc85db64d0bcd5805c7d68dcb0ad68ee25fed5fb1ff4f7e3574e10b823"
+    },
+    {
+      "path": "scripts/check_ethics_record.py",
+      "size_bytes": 3136,
+      "sha256": "4db3e57e8bd27638b5b27e7b139b9c613bec075130c4cf82fcf5a6587614cd7a"
     },
     {
       "path": "scripts/check_reproducibility.py",
@@ -1814,8 +1829,8 @@
     },
     {
       "path": "test_results_summary.md",
-      "size_bytes": 34581,
-      "sha256": "f7caad35d2a2e1ef3f3df17c3d6120b8068b11da2d3fb61626e31e9b12e4e410"
+      "size_bytes": 35344,
+      "sha256": "b10eafd955f12937833b65b6a3a78fcf668c063021cca703b22e938453d5d57e"
     },
     {
       "path": "tests/test_analyze_tradeoff.py",
@@ -1881,6 +1896,11 @@
       "path": "tests/test_data_acquisition.py",
       "size_bytes": 644,
       "sha256": "e06345744214d7d152efa2f01bb326a2027d9a89b62a6c6baaa88e94d6e84275"
+    },
+    {
+      "path": "tests/test_ethics_record.py",
+      "size_bytes": 1823,
+      "sha256": "35b0cb7d3d2b1ed87ed2bad9933a7b20eae1954fa7ed69f2d9e26713c279c37c"
     },
     {
       "path": "tests/test_eval_memorization.py",

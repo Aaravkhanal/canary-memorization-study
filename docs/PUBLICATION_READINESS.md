@@ -40,8 +40,9 @@ artifact.
    reference set. The recommended efficient design is in `docs/CONFIRMATORY_STUDY_PROTOCOL.md`.
 7. If making a size-dependent claim, add multiple seeds at both scales and match or explicitly test the learning
    rate schedule. The 48M arm initially has one seed and uses a lower learning rate than the current 14M arm.
-8. Obtain an institutional ethics determination before recruiting external annotators, if required locally, and
-   record consent. Self-annotation alone avoids recruitment but is substantially weaker evidence.
+8. Select and record one of the routes in `docs/ETHICS_AND_CONSENT_PLAN.md`. External recruitment requires the
+   applicable institutional determination and finalized consent materials; self-only annotation avoids external
+   recruitment but requires a dated protocol amendment and cannot support the frozen two-rater agreement endpoint.
 9. Create a submission artifact with exact environment, seeds, checksums, commands, expected outputs, raw result
    files, and a permanent DOI (for example, Zenodo) rather than relying only on a mutable GitHub branch.
 10. Add complete references, author affiliation, ORCID, data/code availability, limitations, ethics statement,
