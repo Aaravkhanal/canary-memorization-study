@@ -474,3 +474,14 @@ annotation, full-cell clean-room reproduction, a real permanent archive, and a D
 The committed snapshot fails candidly on eight outstanding items and does not block pre-outcome engineering.
 Two tests cover the current blocked state and a fully evidenced synthetic release. The full suite passed
 **114/114 tests** in 11.68 seconds with 14 upstream warnings and no failures; no release or DOI is claimed.
+
+## Owner-authorized storage cleanup (2026-10-17)
+
+Rebuildable caches, duplicate downloaded application installers, and four large Photo Booth videos were removed
+outside Desktop under explicit owner authorization. No Desktop folder, research checkpoint, corpus, result,
+source file, or sibling-project artifact was removed or moved. Free space increased from about 7.9 GiB to 26.4
+GiB, so the exact 25-GiB capacity probe now passes. The runner will recheck capacity before every cell because the
+margin is modest. The overall start gate remains closed solely on its manual/ethics components: the external-rater
+institutional determination, finalized consent, compensation, withdrawal process, and explicit clearances are
+still absent. The post-cleanup suite passed **114/114 tests** in 12.14 seconds with 14 upstream warnings and no
+failures. No confirmatory training or outcome inspection occurred.

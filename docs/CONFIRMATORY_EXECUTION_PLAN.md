@@ -82,7 +82,7 @@ machine and would still retain the old contamination problem. It is not the plan
 
 | Gate | Current state | Required resolution |
 |---|---|---|
-| Free storage | About 8.5 GiB free; existing local models use about 12 GiB | Provide at least 20–25 GiB free working space or an external artifact path before training. Do not delete existing checkpoints without explicit approval. |
+| Free storage | Owner-authorized non-Desktop cleanup raised free space to about 26.4 GiB; the exact 25-GiB probe passes | Recheck before every cell. The margin is modest, so stop safely if rebuilt caches or new artifacts push free space below threshold. No research checkpoint was deleted. |
 | Power/precision/statistics | 250-replicate simulation selects three seeds; executable formulas, contrasts, Holm family, ceiling sensitivity, label rule, and GEE fallback are frozen | Preserve the result and assumptions; any change requires a dated pre-outcome amendment. |
 | Canary/schedule lock | 40 canaries, 8 controls, 2 × 1,024 alternatives, and five-seed schedule generated; zero matches in the full base corpus | Preserve content hash and verify the derived train/validation/test artifacts after corpus construction. |
 | Data rights | Exact revision/file/byte range verified; upstream card declares CDLA-Sharing-1.0 | Owner must select project licenses and confirm redistribution terms before an external artifact release. |

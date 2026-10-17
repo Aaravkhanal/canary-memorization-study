@@ -65,7 +65,8 @@ has been established.
   a disk-full checkpoint-write failure and resumed from its verified step-1,000 state.
 - **A confirmatory, contamination-free study** remains necessary for a strong paper. Its screened bank, three
   deterministic mixed-frequency corpora, 24 portable two-scale configs, and power decision are now locked; model
-  training has not started because the training-required storage and ethics gates remain open. Licensing and a
+  training has not started because the external-rater ethics/consent gate remains open. The 25-GiB storage probe
+  now passes after owner-authorized non-Desktop cleanup, but is rechecked before every cell. Licensing and a
   permanent archive remain release-only gates; the fresh-clone engineering smoke test has passed. See
   `docs/CONFIRMATORY_STUDY_PROTOCOL.md`.
 - **48M scale-transfer arm:** all 24 matched-token configs (four near-matched architectures × six corpus conditions)

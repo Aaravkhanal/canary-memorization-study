@@ -92,11 +92,11 @@
     "storage": {
       "path": "/Users/aaravkhanal/Desktop/myllm/canary-memorization-study/models/confirmatory",
       "write_read_fsync_rename_ok": true,
-      "free_bytes": 8671600640,
+      "free_bytes": 28379578368,
       "minimum_free_bytes": 26843545600,
-      "capacity_ok": false,
+      "capacity_ok": true,
       "error": null,
-      "ok": false
+      "ok": true
     },
     "preoutcome_lock_committed": {
       "tracked": true,

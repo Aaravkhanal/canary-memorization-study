@@ -1,15 +1,15 @@
 {
   "schema_version": 1,
-  "recorded_utc": "2026-10-16T23:23:04.994844+00:00",
+  "recorded_utc": "2026-10-17T06:22:58.068065+00:00",
   "read_only_audit": true,
   "artifact_root": "/Users/aaravkhanal/Desktop/myllm/canary-memorization-study/models/confirmatory",
   "filesystem": {
     "total_bytes": 245107195904,
-    "used_bytes": 236185546752,
-    "free_bytes": 8921649152
+    "used_bytes": 216727613440,
+    "free_bytes": 28379582464
   },
   "minimum_free_bytes": 26843545600,
-  "capacity_ok": false,
+  "capacity_ok": true,
   "paths": [
     {
       "path": "/Users/aaravkhanal/Desktop/myllm/canary-memorization-study/models",
@@ -19,7 +19,7 @@
     {
       "path": "/Users/aaravkhanal/Desktop/myllm/canary-memorization-study/results",
       "exists": true,
-      "allocated_bytes": 1297682432
+      "allocated_bytes": 1297694720
     },
     {
       "path": "/Users/aaravkhanal/Desktop/myllm/canary-memorization-study/data",
@@ -39,17 +39,17 @@
     {
       "path": "/Users/aaravkhanal/.cache",
       "exists": true,
-      "allocated_bytes": 4008321024
+      "allocated_bytes": 0
     },
     {
       "path": "/Users/aaravkhanal/Library/Caches",
       "exists": true,
-      "allocated_bytes": 10850721792
+      "allocated_bytes": 544768
     },
     {
       "path": "/Users/aaravkhanal/Downloads",
       "exists": true,
-      "allocated_bytes": 1781895168
+      "allocated_bytes": 20561920
     }
   ],
   "action_taken": "none",
