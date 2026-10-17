@@ -42,6 +42,12 @@ and human-rated recombination in a small model. The creativity-capacity trade-of
 not an established finding. Prior work on memorization, novelty, and composition overlaps this framing; the
 defensible contribution and its limits are audited in `docs/RESULTS_CLAIM_AUDIT.md`.
 
+The conceptual focus is not merely whether a planted string can be recovered. It is whether increasing familiarity
+with recurring characters and plot fragments changes the model's ability to compose those elements into new
+narrative combinations. The study therefore keeps the two axes distinct: exposure/extraction measures memory,
+while corpus-level copying checks and blinded V/T/N judgments measure originality and recombination. Edit distance,
+n-gram overlap, and distinct-n are supporting diagnostics rather than standalone definitions of creativity.
+
 ### 1.1 Hypotheses
 
 - **H1 (primary):** Memorization and compositional novelty are not independent. Beyond some exposure threshold,

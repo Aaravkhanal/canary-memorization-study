@@ -13,6 +13,12 @@ remains unresolved until blinded human annotation replaces distinct-2 as the pri
 independent, contamination-free confirmation addresses the exploratory design limitations. See
 `docs/RESULTS_CLAIM_AUDIT.md` for permitted wording.
 
+The manuscript's central contribution should remain the controlled memorization–compositional-creativity
+trade-off in narrative generation, not a generic privacy-only canary result. Exposure/extraction and originality
+must remain separate axes: whole-corpus overlap is a copying diagnostic, and the blinded V/T/N endpoint is the
+primary evidence for genuine recombination. Do not promote edit distance, n-gram overlap, or distinct-n into a
+standalone creativity claim.
+
 No acceptance can be guaranteed. The best path to a strong paper is to narrow claims to the evidence, complete the
 annotation study, add a confirmatory design that removes the original confounds, and release a reproducible
 artifact.

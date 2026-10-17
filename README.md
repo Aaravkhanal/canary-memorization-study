@@ -5,6 +5,12 @@ stories, and does the trade-off shift with architecture? This project measures i
 controlled insertion frequencies, following Carlini et al. 2019's exposure methodology, adapted to a
 narrative-generation setting.
 
+The paper's central contribution is this **memorization–compositional-creativity trade-off** in a model whose
+task is creative narrative generation. Memorization is measured with controlled exposure and extraction;
+compositional originality is measured separately with whole-corpus copying diagnostics and blinded human
+judgments of whether a completion reproduces, lightly templates, or genuinely recombines recurring story
+elements. Lexical diversity alone is never treated as creativity.
+
 **Status (verified 2026-10-17): the balanced four-architecture 14M grid and the matched 24-cell 48M
 scale-transfer grid are complete.**
 The baseline 100x/500x second-training-seed replications are also complete. All 53 retained experiment summaries
@@ -45,8 +51,9 @@ Per-run durations, checkpoint validation, and failure records are summarized in 
 Across the canonical 14M grid, two baseline seed controls, and the 48M grid, matching-corpus exact four-gram
 overlap was evaluated for 50 cells / 16,000 generations. It is a copying diagnostic, not a semantic originality
 measure. The blinded annotation sheets are prepared but still contain zero human labels. The separate
-contamination-free confirmatory study has not been run. Accordingly, no memorization-versus-creativity trade-off
-has been established.
+contamination-free confirmatory study began its locked sequential training queue on 2026-10-17; its outcomes
+remain uninspected and incomplete. Accordingly, no memorization-versus-creativity trade-off has yet been
+established.
 
 ## What's not done, and why
 
@@ -63,7 +70,7 @@ has been established.
 - Baseline 100x/500x training-seed replications are complete. The 48M arm has all 24 cells verified, each with
   memorization, novelty, and matching-corpus overlap evaluations. The initial 48M baseline frequency-0 attempt had
   a disk-full checkpoint-write failure and resumed from its verified step-1,000 state.
-- **A confirmatory, contamination-free study** remains necessary for a strong paper. Its screened bank, three
+- **A confirmatory, contamination-free study** is now running for the stronger paper. Its screened bank, three
   deterministic mixed-frequency corpora, 24 portable two-scale configs, and power decision are now locked; model
   the owner has now authorized computational training separately from human-participant work. The 25-GiB storage
   probe passes after owner-authorized non-Desktop cleanup and is rechecked before every cell. External recruitment
