@@ -47,3 +47,7 @@ decide whether the canary bank, tokenizer, derived corpora, and weights use the 
 
 Until those decisions are recorded, this repository can document exact acquisition and local reproduction but
 must not claim that every training artifact is licensed for public redistribution.
+
+`CITATION.cff` now provides conservative repository citation metadata without inventing a DOI, release date,
+license, affiliation, or ORCID. Populate those fields only after the owner selects the release terms and a real
+archive or paper identifier exists.

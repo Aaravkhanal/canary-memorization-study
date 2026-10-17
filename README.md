@@ -143,7 +143,7 @@ these are plots and tables only — no prose conclusion is drawn in the outputs 
 
 ## Tests
 
-111 tests (`pytest tests/`) cover corpus construction, confirmatory split hygiene/configs/data acquisition,
+112 tests (`pytest tests/`) cover corpus construction, confirmatory split hygiene/configs/data acquisition,
 frozen inferential and outcome-evaluation models, blinded-batch construction, and storage/start-gate safety,
 exposure/extraction, novelty metrics, full-corpus overlap,
 blinded annotation/scoring, trade-off analysis, artifact-manifest integrity, seed sensitivity, and 48M
@@ -166,6 +166,8 @@ compiled successfully in the desktop editor.
 - `docs/RESULTS_CLAIM_AUDIT.md`: evidence map and allowed/prohibited result wording.
 - `docs/ARTIFACT_REPRODUCIBILITY.md`: exact reproduction commands and data/weights availability limits.
 - `docs/DATA_RIGHTS_AND_RELEASE.md`: revision-pinned TinyStories provenance, license record, and release decisions.
+- `CITATION.cff`: conservative citation metadata with no invented DOI, release date, license, affiliation, or
+  ORCID; complete those fields only at an authorized release.
 - `artifacts/tokenizer_tinystories_v2/`: exact 4,096-token BPE artifact and provenance note for clean clones.
 - `results/clean_room_smoke.json`: passed fresh-clone engineering smoke record (CPU-only, not a study outcome).
 - `configs/confirmatory/analysis_plan.json`: frozen exposure/novelty formulas, contrasts, correction, and fallback.

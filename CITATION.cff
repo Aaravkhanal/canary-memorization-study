@@ -1,0 +1,18 @@
+cff-version: 1.2.0
+message: "If you use this research artifact, cite the archived release or the final paper when available."
+type: software
+title: "Canary Memorization Study: Controlled Exposure and Compositional Creativity"
+authors:
+  - family-names: Khanal
+    given-names: Aarav
+repository-code: "https://github.com/Aaravkhanal/canary-memorization-study"
+abstract: >-
+  Code, protocols, configurations, and exploratory artifacts for controlled
+  narrative-canary memorization experiments in small language models. The
+  contamination-free confirmatory extension is pre-registered but has not
+  produced outcomes.
+keywords:
+  - language-model memorization
+  - canary exposure
+  - compositional generalization
+  - reproducibility

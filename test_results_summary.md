@@ -457,3 +457,11 @@ three blank sheets. External recruitment, annotation, and training remain blocke
 institutional determination, finalized consent, compensation, withdrawal process, and explicit clearances are
 recorded. One added design test brings the suite to **111/111 tests**, passing in 10.72 seconds with 14 upstream
 warnings and no failures. The IEEE source compiled successfully, and no confirmatory outcome was generated.
+
+## Conservative citation metadata (2026-10-17)
+
+A parseable `CITATION.cff` now identifies the repository, author, scope, and code URL while deliberately omitting
+an unissued DOI, release date, owner-unconfirmed license, affiliation, and ORCID. A unit test enforces those
+boundaries so later automation cannot silently invent release metadata. The full suite passed **112/112 tests**
+in 9.41 seconds with 14 upstream warnings and no failures. This is release preparation only; no archive or DOI is
+claimed and no confirmatory outcome was generated.

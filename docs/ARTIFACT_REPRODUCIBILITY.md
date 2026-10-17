@@ -137,6 +137,9 @@ machine has not independently reproduced training.
 
 ## Before an external artifact release
 
+- Review and retain `CITATION.cff`; add the final paper DOI, archive DOI, version, release date, ORCID, and
+  affiliation only after those values genuinely exist or are confirmed. The current file deliberately contains
+  no DOI, license, release date, affiliation, or ORCID.
 - Make paths configurable rather than absolute; add a pinned dependency/environment lock and a clean-clone smoke
   test.
 - Publish permitted corpus instructions or a content-addressed data acquisition process, tokenizer, checkpoints,

@@ -8,6 +8,11 @@
       "sha256": "12bdad1f94dfd9c1cf790eff36af62207affc553065052e1c33488b06966e105"
     },
     {
+      "path": "CITATION.cff",
+      "size_bytes": 732,
+      "sha256": "0fc84af15a3c4ae8f84712f323c17e0bbf814496818aab1fa8300f28944ee0fc"
+    },
+    {
       "path": "PHASE4_NOTES.md",
       "size_bytes": 69893,
       "sha256": "93393108fb25e606c36b9e38556f404e3ee49b7850126732a521aa8d7003a09c"
@@ -19,8 +24,8 @@
     },
     {
       "path": "README.md",
-      "size_bytes": 14445,
-      "sha256": "1e36049196d37da5de62339cb1706d61814f01040b1d2f0ea65bb30b393e1511"
+      "size_bytes": 14617,
+      "sha256": "517f00eb6bb70961ca63438233600bbfcab3b3b92ccc5b861a6c095487fa150b"
     },
     {
       "path": "artifacts/tokenizer_tinystories_v2/README.md",
@@ -519,8 +524,8 @@
     },
     {
       "path": "docs/ARTIFACT_REPRODUCIBILITY.md",
-      "size_bytes": 10137,
-      "sha256": "cd1d730040215a012f9afbdff7094d408f5aba986ae33982242ac547657d22af"
+      "size_bytes": 10412,
+      "sha256": "7317965291147d0912c26e5e470cb72d737af4cea98ea33aa67f59ff4f89e8e6"
     },
     {
       "path": "docs/CONFIRMATORY_EXECUTION_PLAN.md",
@@ -534,8 +539,8 @@
     },
     {
       "path": "docs/DATA_RIGHTS_AND_RELEASE.md",
-      "size_bytes": 3022,
-      "sha256": "87e499cd5e906ad8135409b242990415f079ce2d5a338be59537dc500d12f2cc"
+      "size_bytes": 3280,
+      "sha256": "14a92f747196b4b7d1e1c2c6be108bf36b03e7a899519a6d709bda274da2fb0a"
     },
     {
       "path": "docs/DISK_CAPACITY_AUDIT.md",
@@ -545,7 +550,7 @@
     {
       "path": "docs/DRAFT_PAPER.md",
       "size_bytes": 45983,
-      "sha256": "4505200bfcdf4284aa6ef781a0237045a8fb4388f8997c0e6f7465c1de5b8d50"
+      "sha256": "4a9f41580da597e85a2e212da1554e1af95dedb31cd11b1ad9098ba922a9758b"
     },
     {
       "path": "docs/ETHICS_AND_CONSENT_PLAN.md",
@@ -1829,8 +1834,8 @@
     },
     {
       "path": "test_results_summary.md",
-      "size_bytes": 36866,
-      "sha256": "f6286dd2d254d739284cdf3dbc6dbdacd7f8a5478c7b234fc2aeb3b24792aa8a"
+      "size_bytes": 37415,
+      "sha256": "62315a1bcb03e3031aaf61cf3383d5ff3a3e14c983132ee5efd35ed802352701"
     },
     {
       "path": "tests/test_analyze_tradeoff.py",
@@ -1846,6 +1851,11 @@
       "path": "tests/test_blinded_annotations.py",
       "size_bytes": 4402,
       "sha256": "ef3563d677589eb0bfdeab715a64b532c962da7f7c0cb20a3d63a7aae267162a"
+    },
+    {
+      "path": "tests/test_citation_metadata.py",
+      "size_bytes": 664,
+      "sha256": "bfb117d008ee0bb503560dcd670226801451af8fd580486a12cec753f64b0248"
     },
     {
       "path": "tests/test_clean_room_report.py",
