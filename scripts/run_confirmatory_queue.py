@@ -108,11 +108,22 @@ def verify_completed_cell(run_dir: Path) -> dict:
     return report
 
 
+def runtime_path_overrides(root: Path, seed: int) -> list[str]:
+    """Translate portable study-relative paths for aarav-lm's repository-root resolver."""
+    seed_root = root / "data" / "confirmatory" / f"seed_{seed}"
+    return [
+        f"data.sources=[{seed_root / 'corpus.txt'}]",
+        f"data.out_dir={seed_root / 'tokenized'}",
+        f"tokenizer.artifact_dir={root / 'artifacts' / 'tokenizer_tinystories_v2'}",
+    ]
+
+
 def ensure_tokenized(root: Path, aarav_lm: Path, python: Path, config: Path, seed: int, env: dict) -> None:
     manifest = root / "data" / "confirmatory" / f"seed_{seed}" / "tokenized" / "manifest.json"
     if not manifest.is_file():
         subprocess.run(
-            [str(python), str(aarav_lm / "scripts" / "prepare_data.py"), "--config", str(config)],
+            [str(python), str(aarav_lm / "scripts" / "prepare_data.py"), "--config", str(config),
+             *runtime_path_overrides(root, seed)],
             cwd=root, env=env, check=True,
         )
     if not manifest.is_file():
@@ -214,7 +225,7 @@ def run_cell(root: Path, aarav_lm: Path, python: Path, artifact_root: Path, resu
         command = [str(python), str(aarav_lm / "scripts" / "train.py"), "--resume", str(run_dir)]
     else:
         command = [str(python), str(aarav_lm / "scripts" / "train.py"), "--config", str(config),
-                   "--exp-root", str(cell_root)]
+                   "--exp-root", str(cell_root), *runtime_path_overrides(root, seed)]
     if not (runs and completed(runs[-1])):
         subprocess.run(command, cwd=root, env=env, check=True)
         latest = run_directories(cell_root)[-1]

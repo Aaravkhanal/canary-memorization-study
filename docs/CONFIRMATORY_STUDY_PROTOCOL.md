@@ -217,3 +217,11 @@ recruitment, rater-sheet distribution, annotation, adjudication, and human-endpo
 until the applicable determination, finalized consent, compensation, withdrawal process, retention plan, and
 annotation clearance are recorded. No confirmatory outcome had been generated or inspected when this amendment
 was made.
+
+## Amendment 7 — runtime path-resolution repair (2026-10-17, before training)
+
+The first authorized queue launch passed every gate but stopped before tokenization or model training because the
+sibling `aarav-lm` resolver interpreted the portable study-relative corpus path against the sibling repository.
+The runner now supplies absolute runtime-only overrides for the locked corpus, tokenized-data directory, and exact
+tokenizer artifact while leaving every committed scientific config value unchanged. A regression test verifies
+the bridge. The failed launch produced no model step, checkpoint, evaluation, or confirmatory outcome.

@@ -145,7 +145,7 @@ these are plots and tables only — no prose conclusion is drawn in the outputs 
 
 ## Tests
 
-114 tests (`pytest tests/`) cover corpus construction, confirmatory split hygiene/configs/data acquisition,
+115 tests (`pytest tests/`) cover corpus construction, confirmatory split hygiene/configs/data acquisition,
 frozen inferential and outcome-evaluation models, blinded-batch construction, and storage/start-gate safety,
 exposure/extraction, novelty metrics, full-corpus overlap,
 blinded annotation/scoring, trade-off analysis, artifact-manifest integrity, seed sensitivity, and 48M

@@ -494,3 +494,9 @@ and annotation. The ethics validator and start gate report these scopes separate
 distribution, annotation, adjudication, and human-endpoint analysis remain blocked; no institutional approval is
 claimed or inferred. This amendment was recorded before any confirmatory outcome was generated or inspected.
 The full suite passed **114/114 tests** in 9.99 seconds with 14 upstream warnings and no failures.
+
+The first authorized queue launch then stopped before tokenization or training because `aarav-lm` resolved the
+portable relative corpus path against its own repository root. No checkpoint, model step, evaluation, or outcome
+was produced. The runner now supplies absolute runtime-only corpus, tokenized-data, and tokenizer overrides while
+preserving the committed configs; a regression test locks this interface repair. The full suite passed
+**115/115 tests** in 10.20 seconds with 14 upstream warnings and no failures.

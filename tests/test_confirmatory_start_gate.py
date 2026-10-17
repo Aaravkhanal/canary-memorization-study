@@ -4,7 +4,9 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "scripts"))
 from check_confirmatory_start_gate import check_configs, probe_storage  # noqa: E402
-from run_confirmatory_queue import active_training_processes, finalize_cell, validate_evaluation  # noqa: E402
+from run_confirmatory_queue import (  # noqa: E402
+    active_training_processes, finalize_cell, runtime_path_overrides, validate_evaluation,
+)
 
 
 def test_storage_probe_checks_capacity_and_io(tmp_path):
@@ -40,6 +42,17 @@ def test_selected_external_design_remains_blocked_without_clearance():
 
 def test_process_detection_returns_strings():
     assert all(isinstance(item, str) for item in active_training_processes())
+
+
+def test_runtime_overrides_bridge_portable_configs_to_aarav_lm_resolver():
+    root = Path(__file__).resolve().parents[1]
+    overrides = runtime_path_overrides(root, 20261016)
+    assert overrides == [
+        f"data.sources=[{root / 'data/confirmatory/seed_20261016/corpus.txt'}]",
+        f"data.out_dir={root / 'data/confirmatory/seed_20261016/tokenized'}",
+        f"tokenizer.artifact_dir={root / 'artifacts/tokenizer_tinystories_v2'}",
+    ]
+    assert (root / "data/confirmatory/seed_20261016/corpus.txt").is_file()
 
 
 def test_evaluation_validation_requires_complete_fixed_shape(tmp_path):
