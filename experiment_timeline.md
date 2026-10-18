@@ -298,3 +298,10 @@ checkpoint serialization failure and successful resume from step 1,000 remain re
 occurred. Matched-baseline tradeoff and clean-canary tables/plots were regenerated. The two blinded annotation
 files remain condition-hidden with 1,280 rows each and blank label/confidence/notes. Human annotation and the
 separate contamination-free confirmatory study remain outstanding.
+
+### 2026-10-18: confirmatory queue recovery
+
+- The seed-20261018 baseline 14M cell completed 6,000 steps and entered its locked evaluation normally.
+- The following learned-position cell was interrupted at step 175 before any rolling checkpoint existed. Its
+  directory and log were preserved, the failure was documented as protocol Amendment 8, and the runner gained a
+  tested fresh-directory recovery path for this pre-checkpoint-only case.

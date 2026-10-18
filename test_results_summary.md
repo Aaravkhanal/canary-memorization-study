@@ -500,3 +500,12 @@ portable relative corpus path against its own repository root. No checkpoint, mo
 was produced. The runner now supplies absolute runtime-only corpus, tokenized-data, and tokenizer overrides while
 preserving the committed configs; a regression test locks this interface repair. The full suite passed
 **115/115 tests** in 10.20 seconds with 14 upstream warnings and no failures.
+
+### 2026-10-18: confirmatory pre-checkpoint interruption recovery
+
+The sequential confirmatory queue was interrupted during the seed-20261018 learned-position 14M cell at step 175,
+before its first rolling checkpoint. Nine preceding 14M cells remained complete and verified. The incomplete
+experiment directory and log are retained for audit; the runner now starts a fresh experiment directory only when
+an interrupted run has no resumable checkpoint, while preserving normal in-place resume for valid checkpoints.
+The full research suite passed **116/116 tests** in 10.85 seconds with 14 upstream Matplotlib/Pyparsing warnings
+and no failures.

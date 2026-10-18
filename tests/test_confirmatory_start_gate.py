@@ -55,6 +55,12 @@ def test_runtime_overrides_bridge_portable_configs_to_aarav_lm_resolver():
     assert (root / "data/confirmatory/seed_20261016/corpus.txt").is_file()
 
 
+def test_precheckpoint_interruption_is_preserved_by_new_experiment_policy():
+    source = (Path(__file__).resolve().parents[1] / "scripts/run_confirmatory_queue.py").read_text()
+    assert "Preserve a pre-checkpoint interruption as an audit artifact" in source
+    assert '"--exp-root", str(cell_root), *runtime_path_overrides(root, seed)' in source
+
+
 def test_evaluation_validation_requires_complete_fixed_shape(tmp_path):
     path = tmp_path / "evaluated.json"
     payload = {

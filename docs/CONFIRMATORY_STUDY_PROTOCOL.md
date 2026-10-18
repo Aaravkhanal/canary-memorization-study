@@ -225,3 +225,13 @@ sibling `aarav-lm` resolver interpreted the portable study-relative corpus path 
 The runner now supplies absolute runtime-only overrides for the locked corpus, tokenized-data directory, and exact
 tokenizer artifact while leaving every committed scientific config value unchanged. A regression test verifies
 the bridge. The failed launch produced no model step, checkpoint, evaluation, or confirmatory outcome.
+
+## Amendment 8 — pre-checkpoint interruption recovery (2026-10-18, before resuming the affected cell)
+
+The sequential queue process was interrupted during the seed-20261018 learned-position 14M cell after step 175,
+before the first rolling checkpoint. The preceding nine 14M cells were unaffected; the interrupted directory is
+retained as an audit artifact and contains no checkpoint or completed evaluation. Because there is no valid state
+to resume, the runner now starts a fresh experiment directory for this exact locked cell when the latest incomplete
+run has no rolling checkpoint. Runs with a valid rolling checkpoint continue to use in-place resume. No scientific
+configuration, corpus, seed, endpoint, exclusion rule, or analysis model changed, and no confirmatory outcome was
+used to make this operational recovery decision.

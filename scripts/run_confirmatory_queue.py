@@ -219,10 +219,13 @@ def run_cell(root: Path, aarav_lm: Path, python: Path, artifact_root: Path, resu
     elif runs:
         run_dir = runs[-1]
         checkpoints = sorted((run_dir / "checkpoints").glob("step_*.pt"), key=lambda p: p.stat().st_mtime)
-        if not checkpoints:
-            raise RuntimeError(f"incomplete run has no resumable checkpoint: {run_dir}")
-        load_checkpoint(checkpoints[-1])
-        command = [str(python), str(aarav_lm / "scripts" / "train.py"), "--resume", str(run_dir)]
+        if checkpoints:
+            load_checkpoint(checkpoints[-1])
+            command = [str(python), str(aarav_lm / "scripts" / "train.py"), "--resume", str(run_dir)]
+        else:
+            # Preserve a pre-checkpoint interruption as an audit artifact and start a new experiment directory.
+            command = [str(python), str(aarav_lm / "scripts" / "train.py"), "--config", str(config),
+                       "--exp-root", str(cell_root), *runtime_path_overrides(root, seed)]
     else:
         command = [str(python), str(aarav_lm / "scripts" / "train.py"), "--config", str(config),
                    "--exp-root", str(cell_root), *runtime_path_overrides(root, seed)]
