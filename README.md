@@ -166,6 +166,8 @@ compiled successfully in the desktop editor.
 - `docs/CONFIRMATORY_STUDY_PROTOCOL.md`: contamination-free, mixed-frequency, multi-seed confirmatory design.
 - `docs/CONFIRMATORY_EXECUTION_PLAN.md`: gated two-scale execution plan, measured duration, storage needs, and
   current blockers.
+- `docs/CONFIRMATORY_PROGRESS.md`: living cell-by-cell and test-run ledger; updated after each completed
+  confirmatory experiment/evaluation and research test run without interpreting partial outcomes.
 - `docs/STORAGE_AND_RECOVERY_PLAN.md`: 25-GiB capacity gate, artifact retention, interruption recovery, and
   checkpoint verification rules.
 - `docs/DISK_CAPACITY_AUDIT.md`: read-only inventory of large local paths and safe owner-directed storage options;
