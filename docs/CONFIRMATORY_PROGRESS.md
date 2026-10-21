@@ -1,6 +1,6 @@
 # Confirmatory experiment progress ledger
 
-Last updated: 2026-10-21 01:47 Asia/Kolkata.
+Last updated: 2026-10-21 06:51 Asia/Kolkata.
 
 This is an operational ledger, not a results narrative. It records completion, artifact production, and validation
 without interpreting confirmatory outcomes before the frozen grid is complete. Add an entry after every completed
@@ -8,12 +8,12 @@ training/evaluation cell and after every research test-suite run.
 
 ## Current status
 
-- Completed cells: **18/24 (75.0%)**.
+- Completed cells: **19/24 (79.2%)**.
 - 14M grid: **12/12 complete and evaluated**.
-- 48M grid: **6/12 complete and evaluated**.
-- Active cell: `48m/mha/seed_20261017` (started 2026-10-21; sequential MPS queue).
-- Cells remaining, including the active cell: **6**.
-- Latest storage preflight: passed with approximately 34 GiB free before the active cell began.
+- 48M grid: **7/12 complete and evaluated**.
+- Active cell: `48m/layernorm/seed_20261017` (started 2026-10-21; sequential MPS queue).
+- Cells remaining, including the active cell: **5**.
+- Latest storage preflight: passed with approximately 29 GiB free before the active cell began.
 - Confirmatory interpretation remains locked until the complete grid, frozen analysis, and artifact checks finish.
 - Human annotation is not started. External-rater institutional determination, finalized consent, compensation,
   withdrawal, and annotation clearance remain unresolved.
@@ -43,8 +43,8 @@ full-overlap augmentation also completed. Values below deliberately report artif
 | 48M | layernorm | 20261016 | complete | present | present |
 | 48M | baseline | 20261017 | complete | present | present |
 | 48M | learned_pos | 20261017 | complete | present | present |
-| 48M | mha | 20261017 | running | pending | pending |
-| 48M | layernorm | 20261017 | queued | pending | pending |
+| 48M | mha | 20261017 | complete | present | present |
+| 48M | layernorm | 20261017 | running | pending | pending |
 | 48M | baseline | 20261018 | queued | pending | pending |
 | 48M | learned_pos | 20261018 | queued | pending | pending |
 | 48M | mha | 20261018 | queued | pending | pending |
@@ -55,14 +55,14 @@ full-overlap augmentation also completed. Values below deliberately report artif
 | Date | Scope | Result | Notes |
 |---|---|---|---|
 | 2026-10-17 | Full research suite | 115 passed | Last committed full-suite run; IEEE LaTeX manuscript also compiled successfully. |
-| 2026-10-21 | Completed confirmatory result inventory | 36/36 JSON files present | Eighteen raw and eighteen evaluated files; no outcome interpretation performed. |
+| 2026-10-21 | Completed confirmatory result inventory | 38/38 JSON files present | Nineteen raw and nineteen evaluated files; no outcome interpretation performed. |
 
 The full suite will be run again after the 24-cell grid and frozen analysis are complete. Running it concurrently
 with MPS training is intentionally avoided to reduce memory pressure and protect the active experiment.
 
 ## Remaining completion gates
 
-1. Finish and evaluate the eight remaining 48M cells.
+1. Finish and evaluate the five remaining 48M cells.
 2. Verify all checkpoint, JSON, corpus, runtime, and failure records.
 3. Run the frozen confirmatory statistics and regenerate final trade-off tables and plots.
 4. Build the complete condition-hidden annotation sheets with blank labels.
