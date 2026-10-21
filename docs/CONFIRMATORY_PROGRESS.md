@@ -1,6 +1,6 @@
 # Confirmatory experiment progress ledger
 
-Last updated: 2026-10-21 19:07 Asia/Kolkata.
+Last updated: 2026-10-21 19:33 Asia/Kolkata.
 
 This is an operational ledger, not a results narrative. It records completion, artifact production, and validation
 without interpreting confirmatory outcomes before the frozen grid is complete. Add an entry after every completed
@@ -11,10 +11,9 @@ training/evaluation cell and after every research test-suite run.
 - Completed cells: **21/24 (87.5%)**.
 - 14M grid: **12/12 complete and evaluated**.
 - 48M grid: **9/12 complete and evaluated**.
-- Active cell: none; the sequential queue stopped cleanly before `48m/learned_pos/seed_20261018`.
-- Cells remaining: **3**.
-- Latest storage preflight: failed with approximately 14 GiB free after the completed baseline cell; the frozen
-  25-GiB threshold prevents the next cell from starting.
+- Active cell: `48m/learned_pos/seed_20261018` (resumed 2026-10-21; sequential MPS queue).
+- Cells remaining, including the active cell: **3**.
+- Latest storage preflight: passed with approximately 30 GiB free before the active cell began.
 - Confirmatory interpretation remains locked until the complete grid, frozen analysis, and artifact checks finish.
 - Human annotation is not started. External-rater institutional determination, finalized consent, compensation,
   withdrawal, and annotation clearance remain unresolved.
@@ -63,7 +62,7 @@ with MPS training is intentionally avoided to reduce memory pressure and protect
 
 ## Remaining completion gates
 
-1. Restore at least 25 GiB free storage, then finish and evaluate the three remaining 48M cells.
+1. Finish and evaluate the three remaining 48M cells.
 2. Verify all checkpoint, JSON, corpus, runtime, and failure records.
 3. Run the frozen confirmatory statistics and regenerate final trade-off tables and plots.
 4. Build the complete condition-hidden annotation sheets with blank labels.
