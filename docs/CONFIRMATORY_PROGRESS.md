@@ -13,7 +13,7 @@ training/evaluation cell and after every research test-suite run.
 - 48M grid: **8/12 complete and evaluated**.
 - Active cell: `48m/baseline/seed_20261018` (started 2026-10-21; sequential MPS queue).
 - Cells remaining, including the active cell: **4**.
-- Latest storage preflight: passed with approximately 29 GiB free before the active cell began.
+- Latest storage preflight: passed with approximately 27 GiB free before the active cell began.
 - Confirmatory interpretation remains locked until the complete grid, frozen analysis, and artifact checks finish.
 - Human annotation is not started. External-rater institutional determination, finalized consent, compensation,
   withdrawal, and annotation clearance remain unresolved.
