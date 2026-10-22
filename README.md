@@ -11,8 +11,10 @@ compositional originality is measured separately with whole-corpus copying diagn
 judgments of whether a completion reproduces, lightly templates, or genuinely recombines recurring story
 elements. Lexical diversity alone is never treated as creativity.
 
-**Status (verified 2026-10-17): the balanced four-architecture 14M grid and the matched 24-cell 48M
-scale-transfer grid are complete.**
+**Status (verified 2026-10-22): the exploratory balanced four-architecture 14M grid and matched 24-cell 48M
+scale-transfer grid are complete. The separate contamination-free confirmatory grid is 22/24 cells complete
+(14M: 12/12; 48M: 10/12), with `48m/mha/seed_20261018` currently training and the final LayerNorm cell queued
+behind it. Confirmatory outcomes remain interpretation-locked until the entire grid and artifact checks finish.**
 The baseline 100x/500x second-training-seed replications are also complete. All 53 retained experiment summaries
 report 6,000 updates. The final 48M cell (LayerNorm, frequency 500) completed at 21:34:48 local on 2026-10-15
 (24,087 trainer seconds; best validation loss 1.4781 / PPL 4.3847). Its best/final checkpoints and all evaluations
@@ -92,9 +94,11 @@ This design needs a **fresh pretraining run from scratch per (architecture, freq
 to be attributed to a controlled number of training-time exposures, not to fine-tuning an already-trained model.
 On this machine (a MacBook Air M3, 8 GB, no external GPU), a 14M run uses 49.152M training tokens and currently
 takes roughly 2.5-3 hours at observed throughput. The source training split itself is 14.58M tokens.
-Canary training and the sibling `aarav-lm` project's own training were never run concurrently on this single
-machine. No canary experiment compute is currently queued; the remaining publication gates require human
-annotation, confirmatory-study approval/resources, and clean-room artifact work.
+Canary training and the sibling `aarav-lm` project's own training are not run concurrently on this single
+machine. The locked confirmatory queue is currently finishing the last two 48M cells sequentially; it rechecks
+the 25-GiB storage threshold before each cell and will not overlap jobs. Human annotation remains blocked on the
+external-rater institutional determination, finalized consent, compensation, withdrawal, and annotation
+clearances.
 
 ## Reproduce Phase 1 (canary corpus construction)
 
@@ -184,8 +188,9 @@ compiled successfully in the desktop editor.
 - `configs/confirmatory/analysis_plan.json`: frozen exposure/novelty formulas, contrasts, correction, and fallback.
 - `configs/confirmatory/evaluation_plan.json`: frozen 1,025-candidate exposure, 4 × 2 generation, extraction, and
   exact training-split overlap settings.
-- `scripts/check_confirmatory_start_gate.py`: non-outcome preflight; it currently fails safely on storage and the
-  missing external-rater determination/finalized consent clearances.
+- `scripts/check_confirmatory_start_gate.py`: non-outcome preflight; the computational-training gates currently
+  pass, while the separate annotation gate correctly remains closed pending the external-rater institutional
+  determination and finalized consent, compensation, and withdrawal materials.
 - `scripts/run_confirmatory_queue.py`: portable, globally locked sequential 14M-then-48M runner; it cannot train
   until the preflight passes.
 - `scripts/prepare_confirmatory_annotation.py`: refuses partial grids and produces two independently shuffled
