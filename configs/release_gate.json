@@ -8,6 +8,6 @@
   "archive_doi": "",
   "full_cell_clean_room_reproduction_complete": false,
   "human_annotation_complete": false,
-  "confirmatory_training_complete": false,
-  "notes": "False values are deliberate release blockers. This gate is separate from the training start gate and must never be changed merely to make a check pass."
+  "confirmatory_training_complete": true,
+  "notes": "Confirmatory training is true only after all 24 cells and locked automated evaluations completed on 2026-10-22. Remaining false values are deliberate release blockers. This gate is separate from the training start gate and must never be changed merely to make a check pass."
 }

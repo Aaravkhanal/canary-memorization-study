@@ -1,7 +1,8 @@
 # Confirmatory replication and clean-room execution plan
 
-**Status (2026-10-17): bank, power, corpus, config, inferential-model, storage, and recovery locks implemented;
-training remains gated and has not started.** This plan turns
+**Status (2026-10-22): all 24 locked training cells and automated evaluations are complete; the exposure-only
+frozen analysis and blank condition-hidden annotation package are built. External-rater clearance, labels,
+adjudication, the human-novelty model, full-cell clean-room reproduction, licensing, and archival remain open.** This plan turns
 `CONFIRMATORY_STUDY_PROTOCOL.md` into an executable two-scale study without treating the existing exploratory
 outcomes as confirmatory evidence.
 

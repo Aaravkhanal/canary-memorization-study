@@ -1,7 +1,8 @@
 # Artifact reproducibility and release boundaries
 
-**Status: a fresh-clone analysis/data/tokenization/one-step CPU smoke test passed; full-cell reproduction and
-permanent archival remain outstanding.** The
+**Status: the 24-cell confirmatory computational grid and automated evaluations are complete, and a fresh-clone
+analysis/data/tokenization/one-step CPU smoke test passed; full-cell clean-room reproduction and permanent
+archival remain outstanding.** The
 repository records analysis code, configurations, result JSON/CSV files, figures, runtime notes, tests, and
 protocols. A Git checkout alone is not sufficient to retrain the models or regenerate every result: the base
 corpus, processed frequency-specific corpus text, and model checkpoints are local/ignored artifacts, and the
@@ -45,21 +46,34 @@ Analysis mode checks the package versions in `requirements-research.lock`. Train
 pinned `aarav-lm` Git revision and the byte hashes of the base-corpus subset and tokenizer files recorded in
 `reproducibility/inputs.lock.json`. The fresh-clone smoke record is in `results/clean_room_smoke.json`.
 
-Before any confirmatory training, run the stricter non-outcome gate:
+Before confirmatory training or a resumed cell, run the stricter non-outcome gate:
 
 ```bash
 python scripts/check_confirmatory_start_gate.py --json-out results/confirmatory_start_gate.json
 python scripts/run_confirmatory_queue.py --check-only
 ```
 
-Both commands intentionally return nonzero while a required gate is open. The checker validates the 24 configs,
+The checker validates the 24 configs,
 all three corpus hashes, committed pre-outcome locks, ethics record, and the selected artifact filesystem. The
 queue uses `AARAV_LM_DIR` and optional `CONFIRMATORY_ARTIFACT_ROOT`, acquires one global lock across scales, refuses
-an existing Python training process, and checks the frozen 25-GiB threshold before every cell. It currently cannot
-start because storage and the external-rater determination/consent clearances remain unresolved. The outcome workflow is frozen: it runs the
+an existing Python training process, and checks the frozen 25-GiB threshold before every cell. The computational
+grid has completed; the separate human-annotation gate remains closed. The outcome workflow is frozen: it runs the
 1,025-candidate evaluator, enriches all 320 generations per cell against the exact content-hash-selected training
 split, verifies JSON/checkpoint/corpus provenance, and only then removes rolling checkpoints while retaining
-best/final. The blinded-batch builder runs only after all 24 evaluated cells exist and leaves human labels blank.
+best/final. The blinded-batch builder ran after all 24 evaluated cells existed and produced two external-rater
+sheets plus one separate self-sensitivity sheet with 7,680 blank rows apiece.
+
+The confirmatory exposure-only analysis can be regenerated without human labels:
+
+```bash
+python scripts/build_confirmatory_exposure_table.py
+python scripts/analyze_confirmatory.py \
+  --exposure-csv results/confirmatory/exposure_analysis_input.csv \
+  --output results/confirmatory/exposure_analysis.json
+```
+
+Do not add `--novelty-csv` until complete external labels have been independently collected, adjudicated, and
+unblinded under the frozen protocol.
 
 Release readiness is a separate, deliberately failing gate:
 

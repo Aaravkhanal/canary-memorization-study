@@ -8,7 +8,8 @@ checkpoints, parsed 175 result JSONs, and verified all 50 overlap reports agains
 corpus hashes and 73,139-story counts. Matched-baseline tradeoff tables and clean-canary tables/plots have been
 regenerated. The initial 48M baseline frequency-0 cell required recovery from a disk-full checkpoint-write failure;
 it resumed from a valid step-1,000 checkpoint and completed. The human primary novelty endpoint and the separate
-contamination-free confirmatory study remain incomplete; the scale arm is single-seed and exploratory.
+contamination-free confirmatory computational grid is complete, but its primary human novelty endpoint remains
+unlabelled; the exploratory scale arm is single-seed.
 The current submission gate is
 `docs/PUBLICATION_READINESS.md`.
 
@@ -27,7 +28,8 @@ word-four-gram overlap was evaluated against each matching frequency-specific tr
 16,000 generations, including seed controls. These are descriptive results: the factorial cells are mostly
 single-seed, automated diversity and overlap are not human creativity judgments, and the 48M arm is not a causal
 size comparison. The blinded two-rater V/T/N endpoint has been prepared but not scored, and a separate
-contamination-free confirmatory experiment has not been run. Accordingly, this study does not establish a
+contamination-free confirmatory 24-cell computational grid and exposure-only frozen analysis are complete, but
+the external-rater novelty endpoint has not been collected. Accordingly, this study does not yet establish a
 memorization-versus-creativity trade-off.
 
 ## 1. Research question
@@ -570,12 +572,13 @@ because those identities can distort exposure summaries. Both figures are explor
   the training/evaluation code depends on the sibling `aarav-lm` project and path-specific local artifacts. The
   committed outputs are auditable, but a clean-clone training reproduction has not been validated. See
   `docs/ARTIFACT_REPRODUCIBILITY.md` for commands and artifact boundaries.
-- Test suite (115 tests in the current repository) covers exploratory and confirmatory corpus construction,
+- Test suite (118 tests in the current repository) covers exploratory and confirmatory corpus construction,
   exposure/extraction, novelty and exact-overlap metrics, frozen confirmatory analysis, blinded annotation/scoring,
   storage/start-gate safety, clean-room inputs, and trade-off analysis; run via `pytest tests/`.
 - Claim-by-claim source mapping and wording limits: `docs/RESULTS_CLAIM_AUDIT.md`.
-- The contamination-free protocol, screened bank, mixed-frequency corpora, portable two-scale configs, inferential
-  models, evaluator, and sequential runner are frozen but not run; its storage and ethics/consent gates remain
-  closed, the prepared exploratory blinded sheets are blank, and no human outcome is reported.
+- The contamination-free protocol completed all 24 locked training/evaluation cells. The exposure-only frozen
+  model has run, and two external-rater sheets plus one separate self-sensitivity sheet contain 7,680 blank rows
+  each. External recruitment, annotation, adjudication, and the human-novelty model remain closed pending the
+  institutional, consent, compensation, withdrawal, retention, and annotation clearances.
 - Repository commit attribution and scholarly authorship are distinct. The final manuscript must follow the target
   venue's human-authorship criteria and disclose AI-assisted code or prose to the extent required by its policy.

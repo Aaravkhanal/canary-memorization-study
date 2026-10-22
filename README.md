@@ -12,9 +12,10 @@ judgments of whether a completion reproduces, lightly templates, or genuinely re
 elements. Lexical diversity alone is never treated as creativity.
 
 **Status (verified 2026-10-22): the exploratory balanced four-architecture 14M grid and matched 24-cell 48M
-scale-transfer grid are complete. The separate contamination-free confirmatory grid is 23/24 cells complete
-(14M: 12/12; 48M: 11/12), with the final `48m/layernorm/seed_20261018` cell currently training. Confirmatory
-outcomes remain interpretation-locked until the entire grid and artifact checks finish.**
+scale-transfer grid are complete. The separate contamination-free confirmatory grid is also complete and
+evaluated (24/24 cells: 14M 12/12; 48M 12/12). The frozen exposure-only model has been run, and all three
+condition-hidden annotation sheets were generated with 7,680 blank rows each. Human novelty analysis remains
+blocked until the external-rater clearances, independent labels, and adjudication actually exist.**
 The baseline 100x/500x second-training-seed replications are also complete. All 53 retained experiment summaries
 report 6,000 updates. The final 48M cell (LayerNorm, frequency 500) completed at 21:34:48 local on 2026-10-15
 (24,087 trainer seconds; best validation loss 1.4781 / PPL 4.3847). Its best/final checkpoints and all evaluations
@@ -24,8 +25,8 @@ best/final checkpoints, parsed all 175 result JSON files, checked all 50 full-co
 frequency corpus hash and 73,139-story count, and regenerated matched-baseline tradeoff tables/plots. The initial
 48M baseline frequency-0 attempt did fail during a checkpoint write, then resumed from its verified step-1,000
 checkpoint and completed; the failure remains in the runtime audit. The manuscript remains exploratory, not
-submission-ready: the primary human V/T/N novelty endpoint and separate contamination-free confirmatory study are
-still incomplete. All 48M cells are single-seed and use a different learning rate from the 14M arm, so these results
+submission-ready: the primary human V/T/N novelty endpoint and full clean-room/release work remain incomplete.
+All exploratory 48M cells are single-seed and use a different learning rate from the 14M arm, so those results
 do not establish a creativity trade-off. See
 `PLAN.md` for the phase-by-phase brief this project follows, `PHASE4_NOTES.md` for the detailed running lab
 notebook, and `docs/DRAFT_PAPER.md` for the write-up structured for eventual publication, kept in sync as results
@@ -53,9 +54,9 @@ Per-run durations, checkpoint validation, and failure records are summarized in 
 Across the canonical 14M grid, two baseline seed controls, and the 48M grid, matching-corpus exact four-gram
 overlap was evaluated for 50 cells / 16,000 generations. It is a copying diagnostic, not a semantic originality
 measure. The blinded annotation sheets are prepared but still contain zero human labels. The separate
-contamination-free confirmatory study began its locked sequential training queue on 2026-10-17; its outcomes
-remain uninspected and incomplete. Accordingly, no memorization-versus-creativity trade-off has yet been
-established.
+contamination-free confirmatory training and automated evaluation grid is complete. Its exposure-only frozen
+analysis is available, but the primary human novelty endpoint is still blank. Accordingly, no
+memorization-versus-creativity trade-off has yet been established.
 
 ## What's not done, and why
 
@@ -72,11 +73,10 @@ established.
 - Baseline 100x/500x training-seed replications are complete. The 48M arm has all 24 cells verified, each with
   memorization, novelty, and matching-corpus overlap evaluations. The initial 48M baseline frequency-0 attempt had
   a disk-full checkpoint-write failure and resumed from its verified step-1,000 state.
-- **A confirmatory, contamination-free study** is now running for the stronger paper. Its screened bank, three
-  deterministic mixed-frequency corpora, 24 portable two-scale configs, and power decision are now locked; model
-  the owner has now authorized computational training separately from human-participant work. The 25-GiB storage
-  probe passes after owner-authorized non-Desktop cleanup and is rechecked before every cell. External recruitment
-  and annotation remain blocked on ethics/consent clearance. Licensing and a
+- **The contamination-free confirmatory computational grid is complete:** 24/24 cells across three seeds, four
+  architectures, and two scales trained and passed the locked automated evaluation. The frozen exposure table and
+  exposure-only analysis are versioned, and the two external-rater sheets plus separate self-sensitivity sheet
+  contain blank labels. External recruitment and annotation remain blocked on ethics/consent clearance. Licensing and a
   permanent archive remain release-only gates; the fresh-clone engineering smoke test has passed. See
   `docs/CONFIRMATORY_STUDY_PROTOCOL.md`.
 - **48M scale-transfer arm:** all 24 matched-token configs (four near-matched architectures × six corpus conditions)
@@ -156,11 +156,11 @@ these are plots and tables only — no prose conclusion is drawn in the outputs 
 
 ## Tests
 
-115 tests (`pytest tests/`) cover corpus construction, confirmatory split hygiene/configs/data acquisition,
+118 tests (`pytest tests/`) cover corpus construction, confirmatory split hygiene/configs/data acquisition,
 frozen inferential and outcome-evaluation models, blinded-batch construction, and storage/start-gate safety,
 exposure/extraction, novelty metrics, full-corpus overlap,
 blinded annotation/scoring, trade-off analysis, artifact-manifest integrity, seed sensitivity, and 48M
-config/parameter validation. The complete suite passed again on 2026-10-17; the IEEE LaTeX manuscript also
+config/parameter validation. The complete suite passed after the full confirmatory grid on 2026-10-22; the IEEE LaTeX manuscript also
 compiled successfully in the desktop editor.
 
 ## Publication documents

@@ -1,0 +1,105 @@
+{
+  "schema_version": 1,
+  "status": "confirmatory analysis output",
+  "analysis_plan": "configs/confirmatory/analysis_plan.json",
+  "exposure": {
+    "formula": "exposure_bits ~ log10_frequency * C(architecture, Sum) + log10_frequency * C(scale, Sum) + C(seed) + C(canary_id)",
+    "estimator": "OLS with canary-clustered covariance",
+    "rows": 960,
+    "canary_clusters": 40,
+    "effects": [
+      {
+        "term": "log10_frequency",
+        "estimate": 1.223019331534304,
+        "standard_error": 0.27131993060387416,
+        "ci95_low": 0.6912420392628039,
+        "ci95_high": 1.7547966238058041,
+        "p_value": 6.554498196557213e-06
+      },
+      {
+        "term": "log10_frequency:C(architecture, Sum)[S.baseline]",
+        "estimate": 0.013523128373449905,
+        "standard_error": 0.051260651578400006,
+        "ci95_low": -0.08694590254427038,
+        "ci95_high": 0.1139921592911702,
+        "p_value": 0.7919254885405301,
+        "holm_p_value": 1.0
+      },
+      {
+        "term": "log10_frequency:C(architecture, Sum)[S.layernorm]",
+        "estimate": -0.053487293962245344,
+        "standard_error": 0.04690607482361763,
+        "ci95_low": -0.14542151127267688,
+        "ci95_high": 0.03844692334818618,
+        "p_value": 0.25415870222033377,
+        "holm_p_value": 0.7624761066610013
+      },
+      {
+        "term": "log10_frequency:C(architecture, Sum)[S.learned_pos]",
+        "estimate": 0.03404780103956533,
+        "standard_error": 0.06600086371903814,
+        "ci95_low": -0.09531151479828576,
+        "ci95_high": 0.16340711687741644,
+        "p_value": 0.6059458911337567,
+        "holm_p_value": 1.0
+      },
+      {
+        "term": "log10_frequency:C(scale, Sum)[S.14m]",
+        "estimate": 0.0821013879645052,
+        "standard_error": 0.03838207818951578,
+        "ci95_low": 0.00687389706125395,
+        "ci95_high": 0.15732887886775643,
+        "p_value": 0.032431189593076566
+      }
+    ],
+    "fallbacks": [],
+    "non_ceiling_sensitivity": {
+      "rows": 244,
+      "effects": [
+        {
+          "term": "log10_frequency",
+          "estimate": 2.29047858225523,
+          "standard_error": 0.23866556865372332,
+          "ci95_low": 1.8227026633441605,
+          "ci95_high": 2.7582545011662996,
+          "p_value": 8.228799551173496e-22
+        },
+        {
+          "term": "log10_frequency:C(architecture, Sum)[S.baseline]",
+          "estimate": 0.03840459551041531,
+          "standard_error": 0.2047168707768263,
+          "ci95_low": -0.3628330982399045,
+          "ci95_high": 0.4396422892607351,
+          "p_value": 0.851191334687737,
+          "holm_p_value": 0.851191334687737
+        },
+        {
+          "term": "log10_frequency:C(architecture, Sum)[S.layernorm]",
+          "estimate": -0.1652795665064717,
+          "standard_error": 0.18752359089084472,
+          "ci95_low": -0.5328190509041507,
+          "ci95_high": 0.20225991789120734,
+          "p_value": 0.37811210982467125,
+          "holm_p_value": 0.7562242196493425
+        },
+        {
+          "term": "log10_frequency:C(architecture, Sum)[S.learned_pos]",
+          "estimate": 0.30922680143050685,
+          "standard_error": 0.1906363663655556,
+          "ci95_low": -0.06441361078956503,
+          "ci95_high": 0.6828672136505787,
+          "p_value": 0.10478693383131733,
+          "holm_p_value": 0.314360801493952
+        },
+        {
+          "term": "log10_frequency:C(scale, Sum)[S.14m]",
+          "estimate": -0.07759044330686168,
+          "standard_error": 0.14560075883262155,
+          "ci95_low": -0.36296268674050214,
+          "ci95_high": 0.20778180012677874,
+          "p_value": 0.5941037612556397
+        }
+      ]
+    }
+  }
+}
