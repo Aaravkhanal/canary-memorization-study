@@ -12,9 +12,9 @@ judgments of whether a completion reproduces, lightly templates, or genuinely re
 elements. Lexical diversity alone is never treated as creativity.
 
 **Status (verified 2026-10-22): the exploratory balanced four-architecture 14M grid and matched 24-cell 48M
-scale-transfer grid are complete. The separate contamination-free confirmatory grid is 22/24 cells complete
-(14M: 12/12; 48M: 10/12), with `48m/mha/seed_20261018` currently training and the final LayerNorm cell queued
-behind it. Confirmatory outcomes remain interpretation-locked until the entire grid and artifact checks finish.**
+scale-transfer grid are complete. The separate contamination-free confirmatory grid is 23/24 cells complete
+(14M: 12/12; 48M: 11/12), with the final `48m/layernorm/seed_20261018` cell currently training. Confirmatory
+outcomes remain interpretation-locked until the entire grid and artifact checks finish.**
 The baseline 100x/500x second-training-seed replications are also complete. All 53 retained experiment summaries
 report 6,000 updates. The final 48M cell (LayerNorm, frequency 500) completed at 21:34:48 local on 2026-10-15
 (24,087 trainer seconds; best validation loss 1.4781 / PPL 4.3847). Its best/final checkpoints and all evaluations
