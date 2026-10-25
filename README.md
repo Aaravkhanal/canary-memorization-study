@@ -40,7 +40,9 @@ All exploratory 48M cells are single-seed and use a different learning rate from
 do not establish a creativity trade-off. See
 `PLAN.md` for the phase-by-phase brief this project follows, `PHASE4_NOTES.md` for the detailed running lab
 notebook, and `docs/DRAFT_PAPER.md` for the write-up structured for eventual publication, kept in sync as results
-come in.
+come in. [`docs/EXPERIMENT_RESULTS_ARCHIVE.md`](docs/EXPERIMENT_RESULTS_ARCHIVE.md) summarizes the completed
+experiment inventory, supported findings, pending human/release gates, and exact source artifacts. It explicitly
+does not authorize checkpoint deletion.
 Per-run durations, checkpoint validation, and failure records are summarized in `results/trainer_runtime_audit.md`.
 
 ## What the completed exploratory runs support

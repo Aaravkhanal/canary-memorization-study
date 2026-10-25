@@ -75,6 +75,8 @@ full-overlap augmentation also completed. Values below deliberately report artif
 | 2026-10-25 | Full research suite after manuscript and storage-status refresh | 118 passed | Includes the latest result wording, exact second-grid capacity decision, and updated artifact manifest; only 14 Matplotlib/PyParsing deprecation warnings. |
 | 2026-10-25 | Second full-grid storage preflight | Deferred before training | 28,217,565,184 bytes free (26.28 GiB), only 1.28 GiB above the 25-GiB threshold; the frozen estimate is 8,153,726,976 retained bytes plus the required reserve. No separate validated artifact volume is available, so the full independent 24-cell run was not launched and no checkpoint was touched. |
 | 2026-10-25 | Manuscript refresh | Passed | Updated title and results interpretation to distinguish the completed exposure finding from the unmeasured human novelty endpoint; built-in LaTeX compilation succeeded. |
+| 2026-10-25 | Consolidated results archive | Written and validated | Added `docs/EXPERIMENT_RESULTS_ARCHIVE.md` with the verified experiment inventory, supported numerical findings, claim limits, artifact links, human/release blockers, and checkpoint-preservation rule; full research suite passed afterward. |
+| 2026-10-25 | Full research suite after results archive | 118 passed | Includes the archive content, source links, and refreshed 450-entry tracked-artifact manifest; only Matplotlib/PyParsing deprecation warnings. |
 
 The full suite passed after the 24-cell grid, exposure-table build, exposure-only frozen analysis, and blank
 annotation-package build completed.
