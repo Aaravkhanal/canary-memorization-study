@@ -20,3 +20,14 @@ def test_clean_room_report_is_explicitly_non_scientific_and_complete():
     assert rerun["aarav_lm_commit"] == report["aarav_lm_commit"]
     assert all(value == "passed" for value in rerun["checks"].values())
     assert rerun["training_smoke"]["scientific_outcome"] is False
+    if "confirmatory_corpus_sha256" in rerun:
+        assert set(rerun["confirmatory_corpus_sha256"]) == {
+            "20261016", "20261017", "20261018"
+        }
+        assert all(len(value) == 64 for value in rerun["confirmatory_corpus_sha256"].values())
+        assert len(rerun["exposure_analysis_input_csv_sha256"]) == 64
+        assert len(rerun["exposure_analysis_json_sha256"]) == 64
+        assert rerun["checks"]["exposure_table_byte_reproduction"] == "passed"
+        assert rerun["checks"]["exposure_model_byte_reproduction"] == "passed"
+        assert rerun["training_smoke"]["device"] == "cpu"
+        assert rerun["training_smoke"]["mps_memory_mb"] == 0

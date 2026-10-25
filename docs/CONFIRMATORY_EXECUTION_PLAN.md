@@ -108,6 +108,9 @@ training unless every computational training gate passes.
 - A fresh GitHub clone at the then-current repository commit passed the data-acquisition, deterministic corpus,
   pinned-input, tokenization, and one-step CPU smoke checks. It is an engineering smoke test, not a clean-room
   reproduction of the 24 training cells.
+- After commit `fdec41e7`, a second fresh clone rebuilt and checked all three locked seed corpora and regenerated
+  the exposure-analysis CSV/JSON with byte-identical SHA-256 hashes; the one-step CPU smoke also passed with zero
+  MPS use. This verifies portable inputs and analysis, not independent full-cell training.
 - The full-cell duplicate run is not launched. The local filesystem has only about 27 GiB free, whereas the
   locked plan requires at least 25 GiB to remain free before each cell and estimates about 8.15 GB of retained
   artifacts for the complete grid. No external volume has been validated for the frozen write/read and capacity

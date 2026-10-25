@@ -136,13 +136,15 @@ and identical mixed-frequency corpora across architectures within each seed. The
 On 2026-10-16, fresh GitHub clones reacquired the exact base subset, rebuilt and hash-matched the seed-20261016
 confirmatory corpus, validated all pinned inputs, tokenized the unmodified base, and completed one CPU-only 14M
 training step with zero MPS memory. This verifies the engineering path but is not an independent full-cell
-reproduction and produced no confirmatory scientific outcome. The same scripted smoke test was rerun on 2026-10-25
-from a fresh GitHub clone at commit `02b01faa1c96c4a1487c92fd1d6ee94f94178dce`; it reacquired the 59,999,181-byte
-base prefix, matched its SHA-256, rebuilt the seed-20261016 corpus to hash
-`6722a5a3f6a8ec901f7ec82a8c60b8a2a1eb80cf25007ab93369394261553e58`, checked the pinned tokenizer and training
-dependency, tokenized the unmodified base, and completed one CPU training step. The exact run record is in
-`results/clean_room_smoke.json`. The Python packages were already installed, so this was not a new virtualenv
-rebuild. A full 24-cell independent reproduction remains unrun: local free space is about 27 GiB, while the
+reproduction and produced no confirmatory scientific outcome. On 2026-10-25, a fresh GitHub clone at commit
+`02b01faa1c96c4a1487c92fd1d6ee94f94178dce` reacquired the exact base prefix, matched its SHA-256, rebuilt the
+seed-20261016 corpus, checked the pinned tokenizer and training dependency, tokenized the unmodified base, and
+completed one CPU training step. After making exposure-table provenance paths checkout-relative, a second fresh
+clone at `fdec41e7aa5e5ab4dddf9b9d90ab312b406d5a3f` rebuilt and hash-checked all three seed corpora, reran the
+frozen exposure table and model, and matched the committed CSV and JSON byte-for-byte. It also repeated the one-step
+CPU smoke with zero MPS memory. Exact hashes and checks are recorded in `results/clean_room_smoke.json`. The Python
+packages were already installed, so these were not new virtualenv rebuilds. A full 24-cell independent reproduction
+remains unrun: local free space is about 27 GiB, while the
 frozen storage plan requires at least 25 GiB free before every cell on the selected artifact filesystem. No
 separate validated artifact filesystem is configured. Do not start a duplicate grid until that headroom can be
 maintained throughout the run. Re-run the engineering smoke test with:

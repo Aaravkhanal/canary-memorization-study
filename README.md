@@ -20,7 +20,9 @@ are exposure results only, not evidence about human-rated novelty or a memorizat
 novelty analysis remains blocked until external-rater clearance, independent labels, and adjudication actually
 exist. A fresh GitHub clone also passed the CPU-only corpus/build/training smoke test on 2026-10-25; independent
 full-cell clean-room reproduction remains incomplete because the available artifact filesystem does not have the
-25-GiB free-space margin required before every cell of a second full run.**
+25-GiB free-space margin required before every cell of a second full run. A second fresh clone rebuilt all three
+locked seed corpora and reproduced the frozen exposure-analysis CSV/JSON byte-for-byte; this was not a second
+24-cell training run.**
 The baseline 100x/500x second-training-seed replications are also complete. All 53 retained experiment summaries
 report 6,000 updates. The final 48M cell (LayerNorm, frequency 500) completed at 21:34:48 local on 2026-10-15
 (24,087 trainer seconds; best validation loss 1.4781 / PPL 4.3847). Its best/final checkpoints and all evaluations

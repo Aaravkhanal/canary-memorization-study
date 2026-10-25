@@ -70,6 +70,8 @@ full-overlap augmentation also completed. Values below deliberately report artif
 | 2026-10-25 | Full research suite, after test correction | 118 passed | Re-run after updating `tests/test_release_gate.py`; warnings are from Matplotlib/PyParsing deprecations. |
 | 2026-10-25 | Full research suite, after portable exposure provenance | 118 passed | Includes relative result paths, stable LF output, current release-gate expectations, and fresh-clone record tests. |
 | 2026-10-25 | Confirmatory artifact integrity audit | Passed | 24/24 complete cells; deserialized and SHA-256-verified 48 best/final checkpoints; verified raw/evaluated JSON provenance, corpus hashes, row/group/completion counts, and overlap flags. The single pre-checkpoint interruption is retained as documented in Amendment 8. |
+| 2026-10-25 | Fresh-clone rebuild at `fdec41e7` | Passed | Rebuilt all three locked seed corpora, checked pinned data/tokenizer/training dependency, and regenerated exposure CSV/JSON byte-identically; one-step CPU smoke passed with zero MPS use. Full 24-cell training was not repeated. |
+| 2026-10-25 | Full research suite after final fresh-clone verification record | 118 passed | Includes the three-corpus and byte-identical exposure analysis run-record checks; 14 dependency deprecation warnings only. |
 
 The full suite passed after the 24-cell grid, exposure-table build, exposure-only frozen analysis, and blank
 annotation-package build completed.

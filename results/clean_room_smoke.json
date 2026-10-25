@@ -61,6 +61,40 @@
         "scientific_outcome": false
       },
       "environment_note": "Pinned packages were already installed; this did not recreate a new virtual environment."
+    },
+    {
+      "date": "2026-10-25",
+      "study_commit": "fdec41e7aa5e5ab4dddf9b9d90ab312b406d5a3f",
+      "clone": "fresh GitHub clone in a temporary directory",
+      "aarav_lm_commit": "0506801c3894c9b0598b02e0ec8c51881576b518",
+      "python": "3.13.13",
+      "checks": {
+        "analysis_packages": "passed",
+        "revision_pinned_base_acquisition": "passed",
+        "confirmatory_bank_determinism_and_screening": "passed",
+        "all_three_confirmatory_corpus_rebuilds_and_hashes": "passed",
+        "training_input_hashes_and_dependency_revision": "passed",
+        "base_only_tokenization_and_dataset_validation": "passed",
+        "one_step_cpu_training": "passed",
+        "exposure_table_byte_reproduction": "passed",
+        "exposure_model_byte_reproduction": "passed"
+      },
+      "base_corpus_sha256": "a0240e31a0d572d0d727e7a0c2b49a766ee6cf8c059a57ccdaadf2cce3c66cca",
+      "confirmatory_corpus_sha256": {
+        "20261016": "6722a5a3f6a8ec901f7ec82a8c60b8a2a1eb80cf25007ab93369394261553e58",
+        "20261017": "cffe54d0e488f8da416d01161dfff363674a23e06f8a343de24d4023c58b45ac",
+        "20261018": "1e5a94fe44e103912d144f1e8f1e3839000c995c7c43d91a911921dda5cc8bad"
+      },
+      "exposure_analysis_input_csv_sha256": "2f7d600d16a06401083a9ac12d3c9ce65e0c2ac54d85f045d8437621ba002d9d",
+      "exposure_analysis_json_sha256": "0d0fc9c0824fd89239170e396146a39b12c1acb667a76ea8d0e44973ffdd6895",
+      "training_smoke": {
+        "device": "cpu",
+        "model_parameters": 14162304,
+        "steps": 1,
+        "mps_memory_mb": 0,
+        "scientific_outcome": false
+      },
+      "environment_note": "Pinned packages were already installed; this did not recreate a new virtual environment. Rebuilt all three seed corpora and the frozen exposure CSV/JSON byte-identically. This is an engineering check, not independent full-cell training."
     }
   ]
 }
