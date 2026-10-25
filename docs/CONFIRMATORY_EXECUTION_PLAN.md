@@ -1,6 +1,6 @@
 # Confirmatory replication and clean-room execution plan
 
-**Status (2026-10-22): all 24 locked training cells and automated evaluations are complete; the exposure-only
+**Status (2026-10-25): all 24 locked training cells and automated evaluations are complete; the exposure-only
 frozen analysis and blank condition-hidden annotation package are built. External-rater clearance, labels,
 adjudication, the human-novelty model, full-cell clean-room reproduction, licensing, and archival remain open.** This plan turns
 `CONFIRMATORY_STUDY_PROTOCOL.md` into an executable two-scale study without treating the existing exploratory
@@ -83,7 +83,7 @@ machine and would still retain the old contamination problem. It is not the plan
 
 | Gate | Current state | Required resolution |
 |---|---|---|
-| Free storage | Owner-authorized non-Desktop cleanup raised free space to about 26.4 GiB; the exact 25-GiB probe passes | Recheck before every cell. The margin is modest, so stop safely if rebuilt caches or new artifacts push free space below threshold. No research checkpoint was deleted. |
+| Free storage | At initial queue launch, free space exceeded the 25-GiB gate. On 2026-10-25, the local artifact filesystem had 28,999,987,200 bytes free (about 27 GiB). | The current amount is about 2 GiB above the frozen threshold and cannot support a second full retained 24-cell run while keeping the required 25 GiB free before every cell. A separate validated external artifact root is not configured. Do not start full-cell clean-room training until the gate can be maintained for the entire run. No research checkpoint was deleted. |
 | Power/precision/statistics | 250-replicate simulation selects three seeds; executable formulas, contrasts, Holm family, ceiling sensitivity, label rule, and GEE fallback are frozen | Preserve the result and assumptions; any change requires a dated pre-outcome amendment. |
 | Canary/schedule lock | 40 canaries, 8 controls, 2 × 1,024 alternatives, and five-seed schedule generated; zero matches in the full base corpus | Preserve content hash and verify the derived train/validation/test artifacts after corpus construction. |
 | Data rights | Exact revision/file/byte range verified; upstream card declares CDLA-Sharing-1.0 | Owner must select project licenses and confirm redistribution terms before an external artifact release. |
@@ -96,3 +96,19 @@ is reported separately and does not authorize recruitment. `scripts/check_confir
 the machine-readable training gate, corpus hashes, config count, committed lock, writable artifact filesystem,
 and free space without inspecting outcomes. `scripts/run_confirmatory_queue.py` calls that checker and exits before
 training unless every computational training gate passes.
+
+## Post-grid status check (2026-10-25)
+
+- The read-only queue preflight passed: all 24 configs exist; all three rebuilt corpus hashes match; the committed
+  protocol/config/input lock is intact; and the existing artifact root passes its atomic write/read/fsync/rename
+  probe and the 25-GiB launch check. This establishes that the original queue's pre-outcome gate was satisfied;
+  it does not mean the human annotation or release gates are open.
+- The release audit remains blocked by owner-controlled licensing/redistribution, human annotation, independent
+  full-cell clean-room reproduction, permanent archive, DOI, and release authorization.
+- A fresh GitHub clone at the then-current repository commit passed the data-acquisition, deterministic corpus,
+  pinned-input, tokenization, and one-step CPU smoke checks. It is an engineering smoke test, not a clean-room
+  reproduction of the 24 training cells.
+- The full-cell duplicate run is not launched. The local filesystem has only about 27 GiB free, whereas the
+  locked plan requires at least 25 GiB to remain free before each cell and estimates about 8.15 GB of retained
+  artifacts for the complete grid. No external volume has been validated for the frozen write/read and capacity
+  probe. This is a storage gate, not a human-testing gate.

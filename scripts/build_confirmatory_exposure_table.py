@@ -16,9 +16,10 @@ FIELDS = (
 )
 
 
-def build_rows(paths: list[Path]) -> list[dict]:
+def build_rows(paths: list[Path], source_root: Path | None = None) -> list[dict]:
     if len(paths) != 24:
         raise ValueError(f"expected 24 evaluated cells, found {len(paths)}")
+    source_root = source_root.resolve() if source_root is not None else None
     rows: list[dict] = []
     cells = set()
     for path in sorted(paths):
@@ -30,6 +31,13 @@ def build_rows(paths: list[Path]) -> list[dict]:
         if cell_key in cells:
             raise ValueError(f"duplicate cell: {cell_key}")
         cells.add(cell_key)
+        if source_root is None:
+            source_path = path.name
+        else:
+            try:
+                source_path = path.resolve().relative_to(source_root).as_posix()
+            except ValueError as exc:
+                raise ValueError(f"evaluation result is outside source root: {path}") from exc
         exposure_rows = payload.get("exposure_rows", [])
         if len(exposure_rows) != 48:
             raise ValueError(f"expected 48 exposure rows in {path}, found {len(exposure_rows)}")
@@ -43,7 +51,7 @@ def build_rows(paths: list[Path]) -> list[dict]:
                 "canary_type": row["canary_type"], "frequency": int(row["frequency"]),
                 "exposure_bits": float(row["exposure"]), "rank": int(row["rank"]),
                 "candidate_count": int(row["candidate_count"]),
-                "at_ceiling": int(row["rank"] == 1), "source_path": str(path),
+                "at_ceiling": int(row["rank"] == 1), "source_path": source_path,
             })
     if len(rows) != 960:
         raise ValueError(f"expected 960 inserted-canary rows, found {len(rows)}")
@@ -59,10 +67,10 @@ def main() -> int:
     )
     args = parser.parse_args()
     paths = sorted(args.results_root.glob("*/*/seed_*/evaluated.json"))
-    rows = build_rows(paths)
+    rows = build_rows(paths, source_root=args.results_root)
     args.output.parent.mkdir(parents=True, exist_ok=True)
     with args.output.open("w", encoding="utf-8", newline="") as handle:
-        writer = csv.DictWriter(handle, fieldnames=FIELDS)
+        writer = csv.DictWriter(handle, fieldnames=FIELDS, lineterminator="\n")
         writer.writeheader()
         writer.writerows(rows)
     print(f"[wrote] {args.output}: {len(rows)} inserted-canary rows from 24 cells")

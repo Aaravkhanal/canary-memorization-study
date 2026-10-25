@@ -34,5 +34,33 @@
     "The Python environment was already installed rather than created in a new virtual environment from the lock file.",
     "This is a reduced engineering smoke test, not an independent reproduction of the 24 confirmatory training cells.",
     "External checkpoint release, project license selection, and DOI archival remain owner-controlled tasks."
+  ],
+  "verification_runs": [
+    {
+      "date": "2026-10-25",
+      "study_commit": "02b01faa1c96c4a1487c92fd1d6ee94f94178dce",
+      "clone": "fresh GitHub clone in a temporary directory",
+      "aarav_lm_commit": "0506801c3894c9b0598b02e0ec8c51881576b518",
+      "python": "3.13.13",
+      "checks": {
+        "analysis_packages": "passed",
+        "revision_pinned_base_acquisition": "passed",
+        "confirmatory_bank_determinism_and_screening": "passed",
+        "seed_20261016_corpus_rebuild_and_hash": "passed",
+        "training_input_hashes_and_dependency_revision": "passed",
+        "base_only_tokenization_and_dataset_validation": "passed",
+        "one_step_cpu_training": "passed"
+      },
+      "base_corpus_sha256": "a0240e31a0d572d0d727e7a0c2b49a766ee6cf8c059a57ccdaadf2cce3c66cca",
+      "seed_20261016_corpus_sha256": "6722a5a3f6a8ec901f7ec82a8c60b8a2a1eb80cf25007ab93369394261553e58",
+      "training_smoke": {
+        "device": "cpu",
+        "model_parameters": 14162304,
+        "steps": 1,
+        "mps_memory_mb": 0,
+        "scientific_outcome": false
+      },
+      "environment_note": "Pinned packages were already installed; this did not recreate a new virtual environment."
+    }
   ]
 }

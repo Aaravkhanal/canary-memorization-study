@@ -24,8 +24,8 @@
     },
     {
       "path": "README.md",
-      "size_bytes": 16471,
-      "sha256": "1d2cdc3389a4d4f6ace19368ed1b816c3aab89dc405c839cdc53d0561ff8dffa"
+      "size_bytes": 17389,
+      "sha256": "6c039376a0e22d3593c83c1ed186e5d456c14ba805225573712a4b4d09ddbab9"
     },
     {
       "path": "artifacts/tokenizer_tinystories_v2/README.md",
@@ -529,18 +529,18 @@
     },
     {
       "path": "docs/ARTIFACT_REPRODUCIBILITY.md",
-      "size_bytes": 11408,
-      "sha256": "fc5bbfbfaefef3c161337e9794c4394152f4c08a3285a667561fb9312bac8433"
+      "size_bytes": 12587,
+      "sha256": "403126aaa02e09ee814260089344081e96ccfd3f65d4dfbf875508ea7f9d4540"
     },
     {
       "path": "docs/CONFIRMATORY_EXECUTION_PLAN.md",
-      "size_bytes": 7943,
-      "sha256": "ba8a810221f9e731b46adbdaf0060323527f41a610c16fc4e1134d88ec61e794"
+      "size_bytes": 9494,
+      "sha256": "fd326a1dd2bb83258b7ba655e98e538d29c465e4b5397506f3df853c296c42b3"
     },
     {
       "path": "docs/CONFIRMATORY_PROGRESS.md",
-      "size_bytes": 4282,
-      "sha256": "75e52f7ea1a9fd8fc7f62af96157279ab29f6a2ffa078094f8d6d126092bd51f"
+      "size_bytes": 6157,
+      "sha256": "6fba99ac81ff99225222f66156a289707fc2e6d8632d39bb8d67ff04b08f1308"
     },
     {
       "path": "docs/CONFIRMATORY_STUDY_PROTOCOL.md",
@@ -559,8 +559,8 @@
     },
     {
       "path": "docs/DRAFT_PAPER.md",
-      "size_bytes": 46819,
-      "sha256": "065b4b9cb8cc67c5bafad8a4585bb7bf04e26446c3571fdbfb5b94926bc85222"
+      "size_bytes": 49267,
+      "sha256": "3da61c6054065dd2de484296b7f79dc3f6d3a9989ffb6edb3b9cb3b983635bf1"
     },
     {
       "path": "docs/ETHICS_AND_CONSENT_PLAN.md",
@@ -574,8 +574,8 @@
     },
     {
       "path": "docs/PUBLICATION_READINESS.md",
-      "size_bytes": 10773,
-      "sha256": "235d11dcb7fe93bfdd8fae802cc28bffcb955235c66458e2a5ba19331e41e664"
+      "size_bytes": 11457,
+      "sha256": "cda33ee3961cf4627036519f5bc94b805db4ae6c7ae6476743b525ea7f42f5c5"
     },
     {
       "path": "docs/REFERENCES.bib",
@@ -589,8 +589,8 @@
     },
     {
       "path": "docs/RESULTS_CLAIM_AUDIT.md",
-      "size_bytes": 5976,
-      "sha256": "71e847179bbbfd018d68fa7d97ca495facee78dd491f079ba383351bfac54e24"
+      "size_bytes": 7320,
+      "sha256": "b7b16a9edf374d2ba565b43eca540b03066b132765ce905d324a041812569660"
     },
     {
       "path": "docs/SCALE_48M_PROTOCOL.md",
@@ -614,8 +614,8 @@
     },
     {
       "path": "paper/ieee_manuscript.tex",
-      "size_bytes": 12744,
-      "sha256": "f1d259eb736c49d6a5d8e6ae874d6ced2ec2bd2b549e93c107c776a7c2725d68"
+      "size_bytes": 15456,
+      "sha256": "2befc11d682995b817806cf11bd94e2a7d97cef48bea923c4c1853b10cea7863"
     },
     {
       "path": "reproducibility/inputs.lock.json",
@@ -644,8 +644,8 @@
     },
     {
       "path": "results/clean_room_smoke.json",
-      "size_bytes": 1850,
-      "sha256": "3f3df15e829e5e71282907526a88017914902ccab7ad5029aa0064c37ffd45e2"
+      "size_bytes": 3064,
+      "sha256": "3e1361bccac40b91fef1eb61f984e78676567f97f8f35e44b79b42c8f5544807"
     },
     {
       "path": "results/confirmatory/14m/baseline/seed_20261016/evaluated.json",
@@ -909,8 +909,8 @@
     },
     {
       "path": "results/confirmatory/exposure_analysis_input.csv",
-      "size_bytes": 191354,
-      "sha256": "a6d2a176b4eb2436923a9a2f7c8ee207e9b6961232bf804d1044205a46434308"
+      "size_bytes": 113593,
+      "sha256": "2f7d600d16a06401083a9ac12d3c9ce65e0c2ac54d85f045d8437621ba002d9d"
     },
     {
       "path": "results/confirmatory_power.json",
@@ -1979,8 +1979,8 @@
     },
     {
       "path": "scripts/build_confirmatory_exposure_table.py",
-      "size_bytes": 3012,
-      "sha256": "c534f688bbf54ca69b91a464d06ab920d9dfac93817e50f6223699396d29eb67"
+      "size_bytes": 3489,
+      "sha256": "0aa9c9124eebbd5f6ce305c48d3899fc3202b477804b27c01b86e457075b126d"
     },
     {
       "path": "scripts/check_canary_novelty.py",
@@ -2144,8 +2144,8 @@
     },
     {
       "path": "tests/test_build_confirmatory_exposure_table.py",
-      "size_bytes": 1485,
-      "sha256": "a831c5597fc3d081234725c9ea9d542eb84fe4b71eacee351ddea246a79b1f98"
+      "size_bytes": 1679,
+      "sha256": "955c7c08ba3fbb7e509395c00de386f90ba6ed6b9ef6e50902cf2a0929a0e3f7"
     },
     {
       "path": "tests/test_citation_metadata.py",
@@ -2154,8 +2154,8 @@
     },
     {
       "path": "tests/test_clean_room_report.py",
-      "size_bytes": 639,
-      "sha256": "d3c02f48f93bbb2f5af659a3e90da1dd32d0cfc6f500d022f902fdf5d92e3db6"
+      "size_bytes": 1007,
+      "sha256": "fd94e5c42bb698a19dccd1e0acdcf15d20d8428887804e8332d06b1443683fc3"
     },
     {
       "path": "tests/test_confirmatory_analysis.py",
@@ -2234,8 +2234,8 @@
     },
     {
       "path": "tests/test_release_gate.py",
-      "size_bytes": 1655,
-      "sha256": "2ba3a389234cd78e6458f858511b278b23675fb6e11501ab3e647d3f137d4f7a"
+      "size_bytes": 2178,
+      "sha256": "17a822e1a081272026fd22b11a98984585e36ad80b3051ee40267b250fd30043"
     },
     {
       "path": "tests/test_reproducibility.py",

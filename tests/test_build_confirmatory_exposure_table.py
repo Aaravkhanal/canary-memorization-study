@@ -38,7 +38,9 @@ def test_build_rows_emits_inserted_rows_only(tmp_path):
             "exposure_rows": exposure,
         }))
         paths.append(path)
-    rows = build_rows(paths)
+    rows = build_rows(paths, source_root=tmp_path)
     assert len(rows) == 960
     assert {row["frequency"] for row in rows} == {1}
     assert not any(row["canary_id"].startswith("control") for row in rows)
+    assert {row["source_path"] for row in rows} == {f"cell_{index}.json" for index in range(24)}
+    assert all(not Path(row["source_path"]).is_absolute() for row in rows)

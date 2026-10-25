@@ -5,26 +5,33 @@ stories, and does the trade-off shift with architecture? This project measures i
 controlled insertion frequencies, following Carlini et al. 2019's exposure methodology, adapted to a
 narrative-generation setting.
 
-The paper's central contribution is this **memorization–compositional-creativity trade-off** in a model whose
-task is creative narrative generation. Memorization is measured with controlled exposure and extraction;
-compositional originality is measured separately with whole-corpus copying diagnostics and blinded human
-judgments of whether a completion reproduces, lightly templates, or genuinely recombines recurring story
-elements. Lexical diversity alone is never treated as creativity.
+The motivating question is whether controlled exposure to recurring narrative elements changes recall or
+human-rated recombination in generated stories. Exposure/extraction, whole-corpus copying diagnostics, and blinded
+human judgments are distinct measures; no memorization–creativity trade-off is assumed. Lexical diversity alone
+is never treated as creativity.
 
-**Status (verified 2026-10-22): the exploratory balanced four-architecture 14M grid and matched 24-cell 48M
+**Status (verified 2026-10-25): the exploratory balanced four-architecture 14M grid and matched 24-cell 48M
 scale-transfer grid are complete. The separate contamination-free confirmatory grid is also complete and
 evaluated (24/24 cells: 14M 12/12; 48M 12/12). The frozen exposure-only model has been run, and all three
-condition-hidden annotation sheets were generated with 7,680 blank rows each. Human novelty analysis remains
-blocked until the external-rater clearances, independent labels, and adjudication actually exist.**
+condition-hidden annotation sheets were generated with 7,680 blank rows each. The frozen exposure model estimated
+1.223 exposure bits per log10 frequency decade (95% CI 0.691 to 1.755; 960 observations, 40 canary clusters);
+the three architecture-by-frequency interactions were not significant after the registered Holm correction. These
+are exposure results only, not evidence about human-rated novelty or a memorization–creativity trade-off. Human
+novelty analysis remains blocked until external-rater clearance, independent labels, and adjudication actually
+exist. A fresh GitHub clone also passed the CPU-only corpus/build/training smoke test on 2026-10-25; independent
+full-cell clean-room reproduction remains incomplete because the available artifact filesystem does not have the
+25-GiB free-space margin required before every cell of a second full run.**
 The baseline 100x/500x second-training-seed replications are also complete. All 53 retained experiment summaries
 report 6,000 updates. The final 48M cell (LayerNorm, frequency 500) completed at 21:34:48 local on 2026-10-15
 (24,087 trainer seconds; best validation loss 1.4781 / PPL 4.3847). Its best/final checkpoints and all evaluations
 passed validation. Across the 14M canonical grid, two true baseline seed replications, and all 24 48M cells, exact
-full-corpus overlap covers 50 evaluated cells / 16,000 generations. The final integrity pass loaded all 106 retained
+full-corpus overlap covers 50 exploratory evaluated cells / 16,000 generations. The separate 24-cell confirmatory
+grid adds 7,680 completions with matching training-split overlap checks (74 cells / 23,680 generations overall).
+The final exploratory integrity pass loaded all 106 retained
 best/final checkpoints, parsed all 175 result JSON files, checked all 50 full-corpus outputs against the matching
 frequency corpus hash and 73,139-story count, and regenerated matched-baseline tradeoff tables/plots. The initial
 48M baseline frequency-0 attempt did fail during a checkpoint write, then resumed from its verified step-1,000
-checkpoint and completed; the failure remains in the runtime audit. The manuscript remains exploratory, not
+checkpoint and completed; the failure remains in the runtime audit. The manuscript remains provisional, not
 submission-ready: the primary human V/T/N novelty endpoint and full clean-room/release work remain incomplete.
 All exploratory 48M cells are single-seed and use a different learning rate from the 14M arm, so those results
 do not establish a creativity trade-off. See
@@ -54,9 +61,9 @@ Per-run durations, checkpoint validation, and failure records are summarized in 
 Across the canonical 14M grid, two baseline seed controls, and the 48M grid, matching-corpus exact four-gram
 overlap was evaluated for 50 cells / 16,000 generations. It is a copying diagnostic, not a semantic originality
 measure. The blinded annotation sheets are prepared but still contain zero human labels. The separate
-contamination-free confirmatory training and automated evaluation grid is complete. Its exposure-only frozen
-analysis is available, but the primary human novelty endpoint is still blank. Accordingly, no
-memorization-versus-creativity trade-off has yet been established.
+contamination-free confirmatory training, automated evaluation, and frozen exposure analysis are complete. The
+primary human novelty endpoint is still blank. Accordingly, no memorization-versus-creativity trade-off has been
+established.
 
 ## What's not done, and why
 
@@ -95,9 +102,10 @@ to be attributed to a controlled number of training-time exposures, not to fine-
 On this machine (a MacBook Air M3, 8 GB, no external GPU), a 14M run uses 49.152M training tokens and currently
 takes roughly 2.5-3 hours at observed throughput. The source training split itself is 14.58M tokens.
 Canary training and the sibling `aarav-lm` project's own training are not run concurrently on this single
-machine. The locked confirmatory queue is currently finishing the last two 48M cells sequentially; it rechecks
-the 25-GiB storage threshold before each cell and will not overlap jobs. Human annotation remains blocked on the
-external-rater institutional determination, finalized consent, compensation, withdrawal, and annotation
+machine. The locked confirmatory queue is complete and no training job is active. A second full-cell clean-room
+reproduction has not started: the protocol requires at least 25 GiB free on the artifact filesystem before every
+cell, and available local space is only about 27 GiB before any duplicate run. Human annotation remains blocked on
+the external-rater institutional determination, finalized consent, compensation, withdrawal, and annotation
 clearances.
 
 ## Reproduce Phase 1 (canary corpus construction)
@@ -160,8 +168,9 @@ these are plots and tables only — no prose conclusion is drawn in the outputs 
 frozen inferential and outcome-evaluation models, blinded-batch construction, and storage/start-gate safety,
 exposure/extraction, novelty metrics, full-corpus overlap,
 blinded annotation/scoring, trade-off analysis, artifact-manifest integrity, seed sensitivity, and 48M
-config/parameter validation. The complete suite passed after the full confirmatory grid on 2026-10-22; the IEEE LaTeX manuscript also
-compiled successfully in the desktop editor.
+config/parameter validation. The complete suite passed on 2026-10-25 after correcting a stale release-gate test
+that incorrectly treated completed confirmatory training as a blocker. The IEEE LaTeX manuscript compiled
+successfully in the desktop editor on 2026-10-25 after the confirmatory results were added.
 
 ## Publication documents
 

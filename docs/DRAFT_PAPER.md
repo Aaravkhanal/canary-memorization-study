@@ -1,19 +1,19 @@
 # Memorization vs. compositional creativity in a small language model: does the trade-off depend on architecture?
 
-**Status: exploratory draft, not submission-ready.** The balanced 14M grid, baseline 100/500 training-seed
+**Status: provisional mixed exploratory/confirmatory draft, not submission-ready.** The balanced 14M grid, baseline 100/500 training-seed
 replications, and all 24 48M scale-transfer cells are complete. Exact full-corpus overlap covers 24 canonical 14M
 cells (7,680 completions), two baseline training-seed replications (640 completions), and 24 48M cells (7,680
 completions): 50 cells / 16,000 generations total. Independent integrity checks loaded all 106 retained best/final
-checkpoints, parsed 175 result JSONs, and verified all 50 overlap reports against their matching frequency-specific
+checkpoints, parsed 175 result JSONs, and verified all 50 exploratory overlap reports against their matching frequency-specific
 corpus hashes and 73,139-story counts. Matched-baseline tradeoff tables and clean-canary tables/plots have been
 regenerated. The initial 48M baseline frequency-0 cell required recovery from a disk-full checkpoint-write failure;
-it resumed from a valid step-1,000 checkpoint and completed. The human primary novelty endpoint and the separate
-contamination-free confirmatory computational grid is complete, but its primary human novelty endpoint remains
-unlabelled; the exploratory scale arm is single-seed.
+it resumed from a valid step-1,000 checkpoint and completed. The separate contamination-free confirmatory
+computational grid is also complete (24/24 cells), and the frozen exposure-only model has run. Its external-rater
+novelty endpoint remains unlabelled; the exploratory 48M scale-transfer arm is single-seed.
 The current submission gate is
 `docs/PUBLICATION_READINESS.md`.
 
-## Abstract (provisional; do not submit before the human and confirmatory gates)
+## Abstract (provisional; do not submit before human-annotation and release gates)
 
 We study controlled repetition of narrative canaries in from-scratch language models, asking whether exposure and
 architecture are associated with memorization and automated novelty proxies. The primary 14M-parameter experiment
@@ -27,10 +27,12 @@ Teacher-forced extraction remains zero in the audited 14M comparisons despite so
 word-four-gram overlap was evaluated against each matching frequency-specific training corpus for 50 cells and
 16,000 generations, including seed controls. These are descriptive results: the factorial cells are mostly
 single-seed, automated diversity and overlap are not human creativity judgments, and the 48M arm is not a causal
-size comparison. The blinded two-rater V/T/N endpoint has been prepared but not scored, and a separate
-contamination-free confirmatory 24-cell computational grid and exposure-only frozen analysis are complete, but
-the external-rater novelty endpoint has not been collected. Accordingly, this study does not yet establish a
-memorization-versus-creativity trade-off.
+size comparison. In the separate contamination-free 24-cell confirmatory grid, the frozen exposure model estimated
+a grand-mean slope of 1.223 exposure bits per log10 insertion-frequency decade (95% CI 0.691 to 1.755; 960
+observations in 40 canary clusters); none of the three architecture-by-frequency interactions survived the
+registered Holm correction. This is an exposure result, not a novelty result. The blinded two-rater V/T/N endpoint
+has been prepared but not scored. The study therefore does not yet establish a memorization-versus-creativity
+trade-off.
 
 ## 1. Research question
 
@@ -382,9 +384,10 @@ novelty/recombination ability (§3.5) moves alongside exposure. Automated novelt
 Memorization and automated novelty outputs are complete for all four 14M architectures × six frequencies and all
 four 48M architectures × six frequencies. The exact full-corpus overlap audit covers the 14M grid, two baseline
 training-seed controls, and 48M grid (50 cells / 16,000 generations). Distinct-2 and exact word-four-gram overlap
-are secondary diagnostics, not the primary novelty endpoint. The two blinded V/T/N batches are prepared from the
-14M novelty outputs, with 1,280 shared items per rater and blank labels/confidence/notes. Until those labels are
-completed, the paper makes no human-scored novelty or creativity claim.
+are secondary diagnostics, not the primary novelty endpoint. The exploratory two-rater V/T/N batches are prepared
+from the 14M novelty outputs, with 1,280 shared items per rater and blank labels/confidence/notes. Separately,
+the confirmatory external-rater sheets each contain 7,680 condition-hidden rows, also blank. Until labels are
+completed and adjudicated, the paper makes no human-scored novelty or creativity claim.
 
 ### 4.5 Earlier two-architecture proxy summary (incomplete frequency subset)
 
@@ -529,6 +532,30 @@ claimed.*
 *Figure 2. All-canary counterpart, including the three base-corpus-contaminated identities. Compare with Figure 1
 because those identities can distort exposure summaries. Both figures are exploratory and use automated metrics.*
 
+### 4.8 Confirmatory exposure model (human novelty endpoint pending)
+
+The contamination-free confirmatory grid contains three assignment/training seeds, four architectures, and two
+scales (24 cells). The frozen exposure-only input table contains 960 inserted-canary observations in 40 canary
+identity clusters. The registered OLS model includes log10 insertion frequency, architecture and scale
+interactions, and seed/canary fixed effects, with canary-clustered covariance. Its grand-mean frequency slope is
+1.223 exposure bits per log10 insertion-frequency decade (SE 0.271; 95% CI 0.691 to 1.755; p=6.55×10⁻⁶).
+
+| Registered coefficient | Estimate | SE | 95% CI | Raw p | Holm-adjusted p |
+|---|---:|---:|---:|---:|---:|
+| Grand-mean log10-frequency slope | 1.2230 | 0.2713 | [0.6912, 1.7548] | 6.55×10⁻⁶ | — |
+| Frequency × baseline architecture | 0.0135 | 0.0513 | [−0.0869, 0.1140] | 0.7919 | 1.0000 |
+| Frequency × LayerNorm | −0.0535 | 0.0469 | [−0.1454, 0.0384] | 0.2542 | 0.7625 |
+| Frequency × learned positions | 0.0340 | 0.0660 | [−0.0953, 0.1634] | 0.6059 | 1.0000 |
+| Frequency × 14M scale contrast | 0.0821 | 0.0384 | [0.0069, 0.1573] | 0.0324 | not in architecture family |
+
+The scale interaction is a separately registered contrast; its raw p-value is not adjusted by the architecture
+Holm family. The registered non-ceiling sensitivity analysis retains 244 rows and estimates a grand-mean slope of
+2.290 exposure bits per decade (95% CI 1.823 to 2.758); it is conditional on not being at the exposure ceiling and
+does not replace the all-row primary model. These estimates concern exposure only. The three architecture
+interactions do not survive the registered correction, and no coefficient in this section measures human-rated
+recombination or establishes a memorization–creativity trade-off. Source: `results/confirmatory/exposure_analysis.json`;
+rebuild with the commands in `docs/ARTIFACT_REPRODUCIBILITY.md`.
+
 ## 5. Limitations (current)
 
 1. **Most architecture/frequency cells remain single-seed.** The 14M baseline has second-training-seed outputs at
@@ -543,11 +570,11 @@ because those identities can distort exposure summaries. Both figures are explor
    results remain single-seed, and its learning rate differs from 14M.
 3. **Human novelty endpoint is pending.** Automated memorization, generation/diversity, and exact full-corpus
    overlap analyses are complete for the declared cells, but V/T/N human labels have not been collected. The two
-   1,280-item blinded sheets are prepared; distinct-2 and n-gram overlap remain secondary proxies.
-4. **No test of the mixed-frequency (single-corpus) Secret Sharer design**, which would be far cheaper (one
-   training run per architecture instead of one per architecture × frequency) but wasn't used because the brief's
-   literal design (one frequency per corpus) was implemented instead, per the ground rule of not silently
-   switching designs.
+   7,680-row blinded confirmatory sheets are prepared; distinct-2 and n-gram overlap remain secondary proxies.
+4. **No independent full-cell clean-room reproduction yet.** A fresh-clone, CPU-only one-step smoke test passed,
+   but it is not a second reproduction of the 24-cell grid. The current artifact filesystem has only about 27 GiB
+   free, while the frozen storage rule requires at least 25 GiB free before every cell. No separate external
+   artifact filesystem has been validated, so the full duplicate run was not started.
 5. **Small absolute scale.** 14.2M parameters, 49.152M consumed training tokens per run over a 14.583M-token
    training split — results may not generalize to
    larger models or corpora, and this project makes no claim that they do.

@@ -1,16 +1,16 @@
 # Publication-readiness dossier
 
-Updated 2026-10-16. This document separates what is already defensible from what must be completed before an IEEE
+Updated 2026-10-25. This document separates what is already defensible from what must be completed before an IEEE
 or comparable peer-reviewed submission. It is intentionally stricter than a project README.
 
 ## Candid status
 
-The study has a documented exploratory result set and a detailed audit trail, but it is **not submission-ready
-yet**. The strongest defensible contribution is currently methodological: canary identity contamination can
-confound exposure, the observed exposure/seed patterns vary across items, and exposure ranking is distinct from a
-strict argmax-extraction test in a bounded audited subset. The headline memorization-versus-creativity claim
-remains unresolved until blinded human annotation replaces distinct-2 as the primary novelty endpoint and an
-independent, contamination-free confirmation addresses the exploratory design limitations. See
+The exploratory result set and the separate, pre-registered contamination-free computational confirmation are
+complete, but the manuscript is **not submission-ready**. The frozen confirmatory exposure model estimates a
+grand-mean slope of 1.223 exposure bits per log10 insertion-frequency decade (95% cluster-robust CI 0.691–1.755;
+960 observations and 40 canary clusters); none of the three architecture-by-frequency interactions survives its
+registered Holm correction. This is exposure-only evidence. The human novelty endpoint has no labels, so the
+memorization-versus-creativity question remains unresolved. See
 `docs/RESULTS_CLAIM_AUDIT.md` for permitted wording.
 
 The manuscript's central contribution should remain the controlled memorization–compositional-creativity
@@ -19,33 +19,36 @@ must remain separate axes: whole-corpus overlap is a copying diagnostic, and the
 primary evidence for genuine recombination. Do not promote edit distance, n-gram overlap, or distinct-n into a
 standalone creativity claim.
 
-No acceptance can be guaranteed. The best path to a strong paper is to narrow claims to the evidence, complete the
-annotation study, add a confirmatory design that removes the original confounds, and release a reproducible
-artifact.
+No acceptance can be guaranteed. The next research step is to complete the authorized human annotation pathway
+and independently reproduce the computational grid in a genuinely clean environment with sufficient storage.
+The release pathway then needs explicit licensing/redistribution decisions and a permanent archive. Do not imply
+these steps have occurred before they are verified.
 
 ## Non-negotiable blockers before submission
 
-1. The 14M grid, baseline 100/500 training-seed replications, and all 24 48M cells are complete. The 48M arm's final
+1. The exploratory 14M grid, baseline 100/500 training-seed replications, the exploratory 48M sweep, and the separate
+   24-cell confirmatory computational grid are complete. The 48M exploratory arm's final
    LayerNorm frequency-500 run completed 6,000 updates (24,087 trainer seconds; best validation loss 1.4781 / PPL
    4.3847; four gradient-norm spikes and nine gradient-health alerts). The initial 48M baseline frequency-0 cell
    required an in-place resume after a disk-full checkpoint-write failure; it completed from its verified step-1,000
    checkpoint. Both arms remain exploratory, and every 48M cell is single-seed with a learning-rate difference from
    14M; do not make a causal scale claim.
-2. Complete the blinded two-rater V/T/N study in `docs/ANNOTATION_PROTOCOL.md`; the two prepared rater files each
-   contain 1,280 condition-hidden items with label, confidence, and notes fields blank. Human scoring is not done;
+2. Complete the blinded two-rater V/T/N study in `docs/ANNOTATION_PROTOCOL.md`; the two prepared external-rater files each
+   contain 7,680 condition-hidden items with label, confidence, and notes fields blank. Human scoring is not done;
    report Cohen's kappa, Krippendorff's alpha, disagreements/adjudication, and clustered confidence intervals.
-3. The exact full-corpus search is complete for the current automated grid: 24 canonical 14M cells / 7,680
-   completions, two baseline training-seed replications / 640 completions, and 24 48M cells / 7,680 completions,
-   totaling 50 cells / 16,000 generations. Frequency-specific corpus fingerprints and 73,139-story counts were
+3. Exact full-corpus copying diagnostics are complete for the exploratory grids and the 24-cell confirmatory grid:
+   24 canonical 14M cells / 7,680 completions, two baseline training-seed replications / 640 completions, and 24
+   exploratory 48M cells / 7,680 completions, totaling 50 exploratory cells / 16,000 generations, plus 24
+   confirmatory cells / 7,680 generations (74 cells / 23,680 generations overall). Frequency-specific corpus fingerprints and 73,139-story counts were
    verified. The overlap diagnostic alone cannot support a broad non-copying claim.
 4. Replace the false “no existing work” positioning. RAVEN (McCoy et al., TACL 2023), Haviv et al. (EACL 2023),
    Jiang and Ferraro (EACL 2026), and Zhou et al. (ICLR 2026) now directly overlap parts of the framing.
-5. Freeze a statistical analysis plan before unblinding condition labels. Clearly mark every unregistered analysis
-   as exploratory.
-6. Add at least one independent confirmation with canaries verified absent from the corpus and a higher-resolution
-   reference set. The recommended efficient design is in `docs/CONFIRMATORY_STUDY_PROTOCOL.md`.
-7. If making a size-dependent claim, add multiple seeds at both scales and match or explicitly test the learning
-   rate schedule. The 48M arm initially has one seed and uses a lower learning rate than the current 14M arm.
+5. The exposure and human-novelty analysis plan was frozen before outcomes; the exposure model has run, but the human-novelty
+   model cannot run until independently collected and adjudicated V/T/N labels exist. Clearly mark unregistered analyses as exploratory.
+6. The contamination-free confirmation has been run. Its independent full-cell clean-room reproduction remains outstanding;
+   the existing one-step clean-clone smoke test is not a substitute.
+7. Keep exploratory scale-transfer claims bounded: that 48M sweep is single-seed and uses a different learning rate than 14M.
+   Do not conflate it with the separately locked 24-cell confirmatory grid.
 8. Select and record one of the routes in `docs/ETHICS_AND_CONSENT_PLAN.md`. External recruitment requires the
    applicable institutional determination and finalized consent materials; self-only annotation avoids external
    recruitment but requires a dated protocol amendment and cannot support the frozen two-rater agreement endpoint.
@@ -128,16 +131,16 @@ transparent negative results, a green research test suite, and a citable manuscr
 
 Do not submit until every item below is true:
 
-- [ ] Primary grid and planned seed replications complete.
+- [x] Primary computational grid and planned three-seed sets complete; clean-room replication is tracked separately below.
 - [ ] Blinded human labels complete with acceptable agreement and adjudication.
-- [ ] Full-corpus copying search complete.
+- [x] Full-corpus copying diagnostics complete for the locked confirmatory cells; they do not measure semantic originality.
 - [ ] Confirmatory contamination-free experiment complete or the manuscript is explicitly reframed as a pilot.
 - [ ] Every numerical claim generated from versioned data by one command.
-- [ ] Claim audit (`docs/RESULTS_CLAIM_AUDIT.md`) reconciled against the final text, tables, and figure data.
+- [ ] Claim audit (`docs/RESULTS_CLAIM_AUDIT.md`) reconciled against the final text, tables, and figure data after human results are available.
 - [ ] Figures are publication-resolution, color-blind safe, and readable in grayscale. Current plots are regenerated
       at 300 dpi, but color-blind/grayscale visual review is still outstanding.
 - [ ] References verified against primary sources and DOIs.
-- [ ] Artifact archived with DOI and tested from a clean environment.
+- [ ] Full-cell artifact reproduced from a clean environment, archived with DOI, and independently tested.
 - [ ] Exact training dependencies, source corpus, tokenizer, checkpoints, and checksums are available under
       appropriate licenses; current Git checkout alone cannot reproduce training (`docs/ARTIFACT_REPRODUCIBILITY.md`).
 - [ ] Ethics, consent, data/code, conflicts, funding, limitations, and AI-use statements complete.

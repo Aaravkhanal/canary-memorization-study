@@ -15,7 +15,16 @@ def test_committed_release_gate_fails_candidly():
     report = build_report(ROOT, ROOT / "configs" / "release_gate.json")
     assert report["release_allowed"] is False
     assert "archive_doi" in report["blockers"]
-    assert set(REQUIRED_TRUE).issubset(report["blockers"])
+    # The computational grid is complete; retain it as a recorded true fact,
+    # not as a release blocker. Every incomplete required gate must remain blocked.
+    for requirement in REQUIRED_TRUE:
+        if report["gate"].get(requirement) is True:
+            assert requirement not in report["blockers"]
+        else:
+            assert requirement in report["blockers"]
+    assert report["gate"]["confirmatory_training_complete"] is True
+    assert "full_cell_clean_room_reproduction_complete" in report["blockers"]
+    assert "human_annotation_complete" in report["blockers"]
     assert not [item for item in report["blockers"] if item.startswith("missing:")]
 
 
