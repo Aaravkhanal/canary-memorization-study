@@ -72,6 +72,9 @@ full-overlap augmentation also completed. Values below deliberately report artif
 | 2026-10-25 | Confirmatory artifact integrity audit | Passed | 24/24 complete cells; deserialized and SHA-256-verified 48 best/final checkpoints; verified raw/evaluated JSON provenance, corpus hashes, row/group/completion counts, and overlap flags. The single pre-checkpoint interruption is retained as documented in Amendment 8. |
 | 2026-10-25 | Fresh-clone rebuild at `fdec41e7` | Passed | Rebuilt all three locked seed corpora, checked pinned data/tokenizer/training dependency, and regenerated exposure CSV/JSON byte-identically; one-step CPU smoke passed with zero MPS use. Full 24-cell training was not repeated. |
 | 2026-10-25 | Full research suite after final fresh-clone verification record | 118 passed | Includes the three-corpus and byte-identical exposure analysis run-record checks; 14 dependency deprecation warnings only. |
+| 2026-10-25 | Full research suite after manuscript and storage-status refresh | 118 passed | Includes the latest result wording, exact second-grid capacity decision, and updated artifact manifest; only 14 Matplotlib/PyParsing deprecation warnings. |
+| 2026-10-25 | Second full-grid storage preflight | Deferred before training | 28,217,565,184 bytes free (26.28 GiB), only 1.28 GiB above the 25-GiB threshold; the frozen estimate is 8,153,726,976 retained bytes plus the required reserve. No separate validated artifact volume is available, so the full independent 24-cell run was not launched and no checkpoint was touched. |
+| 2026-10-25 | Manuscript refresh | Passed | Updated title and results interpretation to distinguish the completed exposure finding from the unmeasured human novelty endpoint; built-in LaTeX compilation succeeded. |
 
 The full suite passed after the 24-cell grid, exposure-table build, exposure-only frozen analysis, and blank
 annotation-package build completed.

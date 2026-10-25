@@ -4,8 +4,8 @@
 \usepackage{hyperref}
 \usepackage{xcolor}
 
-\title{Memorization and Compositional Creativity in Small Language Models:\\
-A Controlled Canary Study Across Transformer Architectures}
+\title{Canary Exposure in Small Language Models:\\
+A Controlled Study Across Transformer Architectures}
 
 \author{\IEEEauthorblockN{Aarav Khanal}}
 
@@ -135,8 +135,9 @@ LayerNorm & 0.000/0.817 & -0.094/0.792 & 2.015/0.808 & 2.132/0.788 & 1.932/0.782
 The corresponding exploratory 48M grid is also complete, but single-seed and uses a different learning rate.
 Its matched descriptive table and figure are in \texttt{results/tradeoff\_clean.csv} and
 \texttt{results/tradeoff\_clean.png}; they do not identify a causal scale effect. Per-cell runtimes and the
-recovered checkpoint-write failure are reported in \texttt{results/trainer\_runtime\_audit.md}. No human novelty
-score is available, and the confirmatory protocol in \texttt{docs/CONFIRMATORY\_STUDY\_PROTOCOL.md} has not been run.
+recovered checkpoint-write failure are reported in \texttt{results/trainer\_runtime\_audit.md}. These findings
+describe the exploratory grid. The separate contamination-free confirmatory protocol was run subsequently and is
+reported below; its human novelty endpoint remains unobserved.
 
 \subsection{Confirmatory exposure model}
 The separate contamination-free confirmatory grid contains three seeds, four architectures, and two scales (24
@@ -168,6 +169,10 @@ Frequency $\times$ 14M scale contrast & 0.0821 & 0.0384 & [0.0069, 0.1573] & 0.0
 The scale coefficient is a separately registered contrast and is not in the architecture Holm family. A registered
 non-ceiling sensitivity analysis retained 244 observations and estimated a grand-mean slope of 2.290 exposure bits
 per decade (95\% CI 1.823--2.758); this conditional analysis does not replace the all-observation primary model.
+Thus, higher assigned insertion frequency is associated with higher rank-based exposure in the registered model,
+while these data do not show architecture-specific frequency slopes after Holm correction. The separately
+registered 14M scale contrast has nominal $p=0.032$ and is not part of that three-test family; it should not be
+read as a broad scale effect, particularly given the limited scales and model settings.
 The confirmatory full-training-corpus overlap check covers 24 cells and 7,680 generations. These are exposure and
 copying diagnostics, not human novelty results. The primary external-rater V/T/N endpoint has not been collected.
 

@@ -111,6 +111,11 @@ training unless every computational training gate passes.
 - After commit `fdec41e7`, a second fresh clone rebuilt and checked all three locked seed corpora and regenerated
   the exposure-analysis CSV/JSON with byte-identical SHA-256 hashes; the one-step CPU smoke also passed with zero
   MPS use. This verifies portable inputs and analysis, not independent full-cell training.
+- On the same date, a read-only capacity check found 28,217,565,184 bytes free (26.28 GiB): only 1.28 GiB above
+  the required reserve, against an estimated 8,153,726,976 bytes of retained outputs for another grid. Although
+  the before-cell gate passes for an initial cell, it cannot remain satisfied through the planned run; no cell
+  was started. A validated external artifact filesystem or additional 6.32 GiB free space is needed before the
+  second full-grid attempt.
 - The full-cell duplicate run is not launched. The local filesystem has only about 27 GiB free, whereas the
   locked plan requires at least 25 GiB to remain free before each cell and estimates about 8.15 GB of retained
   artifacts for the complete grid. No external volume has been validated for the frozen write/read and capacity
