@@ -4,13 +4,18 @@
   "files": [
     {
       "path": ".gitignore",
-      "size_bytes": 395,
-      "sha256": "12bdad1f94dfd9c1cf790eff36af62207affc553065052e1c33488b06966e105"
+      "size_bytes": 494,
+      "sha256": "4ff2e05a15a1a06d96b533cd27d5c105d93e394c7b1469ac15156a675678bdcf"
     },
     {
       "path": "CITATION.cff",
-      "size_bytes": 732,
-      "sha256": "0fc84af15a3c4ae8f84712f323c17e0bbf814496818aab1fa8300f28944ee0fc"
+      "size_bytes": 804,
+      "sha256": "7309f145673844598094d960c694751b6e75a0649fee8c7f4504e0f81c24e891"
+    },
+    {
+      "path": "LICENSE",
+      "size_bytes": 1311,
+      "sha256": "ffd1f10969e3b6587733e589a059a68be0b348c58876035deeff3dd0b7983cd1"
     },
     {
       "path": "PHASE4_NOTES.md",
@@ -24,8 +29,8 @@
     },
     {
       "path": "README.md",
-      "size_bytes": 17968,
-      "sha256": "5cac6689c1d03f347d3837e58ba71b9fea288e274a9c0d602fd628e8fe85ddb7"
+      "size_bytes": 18116,
+      "sha256": "12999f7076cbf21fe81c2ee6a21b3286687f78c25fb6fc7a770da12bf54749ab"
     },
     {
       "path": "artifacts/tokenizer_tinystories_v2/README.md",
@@ -64,8 +69,8 @@
     },
     {
       "path": "configs/confirmatory/ethics_record.json",
-      "size_bytes": 1517,
-      "sha256": "2b58bdb130b769adc750fdc9a501415982fde5252a562cf62c1eda9ab42ef688"
+      "size_bytes": 2461,
+      "sha256": "f129931ace369e8b85da4b94b6146584b24e4490b3053268b038513b7dbf6d84"
     },
     {
       "path": "configs/confirmatory/evaluation_plan.json",
@@ -74,8 +79,8 @@
     },
     {
       "path": "configs/confirmatory/start_gate.json",
-      "size_bytes": 915,
-      "sha256": "acb87bc2d7ea115d25676e2aa601b2511e0bbf8f8f75f94960f55a9cc2b72754"
+      "size_bytes": 1045,
+      "sha256": "da47402cf338e91200d50e2911e892181757adacf050b6833f1512741b430a8e"
     },
     {
       "path": "configs/confirmatory/storage_plan.json",
@@ -204,8 +209,8 @@
     },
     {
       "path": "configs/release_gate.json",
-      "size_bytes": 662,
-      "sha256": "cda51da0341ae91dcc19a600fc394683dfbcb28209338c64acaf05c6d8a45e0e"
+      "size_bytes": 808,
+      "sha256": "dac0fc2c9a756dc5ae2ca03587f4d561da6dd5e55ea357f971cf19c9cb00b8d3"
     },
     {
       "path": "configs/training/baseline/freq_0.yaml",
@@ -529,18 +534,18 @@
     },
     {
       "path": "docs/ARTIFACT_REPRODUCIBILITY.md",
-      "size_bytes": 12808,
-      "sha256": "63bcbe1deec75d26583c0073b70dbf8cb731a24b2952e4deed7dc8ec354986b1"
+      "size_bytes": 12842,
+      "sha256": "5afe90f656101872bbde8ceb8f888a9d4e598097206b2915c799ef69912659bd"
     },
     {
       "path": "docs/CONFIRMATORY_EXECUTION_PLAN.md",
-      "size_bytes": 10287,
-      "sha256": "732f981905e1f5ebe0a50a1ab1500abc899fdb6a4765b40b835710b5353518d9"
+      "size_bytes": 10416,
+      "sha256": "bc8ccf59fae5065aad772c464033449d5ac82aa0f54405900c2e654797ac2ea3"
     },
     {
       "path": "docs/CONFIRMATORY_PROGRESS.md",
-      "size_bytes": 8037,
-      "sha256": "98655ab7773b43f37d4e2e309073dba849f8844aff9f254c52937d36ff803a44"
+      "size_bytes": 9264,
+      "sha256": "3a40f182f1589dd1deb948bfef7bb7481167b5785fefb732872d9b109151dcec"
     },
     {
       "path": "docs/CONFIRMATORY_STUDY_PROTOCOL.md",
@@ -549,8 +554,8 @@
     },
     {
       "path": "docs/DATA_RIGHTS_AND_RELEASE.md",
-      "size_bytes": 3280,
-      "sha256": "14a92f747196b4b7d1e1c2c6be108bf36b03e7a899519a6d709bda274da2fb0a"
+      "size_bytes": 3477,
+      "sha256": "2cc89381548e2cbcd9df858b755f6c67016720829849f4636700d1a0182a5039"
     },
     {
       "path": "docs/DISK_CAPACITY_AUDIT.md",
@@ -564,8 +569,8 @@
     },
     {
       "path": "docs/ETHICS_AND_CONSENT_PLAN.md",
-      "size_bytes": 3339,
-      "sha256": "e54b8b4b07ee7624d5f769e5520317c40cfae8b2fa6a140154bc66272cc13c87"
+      "size_bytes": 3759,
+      "sha256": "f08c8f2b549fbccd7560251c6009474ac00048aa4cdb72e17aac661c394b3005"
     },
     {
       "path": "docs/EXPERIMENT_RESULTS_ARCHIVE.md",
@@ -574,8 +579,8 @@
     },
     {
       "path": "docs/EXTERNAL_RATER_INFORMATION_AND_CONSENT_TEMPLATE.md",
-      "size_bytes": 2461,
-      "sha256": "f3587fb56a8748348c2a21d39c559bf711d20ef47f8e0c84b1da55b42bb38c70"
+      "size_bytes": 5298,
+      "sha256": "d079949bdbb6ee3880995a36fe6c90c4fd369d06d1c53de10977947dcb9932ab"
     },
     {
       "path": "docs/PUBLICATION_READINESS.md",
@@ -618,9 +623,24 @@
       "sha256": "e325727797322f8e984b4c0f8fe0f1edeef72920a0b4e8968c954fc3502e9dbe"
     },
     {
+      "path": "generate_progress_report.js",
+      "size_bytes": 13283,
+      "sha256": "8b57f8311e8d18879b969fd33e2f414a983e2828ffe836da81cbf9b8e1d83551"
+    },
+    {
       "path": "paper/ieee_manuscript.tex",
       "size_bytes": 15898,
       "sha256": "860e55b7411cbbbb05f5c044634aa9536df1a17ce85354e6896a2e96c7faf0e4"
+    },
+    {
+      "path": "reports/Research_Progress_Report_Aarav_Khanal.docx",
+      "size_bytes": 13529,
+      "sha256": "54618129fd9b267268164a31e3a5f1f18ae9a5eefd1c6a57adf68d20851957c4"
+    },
+    {
+      "path": "reports/Research_Progress_Report_Aarav_Khanal.pdf",
+      "size_bytes": 137569,
+      "sha256": "ccb2e8ca3afa5e9e45e4c1acf6e719b4af6055c5f678854d1c6c96367ab45cdf"
     },
     {
       "path": "reproducibility/inputs.lock.json",
@@ -1904,8 +1924,8 @@
     },
     {
       "path": "results/release_gate.json",
-      "size_bytes": 1285,
-      "sha256": "1541fd7f9501ea7225e2679cd0c4bae4d9a3aee334d098063bc437d12d4f96fc"
+      "size_bytes": 1399,
+      "sha256": "16112b8dddc3fa71237c3139cf2ac2d1a3928ff1200d4a4875c520ad88090c32"
     },
     {
       "path": "results/sanity_exp004.json",
@@ -2154,8 +2174,8 @@
     },
     {
       "path": "tests/test_citation_metadata.py",
-      "size_bytes": 664,
-      "sha256": "bfb117d008ee0bb503560dcd670226801451af8fd580486a12cec753f64b0248"
+      "size_bytes": 729,
+      "sha256": "0123ea9b0857073111b3e2bdc2117a77fb1c55523186f76365af0e12a69973ef"
     },
     {
       "path": "tests/test_clean_room_report.py",
@@ -2199,8 +2219,8 @@
     },
     {
       "path": "tests/test_confirmatory_start_gate.py",
-      "size_bytes": 4342,
-      "sha256": "f9d3f5e71b807c2b83c0f974f9e667a64e3edf7c49f6dc40f06085014a3f4cf2"
+      "size_bytes": 4563,
+      "sha256": "ea04bbaec8f52f100cbb295e11958d802a669601eda079af206c5da710f87467"
     },
     {
       "path": "tests/test_data_acquisition.py",

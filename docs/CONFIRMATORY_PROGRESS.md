@@ -1,6 +1,6 @@
 # Confirmatory experiment progress ledger
 
-Last updated: 2026-10-25 Asia/Kolkata.
+Last updated: 2026-11-09 Asia/Kolkata.
 
 This is an operational ledger, not a results narrative. It records completion, artifact production, and validation
 without conflating exposure outcomes with the pending human novelty endpoint. Add an entry after every completed
@@ -11,11 +11,14 @@ training/evaluation cell and after every research test-suite run.
 - Completed cells: **24/24 (100%)**.
 - 14M grid: **12/12 complete and evaluated**.
 - 48M grid: **12/12 complete and evaluated**.
-- Active cell: none; the locked sequential training/evaluation queue is complete.
+- Primary confirmatory grid: no active cell; its locked sequential training/evaluation queue is complete.
+- Independent clean-room reproduction: **8/24 cells completed and evaluated** (all four 14M architectures for
+  seeds 20261016 and 20261017). The next cell, 14M baseline seed 20261018, stopped after step 2,525/6,000 and is
+  not active; its partial log and rolling checkpoints remain in the ignored clean-room workspace.
 - Cells remaining: **0**.
-- Latest storage read: 28,999,987,200 bytes free on the artifact filesystem (about 27 GiB). This is above the
-  frozen 25-GiB per-cell threshold but leaves too little headroom to complete another full 24-cell retained run.
-  No external artifact filesystem is configured or validated.
+- Latest storage read: 34,109,145,088 bytes free on the artifact filesystem (about 31.76 GiB). This passes the
+  frozen 25-GiB per-cell start threshold but does not provide enough headroom to retain the remaining 16 cells
+  while preserving that reserve. No external artifact filesystem is configured or validated.
 - The complete 24-cell grid, locked automated evaluations, checkpoint/corpus inventory, and exposure-only frozen
   analysis are complete. Human-novelty and joint trade-off interpretation remain locked pending cleared external
   ratings and adjudication.
@@ -77,14 +80,20 @@ full-overlap augmentation also completed. Values below deliberately report artif
 | 2026-10-25 | Manuscript refresh | Passed | Updated title and results interpretation to distinguish the completed exposure finding from the unmeasured human novelty endpoint; built-in LaTeX compilation succeeded. |
 | 2026-10-25 | Consolidated results archive | Written and validated | Added `docs/EXPERIMENT_RESULTS_ARCHIVE.md` with the verified experiment inventory, supported numerical findings, claim limits, artifact links, human/release blockers, and checkpoint-preservation rule; full research suite passed afterward. |
 | 2026-10-25 | Full research suite after results archive | 118 passed | Includes the archive content, source links, and refreshed 450-entry tracked-artifact manifest; only Matplotlib/PyParsing deprecation warnings. |
+| 2026-10-27 | Full research suite | 118 passed | Re-run with the `aarav-lm` project environment; 14 Matplotlib/PyParsing deprecation warnings only. |
+| 2026-10-28 | Clean-room reproduction | 2/24 cells completed and evaluated | Independently trained and verified 14M baseline and learned-position cells for seed 20261017; evaluation provenance and counts validated. Queue resumed at the next cell after the storage preflight passed. |
+| 2026-11-09 | Clean-room reproduction audit | 8/24 cells completed and evaluated; ninth cell partial | Verified all four 14M architectures for seeds 20261016 and 20261017 in the isolated workspace. The 14M baseline seed-20261018 run stopped at step 2,525/6,000 and is not active. |
 
 The full suite passed after the 24-cell grid, exposure-table build, exposure-only frozen analysis, and blank
 annotation-package build completed.
 
 ## Remaining completion gates
 
-1. Full-cell clean-room reproduction remains outstanding. The fresh-clone CPU smoke passed, but the 25-GiB free-space requirement cannot be maintained for a second full 24-cell run on the currently available local filesystem; no validated external artifact path exists.
+1. Full-cell clean-room reproduction remains outstanding at 8/24 completed cells. The fresh-clone CPU smoke
+   passed, but the 25-GiB reserve cannot be maintained while retaining the remaining 16 cells on the currently
+   available local filesystem; no validated external artifact path exists.
 2. Resolve external-rater institutional, consent, compensation, withdrawal, and annotation clearances.
 3. Collect two independent external-rater sheets; keep self-annotation as a separate sensitivity analysis.
 4. Adjudicate the primary labels and run the frozen human-novelty model and final joint trade-off reporting.
-5. Complete the manuscript and release documentation, select an authorized license, and create a permanent archive/DOI.
+5. Complete the manuscript and release documentation, confirm redistribution terms for non-project artifacts,
+   authorize the release, and create a permanent archive/DOI. MIT is selected for original software and documentation.

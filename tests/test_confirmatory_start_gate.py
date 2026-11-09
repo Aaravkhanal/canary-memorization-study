@@ -1,5 +1,6 @@
 import json
 import sys
+from types import SimpleNamespace
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "scripts"))
@@ -40,7 +41,11 @@ def test_selected_external_design_remains_blocked_without_clearance():
     assert record["annotation_start_clearance"] is False
 
 
-def test_process_detection_returns_strings():
+def test_process_detection_returns_strings(monkeypatch):
+    monkeypatch.setattr(
+        "run_confirmatory_queue.subprocess.run",
+        lambda *args, **kwargs: SimpleNamespace(stdout="123 python train.py\n456 unrelated\n"),
+    )
     assert all(isinstance(item, str) for item in active_training_processes())
 
 

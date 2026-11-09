@@ -1,13 +1,13 @@
 {
   "schema_version": 1,
-  "recorded_date": "2026-10-17",
+  "recorded_date": "2026-10-29",
   "release_authorized": false,
-  "project_license_selected": false,
+  "project_license_selected": true,
   "derived_data_and_weights_terms_confirmed": false,
   "permanent_archive_created": false,
   "archive_doi": "",
   "full_cell_clean_room_reproduction_complete": false,
   "human_annotation_complete": false,
   "confirmatory_training_complete": true,
-  "notes": "Confirmatory training is true only after all 24 cells and locked automated evaluations completed on 2026-10-22. Remaining false values are deliberate release blockers. This gate is separate from the training start gate and must never be changed merely to make a check pass."
+  "notes": "MIT was selected on 2026-10-29 for original project software and documentation. This does not grant rights to third-party datasets, model weights, generated text, or materials governed by other terms. Confirmatory training is true only after all 24 cells and locked automated evaluations completed on 2026-10-22. Remaining false values are deliberate release blockers and must not be changed merely to make a check pass."
 }

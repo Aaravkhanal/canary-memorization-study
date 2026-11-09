@@ -14,7 +14,7 @@ This route changes the frozen two-rater endpoint: it cannot estimate inter-rater
 
 Before recruitment, obtain the locally or institutionally required determination (for example approved, exempt, or not-human-subjects-research). Record the responsible authority, reference, date, outcome, consent procedure, compensation plan, withdrawal process, and both training/annotation clearances.
 
-The companion external-rater information and consent document is a draft template only. It must be adapted to the actual institution and approved process before use.
+The companion external-rater information and consent document now contains a complete proposed workflow, withdrawal window, privacy description, and a proposed ₹15,000 payment for a complete batch (pro-rated on early withdrawal). The payment is not a promise until the owner confirms funds are available. A timing pilot, payment logistics, retention/deletion details, authority contacts, and review of the materials by the responsible authority remain outstanding. It is still a draft and must not be used for recruitment before those items and the actual determination are recorded.
 
 ## Separate self-annotation sensitivity
 

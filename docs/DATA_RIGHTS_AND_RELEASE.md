@@ -22,10 +22,11 @@ locked for reproducibility even if the live card later changes.
 
 ## Project-created materials
 
-The confirmatory canary texts, schedules, code, results, and documentation are project-created. No project code
-license has yet been selected by the repository owner, so third-party reuse rights are not granted merely because
-the repository is public. Before a public artifact/DOI release, the owner must select and add a code license and
-decide whether the canary bank, tokenizer, derived corpora, and weights use the same or separate terms.
+The repository owner selected the MIT License on 2026-10-29 for original project software and documentation;
+the license text is recorded in `LICENSE`. That selection does not grant rights to third-party datasets, model
+weights, generated text, derived corpora, or other materials governed by separate terms. Before a public
+artifact/DOI release, the owner must still decide which non-software artifacts may legally be redistributed and
+whether they require separate notices or terms.
 
 ## Release boundary
 
@@ -40,14 +41,15 @@ decide whether the canary bank, tokenizer, derived corpora, and weights use the 
 
 ## Required owner decisions before external release
 
-1. Select the project code/content license(s).
+1. Confirm the release boundary for generated text, derived data, tokenizer/model artifacts, and model weights;
+   MIT currently covers only original project software and documentation.
 2. Confirm that the planned distribution of derived corpora/tokenizer/weights satisfies CDLA-Sharing-1.0 and any
    venue or institutional requirements.
 3. Authorize and create the permanent archive/deposit.
 
-Until those decisions are recorded, this repository can document exact acquisition and local reproduction but
-must not claim that every training artifact is licensed for public redistribution.
+Until those remaining decisions are recorded, this repository can document exact acquisition and local
+reproduction but must not claim that every training artifact is licensed for public redistribution.
 
-`CITATION.cff` now provides conservative repository citation metadata without inventing a DOI, release date,
-license, affiliation, or ORCID. Populate those fields only after the owner selects the release terms and a real
-archive or paper identifier exists.
+`CITATION.cff` provides conservative repository citation metadata and records the MIT software/documentation
+license without inventing a DOI, release date, affiliation, or ORCID. Populate archival identifiers only after a
+real archive or paper identifier exists.

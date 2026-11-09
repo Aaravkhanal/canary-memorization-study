@@ -107,9 +107,10 @@ to be attributed to a controlled number of training-time exposures, not to fine-
 On this machine (a MacBook Air M3, 8 GB, no external GPU), a 14M run uses 49.152M training tokens and currently
 takes roughly 2.5-3 hours at observed throughput. The source training split itself is 14.58M tokens.
 Canary training and the sibling `aarav-lm` project's own training are not run concurrently on this single
-machine. The locked confirmatory queue is complete and no training job is active. A second full-cell clean-room
-reproduction has not started: the protocol requires at least 25 GiB free on the artifact filesystem before every
-cell, and available local space is only about 27 GiB before any duplicate run. Human annotation remains blocked on
+machine. The locked confirmatory queue is complete and no primary-grid training job is active. Independent
+clean-room reproduction has completed and evaluated 8/24 cells; the ninth stopped at step 2,525/6,000 and is
+inactive. The protocol requires at least 25 GiB free before every cell, and the latest audit found about 31.76 GiB,
+which cannot retain the remaining 16 cells while preserving that reserve. Human annotation remains blocked on
 the external-rater institutional determination, finalized consent, compensation, withdrawal, and annotation
 clearances.
 
@@ -195,8 +196,8 @@ successfully in the desktop editor on 2026-10-25 after the confirmatory results 
 - `docs/RESULTS_CLAIM_AUDIT.md`: evidence map and allowed/prohibited result wording.
 - `docs/ARTIFACT_REPRODUCIBILITY.md`: exact reproduction commands and data/weights availability limits.
 - `docs/DATA_RIGHTS_AND_RELEASE.md`: revision-pinned TinyStories provenance, license record, and release decisions.
-- `CITATION.cff`: conservative citation metadata with no invented DOI, release date, license, affiliation, or
-  ORCID; complete those fields only at an authorized release.
+- `CITATION.cff`: conservative citation metadata recording the MIT software/documentation license without an
+  invented DOI, release date, affiliation, or ORCID; complete archival fields only at an authorized release.
 - `artifacts/tokenizer_tinystories_v2/`: exact 4,096-token BPE artifact and provenance note for clean clones.
 - `results/clean_room_smoke.json`: passed fresh-clone engineering smoke record (CPU-only, not a study outcome).
 - `configs/confirmatory/analysis_plan.json`: frozen exposure/novelty formulas, contrasts, correction, and fallback.
