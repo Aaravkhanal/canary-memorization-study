@@ -60,7 +60,7 @@ const content = [
     ['48M scale-transfer grid', '24/24 cells complete; single seed', 'results/mem_scale_48m_*.json'],
     ['Confirmatory grid', '24/24 cells trained and evaluated', 'results/confirmatory/*/*/seed_*/evaluated.json'],
     ['Exposure model', 'Frozen analysis complete', 'results/confirmatory/exposure_analysis.json'],
-    ['Annotation package', '3 × 7,680 rows; all labels blank', 'results/confirmatory/annotation/'],
+    ['Human endpoint', '2 × 1,920 amended rater sheets; labels blank', 'results/confirmatory/annotation_amended/'],
     ['Independent reproduction', '8/24 cells complete; ninth partial', '.runtime/clean-room-reproduction/'],
   ], [2300, 2800, 4260]),
   para('All 24 confirmatory cells include locked exposure evaluation, deterministic generation, checkpoint and corpus provenance, and exact word-four-gram overlap against the selected training split. The condition-hidden annotation builder produced two independently shuffled external-rater sheets and one separate investigator-sensitivity sheet. It does not create automated human labels.'),
@@ -77,7 +77,7 @@ const content = [
   heading('4. Work that remains'),
   table(['Priority', 'Required work', 'Why it matters'], [
     ['1', 'Resolve ethics/institutional determination and finalize consent, compensation, retention, withdrawal, and secure-return procedures.', 'External recruitment and annotation are currently prohibited.'],
-    ['2', 'Reconcile the intended 7,680-item confirmatory workload with documents that currently describe a 1,280-item batch; run a timing pilot before recruitment.', 'Workload, payment, feasibility, and consent must describe the same endpoint.'],
+    ['2', 'Complete the prepared 80-item blinded timing pilot, then finalize session limits and compensation for the amended 1,920-item workload.', 'Workload and payment must be evidence-based before recruitment.'],
     ['3', 'Collect two independent external ratings, preserve the separate self-sensitivity sheet, and adjudicate disagreements while conditions remain hidden.', 'The primary human-novelty endpoint has zero labels.'],
     ['4', 'Run the frozen binomial GEE human-novelty model and then produce the joint exposure–novelty interpretation.', 'Required before making any trade-off claim.'],
     ['5', 'Complete the remaining 16 clean-room cells on validated storage or adopt a documented, justified reproduction amendment.', 'The declared full-cell reproduction gate remains open.'],
@@ -85,8 +85,8 @@ const content = [
   ], [900, 4900, 3560]),
 
   heading('5. Current gates and risks', 1, true),
-  para([{ text: 'Human endpoint. ', bold: true }, { text: 'The two confirmatory external-rater files and the separate self-sensitivity file each contain 7,680 rows with blank label, confidence, and notes fields. No V/T/N rate, inter-rater agreement, or adjudication result exists.' }], { firstLine: false }),
-  para([{ text: 'Annotation feasibility. ', bold: true }, { text: 'The confirmatory sheets contain 7,680 items per rater, but the current draft information and compensation materials describe 1,280 items. This inconsistency must be resolved through a prospective, dated decision before recruitment.' }], { firstLine: false }),
+  para([{ text: 'Human endpoint. ', bold: true }, { text: 'A prospective post-exposure/pre-human-label amendment selects 1,920 items per external rater while retaining every cell–canary combination. Both amended sheets remain blank; no V/T/N rate, agreement, or adjudication result exists.' }], { firstLine: false }),
+  para([{ text: 'Annotation feasibility. ', bold: true }, { text: 'An 80-item condition-hidden investigator timing pilot is prepared but incomplete. Compensation, paid breaks, session limits, and the completion window remain intentionally unset until the pilot is completed.' }], { firstLine: false }),
   para([{ text: 'Clean-room reproduction. ', bold: true }, { text: 'Eight independent cells are complete: all four 14M architectures for seeds 20261016 and 20261017. The next baseline seed-20261018 run stopped at step 2,525 of 6,000 and is inactive. Approximately 31.76 GiB was free at the latest audit, insufficient to retain the remaining cells while preserving the frozen 25-GiB reserve.' }], { firstLine: false }),
   para([{ text: 'Release rights. ', bold: true }, { text: 'The MIT License covers original project software and documentation. It does not by itself authorize redistribution of TinyStories-derived corpora, generated text, tokenizer/model artifacts, or weights. The permanent archive, DOI, release authorization, and non-software rights review remain open.' }], { firstLine: false }),
 

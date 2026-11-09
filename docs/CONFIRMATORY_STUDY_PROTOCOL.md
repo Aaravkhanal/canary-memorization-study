@@ -235,3 +235,26 @@ to resume, the runner now starts a fresh experiment directory for this exact loc
 run has no rolling checkpoint. Runs with a valid rolling checkpoint continue to use in-place resume. No scientific
 configuration, corpus, seed, endpoint, exclusion rule, or analysis model changed, and no confirmatory outcome was
 used to make this operational recovery decision.
+
+## Amendment 9 — prospective human-rating subsample (2026-11-09, after exposure outcomes; before human labels)
+
+The generated 7,680-completion pool remains frozen, but the primary external-rater workload is amended to a
+deterministic 1,920-item subsample per rater. For each of the 960 scale–architecture–seed–canary combinations, a
+private keyed hash selects two distinct settings and one completion within each selected setting. This retains all
+24 cells, all 40 canary clusters, both scales, all architectures, all seeds, and every assigned frequency while
+reducing the rating workload by 75%. Selection does not read generation text, exposure, extraction, overlap,
+diversity, or any other outcome. The same 1,920 sample IDs are independently shuffled for both external raters.
+
+This amendment was made after the exposure analysis was known but before any human label existed. It is therefore
+not represented as part of the original pre-outcome lock. The frozen novelty formula, canary clustering, primary
+contrast, architecture-interaction Holm family, complete-label requirement, and GEE fallback remain unchanged.
+The original simulation was rerun as a sensitivity calculation with two rather than eight ratings per cell–canary
+combination; under its unchanged assumptions, the three-seed design retained simulated power 1.00 and median 95%
+log-odds interval width 0.240. Those model-based values are planning evidence, not guarantees. Exact amendment
+metadata is in `configs/confirmatory/human_endpoint_amendment.json`, and the sensitivity result is in
+`results/confirmatory_subsample_power.json`.
+
+An 80-item condition-hidden investigator timing pilot is prepared but not yet completed. Its labels will never be
+pooled with the primary endpoint. External recruitment remains prohibited until the timing pilot informs workload
+and compensation, the responsible authority issues a determination, and all consent/retention/payment details are
+finalized and cleared.

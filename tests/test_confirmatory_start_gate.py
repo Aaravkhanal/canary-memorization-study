@@ -6,7 +6,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "scripts"))
 from check_confirmatory_start_gate import check_configs, probe_storage  # noqa: E402
 from run_confirmatory_queue import (  # noqa: E402
-    active_training_processes, finalize_cell, runtime_path_overrides, validate_evaluation,
+    active_training_processes, finalize_cell, runtime_path_overrides, training_pause, validate_evaluation,
 )
 
 
@@ -47,6 +47,12 @@ def test_process_detection_returns_strings(monkeypatch):
         lambda *args, **kwargs: SimpleNamespace(stdout="123 python train.py\n456 unrelated\n"),
     )
     assert all(isinstance(item, str) for item in active_training_processes())
+
+
+def test_owner_training_pause_is_active():
+    pause = training_pause()
+    assert pause["paused"] is True
+    assert pause["scope"].startswith("all additional canary-study model training")
 
 
 def test_runtime_overrides_bridge_portable_configs_to_aarav_lm_resolver():

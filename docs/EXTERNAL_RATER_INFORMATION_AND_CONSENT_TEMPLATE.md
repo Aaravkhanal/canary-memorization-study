@@ -15,7 +15,12 @@ The study compares how language models reproduce or recombine short story detail
 
 ## What you would do
 
-You would independently label 1,280 short prompt-and-story samples using a written rubric. The labels are V (verbatim/near-verbatim), T (template copy), or N (genuine novel combination), with a confidence rating and an optional brief note. You would work independently and would not see model architecture, training frequency, model checkpoint, automated overlap scores, or the other rater’s labels. The current planning estimate is up to 12 hours total, split across sessions with breaks; actual time should be checked in a pilot before recruitment.
+You would independently label 1,920 short prompt-and-story samples using a written rubric. The labels are V
+(verbatim/near-verbatim), T (template copy), or N (genuine novel combination), with a confidence rating and an
+optional brief note. You would work independently and would not see model architecture, training frequency,
+model checkpoint, automated overlap scores, or the other rater’s labels. Total hours, maximum session length,
+break schedule, and expected completion window will be inserted after the prepared 80-item investigator timing
+pilot is completed and reviewed.
 
 Some text may be repetitive, awkward, or contain fictional narrative material. You may skip a break or stop at any time. Please do not search for the study’s private condition key or share individual samples or labels with the other rater.
 
@@ -25,17 +30,32 @@ Taking part is voluntary. You may decline or stop without penalty. There is no d
 
 ## Proposed compensation
 
-The current proposed compensation is **₹15,000 for completing the assigned batch**, paid within seven working days after a valid complete return. If you withdraw early, the proposed payment is proportional to the completed portion, rounded up to the nearest 10% of the batch. Payment is contingent on the researcher confirming that the funds are available before recruitment; no participant should be recruited or promised payment until that is confirmed. The payment method and any required payment details will be agreed privately and will not be included in research data or public files.
+Compensation is **not yet finalized**. After the timing pilot, this section must state the total amount, equivalent
+hourly rate, whether onboarding and required breaks are paid, proportional payment on withdrawal, payment method,
+and payment deadline. The amount must comply with applicable law and institutional policy and must be backed by
+confirmed available funds before recruitment. Payment details will be handled separately and will not be included
+in research data or public files.
 
 ## Data, privacy, and retention
 
 The study requires a sample identifier, your V/T/N label, confidence, and optional note. Your name and contact/payment details will be kept separately from annotation files and will not appear in public research outputs. Access to identifiable administrative records will be limited to the researcher. The research dataset is planned to contain de-identified labels and aggregate statistics; release of generated text will be separately checked for data rights and privacy before any public release.
 
-The exact storage location, access controls, retention period, and deletion schedule must be confirmed with the responsible ethics authority before recruitment. The private mapping between sample IDs and experimental conditions will remain with the study custodian and will not be sent to raters.
+The proposed plan is to store returned annotation files in an encrypted, access-controlled project location; keep
+names, contacts, consent records, and payment details in a separate encrypted administrative record; and limit
+access to the researcher/study custodian. The identity-to-label link would be destroyed after the 30-day withdrawal
+window and successful payment resolution. The de-identified labels, audit trail, and aggregate analysis would be
+retained with the research artifact; consent/payment records would follow the retention period required by the
+responsible authority. Exact locations, backup handling, retention duration, and deletion verification must be
+approved before recruitment. The private condition mapping will not be sent to raters.
 
 ## Withdrawal
 
-You may withdraw by emailing **khanalaarav2063@gmail.com** and giving your private participant code. You may request removal of your labels until the earlier of (a) 30 days after you return your batch or (b) the date the identity-to-label link is irreversibly destroyed. The researcher will confirm the applicable cutoff and participant code before starting. After the labels are irreversibly de-identified and combined into aggregate analyses, it may no longer be possible to identify and remove one person’s contribution. Withdrawal will not affect compensation for work already completed under the proportional payment terms above.
+You may withdraw by emailing **khanalaarav2063@gmail.com** and giving your private participant code. You may
+request removal of your labels until the earlier of (a) 30 days after you return your batch or (b) the date the
+identity-to-label link is irreversibly destroyed. The researcher will confirm the applicable cutoff and participant
+code before starting. After the labels are irreversibly de-identified and combined into aggregate analyses, it may
+no longer be possible to identify and remove one person’s contribution. Withdrawal will not affect compensation
+for work already completed under the proportional terms that will be inserted before recruitment.
 
 ## Questions and consent
 

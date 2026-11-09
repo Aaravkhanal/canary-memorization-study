@@ -17,7 +17,8 @@
     "estimator": "binomial GEE, canary clusters, exchangeable working correlation",
     "primary_contrast": "grand-mean log10_frequency coefficient under sum coding",
     "fallback": "binomial GEE with independence working correlation; if that also fails, analysis stops for a dated amendment",
-    "labels": "only complete adjudicated human V/T/N labels; blanks or any other value are fatal"
+    "labels": "only complete adjudicated human V/T/N labels; blanks or any other value are fatal",
+    "sampling_amendment": "1,920 rows: two keyed-hash-selected generations per scale-architecture-seed-canary combination; all 960 combinations and 40 canary clusters retained; selection independent of text and outcomes"
   },
   "multiplicity": {
     "method": "Holm",

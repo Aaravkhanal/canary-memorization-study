@@ -1,0 +1,9 @@
+{
+  "schema_version": 1,
+  "paused": true,
+  "recorded_date": "2026-11-09",
+  "scope": "all additional canary-study model training, including clean-room reproduction",
+  "reason": "Human-endpoint design, timing pilot, ethics/consent, and storage/release work must be resolved before additional training resumes.",
+  "resume_authority": "repository owner",
+  "notes": "Evaluation, analysis, documentation, and non-training validation may continue. Change paused to false only through a dated owner-authorized commit."
+}

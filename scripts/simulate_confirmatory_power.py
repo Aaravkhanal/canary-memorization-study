@@ -52,7 +52,8 @@ def model_matrix(frame: pd.DataFrame) -> pd.DataFrame:
     return sm.add_constant(pd.concat([frame[["log10_frequency"]].astype(float), fixed], axis=1))
 
 
-def one_replicate(frame: pd.DataFrame, rng: np.random.Generator, assumptions: dict) -> tuple[dict, dict]:
+def one_replicate(frame: pd.DataFrame, rng: np.random.Generator, assumptions: dict,
+                  novelty_trials: int = SETTINGS * COMPLETIONS_PER_SETTING) -> tuple[dict, dict]:
     seed_effect = {value: rng.normal(0, assumptions["exposure_seed_sd"]) for value in frame.seed.unique()}
     canary_effect = {value: rng.normal(0, assumptions["exposure_canary_sd"]) for value in frame.canary.unique()}
     exposure = (
@@ -78,7 +79,7 @@ def one_replicate(frame: pd.DataFrame, rng: np.random.Generator, assumptions: di
         + frame.canary.map(novelty_canary).to_numpy()
     )
     probability = 1 / (1 + np.exp(-logit))
-    trials = SETTINGS * COMPLETIONS_PER_SETTING
+    trials = novelty_trials
     expanded_matrix = matrix.loc[matrix.index.repeat(trials)].reset_index(drop=True)
     expanded_probability = np.repeat(probability, trials)
     responses = rng.binomial(1, expanded_probability)
@@ -94,12 +95,13 @@ def one_replicate(frame: pd.DataFrame, rng: np.random.Generator, assumptions: di
     )
 
 
-def simulate(bank: dict, seed_count: int, replicates: int, simulation_seed: int, assumptions: dict) -> dict:
+def simulate(bank: dict, seed_count: int, replicates: int, simulation_seed: int, assumptions: dict,
+             novelty_trials: int = SETTINGS * COMPLETIONS_PER_SETTING) -> dict:
     frame = design_rows(bank, seed_count)
     rng = np.random.default_rng([simulation_seed, seed_count])
     exposure_rows, novelty_rows = [], []
     for _ in range(replicates):
-        exposure, novelty = one_replicate(frame, rng, assumptions)
+        exposure, novelty = one_replicate(frame, rng, assumptions, novelty_trials)
         exposure_rows.append(exposure)
         novelty_rows.append(novelty)
 
@@ -118,7 +120,8 @@ def simulate(bank: dict, seed_count: int, replicates: int, simulation_seed: int,
         "seed_count": seed_count,
         "model_cells": seed_count * len(ARCHITECTURES) * len(SCALES),
         "canary_model_rows": len(frame),
-        "human_ratings_per_rater": len(frame) * SETTINGS * COMPLETIONS_PER_SETTING,
+        "human_ratings_per_rater": len(frame) * novelty_trials,
+        "ratings_per_canary_model": novelty_trials,
         "exposure": summarize(exposure_rows, assumptions["exposure_ci_width_target"]),
         "novelty": summarize(novelty_rows, assumptions["novelty_log_odds_ci_width_target"]),
     }
@@ -130,6 +133,7 @@ def main() -> int:
     parser.add_argument("--out", type=Path, default=ROOT / "results" / "confirmatory_power.json")
     parser.add_argument("--replicates", type=int, default=250)
     parser.add_argument("--simulation-seed", type=int, default=20261016)
+    parser.add_argument("--ratings-per-canary-model", type=int, default=SETTINGS * COMPLETIONS_PER_SETTING)
     args = parser.parse_args()
     assumptions = {
         "power_target": 0.80,
@@ -148,11 +152,16 @@ def main() -> int:
         "completions_per_setting": COMPLETIONS_PER_SETTING,
     }
     bank = json.loads(args.bank.read_text(encoding="utf-8"))
-    candidates = [simulate(bank, count, args.replicates, args.simulation_seed, assumptions) for count in (3, 5)]
+    if args.ratings_per_canary_model < 1 or args.ratings_per_canary_model > SETTINGS * COMPLETIONS_PER_SETTING:
+        raise SystemExit("--ratings-per-canary-model must be between 1 and 8")
+    candidates = [simulate(
+        bank, count, args.replicates, args.simulation_seed, assumptions, args.ratings_per_canary_model
+    ) for count in (3, 5)]
     selected = next((row["seed_count"] for row in candidates if row["exposure"]["passes"] and row["novelty"]["passes"]), None)
     payload = {
         "schema_version": 1,
-        "status": "pre-outcome power simulation",
+        "status": ("pre-outcome power simulation" if args.ratings_per_canary_model == 8
+                   else "post-exposure/pre-human-label amendment sensitivity simulation"),
         "replicates": args.replicates,
         "simulation_seed": args.simulation_seed,
         "assumptions": assumptions,

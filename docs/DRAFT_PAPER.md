@@ -386,7 +386,9 @@ four 48M architectures × six frequencies. The exact full-corpus overlap audit c
 training-seed controls, and 48M grid (50 cells / 16,000 generations). Distinct-2 and exact word-four-gram overlap
 are secondary diagnostics, not the primary novelty endpoint. The exploratory two-rater V/T/N batches are prepared
 from the 14M novelty outputs, with 1,280 shared items per rater and blank labels/confidence/notes. Separately,
-the confirmatory external-rater sheets each contain 7,680 condition-hidden rows, also blank. Until labels are
+the original confirmatory pool contains 7,680 condition-hidden rows per sheet. A prospective amendment made after
+exposure analysis but before any human label selects 1,920 items per external rater while preserving every
+cell–canary combination; those amended sheets are also blank. Until labels are
 completed and adjudicated, the paper makes no human-scored novelty or creativity claim.
 
 ### 4.5 Earlier two-architecture proxy summary (incomplete frequency subset)
@@ -570,7 +572,8 @@ rebuild with the commands in `docs/ARTIFACT_REPRODUCIBILITY.md`.
    results remain single-seed, and its learning rate differs from 14M.
 3. **Human novelty endpoint is pending.** Automated memorization, generation/diversity, and exact full-corpus
    overlap analyses are complete for the declared cells, but V/T/N human labels have not been collected. The two
-   7,680-row blinded confirmatory sheets are prepared; distinct-2 and n-gram overlap remain secondary proxies.
+   amended 1,920-row external-rater sheets are prepared from the retained 7,680-completion pool; distinct-2 and
+   n-gram overlap remain secondary proxies.
 4. **No independent full-cell clean-room reproduction yet.** A fresh-clone, CPU-only one-step smoke test passed,
    but it is not a second reproduction of the 24-cell grid. The current artifact filesystem has only about 27 GiB
    free, while the frozen storage rule requires at least 25 GiB free before every cell. No separate external
@@ -604,8 +607,9 @@ rebuild with the commands in `docs/ARTIFACT_REPRODUCIBILITY.md`.
   storage/start-gate safety, clean-room inputs, and trade-off analysis; run via `pytest tests/`.
 - Claim-by-claim source mapping and wording limits: `docs/RESULTS_CLAIM_AUDIT.md`.
 - The contamination-free protocol completed all 24 locked training/evaluation cells. The exposure-only frozen
-  model has run, and two external-rater sheets plus one separate self-sensitivity sheet contain 7,680 blank rows
-  each. External recruitment, annotation, adjudication, and the human-novelty model remain closed pending the
+  model has run. The original two-external-rater plus self-sensitivity pool contains 7,680 blank rows per sheet;
+  the amended primary external-rater sheets contain 1,920 blank rows each. External recruitment, annotation,
+  adjudication, and the human-novelty model remain closed pending the
   institutional, consent, compensation, withdrawal, retention, and annotation clearances.
 - Repository commit attribution and scholarly authorship are distinct. The final manuscript must follow the target
   venue's human-authorship criteria and disclose AI-assisted code or prose to the extent required by its policy.

@@ -23,6 +23,15 @@ import torch
 from check_confirmatory_start_gate import ARCHITECTURES, ROOT, SEEDS, build_report
 
 
+TRAINING_PAUSE = ROOT / "configs" / "training_pause.json"
+
+
+def training_pause() -> dict:
+    if not TRAINING_PAUSE.is_file():
+        return {"paused": False}
+    return json.loads(TRAINING_PAUSE.read_text(encoding="utf-8"))
+
+
 def sha256_file(path: Path) -> str:
     digest = hashlib.sha256()
     with path.open("rb") as handle:
@@ -247,6 +256,11 @@ def main() -> int:
                         default=Path(os.environ.get("AARAV_LM_DIR", ROOT.parent / "aarav-lm")))
     parser.add_argument("--python", type=Path, default=Path(sys.executable))
     args = parser.parse_args()
+    pause = training_pause()
+    if pause.get("paused") is True:
+        print(json.dumps(pause, indent=2))
+        print("training is owner-paused; no training started", file=sys.stderr)
+        return 2
     artifact_root = args.artifact_root or Path(os.environ.get(
         "CONFIRMATORY_ARTIFACT_ROOT", ROOT / "models" / "confirmatory"
     ))

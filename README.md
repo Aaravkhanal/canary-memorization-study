@@ -13,7 +13,9 @@ is never treated as creativity.
 **Status (verified 2026-10-25): the exploratory balanced four-architecture 14M grid and matched 24-cell 48M
 scale-transfer grid are complete. The separate contamination-free confirmatory grid is also complete and
 evaluated (24/24 cells: 14M 12/12; 48M 12/12). The frozen exposure-only model has been run, and all three
-condition-hidden annotation sheets were generated with 7,680 blank rows each. The frozen exposure model estimated
+condition-hidden annotation pool was generated with 7,680 blank rows per sheet. Before any human label, a
+prospective amendment selected 1,920 items per external rater while preserving all 960 cell–canary combinations;
+an 80-item investigator timing pilot is prepared but incomplete. The frozen exposure model estimated
 1.223 exposure bits per log10 frequency decade (95% CI 0.691 to 1.755; 960 observations, 40 canary clusters);
 the three architecture-by-frequency interactions were not significant after the registered Holm correction. These
 are exposure results only, not evidence about human-rated novelty or a memorization–creativity trade-off. Human
@@ -72,8 +74,9 @@ established.
 
 ## What's not done, and why
 
-- **Phase 5 blinded human annotation** is the single largest remaining gap. Two condition-hidden CSVs, 1,280 rows
-  each, are prepared, but all label/confidence/notes fields are blank. The scoring code reports agreement and
+- **Phase 5 blinded human annotation** is the single largest remaining gap. The exploratory 1,280-row sheets and
+  amended confirmatory 1,920-row external-rater sheets are prepared, but all label/confidence/notes fields are
+  blank. The scoring code reports agreement and
   condition summaries only after complete labels and adjudication; no automated labels are treated as evidence.
 - **Full-corpus copying analysis** is implemented in `scripts/eval_full_corpus_overlap.py`. It has been run for
   all 24 canonical 14M novelty cells (7,680 completions), both baseline training-seed replications (640
@@ -209,8 +212,8 @@ successfully in the desktop editor on 2026-10-25 after the confirmatory results 
 - `scripts/run_confirmatory_queue.py`: portable, globally locked sequential 14M-then-48M runner; it cannot train
   until the preflight passes.
 - `scripts/prepare_confirmatory_annotation.py`: refuses partial grids and produces two independently shuffled
-  external-rater sheets plus one separate self-sensitivity sheet, each condition-hidden with 7,680 rows and blank
-  annotation fields, along with a git-ignored private key.
+  original 7,680-completion external-rater/self-sensitivity pool and the amended 1,920-item external-rater sheets,
+  each condition-hidden with blank annotation fields, along with git-ignored private keys.
 - `scripts/create_artifact_manifest.py`: machine-readable SHA-256 inventory for versioned artifacts.
 - `scripts/check_release_gate.py`: separate machine-readable release audit; it fails safely until licensing,
   confirmation, annotation, full-cell clean-room reproduction, permanent archival, and DOI evidence truly exist.

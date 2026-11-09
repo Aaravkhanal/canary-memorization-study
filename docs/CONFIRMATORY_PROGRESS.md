@@ -27,6 +27,9 @@ training/evaluation cell and after every research test-suite run.
   Holm correction. This is not a human-novelty or creativity result.
 - Human annotation is not started. External-rater institutional determination, finalized consent, compensation,
   withdrawal, and annotation clearance remain unresolved.
+- The primary human endpoint was prospectively amended before any human label from 7,680 to 1,920 ratings per
+  external rater while preserving all 960 cell–canary combinations. An 80-item blinded investigator timing pilot
+  is prepared but has zero completed rows.
 
 ## Cell ledger
 
@@ -83,6 +86,7 @@ full-overlap augmentation also completed. Values below deliberately report artif
 | 2026-10-27 | Full research suite | 118 passed | Re-run with the `aarav-lm` project environment; 14 Matplotlib/PyParsing deprecation warnings only. |
 | 2026-10-28 | Clean-room reproduction | 2/24 cells completed and evaluated | Independently trained and verified 14M baseline and learned-position cells for seed 20261017; evaluation provenance and counts validated. Queue resumed at the next cell after the storage preflight passed. |
 | 2026-11-09 | Clean-room reproduction audit | 8/24 cells completed and evaluated; ninth cell partial | Verified all four 14M architectures for seeds 20261016 and 20261017 in the isolated workspace. The 14M baseline seed-20261018 run stopped at step 2,525/6,000 and is not active. |
+| 2026-11-09 | Human-endpoint amendment | Prepared and validated | Deterministic outcome-independent 1,920-item sheets preserve every cell–canary combination; 80-item timing pilot prepared; no human labels exist. |
 
 The full suite passed after the 24-cell grid, exposure-table build, exposure-only frozen analysis, and blank
 annotation-package build completed.
@@ -92,7 +96,8 @@ annotation-package build completed.
 1. Full-cell clean-room reproduction remains outstanding at 8/24 completed cells. The fresh-clone CPU smoke
    passed, but the 25-GiB reserve cannot be maintained while retaining the remaining 16 cells on the currently
    available local filesystem; no validated external artifact path exists.
-2. Resolve external-rater institutional, consent, compensation, withdrawal, and annotation clearances.
+2. Complete the 80-item investigator timing pilot, then finalize workload, compensation, session limits,
+   retention, consent, external-rater institutional determination, and annotation clearance.
 3. Collect two independent external-rater sheets; keep self-annotation as a separate sensitivity analysis.
 4. Adjudicate the primary labels and run the frozen human-novelty model and final joint trade-off reporting.
 5. Complete the manuscript and release documentation, confirm redistribution terms for non-project artifacts,

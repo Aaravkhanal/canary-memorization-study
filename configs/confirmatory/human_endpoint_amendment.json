@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "status": "prospective amendment after exposure outcomes and before human labels",
+  "recorded_date": "2026-11-09",
+  "original_ratings_per_rater": 7680,
+  "amended_ratings_per_rater": 1920,
+  "sampling_unit": "two generations for each of 960 scale-architecture-seed-canary combinations",
+  "coverage": {
+    "scales": 2,
+    "architectures": 4,
+    "seeds": 3,
+    "canaries": 40,
+    "ratings_per_cell_canary": 2,
+    "settings": 4,
+    "completion_candidates_per_cell_canary": 8
+  },
+  "selection_rule": "For each cell-canary group, select two distinct settings by a keyed deterministic hash of condition identifiers, then select one of the two completions within each chosen setting by keyed hash. Selection never reads generation text, exposure, overlap, extraction, diversity, or any outcome field.",
+  "analysis": "The frozen novelty GEE formula, canary clustering, contrasts, Holm family, label rules, and fallback remain unchanged. The model is fitted only to the complete adjudicated 1,920-row sample.",
+  "rationale": "The original 7,680 ratings per rater are infeasible and inconsistent with the draft 1,280-item consent package. The amended design retains every model cell and every canary cluster while reducing the human workload by 75 percent.",
+  "limitations": "This is a post-exposure/pre-human-outcome amendment. Precision is lower than the original planning simulation, setting coverage is sampled rather than exhaustive within each cell-canary group, and the change must be disclosed in every manuscript and preregistration record.",
+  "human_labels_seen_before_amendment": false,
+  "generation_text_or_automated_scores_used_for_selection": false
+}

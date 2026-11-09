@@ -33,8 +33,9 @@ these steps have occurred before they are verified.
    required an in-place resume after a disk-full checkpoint-write failure; it completed from its verified step-1,000
    checkpoint. Both arms remain exploratory, and every 48M cell is single-seed with a learning-rate difference from
    14M; do not make a causal scale claim.
-2. Complete the blinded two-rater V/T/N study in `docs/ANNOTATION_PROTOCOL.md`; the two prepared external-rater files each
-   contain 7,680 condition-hidden items with label, confidence, and notes fields blank. Human scoring is not done;
+2. Complete the amended blinded two-rater V/T/N study; the two primary external-rater files each contain 1,920
+   condition-hidden items with label, confidence, and notes fields blank. The original 7,680-completion pool is
+   retained, and the post-exposure/pre-human-label amendment must be disclosed. Human scoring is not done;
    report Cohen's kappa, Krippendorff's alpha, disagreements/adjudication, and clustered confidence intervals.
 3. Exact full-corpus copying diagnostics are complete for the exploratory grids and the 24-cell confirmatory grid:
    24 canonical 14M cells / 7,680 completions, two baseline training-seed replications / 640 completions, and 24
