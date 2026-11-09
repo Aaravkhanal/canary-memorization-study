@@ -624,8 +624,8 @@
     },
     {
       "path": "docs/TIMING_PILOT_PROTOCOL.md",
-      "size_bytes": 2325,
-      "sha256": "a89ee979f9693cacce539e789f8bd537a0f0e376d78b22cd301d8f92213d3a14"
+      "size_bytes": 2609,
+      "sha256": "4837ea2b6685396a769221323262931dba69e4807187494772e10414ec6d9c6b"
     },
     {
       "path": "experiment_timeline.md",
@@ -961,6 +961,11 @@
       "path": "results/confirmatory/annotation_amended/timing_pilot_80.csv",
       "size_bytes": 41893,
       "sha256": "83bbfdbd7394b9bdb57e64f5dbbdd8c79fb2e5ec5bd40e17ca6e846e5e3de8a8"
+    },
+    {
+      "path": "results/confirmatory/annotation_amended/timing_pilot_80.html",
+      "size_bytes": 51478,
+      "sha256": "f87d79f563af5aa711fe896411a0da9d1b0c3ea796b72e2e4c3bea37bb90ef6d"
     },
     {
       "path": "results/confirmatory/exposure_analysis.json",
@@ -2048,6 +2053,11 @@
       "sha256": "0aa9c9124eebbd5f6ce305c48d3899fc3202b477804b27c01b86e457075b126d"
     },
     {
+      "path": "scripts/build_timing_pilot_ui.py",
+      "size_bytes": 7730,
+      "sha256": "9b376264806337303b84610fb4ce67a17602e7c44851bef015d5aedb90e75106"
+    },
+    {
       "path": "scripts/check_canary_novelty.py",
       "size_bytes": 5861,
       "sha256": "b72af0111db705f512d275f1987e9eddf8aa690ce5c1b46c8810505e9570d2f5"
@@ -2336,6 +2346,11 @@
       "path": "tests/test_timing_pilot.py",
       "size_bytes": 879,
       "sha256": "596a45e4c3951c5931de139c25f01677d7843c779ecbc1c8dee075e5342c1698"
+    },
+    {
+      "path": "tests/test_timing_pilot_ui.py",
+      "size_bytes": 532,
+      "sha256": "75903cf42e4e76d780336da4a7f940f300ce9d56e734accdb8a48bc8b65afe35"
     }
   ]
 }

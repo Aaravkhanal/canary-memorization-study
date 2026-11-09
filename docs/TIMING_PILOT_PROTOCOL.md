@@ -18,7 +18,10 @@ before involving them.
 
 ## Procedure
 
-1. Use `results/confirmatory/annotation_amended/timing_pilot_80.csv` without opening the private manifest.
+1. Open `results/confirmatory/annotation_amended/timing_pilot_80.html` in a browser. It embeds only the public
+   condition-hidden fields, automatically records active seconds, pauses when the tab is hidden, saves progress
+   locally, enforces four blocks and five-minute breaks, and exports the completed CSV. The blank source is
+   `timing_pilot_80.csv`; do not open the private manifest.
 2. Work in four blocks of 20 items. Record active seconds for every item, excluding breaks and interruptions.
 3. Enter a provisional V/T/N label, confidence, and optional note only to reproduce the real workflow.
 4. Take at least a five-minute break between blocks and record any fatigue or rubric ambiguity separately.
