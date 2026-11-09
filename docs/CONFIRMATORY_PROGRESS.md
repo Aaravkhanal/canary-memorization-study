@@ -8,6 +8,13 @@ training/evaluation cell and after every research test-suite run.
 
 ## Current status
 
+Latest runtime update (2026-11-09): independent reproduction reached **9/24 evaluated cells**. The resumed
+14M baseline seed-20261018 cell completed 6,000 steps, best validation loss 1.6112647509574891, with 48 exposure
+rows and 320 generated completions checked against 71,739 training stories. Its reproduction checkpoint evidence
+was recorded and duplicate checkpoints removed under the documented retention amendment. The queue then exited
+at the next cell's capacity check because free space fell below 25 GiB. No queue is currently running; the
+earlier 8/24 status below is superseded by this update. Fifteen cells remain.
+
 - Completed cells: **24/24 (100%)**.
 - 14M grid: **12/12 complete and evaluated**.
 - 48M grid: **12/12 complete and evaluated**.
