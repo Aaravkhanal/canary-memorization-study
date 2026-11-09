@@ -45,3 +45,19 @@ outcomes are not exclusion reasons.
 Power loss terminates local computation. After power returns, rerun the preflight, verify the artifact filesystem,
 verify the latest checkpoint, and then resume. Never infer completion from a directory name or partially written
 file.
+
+## Clean-room reproduction retention amendment (2026-11-09, post-outcome)
+
+The independent clean-room rerun is operational verification, not the primary confirmatory training artifact.
+The original primary best/final checkpoints remain retained under `models/confirmatory` and are never touched by
+this amendment. The isolated reproduction filesystem cannot retain a second complete checkpoint grid while
+maintaining the frozen 25-GiB safety reserve.
+
+For the clean-room copy only, `CANARY_REPRO_EPHEMERAL_CHECKPOINTS=1` permits deletion of duplicate `best.pt` and
+`final.pt` files after—and only after—the fixed 6,000-step summary is complete, both checkpoints deserialize,
+their byte sizes and SHA-256 hashes are recorded, the full locked evaluation succeeds, and the cell verification
+record is durable. The runner writes `reproduction_checkpoint_record.json` before removal and marks it complete
+after removal. It refuses this mode when either artifact or result paths resolve to the primary study locations.
+Evaluation JSONs, logs, metrics, summaries, configs, environments, verification records, and checkpoint hashes are
+retained for every reproduced cell. This amendment changes storage retention for duplicate reproduction weights;
+it does not change training, data, seeds, evaluation, analysis, or scientific outcomes.

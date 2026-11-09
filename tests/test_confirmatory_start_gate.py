@@ -6,7 +6,8 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "scripts"))
 from check_confirmatory_start_gate import check_configs, probe_storage  # noqa: E402
 from run_confirmatory_queue import (  # noqa: E402
-    active_training_processes, finalize_cell, runtime_path_overrides, training_pause, validate_evaluation,
+    active_training_processes, finalize_cell, pruned_reproduction_complete,
+    prune_verified_reproduction_checkpoints, runtime_path_overrides, training_pause, validate_evaluation,
 )
 
 
@@ -51,7 +52,7 @@ def test_process_detection_returns_strings(monkeypatch):
 
 def test_owner_training_pause_is_active():
     pause = training_pause()
-    assert pause["paused"] is True
+    assert pause["paused"] is False
     assert pause["scope"].startswith("all additional canary-study model training")
 
 
@@ -64,6 +65,28 @@ def test_runtime_overrides_bridge_portable_configs_to_aarav_lm_resolver():
         f"tokenizer.artifact_dir={root / 'artifacts/tokenizer_tinystories_v2'}",
     ]
     assert (root / "data/confirmatory/seed_20261016/corpus.txt").is_file()
+
+
+def test_reproduction_checkpoint_pruning_requires_and_preserves_evidence(tmp_path, monkeypatch):
+    run_dir = tmp_path / "exp_001_reproduction"
+    checkpoints = run_dir / "checkpoints"
+    checkpoints.mkdir(parents=True)
+    (checkpoints / "best.pt").write_bytes(b"best-checkpoint")
+    (checkpoints / "final.pt").write_bytes(b"final-checkpoint")
+    (run_dir / "summary.json").write_text(json.dumps({"status": "completed", "steps": 6000}))
+    (run_dir / "cell_verification.json").write_text(json.dumps({"evaluation_complete": True}))
+    monkeypatch.setattr("run_confirmatory_queue.load_checkpoint", lambda path: {"model": {}})
+    evaluation = {
+        "path": "evaluated.json", "sha256": "abc", "exposure_rows": 48, "groups": 160, "completions": 320,
+    }
+    record = prune_verified_reproduction_checkpoints(run_dir, evaluation)
+    assert record["removed"] is True
+    assert set(record["checkpoint_evidence"]) == {"best.pt", "final.pt"}
+    assert not (checkpoints / "best.pt").exists()
+    assert not (checkpoints / "final.pt").exists()
+    evaluated = tmp_path / "evaluated.json"
+    evaluated.write_text("{}")
+    assert pruned_reproduction_complete(run_dir, evaluated) is True
 
 
 def test_precheckpoint_interruption_is_preserved_by_new_experiment_policy():

@@ -484,8 +484,8 @@
     },
     {
       "path": "configs/training_pause.json",
-      "size_bytes": 519,
-      "sha256": "e8637b83d0aad6dde08f23aae3e75e8795ed8f44ab7cb618f36602e4c13f2253"
+      "size_bytes": 606,
+      "sha256": "af520f19668f8f2c681f6f2b4ac4df261a3b5cc44303d5d173995857a003a388"
     },
     {
       "path": "data/confirmatory/seed_20261016/manifest.json",
@@ -554,8 +554,8 @@
     },
     {
       "path": "docs/CONFIRMATORY_PROGRESS.md",
-      "size_bytes": 9844,
-      "sha256": "d5249052872ab9c985c452e232484ba80ae8be915c87681a00872451a5aeaaa2"
+      "size_bytes": 10110,
+      "sha256": "54578cf161abbcf44cc063ffdc171980b2d2c326f039324accc63b88e8a6a789"
     },
     {
       "path": "docs/CONFIRMATORY_STUDY_PROTOCOL.md",
@@ -619,8 +619,8 @@
     },
     {
       "path": "docs/STORAGE_AND_RECOVERY_PLAN.md",
-      "size_bytes": 3161,
-      "sha256": "1d62bbf57c9b082e588ab99653d09459e9bf13d605dbdab44e904c8515935175"
+      "size_bytes": 4495,
+      "sha256": "8e35172ae4f974769a25b67ec65a530634bb426404b6acca80018afd2d27d083"
     },
     {
       "path": "docs/TIMING_PILOT_PROTOCOL.md",
@@ -2174,8 +2174,8 @@
     },
     {
       "path": "scripts/run_confirmatory_queue.py",
-      "size_bytes": 13172,
-      "sha256": "8a5c9bc40a942cad5db60e9da163753b4df343127b832f48789cf245ee61db80"
+      "size_bytes": 16656,
+      "sha256": "962b6dcde3dc4223190753772c116ef0a8748406f07de1cd49c9fa6606bf1d4a"
     },
     {
       "path": "scripts/run_grid.sh",
@@ -2279,8 +2279,8 @@
     },
     {
       "path": "tests/test_confirmatory_start_gate.py",
-      "size_bytes": 4771,
-      "sha256": "264149d2b14c36644064d9b20c3a4feed8320e4a32b50623f8cdb285298241b6"
+      "size_bytes": 6041,
+      "sha256": "6222b20a3d19082130849f853a00d0ff1024a5ca8b012393ea5a3b9005cb0511"
     },
     {
       "path": "tests/test_confirmatory_subsample.py",

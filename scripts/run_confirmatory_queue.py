@@ -212,6 +212,65 @@ def finalize_cell(run_dir: Path, evaluation: dict) -> None:
     verification_path.write_text(json.dumps(report, indent=2) + "\n", encoding="utf-8")
 
 
+def prune_verified_reproduction_checkpoints(run_dir: Path, evaluation: dict) -> dict:
+    """Remove duplicate clean-room checkpoints only after full verification and preserve their evidence."""
+    verification_path = run_dir / "cell_verification.json"
+    verification = json.loads(verification_path.read_text(encoding="utf-8"))
+    evaluation_ok = (
+        verification.get("evaluation_complete") is True
+        and evaluation.get("exposure_rows") == 48
+        and evaluation.get("groups") == 160
+        and evaluation.get("completions") == 320
+        and bool(evaluation.get("sha256"))
+    )
+    if not evaluation_ok:
+        raise ValueError("refusing reproduction checkpoint pruning before complete verification")
+    checkpoints = {}
+    for name in ("best.pt", "final.pt"):
+        path = run_dir / "checkpoints" / name
+        if not path.is_file():
+            raise FileNotFoundError(f"required reproduction checkpoint missing before pruning: {path}")
+        load_checkpoint(path)
+        checkpoints[name] = {"size_bytes": path.stat().st_size, "sha256": sha256_file(path)}
+    record = {
+        "schema_version": 1,
+        "scope": "independent clean-room reproduction duplicate checkpoints only",
+        "primary_study_checkpoints_touched": False,
+        "checkpoint_evidence": checkpoints,
+        "evaluation": evaluation,
+        "prerequisites": {
+            "training_summary_complete": completed(run_dir),
+            "checkpoint_deserialization_complete": True,
+            "checkpoint_hashes_recorded": True,
+            "evaluation_complete": evaluation_ok,
+        },
+        "removal_reason": "reproduction-only storage amendment; primary checkpoints remain retained",
+        "removed": False,
+    }
+    if not all(record["prerequisites"].values()):
+        raise ValueError("refusing reproduction checkpoint pruning: prerequisites are incomplete")
+    record_path = run_dir / "reproduction_checkpoint_record.json"
+    record_path.write_text(json.dumps(record, indent=2) + "\n", encoding="utf-8")
+    for name in checkpoints:
+        (run_dir / "checkpoints" / name).unlink()
+    record["removed"] = True
+    record_path.write_text(json.dumps(record, indent=2) + "\n", encoding="utf-8")
+    return record
+
+
+def pruned_reproduction_complete(run_dir: Path, evaluated_path: Path) -> bool:
+    record_path = run_dir / "reproduction_checkpoint_record.json"
+    if not record_path.is_file() or not evaluated_path.is_file():
+        return False
+    record = json.loads(record_path.read_text(encoding="utf-8"))
+    return (
+        record.get("removed") is True
+        and all(record.get("prerequisites", {}).values())
+        and completed(run_dir)
+        and not any((run_dir / "checkpoints" / name).exists() for name in ("best.pt", "final.pt"))
+    )
+
+
 def run_cell(root: Path, aarav_lm: Path, python: Path, artifact_root: Path, result_root: Path, scale: str,
              architecture: str, seed: int, minimum_free: int) -> None:
     if shutil.disk_usage(artifact_root).free < minimum_free:
@@ -219,6 +278,9 @@ def run_cell(root: Path, aarav_lm: Path, python: Path, artifact_root: Path, resu
     cell_root = artifact_root / scale / architecture / f"seed_{seed}"
     cell_root.mkdir(parents=True, exist_ok=True)
     runs = run_directories(cell_root)
+    final_result = result_root / scale / architecture / f"seed_{seed}" / "evaluated.json"
+    if runs and pruned_reproduction_complete(runs[-1], final_result):
+        return
     env = os.environ.copy()
     env["PYTHONPATH"] = str(aarav_lm / "src") + (os.pathsep + env["PYTHONPATH"] if env.get("PYTHONPATH") else "")
     config = root / "configs" / "confirmatory" / "training" / scale / architecture / f"seed_{seed}.yaml"
@@ -246,6 +308,13 @@ def run_cell(root: Path, aarav_lm: Path, python: Path, artifact_root: Path, resu
         root, aarav_lm, python, latest, result_root, artifact_root, scale, architecture, seed, env
     )
     finalize_cell(latest, evaluation)
+    ephemeral = os.environ.get("CANARY_REPRO_EPHEMERAL_CHECKPOINTS") == "1"
+    primary_artifact_root = (root / "models" / "confirmatory").resolve()
+    primary_result_root = (root / "results" / "confirmatory").resolve()
+    if ephemeral:
+        if artifact_root.resolve() == primary_artifact_root or result_root.resolve() == primary_result_root:
+            raise ValueError("ephemeral checkpoint mode is forbidden for primary study artifacts/results")
+        prune_verified_reproduction_checkpoints(latest, evaluation)
 
 
 def main() -> int:

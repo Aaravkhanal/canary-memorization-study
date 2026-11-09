@@ -30,6 +30,9 @@ training/evaluation cell and after every research test-suite run.
 - The primary human endpoint was prospectively amended before any human label from 7,680 to 1,920 ratings per
   external rater while preserving all 960 cell–canary combinations. An 80-item blinded investigator timing pilot
   is prepared but has zero completed rows.
+- On 2026-11-09 the owner authorized resuming non-human clean-room reproduction. A guarded reproduction-only
+  retention amendment records hashes and complete evaluations before deleting duplicate rerun checkpoints; the
+  primary study checkpoints remain untouched.
 
 ## Cell ledger
 
